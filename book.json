@@ -1,0 +1,87 @@
+{
+	"author": "Curiouser <rationalmonster@163.com>",
+	"title": "Devops Roadmap",
+	"plugins": [
+		"-search",
+		"-lunr",
+		"-sharing",
+        "-highlight",
+		"search-pro",
+		"splitter",
+		"github",
+		"expandable-chapters-small",
+		"popup",
+		"sectionx",
+		"sharing-plus",
+		"code",
+        "auto-scroll-table",
+		"theme-fexa",
+        "tbfed-pagefooter",
+        "back-to-top-button",
+        "emphasize",
+        "edit-link",
+        "prism",
+        "donate",
+        "theme-comscore",
+        "github-buttons"
+	],
+	"pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
+        "github": {
+            "url": "https://github.com/RationalMonster"
+        },
+        "github-buttons": {
+      		"buttons": [{
+        		"user": "RationalMonster",
+        		"repo": "rationalmonster.github.io",
+        		"type": "star",
+        		"size": "small",
+        		"count": "true"
+      			}]
+    	},
+        "sharing": {
+        	"weibo": true,
+        	"qq": "true",
+        	"google": true,
+        	"all": [
+           		"facebook", "twitter"
+           	]
+        },
+        "code": {
+        	"copybuttons": "true"
+        },
+        "theme-fexa":{
+            "search-placeholder":"搜索文章",
+            "logo": "assets/logo.png"
+        },
+        "tbfed-pagefooter": {
+            "copyright":"Copyright Curiouser",
+            "modify_label": "该文件最后修改时间：",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "edit-link": {
+          "base": "https://github.com/RationalMonster/rationalmonster.github.io/blob/master",
+          "label": "ORIGIN In Github"
+        },
+        "prism": {
+            "css": [
+                "prismjs/themes/prism-tomorrow.css"
+            ],
+            "lang": {
+                "flow": "typescript"
+            },
+            "ignore": [
+                "mermaid",
+                "eval-js"
+            ]
+        },
+         "donate": {
+            "wechat": "/assets/wechat-donate.jpg",
+            "title": "",
+            "button": "赏",
+            "wechatText": "微信打赏"
+        }
+    }
+}
