@@ -8,15 +8,16 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
     // adding the trigger element to each ARTICLES parent and binding the event
     $(ARTICLES)
       .parent(CHAPTER)
-      .children('a')
-      .append(
-        $(TRIGGER_TEMPLATE)
-          .on('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggle($(e.target).closest(CHAPTER));
-          })
-      );
+      .children('a,span')
+      .append(TRIGGER_TEMPLATE)
+      .on('click', function(e) {
+        if (!$(e.target).is('a')) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggle($(e.target).closest(CHAPTER));
+        }
+      });
+
     expand(lsItem());
     //expand current selected chapter with it's parents
     var activeChapter = $(CHAPTER + '.active');

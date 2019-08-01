@@ -4,7 +4,7 @@
 
 ## Part Ⅰ - 容器云Openshift
 * 安装
-    * [Allinone](origin/openshift-allinone安装.md)
+    * Allinone[Allinone](origin/openshift-allinone安装.md)
     * 集群
 * 基础知识
     * POD
@@ -17,10 +17,9 @@
     * ServiceAccount
 * 集群管理
     * 数据持久化
-        * Kubernetes的存储--StorageClass provisioner
     * 网络管理
     * 安全审计
-        * [Openshift/Kubernetes的审计日志功能](origin/openshift-kubernetes的审计日志功能.md)
+        * [Kubernetes的审计日志功能](origin/openshift-kubernetes的审计日志功能.md)
 * 工具应用部署
     * Jenkins
     * Gitlab
