@@ -10,9 +10,8 @@ This gitbook records the technical roadmap of Devops Curiouser.
 
 ## **What I had done at Openshift or Kubernetes**
 
-![](/assets/Openshift运维应用部署图.png)
+![](http://assets.processon.com/chart_image/5ca2b2e2e4b0cfb7342436a2.png)
 
 ## **The technical MindMap**
 
-![](/assets/GitBook-Technical-mindmap.jpg)
-
+![](http://assets.processon.com/chart_image/5d3d8bbce4b0511f13158e83.png)
