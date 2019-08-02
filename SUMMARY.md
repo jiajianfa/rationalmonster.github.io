@@ -18,12 +18,16 @@
 * 集群管理
     * 数据持久化
     * 网络管理
+        * [openshift开启router的haproxy-statisc](origin/openshift-开启router的haproxy-statisc.md)
     * 安全审计
         * [Kubernetes的审计日志功能](origin/openshift-kubernetes的审计日志功能.md)
+
 * 工具应用部署
     * Jenkins
     * Gitlab
     * Nexus
+    * [Elasticsearch容器化部署](origin/openshift-elasticsearch容器化部署.md)
+    * [Kibana容器化部署](origin/openshift-Kibana容器化部署.md)
 * 业务应用部署
     * S2I
         * JavaMaven
@@ -94,11 +98,10 @@
             * Output
     * Fluentd
     * Elasticsearch
-        * 安装
         * 基础知识
         * 管理
-            * Xpack
-            * Snapshots
+            * [Xpack](origin/elasticsearch7.1的xpack权限控制.md)
+            * [Snapshots](origin/elasticSearch索引的快照备份与恢复.md)
     * Kibana
 * Metrics
     * Prometheus
@@ -123,6 +126,9 @@
     * 安装
 
 ## Part Ⅶ：基础
+* Docker
+    * 基础知识
+      * []()
 * Shell
 * Maven
 * Git
@@ -156,11 +162,9 @@
     * 安装
     * 使用
     * 插件
-        * NRM
-        * Gitbook
+        * [npm仓库管理工具nrm](origin/npm仓库管理工具nrm.md)
 * GitBook
-    * Prerequisite
-    * Begin to Write
-    * Plugins
-    * Deploy to Internet
+    * 安装
+    * 文档结构
+    * 常用插件
 
