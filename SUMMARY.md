@@ -64,8 +64,8 @@
         * RAW
 * SonarQube
     * 安装
-    * 客户端使用
-        * SonarScanner
+    * 使用
+        * [SonarScanner-将扫描结果以comment的形式回写到gitlab](origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md)
 * LDAP
     * 安装
     * 客户端
@@ -75,9 +75,8 @@
         * [Jenkins](origin/ldap-Jenkins对接LDAP.md)
         * [SonarQube](origin/ldap-SonarQube对接LDAP.md)
         * [Gitlab](origin/ldap-Gitlab对接LDAP.md)
-        * Nexus
-        * Grafana
-        * Openshift
+        * [Nexus](origin/ldap-Nexus对接LDAP.md)
+        * [Grafana](origin/ldap-Grafana对接LDAP.md)
 
 ## Part Ⅳ：微服务
 * SpringBoot
