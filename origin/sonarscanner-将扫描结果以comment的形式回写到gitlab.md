@@ -108,15 +108,16 @@ Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave P
 | sonar.gitlab.ci_merge_request_iid        | The IID of the merge request if it’s pipelines for merge requests | Project, Variable                 | >= 4.0.0 |
 
 # 五. 问题
+
 1. 当项目是私有仓库时
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-8.png)
+    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-8.png)
 
 2. 获取项目仓库的ProjectID
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-9.png)
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-10.png)
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-11.png)
+    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-9.png)
+    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-10.png)
+    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-11.png)
 
 
 
