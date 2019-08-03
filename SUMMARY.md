@@ -72,9 +72,9 @@
         * Apache Directory Studio
         * PHPLDAPAdmin
     * 第三方系统集成
-        * Jenkins
-        * SonarQube
-        * Gitlab
+        * [Jenkins](origin/ldap-Jenkins对接LDAP.md)
+        * [SonarQube](origin/ldap-SonarQube对接LDAP.md)
+        * [Gitlab](origin/ldap-Gitlab对接LDAP.md)
         * Nexus
         * Grafana
         * Openshift
