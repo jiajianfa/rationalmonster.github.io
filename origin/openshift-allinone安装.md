@@ -7,7 +7,7 @@
 1. IP地址：192.168.1.86
 2. CentOS：7.5.1804
 3. 硬盘划分
-   1. 系统盘60G / ; 30G /var
+   1. 系统盘60G / 
    2. 数据盘100G /var/lib/docker ; 100G /data/nfs
 4. 开启Selinux
   ```bash

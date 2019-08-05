@@ -99,8 +99,9 @@
     * Elasticsearch
         * 基础知识
         * 管理
-            * [Xpack](origin/elasticsearch7.1的xpack权限控制.md)
-            * [Snapshots](origin/elasticSearch索引的快照备份与恢复.md)
+            * [Xpack](origin/elasticsearch-7.1的xpack权限控制.md)
+            * [Snapshots](origin/elasticSearch-索引的快照备份与恢复.md)
+        * [问题总结](origin/elasticsearch-问题总结.md)
     * Kibana
 * Metrics
     * Prometheus
