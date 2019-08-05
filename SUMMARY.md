@@ -52,8 +52,9 @@
     * 插件
         * [Kubernetes Plugin](origin/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.md)
         * Pipeline Utility Plugin
-        * Nexus Platform Plugin
-        * EMail Extension Plugin
+        * [Nexus Platform Plugin](origin/jenkins-Nexus-Platform的使用.md)
+        * [Mail Plugin](origin/jenkins-配置SMTP邮箱服务.md)
+        * [Mail Extension](origin/jenkins-Mailer邮箱功能扩展插件Email-Extension.md)
 * Gitlab
     * 安装
     * 管理
