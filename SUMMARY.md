@@ -105,6 +105,10 @@
     * Fluentd
     * Elasticsearch
         * 基础知识
+            * API
+                * _cat
+                * indices
+                * search
         * 管理
             * [Xpack](origin/elasticsearch-7.1的xpack权限控制.md)
             * [Snapshots](origin/elasticSearch-索引的快照备份与恢复.md)
