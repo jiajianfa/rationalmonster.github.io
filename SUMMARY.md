@@ -17,7 +17,12 @@
     * ServiceAccount
 * 集群管理
     * 数据持久化
-    * 网络管理
+    * 管理
+        * 资源对象管理
+            * [资源对象常见操作](origin/openshift-资源对象常见操作.md)
+        * 集群管理
+            * [节点管理](origin/openshift-集群节点管理.md)
+    * 网络
         * [openshift开启router的haproxy-statisc](origin/openshift-开启router的haproxy-statisc.md)
     * 安全审计
         * [Kubernetes的审计日志功能](origin/openshift-kubernetes的审计日志功能.md)
@@ -49,9 +54,10 @@
         * Pipeline Utility Plugin
         * Nexus Platform Plugin
         * EMail Extension Plugin
-* GItlab
+* Gitlab
     * 安装
     * 管理
+        * [配置SMTP邮件服务](origin/gitlab-配置SMTP邮件服务.md)
 * Nexus
     * 安装
     * 权限管理
