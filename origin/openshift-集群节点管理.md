@@ -29,7 +29,8 @@ Ansible脚本有新增节点的Playbook脚本，准备好新增节点的基础�
     docker info && \
     java -version
     ```
-* 配置DNS，发现集群节点IP地址与域名的映射关系.(注意DNSMasq服务端的iptables是否放行DNS的53 UDP端口)
+* 配置DNS，发现集群其他节点的IP地址与域名的映射关系.(注意DNSMasq服务端的iptables是否放行DNS的53 UDP端口)
+  
   由于集群内有DNSMasq服务端，配置/etc/resolv.conf
   ```bash
   echo "nameserver 192.168.1.22" >> /etc/resolv.conf && \
@@ -71,6 +72,7 @@ Ansible脚本有新增节点的Playbook脚本，准备好新增节点的基础�
      ```bash
      ansible-playbook /root/openshift-ansible/playbooks/openshift-node/scaleup.yml
      ```
+
 ## 注意1：
 当执行脚本时tower主机会把它的dnsmasq配置/etc/dnsmasq.d/origin-upstream-dns.conf同步到新增节点/etc/dnsmasq.d/路径下。由于tower主机的/etc/dnsmasq.d/origin-upstream-dns.conf设置的上游DNS服务器为外网的。不希望新增节点的上游DNS服务器走外网，而是走tower主机，形成集群只有Tower主机一个节点的dns对外，其他主机作为Tower主机dns服务的客户端。所以当tower主机/etc/dnsmasq.d/origin-upstream-dns.conf同步到新增节点/etc/dnsmasq.d/路径下的时候，及时修改上游dns服务器为tower主机。然后重启dnsmasq。有两个明显的坑:
 
