@@ -105,7 +105,7 @@
     * Fluentd
     * Elasticsearch
         * 基础知识
-            * API
+            * API Endpoints
                 * _cat
                 * indices
                 * search
