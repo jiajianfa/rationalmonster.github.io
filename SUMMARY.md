@@ -24,6 +24,7 @@
             * [节点管理](origin/openshift-集群节点管理.md)
     * 网络
         * [openshift开启router的haproxy-statisc](origin/openshift-开启router的haproxy-statisc.md)
+        * [openshift的多租户网络](origin/openshift-多租户网络.md)
     * 安全审计
         * [Kubernetes的审计日志功能](origin/openshift-kubernetes的审计日志功能.md)
 
@@ -31,6 +32,7 @@
     * Jenkins
     * Gitlab
     * Nexus
+    * [logstash]()
     * [Elasticsearch容器化部署](origin/openshift-elasticsearch容器化部署.md)
     * [Kibana容器化部署](origin/openshift-Kibana容器化部署.md)
 * 业务应用部署
@@ -84,6 +86,7 @@
         * [Gitlab](origin/ldap-Gitlab对接LDAP.md)
         * [Nexus](origin/ldap-Nexus对接LDAP.md)
         * [Grafana](origin/ldap-Grafana对接LDAP.md)
+        * Zabbix
 
 ## Part Ⅳ：微服务
 * SpringBoot
@@ -106,12 +109,13 @@
     * Elasticsearch
         * 基础知识
             * API Endpoints
-                * _cat
+                * [_cat](origin/elasticsearch--_cat API.md)
                 * indices
                 * search
         * 管理
             * [Xpack](origin/elasticsearch-7.1的xpack权限控制.md)
             * [Snapshots](origin/elasticSearch-索引的快照备份与恢复.md)
+            * [插件管理](origin\elasticsearch-插件管理.md)
         * [问题总结](origin/elasticsearch-问题总结.md)
     * Kibana
 * Metrics
