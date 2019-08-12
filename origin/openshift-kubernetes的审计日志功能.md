@@ -69,7 +69,7 @@ kube-apiserver 是负责接收及相应用户请求的一个组件，每一个�
   2019-07-23T23:50:06.223368641+08:00 AUDIT: id="3574e2e0-06b1-44d8-bc6c-5983c402d55e" stage="ResponseComplete" ip="192.168.1.96" method="update" user="system:openshift-master" groups="\"system:masters\",\"system:authenticated\"" as="<self>" asgroups="<lookup>" namespace="kube-system" uri="/api/v1/namespaces/kube-system/configmaps/openshift-master-controllers" response="200"
   ```
 
-  审计后端可以将审计事件导出到外部存储。 Kube-apiserver 提供两个后端：
+审计后端可以将审计事件导出到外部存储。 Kube-apiserver 提供两个后端：
 
 * **Log 后端**:  将事件写入到磁盘
 

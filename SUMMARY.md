@@ -22,6 +22,7 @@
             * [资源对象常见操作](origin/openshift-资源对象常见操作.md)
         * 集群管理
             * [节点管理](origin/openshift-集群节点管理.md)
+            * [集群中elasticsearch的管理](origin/elasticsearch-集群中elasticsearch的管理.md)
     * 网络
         * [openshift开启router的haproxy-statisc](origin/openshift-开启router的haproxy-statisc.md)
         * [openshift的多租户网络](origin/openshift-多租户网络.md)
@@ -32,7 +33,7 @@
     * Jenkins
     * Gitlab
     * Nexus
-    * [logstash]()
+    * logstash
     * [Elasticsearch容器化部署](origin/openshift-elasticsearch容器化部署.md)
     * [Kibana容器化部署](origin/openshift-Kibana容器化部署.md)
 * 业务应用部署
