@@ -17,6 +17,11 @@
     * ServiceAccount
 * 集群管理
     * [数据持久化](origin/openshift-Kubernetes的持久化存储.md)
+        * [NFS Client provisioner](origin/openshift-Kubernetes-provisioner-nfs-client.md)
+        * [NFS Server Provisioner](origin/openshift-Kubernetes-provisioner-nfs-server.md)
+        * [Glusterfs Provisioner](origin/openshift-Kubernetes-provisioner-glusterfs.md)
+        * [Ceph FileSystem Provisioner](origin/openshift-Kubernetes-provisioner-cephfs.md)
+        * [Ceph RBD Provisioner](origin/openshift-Kubernetes-provisioner-cephrbd.md)
     * 管理
         * 资源对象管理
             * [资源对象常见操作](origin/openshift-资源对象常见操作.md)

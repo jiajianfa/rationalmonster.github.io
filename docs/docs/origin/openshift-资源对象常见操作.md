@@ -101,7 +101,7 @@
     oc delete template <template_name>
     ```
 
-    s
+    
 # 附录
 
 ```bash

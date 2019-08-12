@@ -1,0 +1,3339 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Ceph RBD单节点安装 · Devops Roadmap</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.0.0">
+        <meta name="author" content="Curiouser <rationalmonster@163.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ceph-filesystem单节点安装.html" />
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+	<div class="header-inner">
+		<!-- LOGO -->
+		<div class="logo"></div>
+		<span class="title"></span>
+
+		<!-- Search -->
+		
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+
+		<!-- Nav -->
+		<ul class="header-nav">
+			
+		</ul>
+	</div>
+
+	<div class="book-summary">
+		<div class="book-summary-title">文档目录</div>
+		
+		
+		<nav role="navigation">
+			
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅰ - 容器云Openshift</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                        <b>2.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="openshift-allinone安装.html">
+            
+                <a href="openshift-allinone安装.html">
+            
+                    
+                        <b>2.1.1.</b>
+                    
+                    Allinone
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" >
+            
+                <span>
+            
+                    
+                        <b>2.1.2.</b>
+                    
+                    集群
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                        <b>2.2.</b>
+                    
+                    基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" >
+            
+                <span>
+            
+                    
+                        <b>2.2.1.</b>
+                    
+                    POD
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" >
+            
+                <span>
+            
+                    
+                        <b>2.2.2.</b>
+                    
+                    Service
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" >
+            
+                <span>
+            
+                    
+                        <b>2.2.3.</b>
+                    
+                    PersistentVolumeClaim
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" >
+            
+                <span>
+            
+                    
+                        <b>2.2.4.</b>
+                    
+                    PersistentVolume
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" >
+            
+                <span>
+            
+                    
+                        <b>2.2.5.</b>
+                    
+                    DeploymentConfig
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" >
+            
+                <span>
+            
+                    
+                        <b>2.2.6.</b>
+                    
+                    StatefulSet
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" >
+            
+                <span>
+            
+                    
+                        <b>2.2.7.</b>
+                    
+                    Daemonset
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8" >
+            
+                <span>
+            
+                    
+                        <b>2.2.8.</b>
+                    
+                    ServiceAccount
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                        <b>2.3.</b>
+                    
+                    集群管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" >
+            
+                <span>
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    数据持久化
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" >
+            
+                <span>
+            
+                    
+                        <b>2.3.2.</b>
+                    
+                    管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.2.1" >
+            
+                <span>
+            
+                    
+                        <b>2.3.2.1.</b>
+                    
+                    资源对象管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.2.1.1" data-path="openshift-资源对象常见操作.html">
+            
+                <a href="openshift-资源对象常见操作.html">
+            
+                    
+                        <b>2.3.2.1.1.</b>
+                    
+                    资源对象常见操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2.2" >
+            
+                <span>
+            
+                    
+                        <b>2.3.2.2.</b>
+                    
+                    集群管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.2.2.1" data-path="openshift-集群节点管理.html">
+            
+                <a href="openshift-集群节点管理.html">
+            
+                    
+                        <b>2.3.2.2.1.</b>
+                    
+                    节点管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" >
+            
+                <span>
+            
+                    
+                        <b>2.3.3.</b>
+                    
+                    网络
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.3.1" data-path="openshift-开启router的haproxy-statisc.html">
+            
+                <a href="openshift-开启router的haproxy-statisc.html">
+            
+                    
+                        <b>2.3.3.1.</b>
+                    
+                    openshift开启router的haproxy-statisc
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" >
+            
+                <span>
+            
+                    
+                        <b>2.3.4.</b>
+                    
+                    安全审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.4.1" data-path="openshift-kubernetes的审计日志功能.html">
+            
+                <a href="openshift-kubernetes的审计日志功能.html">
+            
+                    
+                        <b>2.3.4.1.</b>
+                    
+                    Kubernetes的审计日志功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                        <b>2.4.</b>
+                    
+                    工具应用部署
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" >
+            
+                <span>
+            
+                    
+                        <b>2.4.1.</b>
+                    
+                    Jenkins
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" >
+            
+                <span>
+            
+                    
+                        <b>2.4.2.</b>
+                    
+                    Gitlab
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" >
+            
+                <span>
+            
+                    
+                        <b>2.4.3.</b>
+                    
+                    Nexus
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="openshift-elasticsearch容器化部署.html">
+            
+                <a href="openshift-elasticsearch容器化部署.html">
+            
+                    
+                        <b>2.4.4.</b>
+                    
+                    Elasticsearch容器化部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="openshift-Kibana容器化部署.html">
+            
+                <a href="openshift-Kibana容器化部署.html">
+            
+                    
+                        <b>2.4.5.</b>
+                    
+                    Kibana容器化部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <span>
+            
+                    
+                        <b>2.5.</b>
+                    
+                    业务应用部署
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" >
+            
+                <span>
+            
+                    
+                        <b>2.5.1.</b>
+                    
+                    S2I
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1.1" >
+            
+                <span>
+            
+                    
+                        <b>2.5.1.1.</b>
+                    
+                    JavaMaven
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" >
+            
+                <span>
+            
+                    
+                        <b>2.5.2.</b>
+                    
+                    S2I Template
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅱ：容器云Kubernetes</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                        <b>3.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                        <b>3.2.</b>
+                    
+                    集群管理
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅲ：持续集成与持续部署</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Jenkins
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" >
+            
+                <span>
+            
+                    
+                        <b>4.1.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" >
+            
+                <span>
+            
+                    
+                        <b>4.1.2.</b>
+                    
+                    管理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" >
+            
+                <span>
+            
+                    
+                        <b>4.1.3.</b>
+                    
+                    Pipeline
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.3.1" >
+            
+                <span>
+            
+                    
+                        <b>4.1.3.1.</b>
+                    
+                    语法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.2" >
+            
+                <span>
+            
+                    
+                        <b>4.1.3.2.</b>
+                    
+                    样例
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" >
+            
+                <span>
+            
+                    
+                        <b>4.1.4.</b>
+                    
+                    插件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.4.1" data-path="Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.html">
+            
+                <a href="Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.html">
+            
+                    
+                        <b>4.1.4.1.</b>
+                    
+                    Kubernetes Plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.2" >
+            
+                <span>
+            
+                    
+                        <b>4.1.4.2.</b>
+                    
+                    Pipeline Utility Plugin
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.3" data-path="jenkins-Nexus-Platform的使用.html">
+            
+                <a href="jenkins-Nexus-Platform的使用.html">
+            
+                    
+                        <b>4.1.4.3.</b>
+                    
+                    Nexus Platform Plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.4" data-path="jenkins-配置SMTP邮箱服务.html">
+            
+                <a href="jenkins-配置SMTP邮箱服务.html">
+            
+                    
+                        <b>4.1.4.4.</b>
+                    
+                    Mail Plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4.5" data-path="jenkins-Mailer邮箱功能扩展插件Email-Extension.html">
+            
+                <a href="jenkins-Mailer邮箱功能扩展插件Email-Extension.html">
+            
+                    
+                        <b>4.1.4.5.</b>
+                    
+                    Mail Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                        <b>4.2.</b>
+                    
+                    Gitlab
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" >
+            
+                <span>
+            
+                    
+                        <b>4.2.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" >
+            
+                <span>
+            
+                    
+                        <b>4.2.2.</b>
+                    
+                    管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.2.1" data-path="gitlab-配置SMTP邮件服务.html">
+            
+                <a href="gitlab-配置SMTP邮件服务.html">
+            
+                    
+                        <b>4.2.2.1.</b>
+                    
+                    配置SMTP邮件服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" >
+            
+                <span>
+            
+                    
+                        <b>4.3.</b>
+                    
+                    Nexus
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" >
+            
+                <span>
+            
+                    
+                        <b>4.3.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" >
+            
+                <span>
+            
+                    
+                        <b>4.3.2.</b>
+                    
+                    权限管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.2.1" >
+            
+                <span>
+            
+                    
+                        <b>4.3.2.1.</b>
+                    
+                    权限管理
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" >
+            
+                <span>
+            
+                    
+                        <b>4.3.3.</b>
+                    
+                    仓库管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.3.1" >
+            
+                <span>
+            
+                    
+                        <b>4.3.3.1.</b>
+                    
+                    Maven
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3.2" >
+            
+                <span>
+            
+                    
+                        <b>4.3.3.2.</b>
+                    
+                    NPM
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3.3" >
+            
+                <span>
+            
+                    
+                        <b>4.3.3.3.</b>
+                    
+                    YUM
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3.4" >
+            
+                <span>
+            
+                    
+                        <b>4.3.3.4.</b>
+                    
+                    Docker
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3.5" >
+            
+                <span>
+            
+                    
+                        <b>4.3.3.5.</b>
+                    
+                    RAW
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" >
+            
+                <span>
+            
+                    
+                        <b>4.4.</b>
+                    
+                    SonarQube
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" >
+            
+                <span>
+            
+                    
+                        <b>4.4.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" >
+            
+                <span>
+            
+                    
+                        <b>4.4.2.</b>
+                    
+                    使用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.2.1" data-path="sonarscanner-将扫描结果以comment的形式回写到gitlab.html">
+            
+                <a href="sonarscanner-将扫描结果以comment的形式回写到gitlab.html">
+            
+                    
+                        <b>4.4.2.1.</b>
+                    
+                    SonarScanner-将扫描结果以comment的形式回写到gitlab
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" >
+            
+                <span>
+            
+                    
+                        <b>4.5.</b>
+                    
+                    LDAP
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" >
+            
+                <span>
+            
+                    
+                        <b>4.5.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" >
+            
+                <span>
+            
+                    
+                        <b>4.5.2.</b>
+                    
+                    客户端
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.2.1" >
+            
+                <span>
+            
+                    
+                        <b>4.5.2.1.</b>
+                    
+                    Apache Directory Studio
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2.2" >
+            
+                <span>
+            
+                    
+                        <b>4.5.2.2.</b>
+                    
+                    PHPLDAPAdmin
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3" >
+            
+                <span>
+            
+                    
+                        <b>4.5.3.</b>
+                    
+                    第三方系统集成
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.3.1" data-path="ldap-Jenkins对接LDAP.html">
+            
+                <a href="ldap-Jenkins对接LDAP.html">
+            
+                    
+                        <b>4.5.3.1.</b>
+                    
+                    Jenkins
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3.2" data-path="ldap-SonarQube对接LDAP.html">
+            
+                <a href="ldap-SonarQube对接LDAP.html">
+            
+                    
+                        <b>4.5.3.2.</b>
+                    
+                    SonarQube
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3.3" data-path="ldap-Gitlab对接LDAP.html">
+            
+                <a href="ldap-Gitlab对接LDAP.html">
+            
+                    
+                        <b>4.5.3.3.</b>
+                    
+                    Gitlab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3.4" data-path="ldap-Nexus对接LDAP.html">
+            
+                <a href="ldap-Nexus对接LDAP.html">
+            
+                    
+                        <b>4.5.3.4.</b>
+                    
+                    Nexus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.3.5" data-path="ldap-Grafana对接LDAP.html">
+            
+                <a href="ldap-Grafana对接LDAP.html">
+            
+                    
+                        <b>4.5.3.5.</b>
+                    
+                    Grafana
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅳ：微服务</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                        <b>5.1.</b>
+                    
+                    SpringBoot
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" >
+            
+                <span>
+            
+                    
+                        <b>5.2.</b>
+                    
+                    SpringCloud
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" >
+            
+                <span>
+            
+                    
+                        <b>5.3.</b>
+                    
+                    Consul
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" >
+            
+                <span>
+            
+                    
+                        <b>5.4.</b>
+                    
+                    Apollo
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅴ：监控体系</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                        <b>6.1.</b>
+                    
+                    Logging
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" >
+            
+                <span>
+            
+                    
+                        <b>6.1.1.</b>
+                    
+                    Kafka
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1.1" >
+            
+                <span>
+            
+                    
+                        <b>6.1.1.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.2" >
+            
+                <span>
+            
+                    
+                        <b>6.1.1.2.</b>
+                    
+                    基础知识
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" >
+            
+                <span>
+            
+                    
+                        <b>6.1.2.</b>
+                    
+                    Logstash
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.2.1" >
+            
+                <span>
+            
+                    
+                        <b>6.1.2.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2.2" >
+            
+                <span>
+            
+                    
+                        <b>6.1.2.2.</b>
+                    
+                    Pipeline
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.2.2.1" >
+            
+                <span>
+            
+                    
+                        <b>6.1.2.2.1.</b>
+                    
+                    Input
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2.2.2" >
+            
+                <span>
+            
+                    
+                        <b>6.1.2.2.2.</b>
+                    
+                    Filter
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2.2.3" >
+            
+                <span>
+            
+                    
+                        <b>6.1.2.2.3.</b>
+                    
+                    Output
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" >
+            
+                <span>
+            
+                    
+                        <b>6.1.3.</b>
+                    
+                    Fluentd
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" >
+            
+                <span>
+            
+                    
+                        <b>6.1.4.</b>
+                    
+                    Elasticsearch
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.4.1" >
+            
+                <span>
+            
+                    
+                        <b>6.1.4.1.</b>
+                    
+                    基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.4.1.1" >
+            
+                <span>
+            
+                    
+                        <b>6.1.4.1.1.</b>
+                    
+                    API Endpoints
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.4.1.1.1" >
+            
+                <span>
+            
+                    
+                        <b>6.1.4.1.1.1.</b>
+                    
+                    _cat
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4.1.1.2" >
+            
+                <span>
+            
+                    
+                        <b>6.1.4.1.1.2.</b>
+                    
+                    indices
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4.1.1.3" >
+            
+                <span>
+            
+                    
+                        <b>6.1.4.1.1.3.</b>
+                    
+                    search
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4.2" >
+            
+                <span>
+            
+                    
+                        <b>6.1.4.2.</b>
+                    
+                    管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.4.2.1" data-path="elasticsearch-7.1的xpack权限控制.html">
+            
+                <a href="elasticsearch-7.1的xpack权限控制.html">
+            
+                    
+                        <b>6.1.4.2.1.</b>
+                    
+                    Xpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4.2.2" data-path="elasticSearch-索引的快照备份与恢复.html">
+            
+                <a href="elasticSearch-索引的快照备份与恢复.html">
+            
+                    
+                        <b>6.1.4.2.2.</b>
+                    
+                    Snapshots
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4.3" data-path="elasticsearch-问题总结.html">
+            
+                <a href="elasticsearch-问题总结.html">
+            
+                    
+                        <b>6.1.4.3.</b>
+                    
+                    问题总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" >
+            
+                <span>
+            
+                    
+                        <b>6.1.5.</b>
+                    
+                    Kibana
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" >
+            
+                <span>
+            
+                    
+                        <b>6.2.</b>
+                    
+                    Metrics
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.2.1" >
+            
+                <span>
+            
+                    
+                        <b>6.2.1.</b>
+                    
+                    Prometheus
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2.2" >
+            
+                <span>
+            
+                    
+                        <b>6.2.2.</b>
+                    
+                    Grafana
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅵ：大数据</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                        <b>7.1.</b>
+                    
+                    Apache
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" >
+            
+                <span>
+            
+                    
+                        <b>7.1.1.</b>
+                    
+                    Zookeeper
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" >
+            
+                <span>
+            
+                    
+                        <b>7.1.2.</b>
+                    
+                    HDFS
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" >
+            
+                <span>
+            
+                    
+                        <b>7.1.3.</b>
+                    
+                    YARN
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" >
+            
+                <span>
+            
+                    
+                        <b>7.1.4.</b>
+                    
+                    HBase
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" >
+            
+                <span>
+            
+                    
+                        <b>7.1.5.</b>
+                    
+                    Hive
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.6" >
+            
+                <span>
+            
+                    
+                        <b>7.1.6.</b>
+                    
+                    Sqoop
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.7" >
+            
+                <span>
+            
+                    
+                        <b>7.1.7.</b>
+                    
+                    Flume
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.8" >
+            
+                <span>
+            
+                    
+                        <b>7.1.8.</b>
+                    
+                    Oozie
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.9" >
+            
+                <span>
+            
+                    
+                        <b>7.1.9.</b>
+                    
+                    Hue
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.10" >
+            
+                <span>
+            
+                    
+                        <b>7.1.10.</b>
+                    
+                    Spark
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" >
+            
+                <span>
+            
+                    
+                        <b>7.2.</b>
+                    
+                    Cloudera
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.2.1" >
+            
+                <span>
+            
+                    
+                        <b>7.2.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2.2" >
+            
+                <span>
+            
+                    
+                        <b>7.2.2.</b>
+                    
+                    管理
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" >
+            
+                <span>
+            
+                    
+                        <b>7.3.</b>
+                    
+                    TDH
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.3.1" >
+            
+                <span>
+            
+                    
+                        <b>7.3.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part Ⅶ：基础</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                        <b>8.1.</b>
+                    
+                    Docker
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" >
+            
+                <span>
+            
+                    
+                        <b>8.1.1.</b>
+                    
+                    基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1.1" data-path="docker-Dockerfile中CMD与ENTRYPOINT命令的区别.html">
+            
+                <a href="docker-Dockerfile中CMD与ENTRYPOINT命令的区别.html">
+            
+                    
+                        <b>8.1.1.1.</b>
+                    
+                    Dockerfile中CMD与ENTRYPOINT命令的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.1.2" data-path="docker-使用Makefile操作Dockerfile.html">
+            
+                <a href="docker-使用Makefile操作Dockerfile.html">
+            
+                    
+                        <b>8.1.1.2.</b>
+                    
+                    使用Makefile操作Dockerfile.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" >
+            
+                <span>
+            
+                    
+                        <b>8.2.</b>
+                    
+                    Shell
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" >
+            
+                <span>
+            
+                    
+                        <b>8.3.</b>
+                    
+                    Maven
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" >
+            
+                <span>
+            
+                    
+                        <b>8.4.</b>
+                    
+                    Git
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" >
+            
+                <span>
+            
+                    
+                        <b>8.5.</b>
+                    
+                    Ceph
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.5.1" >
+            
+                <span>
+            
+                    
+                        <b>8.5.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="8.5.1.1" data-path="ceph-rbd单节点安装.html">
+            
+                <a href="ceph-rbd单节点安装.html">
+            
+                    
+                        <b>8.5.1.1.</b>
+                    
+                    Ceph RBD单节点安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5.1.2" data-path="ceph-filesystem单节点安装.html">
+            
+                <a href="ceph-filesystem单节点安装.html">
+            
+                    
+                        <b>8.5.1.2.</b>
+                    
+                    Ceph FileSystem单节点安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5.2" >
+            
+                <span>
+            
+                    
+                        <b>8.5.2.</b>
+                    
+                    基础知识
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" >
+            
+                <span>
+            
+                    
+                        <b>8.6.</b>
+                    
+                    FastDFS
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.6.1" >
+            
+                <span>
+            
+                    
+                        <b>8.6.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6.2" >
+            
+                <span>
+            
+                    
+                        <b>8.6.2.</b>
+                    
+                    使用
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" >
+            
+                <span>
+            
+                    
+                        <b>8.7.</b>
+                    
+                    PXE+Kickstart
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.7.1" >
+            
+                <span>
+            
+                    
+                        <b>8.7.1.</b>
+                    
+                    Linux
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7.2" >
+            
+                <span>
+            
+                    
+                        <b>8.7.2.</b>
+                    
+                    Windows
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" >
+            
+                <span>
+            
+                    
+                        <b>8.8.</b>
+                    
+                    Ansible
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.8.1" >
+            
+                <span>
+            
+                    
+                        <b>8.8.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8.2" >
+            
+                <span>
+            
+                    
+                        <b>8.8.2.</b>
+                    
+                    使用
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8.3" >
+            
+                <span>
+            
+                    
+                        <b>8.8.3.</b>
+                    
+                    配置
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8.4" >
+            
+                <span>
+            
+                    
+                        <b>8.8.4.</b>
+                    
+                    PlayBooks
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" >
+            
+                <span>
+            
+                    
+                        <b>8.9.</b>
+                    
+                    IDEA
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" >
+            
+                <span>
+            
+                    
+                        <b>8.10.</b>
+                    
+                    Windows
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" >
+            
+                <span>
+            
+                    
+                        <b>8.11.</b>
+                    
+                    Linux
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.11.1" >
+            
+                <span>
+            
+                    
+                        <b>8.11.1.</b>
+                    
+                    CentOS
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11.2" >
+            
+                <span>
+            
+                    
+                        <b>8.11.2.</b>
+                    
+                    Ubuntu
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" >
+            
+                <span>
+            
+                    
+                        <b>8.12.</b>
+                    
+                    数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.12.1" >
+            
+                <span>
+            
+                    
+                        <b>8.12.1.</b>
+                    
+                    MySQL
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12.2" >
+            
+                <span>
+            
+                    
+                        <b>8.12.2.</b>
+                    
+                    SQLServer
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12.3" >
+            
+                <span>
+            
+                    
+                        <b>8.12.3.</b>
+                    
+                    ETCD
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12.4" >
+            
+                <span>
+            
+                    
+                        <b>8.12.4.</b>
+                    
+                    PostgreSQL
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" >
+            
+                <span>
+            
+                    
+                        <b>8.13.</b>
+                    
+                    NPM
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.13.1" >
+            
+                <span>
+            
+                    
+                        <b>8.13.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13.2" >
+            
+                <span>
+            
+                    
+                        <b>8.13.2.</b>
+                    
+                    使用
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13.3" >
+            
+                <span>
+            
+                    
+                        <b>8.13.3.</b>
+                    
+                    插件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.13.3.1" data-path="npm仓库管理工具nrm.html">
+            
+                <a href="npm仓库管理工具nrm.html">
+            
+                    
+                        <b>8.13.3.1.</b>
+                    
+                    npm仓库管理工具nrm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.14" >
+            
+                <span>
+            
+                    
+                        <b>8.14.</b>
+                    
+                    GitBook
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.14.1" >
+            
+                <span>
+            
+                    
+                        <b>8.14.1.</b>
+                    
+                    安装
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.14.2" >
+            
+                <span>
+            
+                    
+                        <b>8.14.2.</b>
+                    
+                    文档结构
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.14.3" >
+            
+                <span>
+            
+                    
+                        <b>8.14.3.</b>
+                    
+                    常用插件
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+		</nav>
+		
+		
+	</div>
+
+	<!-- Content nav -->
+	<div class="book-anchor">
+		<div class="book-anchor-title">在这篇文章中:</div>
+		<div class="book-anchor-body">
+
+		</div>
+	</div>
+
+	<div class="book-body">
+		
+		<div class="body-inner">
+			
+			
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Ceph RBD单节点安装</a>
+    </h1>
+</div>
+
+
+
+
+			<div class="page-wrapper" tabindex="-1" role="main">
+				<div class="page-inner">
+					
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+					<section class="normal markdown-section">
+						
+						<h1 id="prerequisite">Prerequisite</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Hostname</th>
+<th style="text-align:center">OS</th>
+<th style="text-align:center">Ceph&#x7248;&#x672C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">allinone.curiouser.com</td>
+<td style="text-align:center">CentOS 7.4.1708</td>
+<td style="text-align:center">10.2.10&#xFF08;Jewel&#xFF09;</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;&#x548C;SeLinux<pre class="language-"><code class="lang-bash">systemctl disable firewalld <span class="token punctuation">;</span>
+systemctl stop firewalld <span class="token punctuation">;</span>
+<span class="token function">sed</span> -i <span class="token string">&quot;s/SELINUX=enforcing/SELINUX=disabled/&quot;</span> /etc/selinux/config <span class="token punctuation">;</span>
+setenforce <span class="token number">0</span> <span class="token punctuation">;</span>
+sestatus -v
+</code></pre>
+</li>
+<li>SSH&#x514D;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#x6253;&#x901A;<pre class="language-"><code class="lang-bash">ssh-keygen -t rsa -P <span class="token string">&quot;&quot;</span> -f ~/.ssh/id_rsa <span class="token punctuation">;</span>
+ssh-copy-id root@allinone.curiouser.com <span class="token punctuation">;</span>
+<span class="token function">ssh</span> allinone.curiouser.com
+</code></pre>
+</li>
+<li>Hosts&#x7ED1;&#x5B9A;IP&#x5730;&#x5740;&#x57DF;&#x540D;&#x89E3;&#x6790;<pre class="language-"><code class="lang-bash"><span class="token builtin class-name">echo</span> <span class="token string">&quot;192.168.1.21 allinone.curiouser.com&quot;</span> <span class="token operator">&gt;&gt;</span> /etc/hosts
+</code></pre>
+</li>
+<li>&#x521B;&#x5EFA;ceph&#x7528;&#x6237;&#x5E76;&#x8BBE;&#x7F6E;&#x7528;&#x6237;&#x5BC6;&#x7801;&#x548C;&#x4E3A;&#x5176;&#x6DFB;&#x52A0;root&#x6743;&#x9650;<pre class="language-"><code class="lang-bash"><span class="token function">useradd</span> ceph <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> ceph:ceph <span class="token operator">|</span> chpasswd <span class="token punctuation">;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;ceph ALL=(root) NOPASSWD:ALL&quot;</span> <span class="token operator">&gt;</span> /etc/sudoers.d/ceph <span class="token punctuation">;</span>
+<span class="token function">chmod</span> 0440 /etc/sudoers.d/ceph
+</code></pre>
+</li>
+<li><p>&#x914D;&#x7F6E;Ceph&#x548C;Epel&#x7684;yum&#x6E90;&#x4ED3;&#x5E93;  </p>
+<pre class="language-"><code class="lang-bash"><span class="token function">vim</span> /etc/yum.repos.d/ceph.repo  
+<span class="token punctuation">[</span>Ceph<span class="token punctuation">]</span>  
+<span class="token assign-left variable">name</span><span class="token operator">=</span>Ceph packages <span class="token keyword">for</span> <span class="token variable">$basearch</span>  
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span><span class="token punctuation">[</span>http://download.ceph.com/rpm-jewel/el7/<span class="token variable">$basearch</span><span class="token punctuation">]</span><span class="token punctuation">(</span>http://download.ceph.com/rpm-jewel/el7/<span class="token variable">$basearch</span><span class="token punctuation">)</span>  
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>  
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>  
+<span class="token assign-left variable">type</span><span class="token operator">=</span>rpm-md  
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span><span class="token punctuation">[</span>https://download.ceph.com/keys/release.asc<span class="token punctuation">]</span><span class="token punctuation">(</span>https://download.ceph.com/keys/release.asc<span class="token punctuation">)</span>  
+<span class="token assign-left variable">priority</span><span class="token operator">=</span><span class="token number">1</span>  
+<span class="token punctuation">[</span>Ceph-noarch<span class="token punctuation">]</span>  
+<span class="token assign-left variable">name</span><span class="token operator">=</span>Ceph noarch packages  
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span><span class="token punctuation">[</span>http://download.ceph.com/rpm-jewel/el7/noarch<span class="token punctuation">]</span><span class="token punctuation">(</span>http://download.ceph.com/rpm-jewel/el7/noarch<span class="token punctuation">)</span>  
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>  
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>  
+<span class="token assign-left variable">type</span><span class="token operator">=</span>rpm-md  
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span><span class="token punctuation">[</span>https://download.ceph.com/keys/release.asc<span class="token punctuation">]</span><span class="token punctuation">(</span>https://download.ceph.com/keys/release.asc<span class="token punctuation">)</span>  
+<span class="token assign-left variable">priority</span><span class="token operator">=</span><span class="token number">1</span>
+
+<span class="token comment"># ===========================================================================================</span>
+
+<span class="token function">vim</span> /etc/yum.repos.d/epel.repo   
+   <span class="token punctuation">[</span>epel<span class="token punctuation">]</span>  
+   <span class="token assign-left variable">name</span><span class="token operator">=</span>Extra Packages <span class="token keyword">for</span> Enterprise Linux <span class="token number">7</span> - <span class="token variable">$basearch</span>
+
+<span class="token comment"># baseurl=[http://download.fedoraproject.org/pub/epel/7/$basearch](http://download.fedoraproject.org/pub/epel/7/$basearch)</span>
+
+<span class="token assign-left variable">metalink</span><span class="token operator">=</span><span class="token punctuation">[</span>https://mirrors.fedoraproject.org/metalink?repo<span class="token operator">=</span>epel-7<span class="token operator">&amp;</span><span class="token assign-left variable">arch</span><span class="token operator">=</span><span class="token variable">$basearch</span><span class="token punctuation">]</span><span class="token punctuation">(</span>https://mirrors.fedoraproject.org/metalink?repo<span class="token operator">=</span>epel-7<span class="token operator">&amp;</span><span class="token assign-left variable">arch</span><span class="token operator">=</span><span class="token variable">$basearch</span><span class="token punctuation">)</span>  
+   <span class="token assign-left variable">failovermethod</span><span class="token operator">=</span>priority  
+   <span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>  
+   <span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">0</span>  
+   <span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+
+<span class="token comment"># ===========================================================================================</span>
+
+&#x53EF;&#x4EE5;&#x4FEE;&#x6539;ceph&#x6E90;&#xFF08;&#x5916;&#x56FD;&#x7684;&#x6E90;&#x603B;&#x662F;timeout&#xFF09;   
+   <span class="token builtin class-name">export</span> <span class="token assign-left variable">CEPH_DEPLOY_REPO_URL</span><span class="token operator">=</span><span class="token punctuation">[</span>http://mirrors.163.com/ceph/rpm-jewel/el7<span class="token punctuation">]</span><span class="token punctuation">(</span>http://mirrors.163.com/ceph/rpm-jewel/el7<span class="token punctuation">)</span> <span class="token punctuation">;</span>  
+   <span class="token builtin class-name">export</span> <span class="token assign-left variable">CEPH_DEPLOY_GPG_URL</span><span class="token operator">=</span><span class="token punctuation">[</span>http://mirrors.163.com/ceph/keys/release.asc<span class="token punctuation">]</span><span class="token punctuation">(</span>http://mirrors.163.com/ceph/keys/release.asc<span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><p>(&#x53EF;&#x9009;)&#x624B;&#x52A8;&#x5B89;&#x88C5;&#x4E0B;&#x8F7D;ceph&#x7684;rpm&#x5305;&#xFF08;&#x4F7F;&#x7528;ceph-deploy install &#x5B89;&#x88C5;ceph&#x5305;&#x7F51;&#x901F;&#x592A;&#x6162;&#x3002;&#xFF09;&#x5B98;&#x65B9;&#x4E0B;&#x8F7D;: <a href="http://download.ceph.com/rpm-jewel/el7/x86_64/" _target="blank">http://download.ceph.com/rpm-jewel/el7/x86_64/</a> &#x3002;&#x9700;&#x8981;&#x4E0B;&#x8F7D;&#x7684;&#x5305;&#x5982;&#x4E0B;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-bash">ceph-10.2.10-0.el7.x86_64.rpm  
+ceph-base-10.2.10-0.el7.x86_64.rpm  
+ceph-common-10.2.10-0.el7.x86_64.rpm  
+ceph-mds-10.2.10-0.el7.x86_64.rpm  
+ceph-mon-10.2.10-0.el7.x86_64.rpm  
+ceph-osd-10.2.10-0.el7.x86_64.rpm  
+ceph-radosgw-10.2.10-0.el7.x86_64.rpm  
+ceph-selinux-10.2.10-0.el7.x86_64.rpm  
+rbd-mirror-10.2.10-0.el7.x86_64.rpm
+
+yum localinstall -y ./*.rpm
+</code></pre>
+</li>
+</ol>
+<h2 id="&#x4E00;&#x3001;&#x5B89;&#x88C5;ceph-deploy">&#x4E00;&#x3001;&#x5B89;&#x88C5;Ceph-Deploy</h2>
+<ol>
+<li><p>&#x5B89;&#x88C5;Ceph-deploy</p>
+<pre class="language-"><code class="lang-bash">yum <span class="token function">install</span> ceph-deploy -y
+</code></pre>
+</li>
+<li><p>&#x5B89;&#x88C5;ceph&#x76F8;&#x5173;&#x7684;&#x8F6F;&#x4EF6;</p>
+<pre class="language-"><code class="lang-bash">ceph-deploy <span class="token function">install</span> <span class="token environment constant">$HOSTNAME</span>
+</code></pre>
+</li>
+</ol>
+<h2 id="&#x4E8C;&#x3001;&#x521B;&#x5EFA;&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x4E8C;&#x3001;&#x521B;&#x5EFA;&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
+<ol>
+<li>&#x521B;&#x5EFA;ceph-deploy&#x7684;&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x8DEF;&#x5F84;&#x5E76;&#x5207;&#x6362;&#x8FC7;&#x53BB;<pre class="language-"><code class="lang-bash"><span class="token function">mkdir</span> my-cluster <span class="token punctuation">;</span><span class="token builtin class-name">cd</span> my-cluster
+</code></pre>
+</li>
+<li><p>&#x7528; ceph-deploy &#x521B;&#x5EFA;&#x96C6;&#x7FA4;&#xFF0C;&#x7528; new &#x547D;&#x4EE4;&#x3001;&#x5E76;&#x6307;&#x5B9A;&#x4E3B;&#x673A;&#x4F5C;&#x4E3A;&#x521D;&#x59CB;&#x76D1;&#x89C6;&#x5668;&#x3002;  </p>
+<pre class="language-"><code class="lang-bash">   ceph-deploy new <span class="token environment constant">$HOSTNAME</span>
+
+<span class="token comment"># &#x8BE5;&#x64CD;&#x4F5C;&#x4F1A;&#x5728;~/my-cluster&#x4E0B;&#x4F1A;&#x751F;&#x6210;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;</span>
+
+$<span class="token operator">&amp;</span>gt<span class="token punctuation">;</span> <span class="token function">ls</span>   
+   -rw-rw-r-- <span class="token number">1</span> ceph ceph   <span class="token number">251</span> Jan <span class="token number">12</span> <span class="token number">16</span>:34 ceph.conf  
+   -rw-rw-r-- <span class="token number">1</span> ceph ceph <span class="token number">15886</span> Jan <span class="token number">12</span> <span class="token number">16</span>:30 ceph.log  
+   -rw------- <span class="token number">1</span> ceph ceph    <span class="token number">73</span> Jan <span class="token number">12</span> <span class="token number">16</span>:30 ceph.mon.keyring
+
+<span class="token comment"># ceph.conf&#x4E2D;&#x9ED8;&#x8BA4;&#x7684;osd pool&#x4E3A;3&#xFF0C;&#x5BF9;&#x5E94;&#x4E86;&#x4E09;&#x4E2A;node&#x8282;&#x70B9;&#x3002;&#x5982;&#x679C;&#x53EA;&#x6709;&#x4E24;&#x4E2A;node&#x8282;&#x70B9;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x4FEE;&#x6539;ceph.conf&#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</span>
+
+<span class="token punctuation">[</span>global<span class="token punctuation">]</span>  
+   fsid <span class="token operator">=</span> 25c13add-967e-4912-bb33-ebbc2cb9376d  
+   mon_initial_members <span class="token operator">=</span> allinone.curiouser.com  
+   mon_host <span class="token operator">=</span> <span class="token number">172.16</span>.2.3  
+   auth_cluster_required <span class="token operator">=</span> cephx  
+   auth_service_required <span class="token operator">=</span> cephx  
+   auth_client_required <span class="token operator">=</span> cephx  
+   filestore_xattr_use_omap <span class="token operator">=</span> <span class="token boolean">true</span>  
+   osd pool default <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token number">1</span>
+</code></pre>
+</li>
+</ol>
+<h2 id="&#x4E09;&#x3001;&#x521B;&#x5EFA;monitor">&#x4E09;&#x3001;&#x521B;&#x5EFA;Monitor</h2>
+<pre class="language-"><code class="lang-bash">ceph-deploy mon create <span class="token environment constant">$HOSTNAME</span> <span class="token punctuation">;</span>
+ceph-deploy gatherkeys <span class="token environment constant">$HOSTNAME</span> <span class="token punctuation">;</span>
+ceph mds <span class="token function">stat</span>  <span class="token comment">#&#x67E5;&#x770B;mds&#x8282;&#x70B9;&#x72B6;&#x6001;</span>
+</code></pre>
+<h2 id="&#x56DB;&#x3001;&#x521B;&#x5EFA;osd">&#x56DB;&#x3001;&#x521B;&#x5EFA;OSD</h2>
+<p><strong>&#x65B9;&#x5F0F;&#x4E00;</strong>&#xFF1A;</p>
+<ol>
+<li><p>(&#x53EF;&#x9009;)&#x624B;&#x52A8;&#x8282;&#x70B9;&#x4E0A;&#x6302;&#x8F7D;lvm&#x5B58;&#x50A8;&#x5230;&#x67D0;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x4F5C;&#x4E3A;node&#x8282;&#x70B9;&#x4E0A;OSD&#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x76EE;&#x5F55; </p>
+<pre class="language-"><code class="lang-bash">yum <span class="token function">install</span> -y lvm2 <span class="token punctuation">;</span>  
+<span class="token assign-left variable">disk</span><span class="token operator">=</span>/dev/vdc <span class="token punctuation">;</span>  
+pvcreate <span class="token variable">${disk}</span> <span class="token punctuation">;</span>  
+vgcreate <span class="token variable">${disk}</span> <span class="token punctuation">;</span>  
+vgcreate -s 16m ceph-osd <span class="token variable">${disk}</span> <span class="token punctuation">;</span>  
+<span class="token assign-left variable">PE_Number</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>vgdisplay<span class="token operator">|</span><span class="token function">grep</span> <span class="token string">&quot;Free  PE&quot;</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">&apos;{print <span class="token variable">$5</span>}&apos;</span><span class="token variable">`</span></span> <span class="token punctuation">;</span>  
+lvcreate -l  <span class="token variable">${PE_Number}</span> -n ceph-osd ceph-osd <span class="token punctuation">;</span>  
+mkfs.xfs /dev/ceph-osd/ceph-osd <span class="token punctuation">;</span>  
+<span class="token function">mkdir</span> -p /data/ceph/osd <span class="token punctuation">;</span>  
+<span class="token function">chown</span> -R ceph:ceph /data/ceph/osd <span class="token punctuation">;</span>  
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;/dev/ceph-osd/ceph-osd  /data/ceph/osd xfs defaults 0 0&quot;</span> <span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span>/etc/fstab <span class="token punctuation">;</span>  
+<span class="token function">mount</span> -a <span class="token punctuation">;</span>  
+<span class="token function">df</span> -mh
+
+<span class="token comment">#LV&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x683C;&#x5F0F;&#x6CE8;&#x610F;&#x8981;xfs,CentOS&#x63A8;&#x8350;&#x4F7F;&#x7528;xfs&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;.&#x5982;&#x679C;&#x662F;ext4&#xFF0C;&#x9700;&#x8981;&#x5728;/etc/ceph/ceph.conf &#x4E2D;&#x6DFB;&#x52A0;&#x53C2;&#x6570;&#x7528;&#x6765;&#x9650;&#x5236;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x957F;&#x5EA6;</span>
+osd max object name len <span class="token operator">=</span> <span class="token number">256</span>
+osd max object namespace len <span class="token operator">=</span> <span class="token number">64</span>
+<span class="token comment"># &#x4E4B;&#x540E;&#x91CD;&#x542F;osd&#x670D;&#x52A1;</span>
+systemctl restart  ceph-osd.target
+</code></pre>
+</li>
+<li><p>&#x51C6;&#x5907;&#x5E76;&#x6FC0;&#x6D3B;node&#x8282;&#x70B9;&#x4E0A;&#x7684;OSD</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment">#&#x51C6;&#x5907;Node&#x8282;&#x70B9;&#x4E0A;&#x7684;OSD</span>
+ceph-deploy osd prepare <span class="token environment constant">$HOSTNAME</span>:/data/ceph/osd
+<span class="token comment">#&#x6FC0;&#x6D3B;Node&#x8282;&#x70B9;&#x4E0A;&#x7684;OSD</span>
+ceph-deploy osd activate <span class="token environment constant">$HOSTNAME</span>:/data/ceph/osd
+<span class="token comment">#&#x67E5;&#x770B;OSD&#x72B6;&#x6001;</span>
+ceph osd tree
+</code></pre>
+</li>
+</ol>
+<p><strong>&#x65B9;&#x5F0F;&#x4E8C;</strong>&#xFF1A;(&#x4E0D;&#x662F;&#x4EE5;&#x76EE;&#x5F55;&#x4E3A;OSD&#x6570;&#x636E;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x4EE5;&#x786C;&#x76D8;&#x3002;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x7701;&#x53BB;&#x624B;&#x52A8;&#x5728;&#x786C;&#x76D8;&#x4E0A;&#x521B;&#x5EFA;&#x5206;&#x533A;&#x7684;&#x64CD;&#x4F5C;)</p>
+<pre class="language-"><code class="lang-bash">   <span class="token comment">#&#x51C6;&#x5907;Node&#x8282;&#x70B9;&#x4E0A;&#x7684;OSD</span>
+   ceph-deploy osd prepare <span class="token environment constant">$HOSTNAME</span>:/dev/vdc
+   <span class="token comment">#&#x6FC0;&#x6D3B;Node&#x8282;&#x70B9;&#x4E0A;&#x7684;OSD</span>
+   ceph-deploy osd activate <span class="token environment constant">$HOSTNAME</span>:/dev/vdc1
+   <span class="token comment">#&#x67E5;&#x770B;OSD&#x72B6;&#x6001;</span>
+   ceph osd tree
+</code></pre>
+<h2 id="&#x4E94;&#x3001;&#x5B89;&#x88C5;&#x9A8C;&#x8BC1;">&#x4E94;&#x3001;&#x5B89;&#x88C5;&#x9A8C;&#x8BC1;</h2>
+<pre class="language-"><code class="lang-bash">   <span class="token comment">#&#x96C6;&#x7FA4;&#x5065;&#x5EB7;&#x72B6;&#x6001;&#x68C0;&#x67E5;</span>
+   $<span class="token operator">&gt;</span> ceph health
+   HEALTH_OK
+   $<span class="token operator">&gt;</span> ceph -s
+
+   $<span class="token operator">&gt;</span> systemctl is-enabled ceph-mds.target ceph-mon.target ceph-osd.target ceph-radosgw.target ceph.target
+</code></pre>
+<h2 id="&#x516D;&#x3001;&#x5176;&#x4ED6;&#x4FE1;&#x606F;">&#x516D;&#x3001;&#x5176;&#x4ED6;&#x4FE1;&#x606F;</h2>
+<ol>
+<li><p>Ceph&#x76F8;&#x5173;&#x7684;SystemD Units</p>
+<pre class="language-"><code class="lang-bash">ceph-mds.target
+ceph-mon.target  
+ceph-osd.target
+ceph-radosgw.target
+ceph.target
+</code></pre>
+</li>
+</ol>
+<footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2019-08-01 13:49:20
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+						
+					</section>
+					
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+				</div>
+			</div>
+			
+		</div>
+
+		
+		
+		
+		<a href="ceph-filesystem单节点安装.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Ceph FileSystem单节点安装">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
+		
+		
+	</div>
+	<script>
+		var gitbook = gitbook || [];
+		gitbook.push(function() {
+			gitbook.page.hasChanged({"page":{"title":"Ceph RBD单节点安装","level":"8.5.1.1","depth":3,"next":{"title":"Ceph FileSystem单节点安装","level":"8.5.1.2","depth":3,"path":"origin/ceph-filesystem单节点安装.md","ref":"origin/ceph-filesystem单节点安装.md","articles":[]},"previous":{"title":"安装","level":"8.5.1","depth":2,"ref":"","articles":[{"title":"Ceph RBD单节点安装","level":"8.5.1.1","depth":3,"path":"origin/ceph-rbd单节点安装.md","ref":"origin/ceph-rbd单节点安装.md","articles":[]},{"title":"Ceph FileSystem单节点安装","level":"8.5.1.2","depth":3,"path":"origin/ceph-filesystem单节点安装.md","ref":"origin/ceph-filesystem单节点安装.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/ceph-rbd单节点安装.md","mtime":"2019-08-01T05:49:20.741Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-08-05T14:49:56.051Z"},"basePath":"..","book":{"language":""}});
+		});
+	</script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+
