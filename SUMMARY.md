@@ -16,7 +16,7 @@
     * Daemonset
     * ServiceAccount
 * 集群管理
-    * [数据持久化](origin/openshift-Kubernetes的持久化存储.md)
+    * [数据持久化](openshift-Kubernetes的持久化存储.md)
     * 管理
         * 资源对象管理
             * [资源对象常见操作](origin/openshift-资源对象常见操作.md)
