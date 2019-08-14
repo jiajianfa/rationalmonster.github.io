@@ -435,7 +435,7 @@ $ cat /data/logs/logstash/ocp-audit-logs/ocp-audit-admin/audit-2019-07-23.log
 
 整得太晚了，后续更新。
 
-# 六、相关链接
+# 参考链接
 
 [https://austindewey.com/2018/10/17/integrating-advanced-audit-with-aggregated-logging-in-openshift-3-11/\#test-it-out](https://austindewey.com/2018/10/17/integrating-advanced-audit-with-aggregated-logging-in-openshift-3-11/#test-it-out)  
 [https://www.outcoldsolutions.com/docs/monitoring-openshift/v4/audit/](https://www.outcoldsolutions.com/docs/monitoring-openshift/v4/audit/)  

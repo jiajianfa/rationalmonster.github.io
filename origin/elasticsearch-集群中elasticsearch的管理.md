@@ -1,6 +1,8 @@
-# Overview
+# Openshift容器日志系统EFK的管理
 
-Openshift 3.11如果是使用官方ansible playbook安装的话，可配置安装EFK来收集存储分析Openshift上所有容器的日志。Flentd以Daemonset的形式部署在所有Node节点上，监控采集docker容器目录/var/docker/container（每个容器的日志默认都会以 json-file 的格式存储于 /var/lib/docker/containers/<容器id>/<容器id>-json.log 下）.将采集的日志数据存放在elasticsearch中。并配置了一个Cronjob定时清理elasticsearch中指定过期的Index。
+Openshift 3.11如果是使用官方ansible playbook安装的话，可配置安装EFK来收集存储分析Openshift上所有容器的日志。
+Fluentd以Daemonset的形式部署在所有Node节点上，监控采集docker容器目录/var/docker/container（每个容器的日志默认都会以 json-file 的格式存储于 /var/lib/docker/containers/<容器id>/<容器id>-json.log 下）.
+将采集的日志数据存放在elasticsearch中。并配置了一个Cronjob定时清理elasticsearch中指定过期的Index。
 
 1. 查看所有的Index
     
@@ -35,5 +37,5 @@ Openshift 3.11如果是使用官方ansible playbook安装的话，可配置安�
 
 # 参考连接
 1. https://docs.openshift.com/container-platform/3.11/install_config/aggregate_logging.html#aggregate-logging-understanding-the-deployment
-2. docker.io/openshift/origin-logging-curator5:v3.11.0
+2. https://hub.docker.com/r/openshift/origin-logging-curator5
 3. https://github.com/openshift/origin-aggregated-logging
