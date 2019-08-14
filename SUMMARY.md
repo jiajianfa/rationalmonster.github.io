@@ -24,10 +24,11 @@
         * [Ceph RBD Provisioner](origin/openshift-Kubernetes-provisioner-cephrbd.md)
     * 管理
         * 资源对象管理
-            * [资源对象常见操作](origin/openshift-资源对象常见操作.md)
+            * [常见资源对象操作](origin/openshift-资源对象常见操作.md)
+            * [将Secret和ConfigMap以文件的形式挂载到容器](origin/openshift-将Secret和ConfigMap以文件的形式挂载到容器.md)
         * 集群管理
             * [节点管理](origin/openshift-集群节点管理.md)
-            * [集群中elasticsearch的管理](origin/elasticsearch-集群中elasticsearch的管理.md)
+            * [集群中elasticsearch的管理](origin/openshift-将Secret和ConfigMap以文件的形式挂载到容器.md)
     * 网络
         * [openshift开启router的haproxy-statisc](origin/openshift-开启router的haproxy-statisc.md)
         * [openshift的多租户网络](origin/openshift-多租户网络.md)
@@ -67,10 +68,11 @@
     * 安装
     * 管理
         * [配置SMTP邮件服务](origin/gitlab-配置SMTP邮件服务.md)
-* Nexus
-    * 安装
-    * 权限管理
-        * 权限管理
+* [Nexus](origin/nexus-简介.md)
+    * 配置
+        * [使用OrientDB Console在DB层面修改配置](origin/nexus-使用OrientDB Console在DB层面修改配置.md)
+        * [设置SMTP邮件服务](origin/nexus-设置SMTP邮件服务.md)
+    * 权限
     * 仓库管理
         * Maven
         * NPM
@@ -78,7 +80,8 @@
         * Docker
         * RAW
 * SonarQube
-    * 安装
+    * 配置
+        * [配置SMTP服务](origin/sonarqube-配置SMTP邮箱.md)
     * 使用
         * [SonarScanner-将扫描结果以comment的形式回写到gitlab](origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md)
 * LDAP
