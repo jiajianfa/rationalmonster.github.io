@@ -23,11 +23,15 @@
         "prism",
         "donate",
         "theme-comscore",
-        "github-buttons"
+        "github-buttons",
+        "github-issue-feedback"
 	],
 	"pluginsConfig": {
         "theme-default": {
             "showLevel": true
+        },
+        "github-issue-feedback": {
+          "repo": "RationalMonster/rationalmonster.github.io"
         },
         "github": {
             "url": "https://github.com/RationalMonster"
