@@ -171,7 +171,7 @@ kubectl config use-context k8s-pro
     source /etc/profile
     ```
 
-# 六. Kubectl Config命令先接
+# 六. Kubectl Config命令详解
 
    ```bash
   1. If the --kubeconfig flag is set, then only that file is loaded.  The flag may only be set once and no merging takes
