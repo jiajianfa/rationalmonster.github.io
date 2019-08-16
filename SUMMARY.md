@@ -50,6 +50,7 @@
 ## Part Ⅱ：容器云Kubernetes
 * 安装
 * 集群管理
+    * [kubectl多集群上下文配置](origin/kubernetes-kubectl多集群上下文配置.md)
 
 ## Part Ⅲ：持续集成与持续部署
 * Jenkins
