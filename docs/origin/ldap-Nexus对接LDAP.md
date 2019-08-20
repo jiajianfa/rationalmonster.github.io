@@ -13,7 +13,7 @@
 ![](/assets/ldap-Nexus对接LDAP-2.png)
 ![](/assets/ldap-Nexus对接LDAP-3.png)
 
-# 二. Nexus设置
+# 二、Nexus设置
 ## 1. Nexus开启认证Realm
 
 ![](/assets/ldap-Nexus对接LDAP-4.png)

@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>SonarScanner-将扫描结果以comment的形式回写到gitlab · Devops Roadmap</title>
+        <title>集群管理遇到的问题 · Devops Roadmap</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -106,6 +106,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    
+    <link rel="prev" href="openshift-集群组件TLS证书管理.html" />
     
 
     <style>
@@ -613,7 +615,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.2.2.4" data-path="openshift-no-IP-addresses-available-in-range-set解决方案.html">
+        <li class="chapter active" data-level="2.3.2.2.4" data-path="openshift-no-IP-addresses-available-in-range-set解决方案.html">
             
                 <a href="openshift-no-IP-addresses-available-in-range-set解决方案.html">
             
@@ -1499,7 +1501,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="4.4.2.1" data-path="sonarscanner-将扫描结果以comment的形式回写到gitlab.html">
+        <li class="chapter " data-level="4.4.2.1" data-path="sonarscanner-将扫描结果以comment的形式回写到gitlab.html">
             
                 <a href="sonarscanner-将扫描结果以comment的形式回写到gitlab.html">
             
@@ -3507,7 +3509,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >SonarScanner-将扫描结果以comment的形式回写到gitlab</a>
+        <a href=".." >集群管理遇到的问题</a>
     </h1>
 </div>
 
@@ -3522,305 +3524,40 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="&#x4E00;&#x3001;context">&#x4E00;&#x3001;Context</h1>
-<p>&#x5728;Jenkins&#x4E2D;&#x505A;CI&#x8FC7;&#x7A0B;&#x4E2D;,&#x6709;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x662F;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x5B8C;,&#x4F7F;&#x7528;sonar scanner&#x626B;&#x63CF;&#x4EE3;&#x7801;,&#x68C0;&#x67E5;&#x9759;&#x6001;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;,&#x7136;&#x540E;&#x5C06;&#x4EE3;&#x7801;&#x53D1;&#x9001;&#x5230;sonarqube,&#x4F9B;&#x9879;&#x76EE;&#x7ECF;&#x7406;&#x67E5;&#x770B;&#x4EE3;&#x7801;&#x8D28;&#x91CF;.
-sonarqube&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x63D2;&#x4EF6;gitlab,&#x8BA9;sonarscanner&#x626B;&#x63CF;&#x5B8C;&#x4EE3;&#x7801;,&#x5C06;&#x7ED3;&#x679C;&#x4EE5;gitlab&#x6CE8;&#x91CA;&#x7684;&#x65B9;&#x5F0F;&#x56DE;&#x5199;&#x5230;&#x63D0;&#x4EA4;&#x7684;commit&#x4E2D;.&#x65B9;&#x4FBF;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6392;&#x67E5;&#x4EE3;&#x7801;.  </p>
-<p>&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x5404;&#x7EC4;&#x4EF6;&#x7684;&#x7248;&#x672C;</p>
-<ul>
-<li><strong>sonarqube</strong>: 7.3 (build 15553)</li>
-<li><strong>sonarscanner</strong>: 3.3.0.1492</li>
-<li><p><strong>sonarqube gitlab&#x63D2;&#x4EF6;</strong>: 4.0.0</p>
-<p>  <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-1.png" alt=""></p>
-</li>
-<li><strong>gitlab</strong>: 10.8.4 ce</li>
-<li><strong>jenkins</strong>:  2.150.2</li>
-</ul>
-<p>Jenkins CI&#x6D41;&#x6C34;&#x7EBF;&#x662F;&#x5728;&#x4F7F;&#x7528;Jenkins Slave(Kubernetes&#x63D2;&#x4EF6;&#x52A8;&#x6001;&#x751F;&#x6210;Slave POD)&#x8282;&#x70B9;&#x4E2D;&#x6765;&#x8FD0;&#x884C;&#x7684;,&#x6240;&#x4EE5;Sonarscanner,Maven&#x7B49;&#x5DE5;&#x5177;&#x90FD;&#x662F;&#x5728;Kubernetes Jenkins Slave&#x955C;&#x50CF;&#x4E2D;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x597D;&#x7684;.</p>
-<h1 id="&#x4E8C;&#x3001;&#x64CD;&#x4F5C;">&#x4E8C;&#x3001;&#x64CD;&#x4F5C;</h1>
+						<h1 id="&#x95EE;&#x9898;&#x4E00;">&#x95EE;&#x9898;&#x4E00;</h1>
+<p><strong>&#x63CF;&#x8FF0;</strong></p>
+<p>&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;Openshift Allinone 3.11&#x96C6;&#x7FA4;&#x521B;&#x5EFA;POD&#x7A81;&#x7136;&#x62A5;&#x51FA;</p>
+<pre class="language-"><code>    network: failed to allocate for range 0: no IP addresses available in range set
+</code></pre><p><strong>&#x73B0;&#x8C61;</strong></p>
+<p>&#x6574;&#x4E2A;Allinone&#x96C6;&#x7FA4;&#x6240;&#x6709;&#x7684;POD&#x4E0D;&#x8D85;&#x591A;100&#x4E2A;&#xFF0C;&#x4F46;&#x662F;/var/lib/cni/networks/openshift-sdn/&#x7684;IP&#x5730;&#x5740;&#x6587;&#x4EF6;&#x5374;&#x6709;252&#x4E2A;&#x3002;&#x9020;&#x6210;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x5BB9;&#x5668;&#x7F51;&#x7EDC;&#x65E0;&#x6CD5;&#x518D;&#x4E3A;POD&#x5206;&#x914D;IP&#x5730;&#x5740;</p>
+<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;</strong></p>
 <ol>
-<li><p>sonarqube &#x5B89;&#x88C5;sonar-gitlab-plugin&#x63D2;&#x4EF6;</p>
-<p>&#x63D2;&#x4EF6;Github:<a href="https://github.com/gabrie-allaigre/sonar-gitlab-plugin/" _target="blank">https://github.com/gabrie-allaigre/sonar-gitlab-plugin/</a>
- <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-2.png" alt=""></p>
-</li>
-<li><p>Sonarqube&#x751F;&#x6210;&#x7528;&#x6237;&#x8BBF;&#x95EE;Token</p>
-<p> <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-3.png" alt=""></p>
-</li>
-<li><p>gitlab&#x521B;&#x5EFA;sonarscanner&#x7684;&#x7528;&#x6237;,&#x5E76;&#x751F;&#x6210;AccessKey</p>
-<p> <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-4.png" alt=""></p>
-</li>
-<li><p>&#x5728;gitlab&#x4E2D;&#x5C06;sonarqube&#x52A0;&#x5165;&#x5230;&#x5BF9;&#x5E94;&#x9879;&#x76EE;&#x4ED3;&#x5E93;&#x7684;Members&#x4E2D;</p>
-<p> <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-5.png" alt=""></p>
-</li>
-<li><p>&#x5728;Jenkins Pipeline&#x4E2D;&#x4F7F;&#x7528;sonarscanner&#x626B;&#x63CF;&#x4EE3;&#x7801;</p>
-<pre class="language-"><code> stage(&quot;&#x4EE3;&#x7801;&#x626B;&#x63CF;&quot;){
-     steps{
-         sh &quot;sonar-scanner \
-                 -Dsonar.projectKey=demo-springboot2 \
-                 -Dsonar.sources=. \
-                 -Dsonar.host.url=http://sonarqube-sonarqube.apps.okd311.curiouser.com \
-                 -Dsonar.login=058f4d4b905cba6123ffb093fa14b8f1fd9a75b \
-                 -Dsonar.java.binaries=. \
-                 -Dsonar.sourceEncoding=UTF-8 \
-                 -Dsonar.gitlab.project_id=4 \
-                 -Dsonar.analysis.mode=preview \
-                 -Dsonar.issuesReport.html.enable=true \
-                 -Dsonar.gitlab.commit_sha=$GIT_COMMIT \
-                 -Dsonar.gitlab.ref_name=$GIT_BRANCH \
-                 -Dsonar.sources=src \
-                 -Dsonar.gitlab.user_token=e5D1Zo2132ikhGUcmSZZ \
-                 -Dsonar.gitlab.url=http://gitlab.apps.okd311.curiouser.com/ \
-                 -Dsonar.gitlab.ignore_certificate=true \
-                 -Dsonar.gitlab.comment_no_issue=true \
-                 -Dsonar.gitlab.max_global_issues=1000 \
-                 -Dsonar.gitlab.unique_issue_per_inline=true&quot;
-     }
- }
+<li><p>&#x5C06;&#x5BF9;&#x5E94;&#x8282;&#x70B9;&#x6807;&#x8BB0;&#x4E3A;&#x4E0D;&#x53EF;&#x8C03;&#x7528;</p>
+<pre class="language-"><code> oc adm manage-node node1.test.openshift.com --schedulable=false
+</code></pre></li>
+<li><p>&#x9A71;&#x6563;&#x5BF9;&#x5E94;&#x8282;&#x70B9;&#x4E0A;&#x7684;POD</p>
+<pre class="language-"><code> oc adm drain node1.test.openshift.com --ignore-daemonsets
+</code></pre></li>
+<li><p>&#x505C;&#x6B62;docker&#x548C;origin-node&#x670D;&#x52A1;</p>
+<pre class="language-"><code> systemctl stop docker origin-node.service
+</code></pre></li>
+<li><p>&#x5220;&#x9664;/var/lib/cni/networks/openshift-sdn/&#x8DEF;&#x5F84;&#x4E0B;&#x6240;&#x6709;&#x6587;&#x4EF6;</p>
+<pre class="language-"><code> rm -rf /var/lib/cni/networks/openshift-sdn/*
+</code></pre></li>
+<li><p>&#x91CD;&#x542F;docker&#x548C;origin-node&#x670D;&#x52A1;</p>
+<pre class="language-"><code> systemctl start docker origin-node.service
+</code></pre></li>
+<li><p>&#x5C06;&#x8282;&#x70B9;&#x6807;&#x8BB0;&#x4E3A;&#x53EF;&#x8C03;&#x5EA6;</p>
+<pre class="language-"><code> oc adm manage-node node1.test.openshift.com --schedulable=true
 </code></pre></li>
 </ol>
-<h1 id="&#x4E09;&#x3001;&#x6548;&#x679C;">&#x4E09;&#x3001;&#x6548;&#x679C;</h1>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-6.png" alt="">
-<img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-7.png" alt=""></p>
-<h1 id="&#x56DB;&#x3001;soanarscanner&#x53C2;&#x6570;&#x8BE6;&#x89E3;">&#x56DB;&#x3001;Soanarscanner&#x53C2;&#x6570;&#x8BE6;&#x89E3;</h1>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Comment</th>
-<th>Type</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sonar.gitlab.url</td>
-<td>GitLab url</td>
-<td>Administration, Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_global_issues</td>
-<td>Maximum number of anomalies to be displayed in the global comment</td>
-<td>Administration, Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.user_token</td>
-<td>Token of the user who can make reports on the project, either global or per project</td>
-<td>Administration, Project, Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.project_id</td>
-<td>Project ID in GitLab or internal id or namespace + name or namespace + path or url http or ssh url or url or web</td>
-<td>Project, Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.commit_sha</td>
-<td>SHA of the commit comment</td>
-<td>Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ref</td>
-<td>Branch name or reference of the commit</td>
-<td>Variable</td>
-<td>&lt; 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ref_name</td>
-<td>Branch name or reference of the commit</td>
-<td>Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_blocker_issues_gate</td>
-<td>Max blocker issue for build failed (default 0). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_critical_issues_gate</td>
-<td>Max critical issues for build failed (default 0). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_major_issues_gate</td>
-<td>Max major issues for build failed (default -1 no fail). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_minor_issues_gate</td>
-<td>Max minor issues for build failed (default -1 no fail). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_info_issues_gate</td>
-<td>Max info issues for build failed (default -1 no fail). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ignore_certificate</td>
-<td>Ignore Certificate for access GitLab, use for auto-signing cert (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.comment_no_issue</td>
-<td>Add a comment even when there is no new issue (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.disable_inline_comments</td>
-<td>Disable issue reporting as inline comments (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.only_issue_from_commit_file</td>
-<td>Show issue for commit file only (default false)</td>
-<td>Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.only_issue_from_commit_line</td>
-<td>Show issue for commit line only (default false)</td>
-<td>Variable</td>
-<td>&gt;= 2.1.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.build_init_state</td>
-<td>State that should be the first when build commit status update is called (default pending)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.disable_global_comment</td>
-<td>Disable global comment, report only inline (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.failure_notification_mode</td>
-<td>Notification is in current build (exit-code) or in commit status (commit-status) (default commit-status)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.global_template</td>
-<td>Template for global comment in commit</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ping_user</td>
-<td>Ping the user who made an issue by @ mentioning. Only for default comment (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.unique_issue_per_inline</td>
-<td>Unique issue per inline comment (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.prefix_directory</td>
-<td>Add prefix when create link for GitLab</td>
-<td>Variable</td>
-<td>&gt;= 2.1.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.api_version</td>
-<td>GitLab API version (default <code>v4</code> or <code>v3</code>)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.1.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.all_issues</td>
-<td>All issues new and old (default false, only new)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.1.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.json_mode</td>
-<td>Create a json report in root for GitLab EE (codeclimate.json or gl-sast-report.json)</td>
-<td>Project, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.query_max_retry</td>
-<td>Max retry for wait finish analyse for publish mode</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.query_wait</td>
-<td>Max retry for wait finish analyse for publish mode</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.quality_gate_fail_mode</td>
-<td>Quality gate fail mode: error, warn or none (default error)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.issue_filter</td>
-<td>Filter on issue, if MAJOR then show only MAJOR, CRITICAL and BLOCKER (default INFO)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.load_rules</td>
-<td>Load rules for all issues (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.disable_proxy</td>
-<td>Disable proxy if system contains proxy config (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 4.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.merge_request_discussion</td>
-<td>Allows to post the comments as discussions (default false)</td>
-<td>Project, Variable</td>
-<td>&gt;= 4.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ci_merge_request_iid</td>
-<td>The IID of the merge request if it&#x2019;s pipelines for merge requests</td>
-<td>Project, Variable</td>
-<td>&gt;= 4.0.0</td>
-</tr>
-</tbody>
-</table>
-<h1 id="&#x4E94;&#x3001;&#x95EE;&#x9898;">&#x4E94;&#x3001;&#x95EE;&#x9898;</h1>
-<ol>
-<li><p>&#x5F53;&#x9879;&#x76EE;&#x662F;&#x79C1;&#x6709;&#x4ED3;&#x5E93;&#x65F6;</p>
-<p> <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-8.png" alt=""></p>
-</li>
-<li><p>&#x83B7;&#x53D6;&#x9879;&#x76EE;&#x4ED3;&#x5E93;&#x7684;ProjectID</p>
-<p> <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-9.png" alt="">
- <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-10.png" alt="">
- <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-11.png" alt=""></p>
-</li>
-</ol>
-<h1 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;">&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</h1>
-<ol>
-<li><a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/28342" _target="blank">https://gitlab.com/gitlab-org/gitlab-ce/issues/28342</a></li>
-<li><a href="https://www.cnblogs.com/amyzhu/p/8988519.html" _target="blank">https://www.cnblogs.com/amyzhu/p/8988519.html</a></li>
-</ol>
+<h3 id="&#x76F8;&#x5173;&#x94FE;&#x63A5;">&#x76F8;&#x5173;&#x94FE;&#x63A5;</h3>
+<p><a href="https://access.redhat.com/solutions/3328541" _target="blank">https://access.redhat.com/solutions/3328541</a>
+<a href="https://github.com/debianmaster/openshift-examples/issues/59" _target="blank">https://github.com/debianmaster/openshift-examples/issues/59</a>
+<a href="https://github.com/cloudnativelabs/kube-router/issues/383" _target="blank">https://github.com/cloudnativelabs/kube-router/issues/383</a>
+<a href="https://github.com/jsenon/api-cni-cleanup/blob/master/k8s/deployment.yml#L42" _target="blank">https://github.com/jsenon/api-cni-cleanup/blob/master/k8s/deployment.yml#L42</a> </p>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-08-20 18:50:11
+2019-08-20 18:37:53
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -3849,6 +3586,10 @@ sonarqube&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x63D2;&#x4EF6;gitlab,&#x8BA9;sonarsca
 
 		
 		
+		<a href="openshift-集群组件TLS证书管理.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 集群组件TLS证书管理">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
 		
 		
 		
@@ -3856,7 +3597,7 @@ sonarqube&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x63D2;&#x4EF6;gitlab,&#x8BA9;sonarsca
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"SonarScanner-将扫描结果以comment的形式回写到gitlab","level":"4.4.2.1","depth":3,"next":{"title":"LDAP","level":"4.5","depth":1,"ref":"","articles":[{"title":"安装","level":"4.5.1","depth":2,"ref":"","articles":[]},{"title":"客户端","level":"4.5.2","depth":2,"ref":"","articles":[{"title":"Apache Directory Studio","level":"4.5.2.1","depth":3,"ref":"","articles":[]},{"title":"PHPLDAPAdmin","level":"4.5.2.2","depth":3,"ref":"","articles":[]}]},{"title":"第三方系统集成","level":"4.5.3","depth":2,"ref":"","articles":[{"title":"Jenkins","level":"4.5.3.1","depth":3,"path":"origin/ldap-Jenkins对接LDAP.md","ref":"origin/ldap-Jenkins对接LDAP.md","articles":[]},{"title":"SonarQube","level":"4.5.3.2","depth":3,"path":"origin/ldap-SonarQube对接LDAP.md","ref":"origin/ldap-SonarQube对接LDAP.md","articles":[]},{"title":"Gitlab","level":"4.5.3.3","depth":3,"path":"origin/ldap-Gitlab对接LDAP.md","ref":"origin/ldap-Gitlab对接LDAP.md","articles":[]},{"title":"Nexus","level":"4.5.3.4","depth":3,"path":"origin/ldap-Nexus对接LDAP.md","ref":"origin/ldap-Nexus对接LDAP.md","articles":[]},{"title":"Grafana","level":"4.5.3.5","depth":3,"path":"origin/ldap-Grafana对接LDAP.md","ref":"origin/ldap-Grafana对接LDAP.md","articles":[]},{"title":"Zabbix","level":"4.5.3.6","depth":3,"ref":"","articles":[]}]}]},"previous":{"title":"使用","level":"4.4.2","depth":2,"ref":"","articles":[{"title":"SonarScanner-将扫描结果以comment的形式回写到gitlab","level":"4.4.2.1","depth":3,"path":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","ref":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","mtime":"2019-08-20T10:50:11.120Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-08-20T10:51:25.100Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"集群管理遇到的问题","level":"2.3.2.2.4","depth":4,"next":{"title":"网络","level":"2.3.3","depth":2,"ref":"","articles":[{"title":"openshift开启router的haproxy-statisc","level":"2.3.3.1","depth":3,"path":"origin/openshift-开启router的haproxy-statisc.md","ref":"origin/openshift-开启router的haproxy-statisc.md","articles":[]},{"title":"openshift的多租户网络","level":"2.3.3.2","depth":3,"path":"origin/openshift-多租户网络.md","ref":"origin/openshift-多租户网络.md","articles":[]}]},"previous":{"title":"集群组件TLS证书管理","level":"2.3.2.2.3","depth":4,"path":"origin/openshift-集群组件TLS证书管理.md","ref":"origin/openshift-集群组件TLS证书管理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/openshift-no-IP-addresses-available-in-range-set解决方案.md","mtime":"2019-08-20T10:37:53.237Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-08-20T10:51:25.100Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>

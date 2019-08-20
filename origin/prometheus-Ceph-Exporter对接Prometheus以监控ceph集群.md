@@ -1,11 +1,11 @@
-# 一. Overview
+# 一、Overview
 
 由于在Openshift集群外使用了Ceph RBD和Ceph Filesystem作为PV的后端动态存储文件系统，所以ceph的集群监控也可使用Prometheus体系中的Ceph Exporter，接入到Openshift集群中的Prometheus。
 * 
 ![](/assets/prometheus-Ceph&#32;Exporter对接Prometheus以监控ceph集群-1.jpg)
 
 
-# 二. 以DaemonSet的形式部署Ceph Exporter
+# 二、以DaemonSet的形式部署Ceph Exporter
 
   ```yaml
   ---
@@ -127,7 +127,7 @@
     wildcardPolicy: None
   ```
 
-# 三. Ceph Exporter对接Prometheus 
+# 三、Ceph Exporter对接Prometheus 
 
 1. 备份Prometheus原配置文件secret
   [Prometheus原始配置secret文件](/assets/prometheus-Openshift集群Prometheus原始配置secret文件)

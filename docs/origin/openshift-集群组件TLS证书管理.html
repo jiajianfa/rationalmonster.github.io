@@ -106,6 +106,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="openshift-no-IP-addresses-available-in-range-set解决方案.html" />
+    
     
     <link rel="prev" href="openshift-使用Cockpit监控集群节点的系统状态.html" />
     
@@ -608,6 +610,21 @@
                         <b>2.3.2.2.3.</b>
                     
                     集群组件TLS证书管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2.2.4" data-path="openshift-no-IP-addresses-available-in-range-set解决方案.html">
+            
+                <a href="openshift-no-IP-addresses-available-in-range-set解决方案.html">
+            
+                    
+                        <b>2.3.2.2.4.</b>
+                    
+                    集群管理遇到的问题
             
                 </a>
             
@@ -3510,7 +3527,7 @@
 					<section class="normal markdown-section">
 						
 						<h1 id="openshift&#x7EC4;&#x4EF6;master&#x3001;node&#x3001;etcd&#x3001;router&#x3001;registry&#x4E4B;&#x95F4;&#x7684;tls&#x8BC1;&#x4E66;&#x7BA1;&#x7406;">Openshift&#x7EC4;&#x4EF6;:Master&#x3001;Node&#x3001;Etcd&#x3001;Router&#x3001;Registry&#x4E4B;&#x95F4;&#x7684;TLS&#x8BC1;&#x4E66;&#x7BA1;&#x7406;</h1>
-<h1 id="&#x4E00;-&#x5B89;&#x88C5;&#x65F6;&#x6307;&#x5B9A;&#x8BC1;&#x4E66;&#x7684;&#x6709;&#x6548;&#x671F;">&#x4E00;. &#x5B89;&#x88C5;&#x65F6;&#x6307;&#x5B9A;&#x8BC1;&#x4E66;&#x7684;&#x6709;&#x6548;&#x671F;</h1>
+<h1 id="&#x4E00;&#x3001;&#x5B89;&#x88C5;&#x65F6;&#x6307;&#x5B9A;&#x8BC1;&#x4E66;&#x7684;&#x6709;&#x6548;&#x671F;">&#x4E00;&#x3001;&#x5B89;&#x88C5;&#x65F6;&#x6307;&#x5B9A;&#x8BC1;&#x4E66;&#x7684;&#x6709;&#x6548;&#x671F;</h1>
 <p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;etcd&#x8BC1;&#x4E66;&#x3001;openshift&#x8BC1;&#x4E66;&#x7684;&#x6709;&#x6548;&#x671F;&#x4E3A;5&#x5E74;&#xFF0C;kubelet&#x8BC1;&#x4E66;&#x3001;&#x79C1;&#x6709;&#x955C;&#x50CF;&#x4ED3;&#x5E93;registry&#x8BC1;&#x4E66;&#x3001;Route&#x8BC1;&#x4E66;&#x7684;&#x6709;&#x6548;&#x671F;&#x4E3A;2&#x5E74;&#x3002;&#x5728;&#x96C6;&#x7FA4;&#x5B89;&#x88C5;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;ansible/hosts&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x6765;&#x6307;&#x5B9A;&#x8BC1;&#x4E66;&#x7684;&#x6709;&#x6548;&#x671F;</p>
 <pre class="language-"><code class="lang-yaml"><span class="token punctuation">[</span>OSEv3<span class="token punctuation">:</span>vars<span class="token punctuation">]</span>
 openshift_hosted_registry_cert_expire_days=730
@@ -3583,9 +3600,9 @@ openshift_master_ca_certificate=<span class="token punctuation">{</span><span cl
 <pre class="language-"><code>ansible-playbook playbooks/openshift-master/redeploy-openshift-ca.yml
 </code></pre><h1 id="&#x516D;&#x3001;&#x66F4;&#x65B0;&#x5B8C;&#x6210;&#x540E;&#x53EF;&#x80FD;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;">&#x516D;&#x3001;&#x66F4;&#x65B0;&#x5B8C;&#x6210;&#x540E;&#x53EF;&#x80FD;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</h1>
 <ul>
-<li>The installer detected the wrong host names and the issue was identified too late.</li>
-<li>The certificates are expired and you need to update them.</li>
-<li>You have a new CA and want to create certificates using it instead.</li>
+<li>The installer detected the wrong host names and the issue was identified too late</li>
+<li>The certificates are expired and you need to update them</li>
+<li>You have a new CA and want to create certificates using it instead</li>
 <li>allinone&#x7684;&#x96C6;&#x7FA4;&#x4E0B;&#x66F4;&#x65B0;&#x6240;&#x6709;&#x8BC1;&#x4E66;&#x65F6;&#xFF0C;&#x5728;&#x91CD;&#x542F;docker&#x90A3;&#x4E00;&#x6B65;&#x4E2D;&#xFF0C;&#x5BB9;&#x6613;&#x5361;&#x4F4F;</li>
 </ul>
 <h1 id="&#x53C2;&#x8003;&#x8FDE;&#x63A5;">&#x53C2;&#x8003;&#x8FDE;&#x63A5;</h1>
@@ -3595,7 +3612,7 @@ openshift_master_ca_certificate=<span class="token punctuation">{</span><span cl
 <li><a href="https://www.jianshu.com/p/ffc4d6369d4e" _target="blank">https://www.jianshu.com/p/ffc4d6369d4e</a> </li>
 </ol>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-08-20 17:50:13
+2019-08-20 18:46:16
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -3624,10 +3641,14 @@ openshift_master_ca_certificate=<span class="token punctuation">{</span><span cl
 
 		
 		
-		<a href="openshift-使用Cockpit监控集群节点的系统状态.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 节点状态监控">
+		<a href="openshift-使用Cockpit监控集群节点的系统状态.html" class="navigation navigation-prev " aria-label="Previous page: 节点状态监控">
 			<i class="fa fa-angle-left"></i>
 		</a>
 		
+		
+		<a href="openshift-no-IP-addresses-available-in-range-set解决方案.html" class="navigation navigation-next " aria-label="Next page: 集群管理遇到的问题">
+			<i class="fa fa-angle-right"></i>
+		</a>
 		
 		
 		
@@ -3635,7 +3656,7 @@ openshift_master_ca_certificate=<span class="token punctuation">{</span><span cl
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"集群组件TLS证书管理","level":"2.3.2.2.3","depth":4,"next":{"title":"网络","level":"2.3.3","depth":2,"ref":"","articles":[{"title":"openshift开启router的haproxy-statisc","level":"2.3.3.1","depth":3,"path":"origin/openshift-开启router的haproxy-statisc.md","ref":"origin/openshift-开启router的haproxy-statisc.md","articles":[]},{"title":"openshift的多租户网络","level":"2.3.3.2","depth":3,"path":"origin/openshift-多租户网络.md","ref":"origin/openshift-多租户网络.md","articles":[]}]},"previous":{"title":"节点状态监控","level":"2.3.2.2.2","depth":4,"path":"origin/openshift-使用Cockpit监控集群节点的系统状态.md","ref":"origin/openshift-使用Cockpit监控集群节点的系统状态.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/openshift-集群组件TLS证书管理.md","mtime":"2019-08-20T09:50:13.224Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-08-20T09:48:11.931Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"集群组件TLS证书管理","level":"2.3.2.2.3","depth":4,"next":{"title":"集群管理遇到的问题","level":"2.3.2.2.4","depth":4,"path":"origin/openshift-no-IP-addresses-available-in-range-set解决方案.md","ref":"origin/openshift-no-IP-addresses-available-in-range-set解决方案.md","articles":[]},"previous":{"title":"节点状态监控","level":"2.3.2.2.2","depth":4,"path":"origin/openshift-使用Cockpit监控集群节点的系统状态.md","ref":"origin/openshift-使用Cockpit监控集群节点的系统状态.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/openshift-集群组件TLS证书管理.md","mtime":"2019-08-20T10:46:16.185Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-08-20T10:51:25.100Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>

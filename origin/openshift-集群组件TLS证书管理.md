@@ -1,6 +1,6 @@
 # Openshift组件:Master、Node、Etcd、Router、Registry之间的TLS证书管理
 
-# 一. 安装时指定证书的有效期
+# 一、安装时指定证书的有效期
 
 默认情况下，etcd证书、openshift证书的有效期为5年，kubelet证书、私有镜像仓库registry证书、Route证书的有效期为2年。在集群安装时可以通过设置ansible/hosts中的参数来指定证书的有效期
 
@@ -110,9 +110,9 @@ openshift_master_ca_certificate={'certfile': '</path/to/ca.crt>', 'keyfile': '</
 
 # 六、更新完成后可能遇到的问题
 
-* The installer detected the wrong host names and the issue was identified too late.
-* The certificates are expired and you need to update them.
-* You have a new CA and want to create certificates using it instead.
+* The installer detected the wrong host names and the issue was identified too late
+* The certificates are expired and you need to update them
+* You have a new CA and want to create certificates using it instead
 * allinone的集群下更新所有证书时，在重启docker那一步中，容易卡住
 
 

@@ -1,4 +1,4 @@
-# 一. OKD集群中添加容器化的GlusteFS
+# 一、OKD集群中添加容器化的GlusteFS
 
 ## Prerequisite
 
@@ -51,7 +51,7 @@ setsebool -P virt_use_fusefs on
 ansible-playbook /root/openshift-ansible/playbooks/openshift-glusterfs/config.yml
 ```
 
-# 二. 向OKD集群中添加集群外的GlusteFS
+# 二、向OKD集群中添加集群外的GlusteFS
 
 配置ansible主机清单/etc/ansible/hosts 
 
@@ -89,13 +89,13 @@ gluster3.example.com glusterfs_ip=192.168.10.13 glusterfs_devices='[ "/dev/xvdc"
 ansible-playbook /root/openshift-ansible/playbooks/openshift-glusterfs/config.yml
 ```
 
-# 三. 卸载
+# 三、卸载
 
 ```bash
 ansible-playbook -e "openshift_storage_glusterfs_wipe=true" /root/openshift-ansible/playbooks/openshift-glusterfs/uninstall.yml 
 ```
 
-# 四. OKD中通过storage动态使用glusterfs作为PVC的后端存储
+# 四、OKD中通过storage动态使用glusterfs作为PVC的后端存储
 
 ## 1. 创建storage class
 
@@ -146,7 +146,7 @@ spec:
 ```
 
 
-# 五. 主机上mount挂载使用容器化的GlusterFS 
+# 五、主机上mount挂载使用容器化的GlusterFS 
 
 挂载命令格式：
 

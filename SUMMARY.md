@@ -30,6 +30,7 @@
             * [节点管理](origin/openshift-集群节点管理.md)
             * [节点状态监控](origin/openshift-使用Cockpit监控集群节点的系统状态.md)
             * [集群组件TLS证书管理](origin/openshift-集群组件TLS证书管理.md)
+            * [集群管理遇到的问题](origin/openshift-no-IP-addresses-available-in-range-set解决方案.md)
     * 网络
         * [openshift开启router的haproxy-statisc](origin/openshift-开启router的haproxy-statisc.md)
         * [openshift的多租户网络](origin/openshift-多租户网络.md)

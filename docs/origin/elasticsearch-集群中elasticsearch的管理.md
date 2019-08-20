@@ -34,7 +34,6 @@ Fluentd以Daemonset的形式部署在所有Node节点上，监控采集docker容
     - CURATOR_LOG_LEVEL: ERROR
     - CURATOR_TIMEOUT: "300"
 
-
 # 参考连接
 1. https://docs.openshift.com/container-platform/3.11/install_config/aggregate_logging.html#aggregate-logging-understanding-the-deployment
 2. https://hub.docker.com/r/openshift/origin-logging-curator5
