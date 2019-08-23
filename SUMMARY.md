@@ -187,8 +187,9 @@
     * 安装
     * 使用
 * PXE+Kickstart
-    * Linux
-    * Windows
+    * [PXE-Kickstart无人值守部署OS](origin/pxe-kickstart无人值守部署OS.md)
+    * [Kickstart文件参数详解](origin/pxe-kickstart文件参数详解.md)
+    * [PXE引导配置文件参数详解](origin/pxe-引导配置文件参数详解.md)* 
 * Ansible
     * 安装
     * 使用
