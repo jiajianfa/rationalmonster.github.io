@@ -392,7 +392,7 @@ ksvalidator  /var/www/html/CentOS7.cfg
 
     
 
-# 参考文章
+# 参考连接
 
 ★★★★☆：https://blog.csdn.net/yanghua1012/article/details/80426659
 
