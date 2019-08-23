@@ -82,7 +82,7 @@ systemctl status httpd && \
 ss -tnl | grep 80
 ```
 
-## 3、配置DHCP服务 
+## 3、配置DHCP服务
 
 安装服务
 
@@ -118,7 +118,7 @@ systemctl status dhcpd && \
 ss -nulp | grep dhcpd
 ```
 
-## 4、配置TFTP服务 
+## 4、配置TFTP服务
 
 安装服务
 
@@ -390,9 +390,7 @@ ksvalidator  /var/www/html/CentOS7.cfg
     #然后上传kick start配置文件到/var/www/html/目录下
     ```
 
-    
-
-# 参考连接
+# 参考链接
 
 ★★★★☆：https://blog.csdn.net/yanghua1012/article/details/80426659
 
@@ -406,4 +404,4 @@ ksvalidator  /var/www/html/CentOS7.cfg
 
 ★★★☆☆：https://www.cnblogs.com/cloudos/p/8143929.html
 
-★★★☆☆：http://bbs.51cto.com/thread-621450-1.html    
+★★★☆☆：http://bbs.51cto.com/thread-621450-1.html
