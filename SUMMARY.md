@@ -189,6 +189,8 @@
     * 使用
     * 插件
         * [npm仓库管理工具nrm](origin/npm仓库管理工具nrm.md)
+* iSCSI
+    * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)        
 * GitBook
     * 安装
     * 文档结构
