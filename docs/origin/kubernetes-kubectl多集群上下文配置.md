@@ -172,10 +172,7 @@ kubectl config use-context k8s-pro
     echo "alias k2p='kubectl config use-context k8s-pro'" >> /etc/profile && \
     source /etc/profile
 
-<<<<<<< HEAD
-=======
 
->>>>>>> f86d27f802d463053d2a1e1e9955972627eb3b13
 # 六. Kubectl Config命令详解
 
    ```bash
