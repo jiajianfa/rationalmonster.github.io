@@ -4,7 +4,7 @@
 
 ## Part Ⅰ - 容器云Openshift
 * 安装
-    * Allinone[Allinone](origin/openshift-allinone安装.md)
+    * [Allinone](origin/openshift-allinone安装.md)
     * 集群
 * 基础知识
     * POD
@@ -28,7 +28,12 @@
             * [将Secret和ConfigMap以文件的形式挂载到容器](origin/openshift-将Secret和ConfigMap以文件的形式挂载到容器.md)
         * 集群管理
             * [节点管理](origin/openshift-集群节点管理.md)
-            * [集群中elasticsearch的管理](origin/openshift-将Secret和ConfigMap以文件的形式挂载到容器.md)
+            * [节点状态监控](origin/openshift-使用Cockpit监控集群节点的系统状态.md)
+            * [集群组件TLS证书管理](origin/openshift-集群组件TLS证书管理.md)
+            * [定制WebConsole界面](origin/openshift-WebConsole定制化.md)
+            * [集群管理遇到的问题](origin/openshift-no-IP-addresses-available-in-range-set解决方案.md)
+            * [用户认证](origin/openshift-openshift的用户认证.md)
+            * [用户权限管理实例](origin/openshift-openshift用户权限管理实例.md)
     * 网络
         * [openshift开启router的haproxy-statisc](origin/openshift-开启router的haproxy-statisc.md)
         * [openshift的多租户网络](origin/openshift-多租户网络.md)
@@ -129,8 +134,10 @@
         * [问题总结](origin/elasticsearch-问题总结.md)
     * Kibana
 * Metrics
-    * Prometheus
+    * [Prometheus](origin/prometheus-Kubernetes或Openshift的Prometheus监控体系.md)
     * Grafana
+    * Exporter
+        * [Ceph Exporter](origin/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群.md)
 
 ## Part Ⅵ：大数据
 * Apache
@@ -156,6 +163,19 @@
       * [Dockerfile中CMD与ENTRYPOINT命令的区别](origin/docker-Dockerfile中CMD与ENTRYPOINT命令的区别.md)
       * [使用Makefile操作Dockerfile.md](origin/docker-使用Makefile操作Dockerfile.md)
 * Shell
+    * [变量](origin/shell-变量.md)
+    * 运算判断
+        * [文件目录的判断](origin/shell-文件目录的判断.md)
+        * [数值型的判断](origin/shell-数值型的判断.md)
+    * 语句控制
+        * [if判断](origin/shell-if判断.md)
+        * [for循环语句](origin\shell-for循环语句.md)
+        * [while循环语句](origin\shell-while循环语句.md)
+        * [until循环语句](origin\shell-until循环语句.md)
+    * 字符串操作
+        * [字符串的截取拼接](origin/shell-字符串的截取拼接.md)
+        * [字符串的包含判断关系](origin/shell-字符串的包含判断关系.md)
+    * [自定义函数](origin/shell-自定义函数.md)
 * Maven
 * Git
 * Ceph
@@ -167,8 +187,9 @@
     * 安装
     * 使用
 * PXE+Kickstart
-    * Linux
-    * Windows
+    * [PXE-Kickstart无人值守部署OS](origin/pxe-kickstart无人值守部署OS.md)
+    * [Kickstart文件参数详解](origin/pxe-kickstart文件参数详解.md)
+    * [PXE引导配置文件参数详解](origin/pxe-引导配置文件参数详解.md)
 * Ansible
     * 安装
     * 使用
@@ -195,4 +216,3 @@
     * 安装
     * 文档结构
     * 常用插件
-

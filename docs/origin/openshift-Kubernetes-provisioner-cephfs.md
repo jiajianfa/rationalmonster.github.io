@@ -143,7 +143,7 @@ spec:
       serviceAccount: cephfs-provisioner
 ```
 
-# 二. 使用
+# 二、使用
 
 ## 1. 创建StorageClass
 

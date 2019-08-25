@@ -31,7 +31,7 @@ curl  -XGET 'localhost:9200/_cat/health?v&pretty'
 curl --user kibana:****kibana用户的密码**** -XGET 'localhost:9200/_cat/health?v&pretty'
 ```
 
-# 三. Kibana开启Xpack
+# 三、Kibana开启Xpack
 
 1. kibana的容器化部署详见笔记: Kibana的容器化部署.md 
 2. 配置参数可以通过环境变量的方式注入,主要的几个环境变量参数:
@@ -48,7 +48,7 @@ curl --user kibana:****kibana用户的密码**** -XGET 'localhost:9200/_cat/heal
 
     ![](/assets/elasticsearch7.1的xpack权限控制-2.png)
 
-# 四. Logstash开启Xpack
+# 四、Logstash开启Xpack
 
 1. 配置logstash发送监控数据到elasticsearch
    ```bash
@@ -86,7 +86,7 @@ curl --user kibana:****kibana用户的密码**** -XGET 'localhost:9200/_cat/heal
 ![](/assets/elasticsearch7.1的xpack权限控制-9.png)
 
 
-# 五. 附录：Kibana上的角色权限
+# 附录：Kibana上的角色权限
 
 **`Cluster相关的角色权限`**
 
@@ -136,7 +136,7 @@ curl --user kibana:****kibana用户的密码**** -XGET 'localhost:9200/_cat/heal
 | view_index_metadata | Read-only access to index metadata (aliases, aliases exists, get index, exists, field mappings, mappings, search shards, type exists, validate, warmers, settings, ilm). This privilege is primarily available for use by Kibana users. |
 | write | Privilege to perform all write operations to documents, which includes the permission to index, update, and delete documents as well as performing bulk operations. Also grants access to the update mapping action. |
 
-# 六. 参考链接
+# 参考链接
 
 https://www.elastic.co/cn/blog/getting-started-with-elasticsearch-security 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html 

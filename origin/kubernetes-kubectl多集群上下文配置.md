@@ -140,36 +140,38 @@ kubectl config use-context k8s-pro
 
 3. Windows和Linux下设置别名永久生效
 
-  **Windows**
-    - ①创建bat脚本cmdalias.cmd
-        ```bash
-        @doskey k=kubectl $*
-        @doskey k2d=kubectl config use-context k8s-dev
-        @doskey k2t=kubectl config use-context k8s-test
-        @doskey k2u=kubectl config use-context k8s-uat
-        @doskey k2p=kubectl config use-context k8s-pro
-
-        # @表示执行这条命令时不显示这条命令本身
+**Windows**
+   - ①创建bat脚本cmdalias.cmd
+       ```bash
+       @doskey k=kubectl $*
+       @doskey k2d=kubectl config use-context k8s-dev
+       @doskey k2t=kubectl config use-context k8s-test
+       @doskey k2u=kubectl config use-context k8s-uat
+       @doskey k2p=kubectl config use-context k8s-pro
+       # @表示执行这条命令时不显示这条命令本身
        ```
-    - ②修改注册表
-        - `方式1`：手动在注册表HKEY_CURRENT_USER\Software\Microsoft\Command Processor下添加加一项AutoRun，把值设为bat脚本的路径
-        - `方式2`：创建编写一个注册表修改文件，名为：add-regkey.reg，双击执行这个文件,导入注册表添加的值
-          ```bash
-          Windows Registry Editor Version 5.00
-          [HKEY_CURRENT_USER\Software\Microsoft\Command Processor]
-          "AutoRun"="%USERPROFILE%\\.kube\\cmdalias.cmd"
-          ```
+
+   - ②修改注册表
+     - `方式1`：手动在注册HKEY_CURRENT_USER\Software\Microsoft\Command Processor下添加一项AutoRun，把值设为bat脚本的路径
+     - `方式2`：创建编写一个注册表修改文件，名为：add-regkey.reg，双击行这个文件,导入注册表添加的值
+
+            Windows Registry Editor Version 5.00
+            [HKEY_CURRENT_USER\Software\Microsoft\Command Processor]
+            "AutoRun"="%USERPROFILE%\\.kube\\cmdalias.cmd"
+  
+       
+       
 
   **Linux**
 
-    ```bash
+
     echo "alias k='kubectl'" >> /etc/profile && \
     echo "alias k2d='kubectl config use-context k8s-dev'" >> /etc/profile && \
     echo "alias k2t='kubectl config use-context k8s-test'" >> /etc/profile && \
     echo "alias k2u='kubectl config use-context k8s-uat'" >> /etc/profile && \
     echo "alias k2p='kubectl config use-context k8s-pro'" >> /etc/profile && \
     source /etc/profile
-    ```
+
 
 # 六. Kubectl Config命令详解
 

@@ -1,4 +1,4 @@
-# 一. Context
+# 一、Context
 
 在Jenkins中做CI过程中,有一个步骤是代码编译完,使用sonar scanner扫描代码,检查静态代码中的语法错误,然后将代码发送到sonarqube,供项目经理查看代码质量.
 sonarqube可以安装插件gitlab,让sonarscanner扫描完代码,将结果以gitlab注释的方式回写到提交的commit中.方便开发人员排查代码.  
@@ -14,7 +14,7 @@ sonarqube可以安装插件gitlab,让sonarscanner扫描完代码,将结果以git
  
 Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave POD)节点中来运行的,所以Sonarscanner,Maven等工具都是在Kubernetes Jenkins Slave镜像中已经安装好的.
  
-# 二.操作
+# 二、操作
  
 1. sonarqube 安装sonar-gitlab-plugin插件
    
@@ -61,13 +61,13 @@ Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave P
     }
     ```
 
-# 三. 效果
+# 三、效果
 
 ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-6.png)
 ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-7.png)
 
 
-# 四. soanarscanner参数详解
+# 四、Soanarscanner参数详解
 
 | Variable                                 | Comment                                                      | Type                              | Version  |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- | -------- |
@@ -107,7 +107,7 @@ Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave P
 | sonar.gitlab.merge_request_discussion    | Allows to post the comments as discussions (default false)   | Project, Variable                 | >= 4.0.0 |
 | sonar.gitlab.ci_merge_request_iid        | The IID of the merge request if it’s pipelines for merge requests | Project, Variable                 | >= 4.0.0 |
 
-# 五. 问题
+# 五、问题
 
 1. 当项目是私有仓库时
 
