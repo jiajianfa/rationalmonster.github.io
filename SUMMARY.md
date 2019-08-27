@@ -53,11 +53,15 @@
     * S2I Template
 
 ## Part Ⅱ：容器云Kubernetes
+* 基础
+  * [Kubernetes的集群角色及插件](origin/kubernetes-集群角色及插件.md)
 * 安装
+  * [Kubeadm安装单机版Kubernetes](origin/kubernetes-使用Kubeadm安装单机版Kubernetes.md)
 * 集群管理
-    * [kubectl多集群上下文配置](origin/kubernetes-kubectl多集群上下文配置.md)
+  * [kubectl多集群上下文配置](origin/kubernetes-kubectl多集群上下文配置.md)
 
 ## Part Ⅲ：持续集成与持续部署
+
 * Jenkins
     * 安装
     * 管理
