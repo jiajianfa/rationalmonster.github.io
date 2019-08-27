@@ -201,6 +201,8 @@
     * PlayBooks
 * IDEA
 * Windows
+    * [CMD发送SMTP邮件](origin/windows-cmd发送SMTP邮件.md)
+    * [CMD小技巧](origin/windows-小技巧.md)
 * Linux
     * CentOS
     * Ubuntu
