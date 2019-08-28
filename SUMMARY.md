@@ -59,6 +59,7 @@
   * [Kubeadm安装单机版Kubernetes](origin/kubernetes-使用Kubeadm安装单机版Kubernetes.md)
 * 集群管理
   * [kubectl多集群上下文配置](origin/kubernetes-kubectl多集群上下文配置.md)
+  * [Network Policy容器流量管理](origin/kubernetes-NetworkPolicy.md)
 
 ## Part Ⅲ：持续集成与持续部署
 
