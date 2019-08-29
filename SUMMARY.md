@@ -85,11 +85,12 @@
         * [设置SMTP邮件服务](origin/nexus-设置SMTP邮件服务.md)
     * 权限
     * 仓库管理
-        * Maven
+        * [Maven](origin/nexus-maven仓库的配置与使用.md)
         * NPM
         * YUM
         * Docker
         * RAW
+    * [数据备份恢复](origin/nexus-数据的备份恢复.md)
 * SonarQube
     * 配置
         * [配置SMTP服务](origin/sonarqube-配置SMTP邮箱.md)
