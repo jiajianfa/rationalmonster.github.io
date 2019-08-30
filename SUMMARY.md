@@ -86,7 +86,7 @@
     * 权限
     * 仓库管理
         * [Maven](origin/nexus-maven仓库的配置与使用.md)
-        * NPM
+        * [NPM](origin/nexus-npm仓库的配置与使用.md)
         * YUM
         * Docker
         * RAW
@@ -144,6 +144,8 @@
     * Grafana
     * Exporter
         * [Ceph Exporter](origin/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群.md)
+* Tracing
+    * SkyWalking
 
 ## Part Ⅵ：大数据
 * Apache
@@ -213,13 +215,8 @@
     * SQLServer
     * ETCD
     * PostgreSQL
-* NPM
-    * 安装
-    * 使用
-    * 插件
-        * [npm仓库管理工具nrm](origin/npm仓库管理工具nrm.md)
 * iSCSI
-    * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)        
+    * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)
 * GitBook
     * 安装
     * 文档结构
