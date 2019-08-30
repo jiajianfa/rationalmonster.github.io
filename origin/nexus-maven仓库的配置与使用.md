@@ -46,7 +46,7 @@ maven格式的仓库有两种典型的使用场景，一个是顺序拉取group�
             <id>curiouser-maven</id>
             <mirrorOf>*</mirrorOf>
             <name>The Maven repository of curiouser </name>
-            <url>http://nexus.apps.okd311.curiouser.com/repository/maven/</url>
+            <url>http://nexus-ip地址:8081/repository/maven/</url>
         </mirror>
     </mirrors>
     .....下文省略......
@@ -86,13 +86,13 @@ maven格式的仓库有两种典型的使用场景，一个是顺序拉取group�
          <!-- id要与setting.xml文件中配置的releases仓库id保持一致 -->
          <id>maven-releases</id>
          <name>User Project Release</name>
-         <url>http://nexus.apps.okd311.curiouser.com/repository/maven-releases/</url>
+         <url>http://nexus-ip地址:8081/repository/maven-releases/</url>
      </repository>
      <snapshotRepository>
          <!-- id要与setting.xml文件中配置的snapshots仓库id保持一致 -->
          <id>maven-snapshots</id>
          <name>User Project SNAPSHOTS</name>
-         <url>http://nexus.apps.okd311.curiouser.com/repository/maven-snapshots/</url>
+         <url>http://nexus-ip地址:8081/repository/maven-snapshots/</url>
      </snapshotRepository>
   </distributionManagement>
   .....下文省略......
@@ -105,8 +105,8 @@ maven格式的仓库有两种典型的使用场景，一个是顺序拉取group�
 ## 2、Curl手动上传
 
 ```bash
- curl -v -u microservices:microservices用户的密码 --upload-file springboot2-0.0.0.jar http://nexus.apps.okd311.curiouser.com/repository/maven-releases/com/curiouser/demoeverything/springboot2/0.0.0/springboot2-0.0.0.jar
- curl -v -u microservices:microservices用户的密码 --upload-file pom.xml http://nexus.apps.okd311.curiouser.com/repository/maven-releases/com/curiouser/demoeverything/springboot2/0.0.0/springboot2-0.0.0.pom
+ curl -v -u microservices:microservices用户的密码 --upload-file springboot2-0.0.0.jar http://nexus-ip地址:8081/repository/maven-releases/com/curiouser/demoeverything/springboot2/0.0.0/springboot2-0.0.0.jar
+ curl -v -u microservices:microservices用户的密码 --upload-file pom.xml http://nexus-ip地址:8081/repository/maven-releases/com/curiouser/demoeverything/springboot2/0.0.0/springboot2-0.0.0.pom
 ```
 
 ## 3、mvn命令手动上传
@@ -128,7 +128,7 @@ maven格式的仓库有两种典型的使用场景，一个是顺序拉取group�
  #要上传到仓库的制品类型，该值还可以是pom
  -Dpackaging=jar \
  #maven私服hosted类型仓库的地址
- -Durl=http://nexus.apps.okd311.curiouser.com/repository/maven-releases/ \
+ -Durl=http://nexus-ip地址:8081/repository/maven-releases/ \
  #maven私服hosted类型仓库的repositoryid
  -DrepositoryId=maven-releases
 ```
@@ -142,7 +142,7 @@ maven格式的仓库有两种典型的使用场景，一个是顺序拉取group�
  -DartifactId=websocket-server ^
  -Dversion=9.4 ^
  -Dpackaging=jar ^
- -Durl=http://nexus.apps.okd311.curiouser.com/repository/maven-releases/ ^
+ -Durl=http://nexus-ip地址:8081/repository/maven-releases/ ^
  -DrepositoryId=maven-releases
 ```
 
