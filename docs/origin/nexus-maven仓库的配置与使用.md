@@ -54,7 +54,7 @@ maven格式的仓库有两种典型的使用场景，一个是顺序拉取group�
 
 
 
-# 三、发布制品到Maven的Hosted仓库<div id="maven制品上传"></div>
+# 三、发布制品到Maven的Hosted仓库
 
 ## 1、mvn deploy
 
