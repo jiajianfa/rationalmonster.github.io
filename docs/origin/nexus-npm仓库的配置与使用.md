@@ -1,4 +1,4 @@
-# NPM仓库的配置与私用
+# NPM仓库的配置与使用
 
 # 一、npm仓库的配置信息
 
@@ -16,7 +16,7 @@
 # 二、使用NPM仓库
 
 ```bash
-npm config set registry http://Nexus-IP地址:8081/repository/NPM/
+npm config set registry http://nexus-ip地址:8081/repository/NPM/
 ```
 
 # 三、发布制品到NPM的Hosted仓库
@@ -55,7 +55,7 @@ npm publish -registry http://Nexus-IP地址:8081/repository/NPM-Hosted/
 # 四、使用nrm工具切换npm仓库
 
 Github地址：https://github.com/Pana/nrm
-帮助快速切换npm仓库源。默认已经配置了npm,yarn,taobao,cnpm,nj,npmMirror,edunpm等常见的仓库源。
+帮助快速切换npm仓库源。默认已经配置了npm、yarn、taobao、cnpm、nj、npmMirror、edunpm等常见的仓库源。
 
 ## 1. 安装
 
