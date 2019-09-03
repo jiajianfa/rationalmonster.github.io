@@ -150,47 +150,46 @@ spec:
 
 # 五、常见仓库配置
 
-- **YUM仓库**
-  - Group
+- **YUM格式制品**
+  - `Group类型仓库`
     - yum
       - yum-ustc
       - yum-ansible
       - yum-cloudera5
-  - Proxy
+  - `Proxy类型仓库`
     - yum-ansible：https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/
     - yum-ustc： http://mirrors.ustc.edu.cn/
     - yum-cloudera5：https://archive.cloudera.com/cdh5/
-  - Hosted
+  - `Hosted类型仓库`
     - yum-hosted
-- **Maven仓库**
-  - Group
+- **Maven格式制品**
+  - `Group类型仓库`
     - maven
       - maven-aliyun
       - maven-central
       - maven-releases
       - maven-snapshots
-  - Proxy
+  - `Proxy类型仓库`
     - maven-central：https://repo1.maven.org/maven2/
     - maven-aliyun：http://maven.aliyun.com/nexus/content/groups/public
-  - Hosted
+  - `Hosted类型仓库`
     - maven-snapshots
     - maven-releases
-- **NPM仓库**
-  - Group
+- **NPM格式制品**
+  - `Group类型仓库`
     - npm
       - npm-taobao
       - npm-cnpm
       - npm-hosted
-  - Proxy
+  - `Proxy类型仓库`
     - npm-taobao：http://registry.npm.taobao.org/
     - npm-cnpm：http://registry.cnpmjs.org/
-  - Hosted
+  - `Hosted类型仓库`
     - npm-hosted（上传权限需修改realms)
-- **Docker仓库**
-  - Group
+- **Docker格式制品**
+  - `Group类型仓库`
     - docker（设置http-port:8082）
-  - Proxy:
+  - `Proxy类型仓库`
     - docker-io： https://registry-1.docker.io
-  - Hosted
+  - `Hosted类型仓库`
     - docker-hosted（设置http-port:8083）
-

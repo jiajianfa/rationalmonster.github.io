@@ -86,11 +86,13 @@
     * 权限
     * 仓库管理
         * [Maven](origin/nexus-maven仓库的配置与使用.md)
-        * NPM
-        * YUM
+        * [NPM](origin/nexus-npm仓库的配置与使用.md)
+        * [YUM](origin/nexus-yum仓库的配置与使用.md)
         * Docker
         * RAW
     * [数据备份恢复](origin/nexus-数据的备份恢复.md)
+    * [API](/origin/nexus-api.md)
+    * [Jenkins相关插件](origin/nexus-使用jenkins插件上传CI流程制品到Nexus仓库.md)
 * SonarQube
     * 配置
         * [配置SMTP服务](origin/sonarqube-配置SMTP邮箱.md)
@@ -144,6 +146,8 @@
     * Grafana
     * Exporter
         * [Ceph Exporter](origin/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群.md)
+* Tracing
+    * SkyWalking
 
 ## Part Ⅵ：大数据
 * Apache
@@ -213,13 +217,8 @@
     * SQLServer
     * ETCD
     * PostgreSQL
-* NPM
-    * 安装
-    * 使用
-    * 插件
-        * [npm仓库管理工具nrm](origin/npm仓库管理工具nrm.md)
 * iSCSI
-    * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)        
+    * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)
 * GitBook
     * 安装
     * 文档结构
