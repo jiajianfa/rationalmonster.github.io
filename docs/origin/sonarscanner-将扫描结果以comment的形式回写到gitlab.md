@@ -1,6 +1,8 @@
+# SonarScanner使用Sonarqube的Gitlab插件将扫描结果以gitlab comment的形式回写到Gitlab
+
 # 一、Context
 
-在Jenkins中做CI过程中,有一个步骤是代码编译完,使用sonar scanner扫描代码,检查静态代码中的语法错误,然后将代码发送到sonarqube,供项目经理查看代码质量.
+在Jenkins中做CI过程中,有一个步骤是代码编译完,使用sonar scanner扫描代码,检查静态代码中的语法错误等,然后将扫描结果发送到sonarqube,供项目经理查看代码质量.
 sonarqube可以安装插件gitlab,让sonarscanner扫描完代码,将结果以gitlab注释的方式回写到提交的commit中.方便开发人员排查代码.  
 
 以下操作过程各组件的版本
@@ -16,26 +18,26 @@ Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave P
  
 # 二、操作
  
-1. sonarqube 安装sonar-gitlab-plugin插件
+## 1、安装sonar-gitlab-plugin插件
    
    插件Github:https://github.com/gabrie-allaigre/sonar-gitlab-plugin/
     ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-2.png)
 
-2. Sonarqube生成用户访问Token
+## 2、生成用户访问Token
    
     ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-3.png)
 
-3. gitlab创建sonarscanner的用户,并生成AccessKey
+## 3、gitlab创建sonarscanner的用户,并生成AccessKey
    
     ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-4.png)
 
-4. 在gitlab中将sonarqube加入到对应项目仓库的Members中
+## 4、在gitlab中将sonarqube加入到对应项目仓库的Members中
    
     ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-5.png)
 
-5. 在Jenkins Pipeline中使用sonarscanner扫描代码
+## 5、Jenkins Pipeline中使用sonarscanner扫描代码
 
-    ```
+    ```groovy
     stage("代码扫描"){
         steps{
             sh "sonar-scanner \
@@ -109,17 +111,84 @@ Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave P
 
 # 五、问题
 
-1. 当项目是私有仓库时
+## 1、当项目是私有仓库时
 
     ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-8.png)
 
-2. 获取项目仓库的ProjectID
+## 2、获取项目仓库的ProjectID
 
     ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-9.png)
     ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-10.png)
     ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-11.png)
 
+## 3、gitlab插件4.0.0无法兼容Sonarqube 7.6-community至7.9-community的版本
+   
+   报错如下！插件GIthub的原始Issue：https://github.com/gabrie-allaigre/sonar-gitlab-plugin/issues/213
 
+```bash
+[ERROR] Failed to execute goalorg.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar(default-cli) on project egsdloen-bc-facade:com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJob hasunsatisfied dependency 'classcom.talanlabs.sonar.plugins.gitlab.ReporterBuilder' for constructor'public com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJo(com.talanlabs.sonar.plugins.gitlab.GitLabPluginConfigurationcom.talanlabs.sonar.plugins.gitlab.SonarFacadecom.talanlabs.sonar.plugins.gitlab.CommitFacadecom.talanlabs.sonar.plugins.gitlab.ReporterBuilder)' fromorg.sonar.core.platformComponentContainer$ExtendedDefaultPicoContainer@7615666e:512[Immutable:org.sonar.core.platform.ComponentContainer$ExtendedDefaultPicoContaner@364adb24:56<| -> [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed toexecute goalorg.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar(default-cli) on project egsdloen-bc-facade:com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJob hasunsatisfied dependency 'classcom.talanlabs.sonar.plugins.gitlab.ReporterBuilder' for constructor'public com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJo(com.talanlabs.sonar.plugins.gitlab.GitLabPluginConfigurationcom.talanlabs.sonar.plugins.gitlab.SonarFacadecom.talanlabs.sonar.plugins.gitlab.CommitFacadecom.talanlabs.sonar.plugins.gitlab.ReporterBuilder)' fromorg.sonar.core.platformComponentContainer$ExtendedDefaultPicoContainer@7615666e:512[Immutable:org.sonar.core.platform.ComponentContainer$ExtendedDefaultPicoContaner@364adb24:56<|
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:215)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:156)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:148)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:305)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:956)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:288)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:192)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:62)
+    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:564)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:289)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
+Caused by: org.apache.maven.plugin.MojoExecutionException:com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJob hasunsatisfied dependency 'classcom.talanlabs.sonar.plugins.gitlab.ReporterBuilder' for constructor'public com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJo(com.talanlabs.sonar.plugins.gitlab.GitLabPluginConfigurationcom.talanlabs.sonar.plugins.gitlab.SonarFacadecom.talanlabs.sonar.plugins.gitlab.CommitFacadecom.talanlabs.sonar.plugins.gitlab.ReporterBuilder)' fromorg.sonar.core.platformComponentContainer$ExtendedDefaultPicoContainer@7615666e:512[Immutable:org.sonar.core.platform.ComponentContainer$ExtendedDefaultPicoContaner@364adb24:56<|
+    at org.sonarsource.scanner.maven.bootstrap.ScannerBootstrapper.execute (ScannerBootstrapper.java:67)
+    at org.sonarsource.scanner.maven.SonarQubeMojo.execute (SonarQubeMojo.java:104)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:210)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:156)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:148)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:305)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:956)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:288)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:192)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:62)
+    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:564)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:289)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
+[ERROR] 
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVENMojoExecutionException
+```
+
+**原因**
+
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-12.png)
+
+**解决方案**
+
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-13.png)
+
+已经修改编译好的插件Jar包：https://github.com/gabrie-allaigre/sonar-gitlab-plugin/releases/download/4.1.0-SNAPSHOT/sonar-gitlab-plugin-4.1.0-SNAPSHOT.jar
 
 # 参考链接：
 
