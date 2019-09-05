@@ -1,38 +1,38 @@
+# 常用资源对象操作
 
-# 常用的资源对象操作
-1. 登录 
-    ```bash
+## 1、登录
+
     oc project <project_name>
     oc login -u 用户名 集群master的URL 
     oc whoami #查看当前登录的用户，加-t参数可查看当前用户的token
-    ```
-2. 切换Project
-    ```bash
+
+## 2、切换Project
+
     oc project <project_name>
-    ```
-3. 查看集群节点
-    ```bash
+
+## 3、查看集群节点
+
     oc get node/no
     oc get node/no node1.test.openshift.com
-    ```        
-4. 查看集群节点的详细信息
-    ```bash
+
+## 4、查看集群节点的详细信息
+
     oc describe node node1.test.openshift.com
-    ```
-5. 查看某个节点上的所有Pods
-    ```bash
+
+## 5、查看某个节点上的所有Pods
+
     oc adm manage-node node1.test.openshift.com --list-pods
-    ```
-6. 使节点禁止参与调度
-    ```bash
+
+## 6、使节点禁止参与调度
+
     oc adm manage-node router1.test.openshift.com --schedulable=false
-    ```
-7. 疏散某个节点上的所有POD
-    ```bash
+
+## 7、疏散某个节点上的所有POD
+
     oc adm drain router1.test.openshift.com --ignore-daemonsets
-    ```
-8. 清除旧的Build和Deployments历史版（所有namespace）
-    ```bash
+
+## 8、清除旧的Build和Deployments历史版（所有namespace）
+
     统计要清除的资源个数
     #oc adm prune deployments --keep-younger-than=24h --keep-complete=5 --keep-failed=5|wc -l
     确认清除动作
@@ -48,22 +48,21 @@
     示例：
     清理images（在admin用户下执行）
     # oc adm prune images --keep-younger-than=400m --keep-tag-revisions=10 --registry-url=docker-registry.default.svc:5000 --certificate-authority=/etc/origin/master/registry.crt --confirm
-    ```
-9.  删除所有Namespace中非Running的pods
-     ```bash
+
+## 9、删除所有Namespace中非Running的pods
+
     for i in `oc get po --all-namespaces|grep -v "Running"|grep -v "NAMESPACE"|awk '{print $1}'|sort -u` ;
-    do 
-    a=`oc get po -n $i |grep -v "Running"|grep -v "NAMESPACE"|awk '{print $1}'`;
-    echo $a;oc delete po $a -n $i;
-    echo "======";
-    done    
-    ```
-10. 强制删除POD
-    ```bash
+    do
+        echo "===================Namespace $i===================";
+        oc -n $i delete po `oc get po -n $i |grep -v "Running"|grep -v "NAME"|awk 'BEGIN{ORS=" "}{print $1}'`;
+    done
+
+## 10、强制删除POD
+
     oc delete po gitlab-ce-16-ntzst --force --grace-period=0
-    ```
-11. 资源的查看
-     ```bash
+
+## 11、资源的查看
+
     #查看当前项目的所有资源
     oc get all 
     #查看当前项目的所有资源，外加输出label信息
@@ -72,14 +71,14 @@
     oc get pod/po
     oc get service/svc
     oc get persistentvolumes/pv
-    ```
-12. 通过label选择器删除namespace下所有的资源
-     ```bash
+
+## 12、通过label选择器删除namespace下所有的资源
+
     #如果namespace下所有的资源都打上了“name=test”标签
     oc delete all -l name=test 
-    ```
-13. 项目的管理
-     ```bash
+
+## 13、项目的管理
+
     #创建项目
     oc new-project --display-name=显示的项目名 --description=项目描述 project_name
     #删除项目
@@ -88,9 +87,9 @@
     oc project
     #查看所有项目
     oc projects
-    ```
-14. 模板的管理
-     ```bash
+
+## 14、模板的管理
+
     #创建模板(模板文件格式为YAML/JSON.也可以在Openshift的web页面上直接导入)
     oc create -f <TemplateFile_Path>
     #查看模板
@@ -99,9 +98,7 @@
     oc edit template <template_name>
     #删除模板
     oc delete template <template_name>
-    ```
 
-    
 # 附录
 
 ```bash
