@@ -208,10 +208,14 @@
 * IDEA
 * Windows
     * [CMD发送SMTP邮件](origin/windows-cmd发送SMTP邮件.md)
-    * [CMD小技巧](origin/windows-小技巧.md)
+    * [Windows小技巧](origin/windows-小技巧.md)
 * Linux
-    * CentOS
-    * Ubuntu
+    * [Linux小技巧](origin/linux-小技巧.md)
+    * [文本处理](origin/linux-文本处理.md)
+    * [htpasswd](origin/linux-htpasswd.md)
+    * [YAML文本处理工具shyaml](origin/linux-shyaml.md)
+    * [JSON文本处理工具jq](origin/linux-jq.md)
+    * [Curl命令详解](origin/linux-curl.md)
 * 数据库
     * MySQL
     * SQLServer
