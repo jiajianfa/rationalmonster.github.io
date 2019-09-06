@@ -216,6 +216,9 @@
     * [YAML文本处理工具shyaml](origin/linux-shyaml.md)
     * [JSON文本处理工具jq](origin/linux-jq.md)
     * [Curl命令详解](origin/linux-curl.md)
+    * [LVM原理及使用](origin/linux-lvm.md)
+    * [Linux交换分区](origin/linux-交换分区.md)
+    * [Linux硬盘读写性能测试](origin/linux-硬盘读写性能测试.md)
 * 数据库
     * MySQL
     * SQLServer
