@@ -25,6 +25,27 @@ awk NF test.txt
 # NF代表当前行的字段数，空行的话字段数为0,被awk解释为假，因此不进行输出。
 ```
 
+## 3、获取匹配关键字后多少的位字符串
+
+```bash
+# 样本
+a="Location: https://allinone.okd311.curiouser.com:8443/oauth/token/implicit#access_token=FBHwgR1jj2coLoYYfG9SdGUke9L9HmAU2IOI9GaMKrQ&expires_in=86400&scope=user%3Afull&token_type=Bearer"
+
+# 获取"access_token="的值
+
+# 方式一
+
+    echo $a | grep "access_token=" |awk -F"access_token=" '/access_token=/{printf substr($2,0,43)}'
+
+    # 结果： FBHwgR1jj2coLoYYfG9SdGUke9L9HmAU2IOI9GaMKrQ
+
+# 方式二
+
+    echo $a | grep "access_token=" |awk '{ if(match($0,"access_token=")) {print substr($0,RSTART+RLENGTH) }}'| awk -F '&' '{print $1}'
+
+    # 结果： FBHwgR1jj2coLoYYfG9SdGUke9L9HmAU2IOI9GaMKrQ
+```
+
 # 二、sed
 
 ```bash
