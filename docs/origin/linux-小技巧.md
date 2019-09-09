@@ -406,3 +406,290 @@ echo "export https_proxy=http://127.0.0.1:8118" >> /etc/profile && \
 source /etc/profile && \
 curl www.google.com
 ```
+
+# 24、批量打通指定主机SSH免密钥登录脚本
+
+**CentOS**
+
+```bash
+$> bash -c 'cat > ./HitthroughSSH.sh <<EOF
+#!/bin/bash
+
+##
+#===========================================================
+echo "script    usage : ./HitthroughSSH.sh hosts.txt"
+echo "hosts.txt format: host_ip:root_password"
+
+#=========================================================
+echo "==Setup1:Check if cmd expect exist,if no,install automatically"
+rpm -qa | grep expect 
+if [ \$? -ne 0 ];then
+yum install -y expect
+fi
+#=====================================
+echo "==Setup2:Check if have been generated ssh private and public key.if no ,generate automatically "
+
+if [ ! -f ~/.ssh/id_rsa ];then
+  ssh-keygen -t rsa  -P "" -f ~/.ssh/id_rsa
+fi
+#===========================================================
+echo "Setup3:Read IP and root password from text"
+echo "Setup4:Begin to hit root ssh login without password thorough hosts what defined in the hosts.txt"
+for p in \$(cat \$1)    
+do   
+    ip=\$(echo "\$p"|cut -f1 -d":")         
+    password=\$(echo "\$p"|cut -f2 -d":")  
+    expect -c "   
+            spawn ssh-copy-id -i /root/.ssh/id_rsa.pub root@\$ip  
+            expect {   
+                \"*yes/no*\" {send \"yes\r\"; exp_continue}   
+                \"*password*\" {send \"\$password\r\"; exp_continue}   
+                \"*Password*\" {send \"\$password\r\";}   
+            }   
+        "
+    ssh root@\$ip "date"
+done
+EOF' ;\
+  sed -i -c -e '/^$/d;/^##/d' ./HitthroughSSH.sh ;\
+  chmod +x ./HitthroughSSH.sh ;\
+  bash -c 'cat > ./hosts.txt <<EOF
+172.16.0.3:Abc@1234
+172.16.0.4:Abc@1234
+172.16.0.5:Abc@1234
+172.16.0.6:Abc@1234
+172.16.0.7:Abc@1234
+EOF' ;\
+  ./HitthroughSSH.sh ./hosts.txt ;\
+  rm -rf ./HitthroughSSH.sh ./hosts.txt
+```
+
+# 25、硬盘自动分区，格式化，开机自动挂载到/data
+
+```bash
+$> disk=/dev/sdc;\
+   bash -c "fdisk ${disk}<<End
+n
+p
+1
+
+
+wq
+End" ;\
+  mkfs.ext4 ${disk}1 ;\
+  blkid | grep ${disk}1 | cut -d ' ' -f 2 >>/etc/fstab ;\
+  sed -i '$ s/$/ \/data ext4 defaults 0 0/' /etc/fstab ;\
+  mkdir /data ;\
+  mount -a ;\
+  df -h
+```
+
+# 26、在hosts文件中添加IP地址与主机名的域名映射
+
+```bash
+ipaddr=$(ip addr | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}'| sed -n '1p') && \
+echo $ipaddr $HOSTNAME >> /etc/hosts
+```
+
+# 27、禁用透明大页
+
+**Redhat**
+
+```bash
+sed -i '$a echo nerver > /sys/kernel/mm/redhat_transparent_hugepage/defrag\necho nerver > /sys/kernel/mm/redhat_transparent_hugepage/enabled'
+```
+
+**CentOS**
+
+```bash
+echo never > /sys/kernel/mm/transparent_hugepage/defrag ;\
+echo never > /sys/kernel/mm/transparent_hugepage/enabled ;\
+sed -i '/GRUB_CMDLINE_LINUX/ s/"$/ transparent_hugepage=never"/' /etc/default/grub ;\
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+# 28、安装JDK环境
+
+**Prerequisite**：
+1. JDK安装包已下载在内网HTTP服务器中
+
+```bash
+wget http://192.168.1.2/jdk/jdk-8u111-linux-x64.tar.gz;\
+tar -zxvf jdk-8u111-linux-x64.tar.gz -C /opt;\
+rm -rf jdk-8u111-linux-x64.tar.gz;\
+ln -s /opt/jdk1.8.0_111 /opt/jdk;\
+sed -i '$a export JAVA_HOME=/opt/jdk\nexport CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar\nexport PATH=$PATH:$JAVA_HOME/bin' /etc/profile;\
+source /etc/profile;\
+ln -s /opt/jdk/bin/java /usr/bin/java;\
+java -version;\
+javac -version
+```
+
+# 29、安装Tomcat，并由systemctl托管
+
+**Prerequisite**：
+1. 已安装JDK
+2. Tomcat安装包已下载在内网HTTP服务器中
+
+```bash
+wget http://192.168.1.2/tomcat/apache-tomcat-8.5.20.tar.gz;\
+tar -zxvf apache-tomcat-8.5.20.tar.gz -C /opt;\
+rm -rf apache-tomcat-8.5.20.tar.gz;\
+ln -s /opt/apache-tomcat-8.5.20 /opt/tomcat;\
+bash -c 'cat > /lib/systemd/system/tomcat.service <<EOF
+[unit]
+Description=Tomcat
+After=network.target
+[Service]
+Type=forking
+PIDFile=/opt/tomcat/tomcat.pid
+ExecStart=/opt/tomcat/bin/catalina.sh start
+ExecReload=/opt/tomcat/bin/catalina.sh restart
+ExecStop=/opt/tomcat/bin/catalina.sh stop
+[Install]
+WantedBy=multi-user.target
+EOF';\
+ln -s /lib/systemd/system/tomcat.service /etc/systemd/system/multi-user.target.wants/tomcat.service;\
+sed -i '1a CATALINA_PID=/opt/tomcat/tomcat.pid' /opt/tomcat/bin/catalina.sh;\
+systemctl daemon-reload;\
+systemctl start tomcat;\
+systemctl status tomcat;\
+systemctl stop tomcat;\
+systemctl status tomcat;\
+systemctl enable tomcat;\
+systemctl status tomcat
+```
+
+# 30、安装Nginx
+
+```bash
+bash -c 'cat > /etc/yum.repos.d/nginx.repo <<EOF
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/7/\$basearch/
+gpgcheck=0
+enabled=1
+EOF' ;\
+  yum install nginx -y
+```
+
+# 31、安装单机版的Zookeeper
+
+**Prerequisite**：
+1. 已安装JDK
+
+```bash
+version=3.4.14
+curl https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/stable/zookeeper-$version.tar.gz -o /opt/zookeeper-$version.tar.gz 
+tar -zxvf /opt/zookeeper-*.tar.gz -C /opt/ ;\
+rm -rf /opt/zookeeper-*.tar.gz ;\
+ln -s /opt/zookeeper-$version/ /opt/zookeeper ;\
+sed -i '$a export ZOOKEEPER_HOME=/opt/zookeeper\nexport PATH=$PATH:$ZOOKEEPER_HOME/bin' /etc/profile ;\
+source /etc/profile ;\
+mv /opt/zookeeper/conf/zoo_sample.cfg /opt/zookeeper/conf/zoo.cfg  ;\
+sed -i -e '/dataDir/d' -e '/dataLogDir/d' /opt/zookeeper/conf/zoo.cfg ;\
+sed -i -e '$a dataDir=/data/zookeeper/data\ndataLogDir=/data/zookeeper/logs\nserver.1=127.0.0.1:2888:3888\nautopurge.purgeInterval=24\nautopurge.purgeInterval=5' /opt/zookeeper/conf/zoo.cfg ;\
+mkdir -p /data/zookeeper/{data,logs} ;\
+echo "1" > /data/zookeeper/data/myid ;\
+zkServer.sh start ;\
+zkServer.sh status ;\
+jps -l
+```
+
+# 32、安装单机版的Kafka
+
+**Prerequisite**：
+1. 已安装Zookeeper
+
+```bash
+version=2.12-2.2.0
+curl https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.2.0/kafka_$version.tgz -o /opt/kafka_$version.tgz ;\
+tar -zxvf /opt/kafka_$version.tgz -C /opt;\
+rm -rf /opt/kafka_$version.tgz ;\
+ln -s /opt/kafka_$version /opt/kafka ;\
+sed -i '$a export KAFKA_HOME=/opt/kafka\nexport PATH=$PATH:$KAFKA_HOME/bin' /etc/profile ;\
+source /etc/profile ;\
+sed -i -e 's/log.dirs=\/tmp\/kafka\/logs/log.dirs=\/data\/kafka\/logs/g' -e 's/log.retention.hours=168/log.retention.hours=1/g' -e '$a auto.create.topics.enable=true\ndelete.topic.enable=true'  /opt/kafka/config/server.properties ;\
+mkdir -p /data/kafka/{logs,data} ;\
+kafka-server-start.sh -daemon /opt/kafka/config/server.properties ;\
+jps -l
+```
+
+# 33、安装Hadoop客户端
+
+以hadoop 2.8.3版本为例
+
+```bash
+wget https://archive.apache.org/dist/hadoop/common/hadoop-2.8.3/hadoop-2.8.3.tar.gz ;\
+tar -xvf hadoop-2.8.3.tar.gz -C /opt ;\
+rm -rf hadoop-2.8.3.tar.gz ;\
+ln -s /opt/hadoop-2.8.3 /opt/hadoop ;\
+sed -i '$a export HADOOP_HOME=/opt/hadoop\nexport PATH=$PATH:$HADOOP_HOME/bin' /etc/profile ;\
+source /etc/profile
+#然后在/opt/hadoop-2.8.3/etc/hadoop/core-site.xml配置文件<configuration>标签中填写HDFS NameNode节点的IP地址及端口号
+<property>
+   <name>fs.default.name</name>
+   <value>hdfs://172.16.3.10:9000</value>
+   <description> </description>
+</property>
+
+
+hdfs dfs -ls /
+```
+
+# 34、安装Maven环境
+
+```bash
+curl https://mirrors.tuna.tsinghua.edu.cn/apache/maven/binaries/apache-maven-3.2.2-bin.tar.gz -o /opt/apache-maven-3.2.2-bin.tar.gz && \
+tar -zxvf /opt/apache-maven-*.tar.gz -C /opt/ && \
+rm -rf /opt/apache-maven-*.tar.gz && \
+ln -s /opt/apache-maven-3.2.2 /opt/maven && \
+sed -i '$a export M2_HOME=/opt/maven\nexport PATH=$PATH:$M2_HOME/bin' /etc/profile && \
+source /etc/profile && \
+mvn version
+```
+
+# 35、安装NodeJS环境
+
+```bash
+wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x64.tar.xz ;\
+tar -xvf node-v8.9.4-linux-x64.tar.xz -C /opt/ ;\
+rm -rf node-v8.9.4-linux-x64.tar.xz ;\
+ln -s /opt/node-v8.9.4-linux-x64 /opt/nodejs ;\
+sed -i '$a export NODEJS_HOME=/opt/nodejs\nexport PATH=$PATH:$NODEJS_HOME/bin' /etc/profile;\
+source /etc/profile;\
+yum install gcc-c++ make -y;\
+npm config set registry https://registry.npm.taobao.org ;\
+npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/ ;\
+npm version
+```
+
+# 36、安装Docker，并设置新硬盘LVM成docker的数据目录
+
+```bash
+wget https://download.docker.com/linux/centos/docker-ce.repo -O  /etc/yum.repos.d/docker-ce.repo ;\
+yum makecache ;\
+yum install docker-ce-17.12.1.ce -y ;\
+systemctl enable docker ;\
+mkdir /etc/docker ;\
+touch /etc/docker/daemon.json ;\
+bash -c ' tee  /etc/docker/daemon.json <<EOF
+{
+  "registry-mirrors": ["https://0gxg9a07.mirror.aliyuncs.com"],
+  "insecure-registries": ["0.0.0.0/0"]
+}
+EOF' ;\
+systemctl daemon-reload ;\
+disk=/dev/sdc ;\
+yum install -y lvm2 ;\
+pvcreate ${disk} ;\
+vgcreate -s 4M docker ${disk} ;\
+PE_Number=`vgdisplay|grep "Free  PE"|awk '{print $5}'` ;\
+lvcreate -l ${PE_Number} -n docker-lib docker ;\
+mkfs.xfs /dev/docker/docker-lib ;\
+mkdir /var/lib/docker ;\
+echo "/dev/docker/docker-lib /var/lib/docker/ xfs defaults 0 0" >> /etc/fstab ;\
+df -mh ;\
+systemctl start docker ;\
+ls /var/lib/docker/ ;\
+docker info |grep "Insecure Registries:" -A 4
+```

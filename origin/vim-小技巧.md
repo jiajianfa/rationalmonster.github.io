@@ -107,3 +107,15 @@ docker save -o 1.tar docker.io/openshiftistio/origin-ansible:0.7.1 ;\
 docker save -o 2.tar docker.io/openshiftistio/origin-ansible:0.8.0 ;\
 docker save -o 3.tar docker.io/skydive/skydive:latest ;\
 ```
+
+## 3、去除文本中的换行符^M
+
+Windows下保存的文本文件，上传到Linux/Unix下后总会在末尾多了一个换行符^M，导致一些xml、ini、sh等文件读取错误
+
+```bash
+进入命令模式
+
+%s/^M//g (注意，^M = Ctrl v + Ctrl m，而不是手动输入^M)
+
+# ^M 表示清除成功
+```

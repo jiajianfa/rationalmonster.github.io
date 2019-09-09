@@ -115,6 +115,17 @@ sed -i '/ha/ s/$/la' test #在查找包含"ha"的行末追加"la"，"hala"
 sed -i -c -e '/^$/d;/^#/d'  file
 ```
 
+## 8、去除文本中的换行符^M
+
+Windows下保存的文本文件，上传到Linux/Unix下后总会在末尾多了一个换行符^M，导致一些xml、ini、sh等文件读取错误
+
+```bash
+sed 's/^M//' 原文件>新文件
+
+# 注意，^M = Ctrl v + Ctrl m，而不是手动输入^M
+```
+
+
 # 三、grep
 
 ```bash
