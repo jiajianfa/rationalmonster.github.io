@@ -229,11 +229,11 @@ The following four options are useful only when verifying checksums:
 
 
 #生成的MD5值重定向到文件中
-$>md5sum filename > filename.md5 
+$>md5sum filename > filename.md5
 #生成的MD5值重定向追加到文件中
-$> md5sum filename >>filename.md5 
+$> md5sum filename >>filename.md5
 #多个文件输出到一个md5文件中，这要使用通配符*
-$> md5sum *.iso > iso.md5 
+$> md5sum *.iso > iso.md5
 #同时计算多个文件的MD5值
 $> md5sum filetohashA.txt filetohashB.txt filetohashC.txt > hash.md5
 
@@ -251,9 +251,9 @@ MD5 (file.md5) = 9192e127b087ed0ae24bb12070f3051a
 
 import md5
 
-src = 'this is a md5 test.'   
-m1 = md5.new()   
-m1.update(src)   
+src = 'this is a md5 test.'
+m1 = md5.new()
+m1.update(src)
 print m1.hexdigest()
 
 # 方式二：使用hashlib（推荐）
@@ -268,9 +268,9 @@ print m2.hexdigest()
 
 1：Unicode-objects must be encoded before hashing
 
-　　解决方案：import hashlib 
-　　　　　　　m2 = hashlib.md5() 
-　　　　　　　m2.update(src．encode('utf-8')) 
+　　解决方案：import hashlib
+　　　　　　　m2 = hashlib.md5()
+　　　　　　　m2.update(src．encode('utf-8'))
 　　　　　　　print m2.hexdigest()
 ```
 
@@ -356,3 +356,53 @@ vi /etc/selinux/config
 ```
 
 重启完以后，使用getenforce,setenforce等命令就不会报“setenforce: SELinux is disabled”了。这时，我们就可以用setenforce命令来动态的调整当前是否开启selinux。
+
+# 22、检查软件是否已安装，没有就自动安装
+
+```bash
+rpm -qa |grep "jq"
+if [ $? -eq 0 ] ;then
+    echo "jq hava been installed "
+else
+    yum -y install epel-release && yum -y install jq
+fi
+```
+
+# 23、使用privoxy代理http，https流量使用socket连接ShadowSocks服务器
+
+```bash
+echo "安装ShadowSocks" && \
+yum -y install epel-release && yum -y install python-pip && pip install shadowsocks && \
+bash -c 'cat > /etc/shadowsocks.json <<EOF
+{
+"server": "***.***.***.***",
+"server_port": "443",
+"local_address": "127.0.0.1",
+"local_port":"1080",
+"password": "******",
+"timeout":300,
+"method": "aes-256-cfb",
+"fast_open": false
+}
+EOF' && \
+bash -c 'cat > /etc/systemd/system/shadowsocks.service << EOF
+[Unit]
+Description=Shadowsocks
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/bin/sslocal -c /etc/shadowsocks.json
+[Install]
+WantedBy=multi-user.target
+EOF' && \
+  systemctl daemon-reload  && \
+  systemctl enable shadowsocks && \
+  systemctl start shadowsocks
+
+yum install -y privoxy && \
+sed -i 's/#        forward-socks5t   \/               127.0.0.1:9050 ./        forward-socks5t   \/               127.0.0.1:1080 ./' /etc/privoxy/config && \
+privoxy --user privoxy /etc/privoxy/config && \
+echo "export http_proxy=http://127.0.0.1:8118" >> /etc/profile && \
+echo "export https_proxy=http://127.0.0.1:8118" >> /etc/profile && \
+source /etc/profile && \
+curl www.google.com
+```

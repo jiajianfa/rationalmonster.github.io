@@ -1861,21 +1861,6 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5.3.6" >
-            
-                <span>
-            
-                    
-                        <b>4.5.3.6.</b>
-                    
-                    Zabbix
-            
-                </span>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -3601,6 +3586,21 @@
             
         </li>
     
+        <li class="chapter " data-level="8.11.11" data-path="linux-yum.html">
+            
+                <a href="linux-yum.html">
+            
+                    
+                        <b>8.11.11.</b>
+                    
+                    Yum详解
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -4007,11 +4007,11 @@ The following four options are useful only when verifying checksums:
 
 
 <span class="token comment">#&#x751F;&#x6210;&#x7684;MD5&#x503C;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x6587;&#x4EF6;&#x4E2D;</span>
-$<span class="token operator">&gt;</span>md5sum filename <span class="token operator">&gt;</span> filename.md5 
+$<span class="token operator">&gt;</span>md5sum filename <span class="token operator">&gt;</span> filename.md5
 <span class="token comment">#&#x751F;&#x6210;&#x7684;MD5&#x503C;&#x91CD;&#x5B9A;&#x5411;&#x8FFD;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x4E2D;</span>
-$<span class="token operator">&gt;</span> md5sum filename <span class="token operator">&gt;&gt;</span>filename.md5 
+$<span class="token operator">&gt;</span> md5sum filename <span class="token operator">&gt;&gt;</span>filename.md5
 <span class="token comment">#&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x8F93;&#x51FA;&#x5230;&#x4E00;&#x4E2A;md5&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x8FD9;&#x8981;&#x4F7F;&#x7528;&#x901A;&#x914D;&#x7B26;*</span>
-$<span class="token operator">&gt;</span> md5sum *.iso <span class="token operator">&gt;</span> iso.md5 
+$<span class="token operator">&gt;</span> md5sum *.iso <span class="token operator">&gt;</span> iso.md5
 <span class="token comment">#&#x540C;&#x65F6;&#x8BA1;&#x7B97;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x7684;MD5&#x503C;</span>
 $<span class="token operator">&gt;</span> md5sum filetohashA.txt filetohashB.txt filetohashC.txt <span class="token operator">&gt;</span> hash.md5
 
@@ -4026,9 +4026,9 @@ MD5 <span class="token punctuation">(</span>file.md5<span class="token punctuati
 
 <span class="token function">import</span> md5
 
-src <span class="token operator">=</span> <span class="token string">&apos;this is a md5 test.&apos;</span>   
-m1 <span class="token operator">=</span> md5.new<span class="token punctuation">(</span><span class="token punctuation">)</span>   
-m1.update<span class="token punctuation">(</span>src<span class="token punctuation">)</span>   
+src <span class="token operator">=</span> <span class="token string">&apos;this is a md5 test.&apos;</span>
+m1 <span class="token operator">=</span> md5.new<span class="token punctuation">(</span><span class="token punctuation">)</span>
+m1.update<span class="token punctuation">(</span>src<span class="token punctuation">)</span>
 print m1.hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 <span class="token comment"># &#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;&#x4F7F;&#x7528;hashlib&#xFF08;&#x63A8;&#x8350;&#xFF09;</span>
@@ -4043,9 +4043,9 @@ print m2.hexdigest<span class="token punctuation">(</span><span class="token pun
 
 <span class="token number">1</span>&#xFF1A;Unicode-objects must be encoded before hashing
 
-&#x3000;&#x3000;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;import hashlib 
-&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;m2 <span class="token operator">=</span> hashlib.md5<span class="token punctuation">(</span><span class="token punctuation">)</span> 
-&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;m2.update<span class="token punctuation">(</span>src&#xFF0E;encode<span class="token punctuation">(</span><span class="token string">&apos;utf-8&apos;</span><span class="token punctuation">))</span> 
+&#x3000;&#x3000;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;import hashlib
+&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;m2 <span class="token operator">=</span> hashlib.md5<span class="token punctuation">(</span><span class="token punctuation">)</span>
+&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;m2.update<span class="token punctuation">(</span>src&#xFF0E;encode<span class="token punctuation">(</span><span class="token string">&apos;utf-8&apos;</span><span class="token punctuation">))</span>
 &#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;print m2.hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="java&#x751F;&#x6210;md5&#x503C;"><strong>Java&#x751F;&#x6210;MD5&#x503C;</strong></h2>
@@ -4115,9 +4115,53 @@ print m2.hexdigest<span class="token punctuation">(</span><span class="token pun
 
 &#x5FC5;&#x987B;&#x91CD;&#x542F;linux&#xFF0C;&#x4E0D;&#x91CD;&#x542F;&#x662F;&#x6CA1;&#x529E;&#x6CD5;&#x7ACB;&#x523B;&#x5F00;&#x542F;selinux&#x7684;
 </code></pre>
-<p>&#x91CD;&#x542F;&#x5B8C;&#x4EE5;&#x540E;&#xFF0C;&#x4F7F;&#x7528;getenforce,setenforce&#x7B49;&#x547D;&#x4EE4;&#x5C31;&#x4E0D;&#x4F1A;&#x62A5;&#x201C;setenforce: SELinux is disabled&#x201D;&#x4E86;&#x3002;&#x8FD9;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x7528;setenforce&#x547D;&#x4EE4;&#x6765;&#x52A8;&#x6001;&#x7684;&#x8C03;&#x6574;&#x5F53;&#x524D;&#x662F;&#x5426;&#x5F00;&#x542F;selinux&#x3002; </p>
+<p>&#x91CD;&#x542F;&#x5B8C;&#x4EE5;&#x540E;&#xFF0C;&#x4F7F;&#x7528;getenforce,setenforce&#x7B49;&#x547D;&#x4EE4;&#x5C31;&#x4E0D;&#x4F1A;&#x62A5;&#x201C;setenforce: SELinux is disabled&#x201D;&#x4E86;&#x3002;&#x8FD9;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x7528;setenforce&#x547D;&#x4EE4;&#x6765;&#x52A8;&#x6001;&#x7684;&#x8C03;&#x6574;&#x5F53;&#x524D;&#x662F;&#x5426;&#x5F00;&#x542F;selinux&#x3002;</p>
+<h1 id="22&#x3001;&#x68C0;&#x67E5;&#x8F6F;&#x4EF6;&#x662F;&#x5426;&#x5DF2;&#x5B89;&#x88C5;&#xFF0C;&#x6CA1;&#x6709;&#x5C31;&#x81EA;&#x52A8;&#x5B89;&#x88C5;">22&#x3001;&#x68C0;&#x67E5;&#x8F6F;&#x4EF6;&#x662F;&#x5426;&#x5DF2;&#x5B89;&#x88C5;&#xFF0C;&#x6CA1;&#x6709;&#x5C31;&#x81EA;&#x52A8;&#x5B89;&#x88C5;</h1>
+<pre class="language-"><code class="lang-bash"><span class="token function">rpm</span> -qa <span class="token operator">|</span><span class="token function">grep</span> <span class="token string">&quot;jq&quot;</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span> <span class="token punctuation">;</span><span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;jq hava been installed &quot;</span>
+<span class="token keyword">else</span>
+    yum -y <span class="token function">install</span> epel-release <span class="token operator">&amp;&amp;</span> yum -y <span class="token function">install</span> jq
+<span class="token keyword">fi</span>
+</code></pre>
+<h1 id="23&#x3001;&#x4F7F;&#x7528;privoxy&#x4EE3;&#x7406;http&#xFF0C;https&#x6D41;&#x91CF;&#x4F7F;&#x7528;socket&#x8FDE;&#x63A5;shadowsocks&#x670D;&#x52A1;&#x5668;">23&#x3001;&#x4F7F;&#x7528;privoxy&#x4EE3;&#x7406;http&#xFF0C;https&#x6D41;&#x91CF;&#x4F7F;&#x7528;socket&#x8FDE;&#x63A5;ShadowSocks&#x670D;&#x52A1;&#x5668;</h1>
+<pre class="language-"><code class="lang-bash"><span class="token builtin class-name">echo</span> <span class="token string">&quot;&#x5B89;&#x88C5;ShadowSocks&quot;</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+yum -y <span class="token function">install</span> epel-release <span class="token operator">&amp;&amp;</span> yum -y <span class="token function">install</span> python-pip <span class="token operator">&amp;&amp;</span> pip <span class="token function">install</span> shadowsocks <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+<span class="token function">bash</span> -c <span class="token string">&apos;cat &gt; /etc/shadowsocks.json &lt;&lt;EOF
+{
+&quot;server&quot;: &quot;***.***.***.***&quot;,
+&quot;server_port&quot;: &quot;443&quot;,
+&quot;local_address&quot;: &quot;127.0.0.1&quot;,
+&quot;local_port&quot;:&quot;1080&quot;,
+&quot;password&quot;: &quot;******&quot;,
+&quot;timeout&quot;:300,
+&quot;method&quot;: &quot;aes-256-cfb&quot;,
+&quot;fast_open&quot;: false
+}
+EOF&apos;</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+<span class="token function">bash</span> -c <span class="token string">&apos;cat &gt; /etc/systemd/system/shadowsocks.service &lt;&lt; EOF
+[Unit]
+Description=Shadowsocks
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/bin/sslocal -c /etc/shadowsocks.json
+[Install]
+WantedBy=multi-user.target
+EOF&apos;</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+  systemctl daemon-reload  <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+  systemctl <span class="token builtin class-name">enable</span> shadowsocks <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+  systemctl start shadowsocks
+
+yum <span class="token function">install</span> -y privoxy <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+<span class="token function">sed</span> -i <span class="token string">&apos;s/#        forward-socks5t   \/               127.0.0.1:9050 ./        forward-socks5t   \/               127.0.0.1:1080 ./&apos;</span> /etc/privoxy/config <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+privoxy --user privoxy /etc/privoxy/config <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;export http_proxy=http://127.0.0.1:8118&quot;</span> <span class="token operator">&gt;&gt;</span> /etc/profile <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;export https_proxy=http://127.0.0.1:8118&quot;</span> <span class="token operator">&gt;&gt;</span> /etc/profile <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+<span class="token builtin class-name">source</span> /etc/profile <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>
+<span class="token function">curl</span> www.google.com
+</code></pre>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-09-05 22:14:40
+2019-09-09 10:13:32
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -4157,7 +4201,7 @@ print m2.hexdigest<span class="token punctuation">(</span><span class="token pun
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"Linux小技巧","level":"8.11.1","depth":2,"next":{"title":"文本处理","level":"8.11.2","depth":2,"path":"origin/linux-文本处理.md","ref":"origin/linux-文本处理.md","articles":[]},"previous":{"title":"Linux","level":"8.11","depth":1,"ref":"","articles":[{"title":"Linux小技巧","level":"8.11.1","depth":2,"path":"origin/linux-小技巧.md","ref":"origin/linux-小技巧.md","articles":[]},{"title":"文本处理","level":"8.11.2","depth":2,"path":"origin/linux-文本处理.md","ref":"origin/linux-文本处理.md","articles":[]},{"title":"htpasswd","level":"8.11.3","depth":2,"path":"origin/linux-htpasswd.md","ref":"origin/linux-htpasswd.md","articles":[]},{"title":"YAML文本处理工具shyaml","level":"8.11.4","depth":2,"path":"origin/linux-shyaml.md","ref":"origin/linux-shyaml.md","articles":[]},{"title":"JSON文本处理工具jq","level":"8.11.5","depth":2,"path":"origin/linux-jq.md","ref":"origin/linux-jq.md","articles":[]},{"title":"Curl命令详解","level":"8.11.6","depth":2,"path":"origin/linux-curl.md","ref":"origin/linux-curl.md","articles":[]},{"title":"LVM原理及使用","level":"8.11.7","depth":2,"path":"origin/linux-lvm.md","ref":"origin/linux-lvm.md","articles":[]},{"title":"Linux交换分区","level":"8.11.8","depth":2,"path":"origin/linux-交换分区.md","ref":"origin/linux-交换分区.md","articles":[]},{"title":"Linux硬盘读写性能测试","level":"8.11.9","depth":2,"path":"origin/linux-硬盘读写性能测试.md","ref":"origin/linux-硬盘读写性能测试.md","articles":[]},{"title":"Vim小技巧","level":"8.11.10","depth":2,"path":"origin/vim-小技巧.md","ref":"origin/vim-小技巧.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/linux-小技巧.md","mtime":"2019-09-05T14:14:40.197Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-08T12:50:00.558Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"Linux小技巧","level":"8.11.1","depth":2,"next":{"title":"文本处理","level":"8.11.2","depth":2,"path":"origin/linux-文本处理.md","ref":"origin/linux-文本处理.md","articles":[]},"previous":{"title":"Linux","level":"8.11","depth":1,"ref":"","articles":[{"title":"Linux小技巧","level":"8.11.1","depth":2,"path":"origin/linux-小技巧.md","ref":"origin/linux-小技巧.md","articles":[]},{"title":"文本处理","level":"8.11.2","depth":2,"path":"origin/linux-文本处理.md","ref":"origin/linux-文本处理.md","articles":[]},{"title":"htpasswd","level":"8.11.3","depth":2,"path":"origin/linux-htpasswd.md","ref":"origin/linux-htpasswd.md","articles":[]},{"title":"YAML文本处理工具shyaml","level":"8.11.4","depth":2,"path":"origin/linux-shyaml.md","ref":"origin/linux-shyaml.md","articles":[]},{"title":"JSON文本处理工具jq","level":"8.11.5","depth":2,"path":"origin/linux-jq.md","ref":"origin/linux-jq.md","articles":[]},{"title":"Curl命令详解","level":"8.11.6","depth":2,"path":"origin/linux-curl.md","ref":"origin/linux-curl.md","articles":[]},{"title":"LVM原理及使用","level":"8.11.7","depth":2,"path":"origin/linux-lvm.md","ref":"origin/linux-lvm.md","articles":[]},{"title":"Linux交换分区","level":"8.11.8","depth":2,"path":"origin/linux-交换分区.md","ref":"origin/linux-交换分区.md","articles":[]},{"title":"Linux硬盘读写性能测试","level":"8.11.9","depth":2,"path":"origin/linux-硬盘读写性能测试.md","ref":"origin/linux-硬盘读写性能测试.md","articles":[]},{"title":"Vim小技巧","level":"8.11.10","depth":2,"path":"origin/vim-小技巧.md","ref":"origin/vim-小技巧.md","articles":[]},{"title":"Yum详解","level":"8.11.11","depth":2,"path":"origin/linux-yum.md","ref":"origin/linux-yum.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/linux-小技巧.md","mtime":"2019-09-09T02:13:32.556Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-09T06:01:22.543Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>

@@ -109,7 +109,6 @@
         * [Gitlab](origin/ldap-Gitlab对接LDAP.md)
         * [Nexus](origin/ldap-Nexus对接LDAP.md)
         * [Grafana](origin/ldap-Grafana对接LDAP.md)
-        * Zabbix
 
 ## Part Ⅳ：微服务
 * SpringBoot
@@ -220,6 +219,7 @@
     * [Linux交换分区](origin/linux-交换分区.md)
     * [Linux硬盘读写性能测试](origin/linux-硬盘读写性能测试.md)
     * [Vim小技巧](origin/vim-小技巧.md)
+    * [Yum详解](origin/linux-yum.md)
 * 数据库
     * MySQL
     * SQLServer
