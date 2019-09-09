@@ -17,51 +17,52 @@ sonarqube可以安装插件gitlab,让sonarscanner扫描完代码,将结果以git
 Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave POD)节点中来运行的,所以Sonarscanner,Maven等工具都是在Kubernetes Jenkins Slave镜像中已经安装好的.
  
 # 二、操作
- 
+
 ## 1、安装sonar-gitlab-plugin插件
-   
+
    插件Github:https://github.com/gabrie-allaigre/sonar-gitlab-plugin/
-    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-2.png)
+   ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-2.png)
 
 ## 2、生成用户访问Token
-   
-    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-3.png)
+
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-3.png)
 
 ## 3、gitlab创建sonarscanner的用户,并生成AccessKey
-   
-    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-4.png)
 
-## 4、在gitlab中将sonarqube加入到对应项目仓库的Members中
-   
-    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-5.png)
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-4.png)
+
+## 4、在gitlab中将sonarqube加入到对应项目仓库的Members
+
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-5.png)
 
 ## 5、Jenkins Pipeline中使用sonarscanner扫描代码
 
-    ```groovy
-    stage("代码扫描"){
-        steps{
-            sh "sonar-scanner \
-                    -Dsonar.projectKey=demo-springboot2 \
-                    -Dsonar.sources=. \
-                    -Dsonar.host.url=http://sonarqube-sonarqube.apps.okd311.curiouser.com \
-                    -Dsonar.login=058f4d4b905cba6123ffb093fa14b8f1fd9a75b \
-                    -Dsonar.java.binaries=. \
-                    -Dsonar.sourceEncoding=UTF-8 \
-                    -Dsonar.gitlab.project_id=4 \
-                    -Dsonar.analysis.mode=preview \
-                    -Dsonar.issuesReport.html.enable=true \
-                    -Dsonar.gitlab.commit_sha=$GIT_COMMIT \
-                    -Dsonar.gitlab.ref_name=$GIT_BRANCH \
-                    -Dsonar.sources=src \
-                    -Dsonar.gitlab.user_token=e5D1Zo2132ikhGUcmSZZ \
-                    -Dsonar.gitlab.url=http://gitlab.apps.okd311.curiouser.com/ \
-                    -Dsonar.gitlab.ignore_certificate=true \
-                    -Dsonar.gitlab.comment_no_issue=true \
-                    -Dsonar.gitlab.max_global_issues=1000 \
-                    -Dsonar.gitlab.unique_issue_per_inline=true"
-        }
+```groovy
+stage("代码扫描"){
+    steps{
+        sh "sonar-scanner \
+                -Dsonar.projectName=demo-springboot2 \
+                -Dsonar.projectKey=demo-springboot2 \
+                -Dsonar.projectVersion=$GIT_COMMIT \
+                -Dsonar.sources=src \
+                -Dsonar.host.url=http://sonarqube.apps.okd311.curiouser.com \
+                -Dsonar.login=6a6facaf9456f1702ae42f8d0a0fe14166d9a2 \
+                -Dsonar.java.binaries=. \
+                -Dsonar.sourceEncoding=UTF-8 \
+                -Dsonar.java.source=8 \
+                -Dsonar.gitlab.project_id=1 \
+                -Dsonar.issuesReport.html.enable=true \
+                -Dsonar.gitlab.commit_sha=$GIT_COMMIT \
+                -Dsonar.gitlab.ref_name=$GIT_BRANCH \
+                -Dsonar.gitlab.user_token=RqJTW52aXrDEWsRvrJ \
+                -Dsonar.gitlab.url=http://gitlab.apps.okd311.curiouser.com/ \
+                -Dsonar.gitlab.ignore_certificate=true \
+                -Dsonar.gitlab.comment_no_issue=true \
+                -Dsonar.gitlab.max_global_issues=1000 \
+                -Dsonar.gitlab.unique_issue_per_inline=true"
     }
-    ```
+}
+```
 
 # 三、效果
 
@@ -113,16 +114,16 @@ Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave P
 
 ## 1、当项目是私有仓库时
 
-    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-8.png)
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-8.png)
 
 ## 2、获取项目仓库的ProjectID
 
-    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-9.png)
-    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-10.png)
-    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-11.png)
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-9.png)
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-10.png)
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-11.png)
 
 ## 3、gitlab插件4.0.0无法兼容Sonarqube 7.6-community至7.9-community的版本
-   
+
    报错如下！插件GIthub的原始Issue：https://github.com/gabrie-allaigre/sonar-gitlab-plugin/issues/213
 
 ```bash
