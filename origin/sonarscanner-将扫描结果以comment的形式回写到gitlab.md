@@ -31,35 +31,47 @@ Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave P
 
 ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-4.png)
 
-## 4、在gitlab中将sonarqube加入到对应项目仓库的Members
+## 4、在gitlab中将sonarqube加入到对应项目仓库的Members中
 
 ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-5.png)
 
-## 5、Jenkins Pipeline中使用sonarscanner扫描代码
+## 5、Sonarqube中编辑gitlab插件的全局配置
+
+扫描项目时，扫描参数生效优先级如下：
+
+1. UI界面中的全局参数配置
+   ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-15.png)
+2. 项目UI界面中的参数配置
+   ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-16.png)
+3. 项目分析客户端全局配置文件中的参数（例如sonar scanner的全局配置文件/opt/sonarscanner/conf/sonar.properties中的参数）
+4. 项目分析客户端命令行中配置的参数
+
+所以可以在UI界面全局配置中配置一些通用、不经常变动的、由管理员控制的参数。例如：gitlab插件的通用配置、gitlab地址等参数
+
+![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-14.png)
+
+## 6、Jenkins Pipeline中使用sonarscanner扫描代码
 
 ```groovy
 stage("代码扫描"){
     steps{
         sh "sonar-scanner \
-                -Dsonar.projectName=demo-springboot2 \
-                -Dsonar.projectKey=demo-springboot2 \
-                -Dsonar.projectVersion=$GIT_COMMIT \
-                -Dsonar.sources=src \
                 -Dsonar.host.url=http://sonarqube.apps.okd311.curiouser.com \
-                -Dsonar.login=6a6facaf9456f1702ae42f8d0a0fe14166d9a2 \
-                -Dsonar.java.binaries=. \
+                -Dsonar.login=6a6fa6f1702ae42f8d0a0fe14166d9a2 \
+                -Dsonar.projectName=demo-springboot2-$GITLABSOURCEBRANCH \
+                -Dsonar.projectKey=demo-springboot2-$GITLABSOURCEBRANCH \
+                -Dsonar.projectVersion=$GIT_COMMIT \
                 -Dsonar.sourceEncoding=UTF-8 \
+                -Dsonar.sources=src/main \
+                -Dsonar.test=src/test \
+                -Dsonar.java.binaries=target/classes \
+                -Dsonar.java.test.binaries='target/test-classes/*/*.class' \
                 -Dsonar.java.source=8 \
                 -Dsonar.gitlab.project_id=1 \
-                -Dsonar.issuesReport.html.enable=true \
                 -Dsonar.gitlab.commit_sha=$GIT_COMMIT \
                 -Dsonar.gitlab.ref_name=$GIT_BRANCH \
-                -Dsonar.gitlab.user_token=RqJTW52aXrDEWsRvrJ \
-                -Dsonar.gitlab.url=http://gitlab.apps.okd311.curiouser.com/ \
-                -Dsonar.gitlab.ignore_certificate=true \
-                -Dsonar.gitlab.comment_no_issue=true \
-                -Dsonar.gitlab.max_global_issues=1000 \
-                -Dsonar.gitlab.unique_issue_per_inline=true"
+                -Dsonar.java.coveragePlugin=jacoco \
+                -Dsonar.dynamicAnalysis=reuseReports "
     }
 }
 ```
