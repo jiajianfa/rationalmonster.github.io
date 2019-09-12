@@ -204,7 +204,9 @@
     * 使用
     * 配置
     * PlayBooks
-* IDEA
+* Tool
+    * [Sublime Text 3](origin/tool-SublimeText.md)
+    * IDEA
 * Windows
     * [CMD发送SMTP邮件](origin/windows-cmd发送SMTP邮件.md)
     * [Windows小技巧](origin/windows-小技巧.md)
@@ -220,6 +222,7 @@
     * [Linux硬盘读写性能测试](origin/linux-硬盘读写性能测试.md)
     * [Vim小技巧](origin/vim-小技巧.md)
     * [Yum详解](origin/linux-yum.md)
+    * [ZSH](origin/linux-zsh.md)
 * 数据库
     * MySQL
     * SQLServer
@@ -236,7 +239,6 @@
         * Nginx
         * HAProxy
         * Apache
-
 * iSCSI
     * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)
 * [GitBook](origin/gitbook-简介安装.md)

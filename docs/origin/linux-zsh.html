@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>SonarScanner-将扫描结果以comment的形式回写到gitlab · Devops Roadmap</title>
+        <title>ZSH · Devops Roadmap</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -106,6 +106,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    
+    <link rel="prev" href="linux-yum.html" />
     
 
     <style>
@@ -1661,7 +1663,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="4.4.2.1" data-path="sonarscanner-将扫描结果以comment的形式回写到gitlab.html">
+        <li class="chapter " data-level="4.4.2.1" data-path="sonarscanner-将扫描结果以comment的形式回写到gitlab.html">
             
                 <a href="sonarscanner-将扫描结果以comment的形式回写到gitlab.html">
             
@@ -3635,7 +3637,7 @@
             
         </li>
     
-        <li class="chapter " data-level="8.11.12" data-path="linux-zsh.html">
+        <li class="chapter active" data-level="8.11.12" data-path="linux-zsh.html">
             
                 <a href="linux-zsh.html">
             
@@ -4014,7 +4016,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >SonarScanner-将扫描结果以comment的形式回写到gitlab</a>
+        <a href=".." >ZSH</a>
     </h1>
 </div>
 
@@ -4029,366 +4031,182 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="sonarscanner&#x4F7F;&#x7528;sonarqube&#x7684;gitlab&#x63D2;&#x4EF6;&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;gitlab-comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab">SonarScanner&#x4F7F;&#x7528;Sonarqube&#x7684;Gitlab&#x63D2;&#x4EF6;&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;gitlab comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;Gitlab</h1>
-<h1 id="&#x4E00;&#x3001;context">&#x4E00;&#x3001;Context</h1>
-<p>&#x5728;Jenkins&#x4E2D;&#x505A;CI&#x8FC7;&#x7A0B;&#x4E2D;,&#x6709;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x662F;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x5B8C;,&#x4F7F;&#x7528;sonar scanner&#x626B;&#x63CF;&#x4EE3;&#x7801;,&#x68C0;&#x67E5;&#x9759;&#x6001;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x7B49;,&#x7136;&#x540E;&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x53D1;&#x9001;&#x5230;sonarqube,&#x4F9B;&#x9879;&#x76EE;&#x7ECF;&#x7406;&#x67E5;&#x770B;&#x4EE3;&#x7801;&#x8D28;&#x91CF;.
-sonarqube&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x63D2;&#x4EF6;gitlab,&#x8BA9;sonarscanner&#x626B;&#x63CF;&#x5B8C;&#x4EE3;&#x7801;,&#x5C06;&#x7ED3;&#x679C;&#x4EE5;gitlab&#x6CE8;&#x91CA;&#x7684;&#x65B9;&#x5F0F;&#x56DE;&#x5199;&#x5230;&#x63D0;&#x4EA4;&#x7684;commit&#x4E2D;.&#x65B9;&#x4FBF;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6392;&#x67E5;&#x4EE3;&#x7801;.  </p>
-<p>&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x5404;&#x7EC4;&#x4EF6;&#x7684;&#x7248;&#x672C;</p>
+						<h1 id="linux-zsh--oh-my-zsh">Linux zsh &amp;&amp; oh-my-zsh</h1>
+<h1 id="&#x4E00;&#x3001;&#x7B80;&#x4ECB;">&#x4E00;&#x3001;&#x7B80;&#x4ECB;</h1>
+<p>Zsh &#x4E5F;&#x8BB8;&#x662F;&#x76EE;&#x524D;&#x6700;&#x597D;&#x7528;&#x7684; shell&#xFF0C;&#x662F; bash &#x66FF;&#x4EE3;&#x54C1;&#x4E2D;&#x8F83;&#x4E3A;&#x4F18;&#x79C0;&#x7684;&#x4E00;&#x4E2A;&#x3002;</p>
+<p>Zsh &#x5B98;&#x7F51;&#xFF1A;<a href="http://www.zsh.org/" _target="blank">http://www.zsh.org/</a></p>
+<p>Zsh&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x4E3B;&#x8981;&#x4F18;&#x52BF;&#xFF1A;</p>
 <ul>
-<li><strong>sonarqube</strong>: 7.3 (build 15553)</li>
-<li><strong>sonarscanner</strong>: 3.3.0.1492</li>
-<li><p><strong>sonarqube gitlab&#x63D2;&#x4EF6;</strong>: 4.0.0</p>
-<p>  <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-1.png" alt=""></p>
-</li>
-<li><strong>gitlab</strong>: 10.8.4 ce</li>
-<li><strong>jenkins</strong>:  2.150.2</li>
+<li>&#x5B8C;&#x5168;&#x517C;&#x5BB9;bash&#xFF0C;&#x4E4B;&#x524D;bash&#x4E0B;&#x7684;&#x4F7F;&#x7528;&#x4E60;&#x60EF;&#xFF0C;shell&#x811A;&#x672C;&#x90FD;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x517C;&#x5BB9;</li>
+<li>&#x66F4;&#x5F3A;&#x5927;&#x7684;tab&#x8865;&#x5168;</li>
+<li>&#x66F4;&#x667A;&#x80FD;&#x7684;&#x5207;&#x6362;&#x76EE;&#x5F55;</li>
+<li>&#x547D;&#x4EE4;&#x9009;&#x9879;&#x3001;&#x53C2;&#x6570;&#x8865;&#x9F50;</li>
+<li>&#x5927;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#x81EA;&#x52A8;&#x66F4;&#x6B63;</li>
+<li>&#x6709;&#x7740;&#x4E30;&#x5BCC;&#x591A;&#x5F69;&#x7684;&#x4E3B;&#x9898;</li>
+<li>&#x66F4;&#x5F3A;&#x5927;&#x7684;alias&#x547D;&#x4EE4;</li>
+<li>&#x667A;&#x80FD;&#x547D;&#x4EE4;&#x9519;&#x8BEF;&#x7EA0;&#x6B63;</li>
+<li>&#x96C6;&#x6210;&#x5404;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x63D2;&#x4EF6;</li>
 </ul>
-<p>Jenkins CI&#x6D41;&#x6C34;&#x7EBF;&#x662F;&#x5728;&#x4F7F;&#x7528;Jenkins Slave(Kubernetes&#x63D2;&#x4EF6;&#x52A8;&#x6001;&#x751F;&#x6210;Slave POD)&#x8282;&#x70B9;&#x4E2D;&#x6765;&#x8FD0;&#x884C;&#x7684;,&#x6240;&#x4EE5;Sonarscanner,Maven&#x7B49;&#x5DE5;&#x5177;&#x90FD;&#x662F;&#x5728;Kubernetes Jenkins Slave&#x955C;&#x50CF;&#x4E2D;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x597D;&#x7684;.</p>
-<h1 id="&#x4E8C;&#x3001;&#x64CD;&#x4F5C;">&#x4E8C;&#x3001;&#x64CD;&#x4F5C;</h1>
-<h2 id="1&#x3001;&#x5B89;&#x88C5;sonar-gitlab-plugin&#x63D2;&#x4EF6;">1&#x3001;&#x5B89;&#x88C5;sonar-gitlab-plugin&#x63D2;&#x4EF6;</h2>
-<p>   &#x63D2;&#x4EF6;Github:<a href="https://github.com/gabrie-allaigre/sonar-gitlab-plugin/" _target="blank">https://github.com/gabrie-allaigre/sonar-gitlab-plugin/</a>
-   <img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-2.png" alt=""></p>
-<h2 id="2&#x3001;&#x751F;&#x6210;&#x7528;&#x6237;&#x8BBF;&#x95EE;token">2&#x3001;&#x751F;&#x6210;&#x7528;&#x6237;&#x8BBF;&#x95EE;Token</h2>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-3.png" alt=""></p>
-<h2 id="3&#x3001;gitlab&#x521B;&#x5EFA;sonarscanner&#x7684;&#x7528;&#x6237;&#x5E76;&#x751F;&#x6210;accesskey">3&#x3001;gitlab&#x521B;&#x5EFA;sonarscanner&#x7684;&#x7528;&#x6237;,&#x5E76;&#x751F;&#x6210;AccessKey</h2>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-4.png" alt=""></p>
-<h2 id="4&#x3001;&#x5728;gitlab&#x4E2D;&#x5C06;sonarqube&#x52A0;&#x5165;&#x5230;&#x5BF9;&#x5E94;&#x9879;&#x76EE;&#x4ED3;&#x5E93;&#x7684;members&#x4E2D;">4&#x3001;&#x5728;gitlab&#x4E2D;&#x5C06;sonarqube&#x52A0;&#x5165;&#x5230;&#x5BF9;&#x5E94;&#x9879;&#x76EE;&#x4ED3;&#x5E93;&#x7684;Members&#x4E2D;</h2>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-5.png" alt=""></p>
-<h2 id="5&#x3001;sonarqube&#x4E2D;&#x7F16;&#x8F91;gitlab&#x63D2;&#x4EF6;&#x7684;&#x5168;&#x5C40;&#x914D;&#x7F6E;">5&#x3001;Sonarqube&#x4E2D;&#x7F16;&#x8F91;gitlab&#x63D2;&#x4EF6;&#x7684;&#x5168;&#x5C40;&#x914D;&#x7F6E;</h2>
-<p>&#x626B;&#x63CF;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x626B;&#x63CF;&#x53C2;&#x6570;&#x751F;&#x6548;&#x4F18;&#x5148;&#x7EA7;&#x5982;&#x4E0B;&#xFF1A;</p>
-<ol>
-<li>UI&#x754C;&#x9762;&#x4E2D;&#x7684;&#x5168;&#x5C40;&#x53C2;&#x6570;&#x914D;&#x7F6E;
-<img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-15.png" alt=""></li>
-<li>&#x9879;&#x76EE;UI&#x754C;&#x9762;&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x914D;&#x7F6E;
-<img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-16.png" alt=""></li>
-<li>&#x9879;&#x76EE;&#x5206;&#x6790;&#x5BA2;&#x6237;&#x7AEF;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x53C2;&#x6570;&#xFF08;&#x4F8B;&#x5982;sonar scanner&#x7684;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x6587;&#x4EF6;/opt/sonarscanner/conf/sonar.properties&#x4E2D;&#x7684;&#x53C2;&#x6570;&#xFF09;</li>
-<li>&#x9879;&#x76EE;&#x5206;&#x6790;&#x5BA2;&#x6237;&#x7AEF;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x914D;&#x7F6E;&#x7684;&#x53C2;&#x6570;</li>
-</ol>
-<p>&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5728;UI&#x754C;&#x9762;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x4E2D;&#x914D;&#x7F6E;&#x4E00;&#x4E9B;&#x901A;&#x7528;&#x3001;&#x4E0D;&#x7ECF;&#x5E38;&#x53D8;&#x52A8;&#x7684;&#x3001;&#x7531;&#x7BA1;&#x7406;&#x5458;&#x63A7;&#x5236;&#x7684;&#x53C2;&#x6570;&#x3002;&#x4F8B;&#x5982;&#xFF1A;gitlab&#x63D2;&#x4EF6;&#x7684;&#x901A;&#x7528;&#x914D;&#x7F6E;&#x3001;gitlab&#x5730;&#x5740;&#x7B49;&#x53C2;&#x6570;</p>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-14.png" alt=""></p>
-<h2 id="6&#x3001;jenkins-pipeline&#x4E2D;&#x4F7F;&#x7528;sonarscanner&#x626B;&#x63CF;&#x4EE3;&#x7801;">6&#x3001;Jenkins Pipeline&#x4E2D;&#x4F7F;&#x7528;sonarscanner&#x626B;&#x63CF;&#x4EE3;&#x7801;</h2>
-<pre class="language-"><code class="lang-groovy"><span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">&quot;&#x4EE3;&#x7801;&#x626B;&#x63CF;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    steps<span class="token punctuation">{</span>
-        sh &quot;sonar<span class="token operator">-</span>scanner \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>host<span class="token operator">.</span>url<span class="token operator">=</span>http<span class="token punctuation">:</span><span class="token string">//</span>sonarqube<span class="token operator">.</span>apps<span class="token operator">.</span>okd311<span class="token operator">.</span>curiouser<span class="token operator">.</span>com \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>login<span class="token operator">=</span>6a6fa6f1702ae42f8d0a0fe14166d9a2 \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>projectName<span class="token operator">=</span>demo<span class="token operator">-</span>springboot2<span class="token operator">-</span><span class="token punctuation">$</span>GITLABSOURCEBRANCH \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>projectKey<span class="token operator">=</span>demo<span class="token operator">-</span>springboot2<span class="token operator">-</span><span class="token punctuation">$</span>GITLABSOURCEBRANCH \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>projectVersion<span class="token operator">=</span><span class="token punctuation">$</span>GIT_COMMIT \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>sourceEncoding<span class="token operator">=</span>UTF<span class="token operator">-</span><span class="token number">8</span> \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>sources<span class="token operator">=</span>src<span class="token operator">/</span>main \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>test<span class="token operator">=</span>src<span class="token operator">/</span>test \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>java<span class="token operator">.</span>binaries<span class="token operator">=</span>target<span class="token operator">/</span>classes \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>java<span class="token operator">.</span>test<span class="token operator">.</span>binaries<span class="token operator">=</span><span class="token string">&apos;target/test-classes/*/*.class&apos;</span> \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>java<span class="token operator">.</span>source<span class="token operator">=</span><span class="token number">8</span> \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>gitlab<span class="token operator">.</span>project_id<span class="token operator">=</span><span class="token number">1</span> \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>gitlab<span class="token operator">.</span>commit_sha<span class="token operator">=</span><span class="token punctuation">$</span>GIT_COMMIT \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>gitlab<span class="token operator">.</span>ref_name<span class="token operator">=</span><span class="token punctuation">$</span>GIT_BRANCH \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>java<span class="token operator">.</span>coveragePlugin<span class="token operator">=</span>jacoco \
-                <span class="token operator">-</span>Dsonar<span class="token operator">.</span>dynamicAnalysis<span class="token operator">=</span>reuseReports &quot;
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh" _target="blank">oh-my-zsh</a> &#x662F;&#x6700;&#x4E3A;&#x6D41;&#x884C;&#x7684; zsh &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x4E3B;&#x9898;&#x548C;&#x63D2;&#x4EF6;&#xFF0C;&#x6781;&#x5927;&#x7684;&#x62D3;&#x5C55;&#x4E86; zsh &#x7684;&#x529F;&#x80FD;&#xFF0C;&#x63A8;&#x52A8;&#x4E86; zsh &#x7684;&#x6D41;&#x884C;&#xFF0C;&#x6709;&#x70B9;&#x7C7B;&#x4F3C;&#x4E8E; rails &#x4E4B;&#x4E8E; ruby&#x3002;</p>
+<h1 id="&#x4E8C;&#x3001;&#x5B89;&#x88C5;zsh">&#x4E8C;&#x3001;&#x5B89;&#x88C5;zsh</h1>
+<p><strong><code>CentOS</code></strong></p>
+<pre class="language-"><code class="lang-bash">yum <span class="token function">install</span> -y <span class="token function">zsh</span>
 </code></pre>
-<h1 id="&#x4E09;&#x3001;&#x6548;&#x679C;">&#x4E09;&#x3001;&#x6548;&#x679C;</h1>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-6.png" alt="">
-<img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-7.png" alt=""></p>
-<h1 id="&#x56DB;&#x3001;soanarscanner&#x53C2;&#x6570;&#x8BE6;&#x89E3;">&#x56DB;&#x3001;Soanarscanner&#x53C2;&#x6570;&#x8BE6;&#x89E3;</h1>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Comment</th>
-<th>Type</th>
-<th>Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sonar.gitlab.url</td>
-<td>GitLab url</td>
-<td>Administration, Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_global_issues</td>
-<td>Maximum number of anomalies to be displayed in the global comment</td>
-<td>Administration, Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.user_token</td>
-<td>Token of the user who can make reports on the project, either global or per project</td>
-<td>Administration, Project, Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.project_id</td>
-<td>Project ID in GitLab or internal id or namespace + name or namespace + path or url http or ssh url or url or web</td>
-<td>Project, Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.commit_sha</td>
-<td>SHA of the commit comment</td>
-<td>Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ref</td>
-<td>Branch name or reference of the commit</td>
-<td>Variable</td>
-<td>&lt; 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ref_name</td>
-<td>Branch name or reference of the commit</td>
-<td>Variable</td>
-<td>&gt;= 1.6.6</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_blocker_issues_gate</td>
-<td>Max blocker issue for build failed (default 0). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_critical_issues_gate</td>
-<td>Max critical issues for build failed (default 0). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_major_issues_gate</td>
-<td>Max major issues for build failed (default -1 no fail). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_minor_issues_gate</td>
-<td>Max minor issues for build failed (default -1 no fail). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.max_info_issues_gate</td>
-<td>Max info issues for build failed (default -1 no fail). Note: only for preview mode</td>
-<td>Project, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ignore_certificate</td>
-<td>Ignore Certificate for access GitLab, use for auto-signing cert (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.comment_no_issue</td>
-<td>Add a comment even when there is no new issue (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.disable_inline_comments</td>
-<td>Disable issue reporting as inline comments (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.only_issue_from_commit_file</td>
-<td>Show issue for commit file only (default false)</td>
-<td>Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.only_issue_from_commit_line</td>
-<td>Show issue for commit line only (default false)</td>
-<td>Variable</td>
-<td>&gt;= 2.1.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.build_init_state</td>
-<td>State that should be the first when build commit status update is called (default pending)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.disable_global_comment</td>
-<td>Disable global comment, report only inline (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.failure_notification_mode</td>
-<td>Notification is in current build (exit-code) or in commit status (commit-status) (default commit-status)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.global_template</td>
-<td>Template for global comment in commit</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ping_user</td>
-<td>Ping the user who made an issue by @ mentioning. Only for default comment (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.unique_issue_per_inline</td>
-<td>Unique issue per inline comment (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.prefix_directory</td>
-<td>Add prefix when create link for GitLab</td>
-<td>Variable</td>
-<td>&gt;= 2.1.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.api_version</td>
-<td>GitLab API version (default <code>v4</code> or <code>v3</code>)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.1.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.all_issues</td>
-<td>All issues new and old (default false, only new)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 2.1.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.json_mode</td>
-<td>Create a json report in root for GitLab EE (codeclimate.json or gl-sast-report.json)</td>
-<td>Project, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.query_max_retry</td>
-<td>Max retry for wait finish analyse for publish mode</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.query_wait</td>
-<td>Max retry for wait finish analyse for publish mode</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.quality_gate_fail_mode</td>
-<td>Quality gate fail mode: error, warn or none (default error)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.issue_filter</td>
-<td>Filter on issue, if MAJOR then show only MAJOR, CRITICAL and BLOCKER (default INFO)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.load_rules</td>
-<td>Load rules for all issues (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 3.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.disable_proxy</td>
-<td>Disable proxy if system contains proxy config (default false)</td>
-<td>Administration, Variable</td>
-<td>&gt;= 4.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.merge_request_discussion</td>
-<td>Allows to post the comments as discussions (default false)</td>
-<td>Project, Variable</td>
-<td>&gt;= 4.0.0</td>
-</tr>
-<tr>
-<td>sonar.gitlab.ci_merge_request_iid</td>
-<td>The IID of the merge request if it&#x2019;s pipelines for merge requests</td>
-<td>Project, Variable</td>
-<td>&gt;= 4.0.0</td>
-</tr>
-</tbody>
-</table>
-<h1 id="&#x4E94;&#x3001;&#x95EE;&#x9898;">&#x4E94;&#x3001;&#x95EE;&#x9898;</h1>
-<h2 id="1&#x3001;&#x5F53;&#x9879;&#x76EE;&#x662F;&#x79C1;&#x6709;&#x4ED3;&#x5E93;&#x65F6;">1&#x3001;&#x5F53;&#x9879;&#x76EE;&#x662F;&#x79C1;&#x6709;&#x4ED3;&#x5E93;&#x65F6;</h2>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-8.png" alt=""></p>
-<h2 id="2&#x3001;&#x83B7;&#x53D6;&#x9879;&#x76EE;&#x4ED3;&#x5E93;&#x7684;projectid">2&#x3001;&#x83B7;&#x53D6;&#x9879;&#x76EE;&#x4ED3;&#x5E93;&#x7684;ProjectID</h2>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-9.png" alt="">
-<img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-10.png" alt="">
-<img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-11.png" alt=""></p>
-<h2 id="3&#x3001;gitlab&#x63D2;&#x4EF6;400&#x65E0;&#x6CD5;&#x517C;&#x5BB9;sonarqube-76-community&#x81F3;79-community&#x7684;&#x7248;&#x672C;">3&#x3001;gitlab&#x63D2;&#x4EF6;4.0.0&#x65E0;&#x6CD5;&#x517C;&#x5BB9;Sonarqube 7.6-community&#x81F3;7.9-community&#x7684;&#x7248;&#x672C;</h2>
-<p>   &#x62A5;&#x9519;&#x5982;&#x4E0B;&#xFF01;&#x63D2;&#x4EF6;GIthub&#x7684;&#x539F;&#x59CB;Issue&#xFF1A;<a href="https://github.com/gabrie-allaigre/sonar-gitlab-plugin/issues/213" _target="blank">https://github.com/gabrie-allaigre/sonar-gitlab-plugin/issues/213</a></p>
-<pre class="language-"><code class="lang-bash"><span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span> Failed to execute goalorg.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar<span class="token punctuation">(</span>default-cli<span class="token punctuation">)</span> on project egsdloen-bc-facade:com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJob hasunsatisfied dependency <span class="token string">&apos;classcom.talanlabs.sonar.plugins.gitlab.ReporterBuilder&apos;</span> <span class="token keyword">for</span> constructor<span class="token string">&apos;public com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJo(com.talanlabs.sonar.plugins.gitlab.GitLabPluginConfigurationcom.talanlabs.sonar.plugins.gitlab.SonarFacadecom.talanlabs.sonar.plugins.gitlab.CommitFacadecom.talanlabs.sonar.plugins.gitlab.ReporterBuilder)&apos;</span> fromorg.sonar.core.platformComponentContainer<span class="token variable">$ExtendedDefaultPicoContainer</span>@7615666e:512<span class="token punctuation">[</span>Immutable:org.sonar.core.platform.ComponentContainer<span class="token variable">$ExtendedDefaultPicoContaner</span>@364adb24:5<span class="token operator"><span class="token file-descriptor important">6</span>&lt;</span><span class="token operator">|</span> -<span class="token operator">&gt;</span> <span class="token punctuation">[</span>Help <span class="token number">1</span><span class="token punctuation">]</span>
-org.apache.maven.lifecycle.LifecycleExecutionException: Failed toexecute goalorg.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar<span class="token punctuation">(</span>default-cli<span class="token punctuation">)</span> on project egsdloen-bc-facade:com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJob hasunsatisfied dependency <span class="token string">&apos;classcom.talanlabs.sonar.plugins.gitlab.ReporterBuilder&apos;</span> <span class="token keyword">for</span> constructor<span class="token string">&apos;public com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJo(com.talanlabs.sonar.plugins.gitlab.GitLabPluginConfigurationcom.talanlabs.sonar.plugins.gitlab.SonarFacadecom.talanlabs.sonar.plugins.gitlab.CommitFacadecom.talanlabs.sonar.plugins.gitlab.ReporterBuilder)&apos;</span> fromorg.sonar.core.platformComponentContainer<span class="token variable">$ExtendedDefaultPicoContainer</span>@7615666e:512<span class="token punctuation">[</span>Immutable:org.sonar.core.platform.ComponentContainer<span class="token variable">$ExtendedDefaultPicoContaner</span>@364adb24:5<span class="token operator"><span class="token file-descriptor important">6</span>&lt;</span><span class="token operator">|</span>
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute <span class="token punctuation">(</span>MojoExecutor.java:215<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute <span class="token punctuation">(</span>MojoExecutor.java:156<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute <span class="token punctuation">(</span>MojoExecutor.java:148<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject <span class="token punctuation">(</span>LifecycleModuleBuilder.java:117<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject <span class="token punctuation">(</span>LifecycleModuleBuilder.java:81<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build <span class="token punctuation">(</span>SingleThreadedBuilder.java:56<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute <span class="token punctuation">(</span>LifecycleStarter.java:128<span class="token punctuation">)</span>
-    at org.apache.maven.DefaultMaven.doExecute <span class="token punctuation">(</span>DefaultMaven.java:305<span class="token punctuation">)</span>
-    at org.apache.maven.DefaultMaven.doExecute <span class="token punctuation">(</span>DefaultMaven.java:192<span class="token punctuation">)</span>
-    at org.apache.maven.DefaultMaven.execute <span class="token punctuation">(</span>DefaultMaven.java:105<span class="token punctuation">)</span>
-    at org.apache.maven.cli.MavenCli.execute <span class="token punctuation">(</span>MavenCli.java:956<span class="token punctuation">)</span>
-    at org.apache.maven.cli.MavenCli.doMain <span class="token punctuation">(</span>MavenCli.java:288<span class="token punctuation">)</span>
-    at org.apache.maven.cli.MavenCli.main <span class="token punctuation">(</span>MavenCli.java:192<span class="token punctuation">)</span>
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 <span class="token punctuation">(</span>Native Method<span class="token punctuation">)</span>
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke <span class="token punctuation">(</span>NativeMethodAccessorImpl.java:62<span class="token punctuation">)</span>
-    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke <span class="token punctuation">(</span>DelegatingMethodAccessorImpl.java:43<span class="token punctuation">)</span>
-    at java.lang.reflect.Method.invoke <span class="token punctuation">(</span>Method.java:564<span class="token punctuation">)</span>
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced <span class="token punctuation">(</span>Launcher.java:289<span class="token punctuation">)</span>
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch <span class="token punctuation">(</span>Launcher.java:229<span class="token punctuation">)</span>
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode <span class="token punctuation">(</span>Launcher.java:415<span class="token punctuation">)</span>
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main <span class="token punctuation">(</span>Launcher.java:356<span class="token punctuation">)</span>
-Caused by: org.apache.maven.plugin.MojoExecutionException:com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJob hasunsatisfied dependency <span class="token string">&apos;classcom.talanlabs.sonar.plugins.gitlab.ReporterBuilder&apos;</span> <span class="token keyword">for</span> constructor<span class="token string">&apos;public com.talanlabs.sonar.plugins.gitlab.CommitPublishPostJo(com.talanlabs.sonar.plugins.gitlab.GitLabPluginConfigurationcom.talanlabs.sonar.plugins.gitlab.SonarFacadecom.talanlabs.sonar.plugins.gitlab.CommitFacadecom.talanlabs.sonar.plugins.gitlab.ReporterBuilder)&apos;</span> fromorg.sonar.core.platformComponentContainer<span class="token variable">$ExtendedDefaultPicoContainer</span>@7615666e:512<span class="token punctuation">[</span>Immutable:org.sonar.core.platform.ComponentContainer<span class="token variable">$ExtendedDefaultPicoContaner</span>@364adb24:5<span class="token operator"><span class="token file-descriptor important">6</span>&lt;</span><span class="token operator">|</span>
-    at org.sonarsource.scanner.maven.bootstrap.ScannerBootstrapper.execute <span class="token punctuation">(</span>ScannerBootstrapper.java:67<span class="token punctuation">)</span>
-    at org.sonarsource.scanner.maven.SonarQubeMojo.execute <span class="token punctuation">(</span>SonarQubeMojo.java:104<span class="token punctuation">)</span>
-    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo <span class="token punctuation">(</span>DefaultBuildPluginManager.java:137<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute <span class="token punctuation">(</span>MojoExecutor.java:210<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute <span class="token punctuation">(</span>MojoExecutor.java:156<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute <span class="token punctuation">(</span>MojoExecutor.java:148<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject <span class="token punctuation">(</span>LifecycleModuleBuilder.java:117<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject <span class="token punctuation">(</span>LifecycleModuleBuilder.java:81<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build <span class="token punctuation">(</span>SingleThreadedBuilder.java:56<span class="token punctuation">)</span>
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute <span class="token punctuation">(</span>LifecycleStarter.java:128<span class="token punctuation">)</span>
-    at org.apache.maven.DefaultMaven.doExecute <span class="token punctuation">(</span>DefaultMaven.java:305<span class="token punctuation">)</span>
-    at org.apache.maven.DefaultMaven.doExecute <span class="token punctuation">(</span>DefaultMaven.java:192<span class="token punctuation">)</span>
-    at org.apache.maven.DefaultMaven.execute <span class="token punctuation">(</span>DefaultMaven.java:105<span class="token punctuation">)</span>
-    at org.apache.maven.cli.MavenCli.execute <span class="token punctuation">(</span>MavenCli.java:956<span class="token punctuation">)</span>
-    at org.apache.maven.cli.MavenCli.doMain <span class="token punctuation">(</span>MavenCli.java:288<span class="token punctuation">)</span>
-    at org.apache.maven.cli.MavenCli.main <span class="token punctuation">(</span>MavenCli.java:192<span class="token punctuation">)</span>
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 <span class="token punctuation">(</span>Native Method<span class="token punctuation">)</span>
-    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke <span class="token punctuation">(</span>NativeMethodAccessorImpl.java:62<span class="token punctuation">)</span>
-    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke <span class="token punctuation">(</span>DelegatingMethodAccessorImpl.java:43<span class="token punctuation">)</span>
-    at java.lang.reflect.Method.invoke <span class="token punctuation">(</span>Method.java:564<span class="token punctuation">)</span>
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced <span class="token punctuation">(</span>Launcher.java:289<span class="token punctuation">)</span>
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch <span class="token punctuation">(</span>Launcher.java:229<span class="token punctuation">)</span>
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode <span class="token punctuation">(</span>Launcher.java:415<span class="token punctuation">)</span>
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main <span class="token punctuation">(</span>Launcher.java:356<span class="token punctuation">)</span>
-<span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span> 
-<span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span> 
-<span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span> For <span class="token function">more</span> information about the errors and possible solutions please <span class="token builtin class-name">read</span> the following articles:
-<span class="token punctuation">[</span>ERROR<span class="token punctuation">]</span> <span class="token punctuation">[</span>Help <span class="token number">1</span><span class="token punctuation">]</span> http://cwiki.apache.org/confluence/display/MAVENMojoExecutionException
+<p><strong><code>Ubuntu</code></strong> </p>
+<pre class="language-"><code class="lang-bash"><span class="token function">apt-get</span> <span class="token function">install</span> -y <span class="token function">zsh</span>
 </code></pre>
-<p><strong>&#x539F;&#x56E0;</strong></p>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-12.png" alt=""></p>
-<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;</strong></p>
-<p><img src="../assets/sonarscanner-&#x5C06;&#x626B;&#x63CF;&#x7ED3;&#x679C;&#x4EE5;comment&#x7684;&#x5F62;&#x5F0F;&#x56DE;&#x5199;&#x5230;gitlab-13.png" alt=""></p>
-<p>&#x5DF2;&#x7ECF;&#x4FEE;&#x6539;&#x7F16;&#x8BD1;&#x597D;&#x7684;&#x63D2;&#x4EF6;Jar&#x5305;&#xFF1A;<a href="https://github.com/gabrie-allaigre/sonar-gitlab-plugin/releases/download/4.1.0-SNAPSHOT/sonar-gitlab-plugin-4.1.0-SNAPSHOT.jar" _target="blank">https://github.com/gabrie-allaigre/sonar-gitlab-plugin/releases/download/4.1.0-SNAPSHOT/sonar-gitlab-plugin-4.1.0-SNAPSHOT.jar</a></p>
-<h1 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;">&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</h1>
-<ol>
-<li><a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/28342" _target="blank">https://gitlab.com/gitlab-org/gitlab-ce/issues/28342</a></li>
-<li><a href="https://www.cnblogs.com/amyzhu/p/8988519.html" _target="blank">https://www.cnblogs.com/amyzhu/p/8988519.html</a></li>
-</ol>
+<blockquote>
+<p>&#x68C0;&#x67E5;&#x4E0B;&#x7CFB;&#x7EDF;&#x7684; shell&#xFF1A;<code>$ cat /etc/shells</code>&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#xFF1A;/bin/zsh</p>
+</blockquote>
+<p><strong><code>&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;shell</code></strong></p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x7ED9;root&#x7528;&#x6237;&#x8BBE;&#x7F6E;</span>
+chsh -s /bin/zsh root
+<span class="token comment"># &#x7ED9;&#x666E;&#x901A;&#x8D26;&#x6237;&#x8BBE;&#x7F6E;</span>
+chsh -s /bin/zsh &#x7528;&#x6237;&#x540D;
+<span class="token comment">#&#x3000;&#x6062;&#x590D;bash</span>
+chsh -s /bin/bash <span class="token punctuation">[</span>user<span class="token punctuation">]</span>
+</code></pre>
+<h1 id="&#x4E09;&#x3001;&#x5B89;&#x88C5;oh-my-zsh">&#x4E09;&#x3001;&#x5B89;&#x88C5;oh-my-zsh</h1>
+<p>oh-my-zsh &#x5E2E;&#x6211;&#x4EEC;&#x6574;&#x7406;&#x4E86;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684; Zsh &#x6269;&#x5C55;&#x529F;&#x80FD;&#x548C;&#x4E3B;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x81EA;&#x5DF1;&#x53BB;&#x6363;&#x641E; Zsh&#xFF0C;&#x76F4;&#x63A5;&#x7528; oh-my-zsh &#x5C31;&#x8DB3;&#x591F;&#x4E86;&#x3002;</p>
+<p>oh-my-zsh &#x5B98;&#x7F51;&#xFF1A;<a href="https://ohmyz.sh/" _target="blank">https://ohmyz.sh/</a></p>
+<p>oh-my-zsh Github&#xFF1A;<a href="https://github.com/robbyrussell/oh-my-zsh" _target="blank">https://github.com/robbyrussell/oh-my-zsh</a></p>
+<p><strong><code>curl</code></strong></p>
+<pre class="language-"><code class="lang-bash"><span class="token function">sh</span> -c <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="token variable">)</span></span>&quot;</span>
+</code></pre>
+<p><strong><code>wget</code></strong></p>
+<pre class="language-"><code class="lang-bash"><span class="token function">sh</span> -c <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">wget</span> -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="token variable">)</span></span>&quot;</span>
+</code></pre>
+<p><strong><code>&#x624B;&#x52A8;</code></strong></p>
+<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+<span class="token function">sh</span> install.sh
+</code></pre>
+<h1 id="&#x56DB;&#x3001;oh-my-zsh&#x914D;&#x7F6E;">&#x56DB;&#x3001;oh-my-zsh&#x914D;&#x7F6E;</h1>
+<p>oh-my-zsh&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A;<code>~/.zshrc</code></p>
+<pre class="language-"><code class="lang-properties"><span class="token comment"># If you come from bash you might have to change your $PATH.</span>
+<span class="token comment"># export PATH=$HOME/bin:/usr/local/bin:$PATH</span>
+
+<span class="token comment"># &#x6307;&#x5B9A;oh-my-zsh&#x7684;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;</span>
+<span class="token attr-name">export</span> <span class="token attr-value">ZSH=&quot;/root/.oh-my-zsh&quot;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x4E3B;&#x9898;&#x3002;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;&quot;random&quot;, &#x6BCF;&#x6B21;&#x542F;&#x52A8;oh-my-zsh&#x4F1A;&#x968F;&#x673A;&#x52A0;&#x8F7D;&#x4E3B;&#x9898;,&#x53EF;&#x4F7F;&#x7528;`echo $RANDOM_THEME`&#x67E5;&#x770B;&#x6BCF;&#x6B21;&#x52A0;&#x8F7D;&#x7684;&#x4E3B;&#x9898;</span>
+<span class="token attr-name">ZSH_THEME</span><span class="token punctuation">=</span><span class="token attr-value">&quot;alanpeabody&quot;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x968F;&#x673A;&#x7684;&#x4E3B;&#x9898;</span>
+<span class="token comment"># ZSH_THEME_RANDOM_CANDIDATES=( &quot;robbyrussell&quot; &quot;agnoster&quot; )</span>
+
+<span class="token comment"># &#x5927;&#x5C0F;&#x5199;&#x662F;&#x5426;&#x654F;&#x611F;</span>
+<span class="token comment"># CASE_SENSITIVE=&quot;true&quot;</span>
+
+<span class="token comment"># Uncomment the following line to use hyphen-insensitive completion.</span>
+<span class="token comment"># Case-sensitive completion must be off. _ and - will be interchangeable.</span>
+<span class="token comment"># HYPHEN_INSENSITIVE=&quot;true&quot;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x81EA;&#x52A8;&#x66F4;&#x65B0;</span>
+<span class="token comment"># DISABLE_AUTO_UPDATE=&quot;true&quot;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x7684;&#x5929;&#x6570;&#x3002;&#x9ED8;&#x8BA4;13&#x5929;</span>
+<span class="token comment"># export UPDATE_ZSH_DAYS=13</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5F00;&#x542F;`ls`&#x8FDB;&#x884C;&#x989C;&#x8272;&#x663E;&#x793A;</span>
+<span class="token comment"># DISABLE_LS_COLORS=&quot;true&quot;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x663E;&#x793A;&#x7EC8;&#x7AEF;&#x6807;&#x9898;</span>
+<span class="token comment"># DISABLE_AUTO_TITLE=&quot;true&quot;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5F00;&#x542F;&#x8BED;&#x6CD5;&#x4FEE;&#x6B63;</span>
+<span class="token comment"># ENABLE_CORRECTION=&quot;true&quot;</span>
+
+<span class="token comment"># Uncomment the following line to display red dots whilst waiting for completion.</span>
+<span class="token comment"># COMPLETION_WAITING_DOTS=&quot;true&quot;</span>
+
+<span class="token comment"># Uncomment the following line if you want to disable marking untracked files</span>
+<span class="token comment"># under VCS as dirty. This makes repository status check for large repositories</span>
+<span class="token comment"># much, much faster.</span>
+<span class="token comment"># DISABLE_UNTRACKED_FILES_DIRTY=&quot;true&quot;</span>
+
+<span class="token comment"># &#x5386;&#x53F2;&#x8F93;&#x5165;&#x547D;&#x4EE4;&#x7684;&#x65F6;&#x95F4;&#x5C55;&#x793A;&#x683C;&#x5F0F;</span>
+<span class="token comment"># HIST_STAMPS=&quot;mm/dd/yyyy&quot;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;</span>
+<span class="token comment"># ZSH_CUSTOM=/path/to/new-custom-folder</span>
+
+<span class="token comment"># &#x914D;&#x7F6E;&#x8981;&#x52A0;&#x8F7D;&#x7684;&#x63D2;&#x4EF6;&#xFF08;&#x914D;&#x7F6E;&#x7684;&#x63D2;&#x4EF6;&#x8981;&#x80FD;&#x5728; ~/.oh-my-zsh/plugins/* &#x4E0B;&#x627E;&#x5230;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x63D2;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A; ~/.oh-my-zsh/custom/plugins/ &#xFF09;.&#x6CE8;&#x610F;&#xFF1A;&#x63D2;&#x4EF6;&#x5B89;&#x88C5;&#x7684;&#x8D8A;&#x591A;&#xFF0C;zsh&#x7684;&#x542F;&#x52A8;&#x901F;&#x5EA6;&#x8D8A;&#x6162;&#xFF0C;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x7387;&#x6700;&#x9AD8;&#x7684;&#x63D2;&#x4EF6;&#x624D;&#x662F;&#x6700;&#x597D;&#x7684;&#x9009;&#x62E9;</span>
+<span class="token attr-name">plugins</span><span class="token punctuation">=</span><span class="token attr-value">(</span>
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  kubectl
+  docker
+)
+
+<span class="token attr-name">source</span> <span class="token attr-value">$ZSH/oh-my-zsh.sh</span>
+
+<span class="token comment"># &#x7528;&#x6237;&#x914D;&#x7F6E;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;man&#x6587;&#x6863;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span>
+<span class="token comment"># export MANPATH=&quot;/usr/local/man:$MANPATH&quot;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x8BED;&#x8A00;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span>
+<span class="token comment"># export LANG=en_US.UTF-8</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x672C;&#x5730;&#x548C;&#x8FDC;&#x7A0B;sessions&#x7684;&#x9996;&#x9009;&#x7F16;&#x8F91;&#x5668;</span>
+<span class="token comment"># if [[ -n $SSH_CONNECTION ]]; then</span>
+<span class="token comment">#   export EDITOR=&apos;vim&apos;</span>
+<span class="token comment"># else</span>
+<span class="token comment">#   export EDITOR=&apos;mvim&apos;</span>
+<span class="token comment"># fi</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x7F16;&#x8BD1;&#x6807;&#x5FD7;</span>
+<span class="token comment"># export ARCHFLAGS=&quot;-arch x86_64&quot;</span>
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x522B;&#x540D;</span>
+<span class="token attr-name">alias</span> <span class="token attr-value">ll=&quot;ls -alh&quot;</span>
+<span class="token attr-name">alias</span> <span class="token attr-value">k=&apos;kubectl&apos;</span>
+<span class="token attr-name">.</span> <span class="token attr-value">~/.oh-my-zsh/custom/oc_zsh_completion</span>
+</code></pre>
+<h1 id="&#x4E94;&#x3001;oh-my-zsh&#x5E38;&#x7528;&#x63D2;&#x4EF6;">&#x4E94;&#x3001;oh-my-zsh&#x5E38;&#x7528;&#x63D2;&#x4EF6;</h1>
+<ul>
+<li><p><strong>git</strong></p>
+<p>&#x9ED8;&#x8BA4;&#x81EA;&#x5E26;&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;git&#x7F29;&#x5199; &#x6BD4;&#x5982; git add --all =&gt; gaa</p>
+<p>&#x67E5;&#x770B;&#x6240;&#x6709;&#x7F29;&#x5199;&#xFF1A;alias | grep git</p>
+</li>
+<li><p><strong>autojump</strong></p>
+<p>&#x5FEB;&#x901F;&#x8DF3;&#x8F6C;&#x6587;&#x4EF6;&#x5939;</p>
+</li>
+<li><p><strong>last-working-dir</strong>
+&#x53EF;&#x4EE5;&#x8BB0;&#x5F55;&#x4E0A;&#x4E00;&#x6B21;&#x9000;&#x51FA;&#x547D;&#x4EE4;&#x884C;&#x65F6;&#x5019;&#x7684;&#x6240;&#x5728;&#x8DEF;&#x5F84;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x542F;&#x52A8;&#x547D;&#x4EE4;&#x884C;&#x7684;&#x65F6;&#x5019;&#x81EA;&#x52A8;&#x6062;&#x590D;&#x5230;&#x4E0A;&#x4E00;&#x6B21;&#x6240;&#x5728;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+</li>
+<li><p><strong>wd</strong>
+&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x80FD;&#x591F;&#x5FEB;&#x901F;&#x7684;&#x5207;&#x6362;&#x5230;&#x5E38;&#x7528;&#x7684;&#x76EE;&#x5F55;&#x3002;<code>wd add web</code>&#x76F8;&#x5F53;&#x4E8E;&#x7ED9;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x505A;&#x4E86;&#x4E00;&#x4E2A;&#x6807;&#x8BC6;&#xFF0C;&#x6807;&#x8BC6;&#x540D;&#x53EB;&#x505A; <code>web</code> &#xFF0C;&#x6211;&#x4EEC;&#x4E0B;&#x6B21;&#x5982;&#x679C;&#x518D;&#x60F3;&#x8FDB;&#x5165;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x53EA;&#x9700;&#x8F93;&#x5165;&#xFF1A;<code>wd web</code></p>
+</li>
+<li><p><strong>catimg</strong>
+&#x53EF;&#x4EE5;&#x5C06;&#x56FE;&#x7247;&#x7684;&#x5185;&#x5BB9;&#x8F93;&#x51FA;&#x5230;&#x547D;&#x4EE4;&#x884C;&#x4E2D;<code>catimg demo.jpg</code></p>
+</li>
+<li><p><strong>zsh-syntax-highlighting</strong></p>
+<p>&#x547D;&#x4EE4;&#x9AD8;&#x4EAE; &#x6B63;&#x786E;&#x8DEF;&#x5F84;&#x81EA;&#x5E26;&#x4E0B;&#x5212;&#x7EBF;</p>
+<p>&#x5B89;&#x88C5;&#x65B9;&#x6CD5;&#xFF1A;<code>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></p>
+</li>
+<li><p><strong>zsh-autosuggestions</strong>
+&#x81EA;&#x52A8;&#x8865;&#x5168;&#x53EF;&#x80FD;&#x7684;&#x8DEF;&#x5F84;</p>
+<p>&#x5B89;&#x88C5;&#xFF1A;<code>git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</code></p>
+</li>
+<li><p><strong>sudo</strong>
+&#x8FDE;&#x6309;&#x4E24;&#x6B21;Esc&#x6DFB;&#x52A0;&#x6216;&#x53BB;&#x6389;sudo</p>
+</li>
+<li><p><strong>extract</strong>
+&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x7684;&#x89E3;&#x538B;&#x63D2;&#x4EF6;
+&#x4F8B;&#x5982;&#xFF1A;&#x9700;&#x8981;&#x89E3;&#x538B;demo.tar.gz
+&#x6267;&#x884C;<code>x demo.tar.gz</code></p>
+</li>
+<li><p><strong>git-open</strong></p>
+<p>&#x5728;&#x7EC8;&#x7AEF;&#x91CC;&#x6253;&#x5F00;&#x5F53;&#x524D;&#x9879;&#x76EE;&#x7684;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x5730;&#x5740;</p>
+<p>&#x5B89;&#x88C5;&#xFF1A;<code>git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open</code></p>
+</li>
+</ul>
+<h1 id="&#x516D;&#x3001;oh-my-zsh&#x5E38;&#x7528;&#x4E3B;&#x9898;">&#x516D;&#x3001;oh-my-zsh&#x5E38;&#x7528;&#x4E3B;&#x9898;</h1>
+<p>&#x5B98;&#x65B9;&#x4E3B;&#x9898;&#xFF1A;<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" _target="blank">https://github.com/robbyrussell/oh-my-zsh/wiki/Themes</a> </p>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-09-10 21:34:34
+2019-09-12 15:25:36
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -4417,6 +4235,10 @@ Caused by: org.apache.maven.plugin.MojoExecutionException:com.talanlabs.sonar.pl
 
 		
 		
+		<a href="linux-yum.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Yum详解">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
 		
 		
 		
@@ -4424,7 +4246,7 @@ Caused by: org.apache.maven.plugin.MojoExecutionException:com.talanlabs.sonar.pl
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"SonarScanner-将扫描结果以comment的形式回写到gitlab","level":"4.4.2.1","depth":3,"next":{"title":"LDAP","level":"4.5","depth":1,"ref":"","articles":[{"title":"安装","level":"4.5.1","depth":2,"ref":"","articles":[]},{"title":"客户端","level":"4.5.2","depth":2,"ref":"","articles":[{"title":"Apache Directory Studio","level":"4.5.2.1","depth":3,"ref":"","articles":[]},{"title":"PHPLDAPAdmin","level":"4.5.2.2","depth":3,"ref":"","articles":[]}]},{"title":"第三方系统集成","level":"4.5.3","depth":2,"ref":"","articles":[{"title":"Jenkins","level":"4.5.3.1","depth":3,"path":"origin/ldap-Jenkins对接LDAP.md","ref":"origin/ldap-Jenkins对接LDAP.md","articles":[]},{"title":"SonarQube","level":"4.5.3.2","depth":3,"path":"origin/ldap-SonarQube对接LDAP.md","ref":"origin/ldap-SonarQube对接LDAP.md","articles":[]},{"title":"Gitlab","level":"4.5.3.3","depth":3,"path":"origin/ldap-Gitlab对接LDAP.md","ref":"origin/ldap-Gitlab对接LDAP.md","articles":[]},{"title":"Nexus","level":"4.5.3.4","depth":3,"path":"origin/ldap-Nexus对接LDAP.md","ref":"origin/ldap-Nexus对接LDAP.md","articles":[]},{"title":"Grafana","level":"4.5.3.5","depth":3,"path":"origin/ldap-Grafana对接LDAP.md","ref":"origin/ldap-Grafana对接LDAP.md","articles":[]}]}]},"previous":{"title":"使用","level":"4.4.2","depth":2,"ref":"","articles":[{"title":"SonarScanner-将扫描结果以comment的形式回写到gitlab","level":"4.4.2.1","depth":3,"path":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","ref":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","mtime":"2019-09-10T13:34:34.683Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-12T10:41:55.756Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"ZSH","level":"8.11.12","depth":2,"next":{"title":"数据库","level":"8.12","depth":1,"ref":"","articles":[{"title":"MySQL","level":"8.12.1","depth":2,"ref":"","articles":[]},{"title":"SQLServer","level":"8.12.2","depth":2,"ref":"","articles":[]},{"title":"ETCD","level":"8.12.3","depth":2,"ref":"","articles":[]},{"title":"PostgreSQL","level":"8.12.4","depth":2,"ref":"","articles":[]}]},"previous":{"title":"Yum详解","level":"8.11.11","depth":2,"path":"origin/linux-yum.md","ref":"origin/linux-yum.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/linux-zsh.md","mtime":"2019-09-12T07:25:36.389Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-12T10:41:55.756Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>

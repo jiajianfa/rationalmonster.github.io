@@ -12,7 +12,7 @@ Exec格式：<instruction> ["executable", "param1", "param2", ...]。例如： [
 ENTRYPOINT 的 Exec 格式用于设置容器启动时要执行的命令及其参数，同时可通过CMD命令或者命令行参数提供额外的参数。ENTRYPOINT 中的参数始终会被使用，这是与CMD命令不同的一点。下面是一个例子：
 
 ```bash
-ENTRYPOINT ["/bin/echo", "Hello"]  
+ENTRYPOINT ["/bin/echo", "Hello"]
 ```
 
 当容器通过 docker run -it [image] 启动时，输出为：
@@ -29,7 +29,7 @@ Hello CloudMan
 将Dockerfile修改为：
 
 ```bash
-ENTRYPOINT ["/bin/echo", "Hello"]  
+ENTRYPOINT ["/bin/echo", "Hello"]
 CMD ["world"]
 ```
 
