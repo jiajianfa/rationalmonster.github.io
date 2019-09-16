@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Xpack · Devops Roadmap</title>
+        <title>Pipeline Utility Steps · Devops Roadmap</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -106,8 +106,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="elasticSearch-索引的快照备份与恢复.html" />
+    <link rel="next" href="jenkins-Nexus-Platform的使用.html" />
     
+    
+    <link rel="prev" href="Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.html" />
     
 
     <style>
@@ -1210,7 +1212,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.4.2" data-path="jenkins-pipeline-utility-steps.html">
+        <li class="chapter active" data-level="4.1.4.2" data-path="jenkins-pipeline-utility-steps.html">
             
                 <a href="jenkins-pipeline-utility-steps.html">
             
@@ -2233,7 +2235,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="6.1.4.2.1" data-path="elasticsearch-7.1的xpack权限控制.html">
+        <li class="chapter " data-level="6.1.4.2.1" data-path="elasticsearch-7.1的xpack权限控制.html">
             
                 <a href="elasticsearch-7.1的xpack权限控制.html">
             
@@ -4001,7 +4003,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Xpack</a>
+        <a href=".." >Pipeline Utility Steps</a>
     </h1>
 </div>
 
@@ -4016,274 +4018,346 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="&#x4E00;&#x3001;context">&#x4E00;&#x3001;Context</h1>
-<p>&#x4E4B;&#x524D;ELK&#x5957;&#x88C5;&#x5B89;&#x88C5;X-Pack&#x7684;&#x5B89;&#x5168;&#x529F;&#x80FD;&#x65F6;&#xFF0C;&#x53EA;&#x6709;&#x5B89;&#x88C5;30&#x5929;&#x7684;&#x8BD5;&#x7528;&#x8BB8;&#x53EF;&#x8BC1;&#x65F6;&#x95F4;&#xFF0C;&#x4EE5;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;&#x6240;&#x6709;&#x529F;&#x80FD;&#x3002; &#x5F53;&#x8BB8;&#x53EF;&#x8BC1;&#x5230;&#x671F;&#x65F6;&#xFF0C;X-Pack&#x5C06;&#x4EE5;&#x964D;&#x7EA7;&#x6A21;&#x5F0F;&#x8FD0;&#x884C;&#x3002;&#x53EF;&#x4EE5;&#x8D2D;&#x4E70;&#x8BA2;&#x9605;&#x4EE5;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;X-Pack&#x7EC4;&#x4EF6;&#x7684;&#x5168;&#x90E8;&#x529F;&#x80FD;&#xFF08;<a href="https://www.elastic.co/subscriptions&#xFF09;&#x3002;&#x4F46;&#x662F;,&#x6700;&#x8FD1;&#x5B98;&#x65B9;&#x4ECE;6.8.0&#x548C;7.1.0&#x5F00;&#x59CB;ELK&#x5F00;&#x59CB;&#x514D;&#x8D39;&#x63D0;&#x4F9B;&#x5B89;&#x5168;&#x529F;&#x80FD;" _target="blank">https://www.elastic.co/subscriptions&#xFF09;&#x3002;&#x4F46;&#x662F;,&#x6700;&#x8FD1;&#x5B98;&#x65B9;&#x4ECE;6.8.0&#x548C;7.1.0&#x5F00;&#x59CB;ELK&#x5F00;&#x59CB;&#x514D;&#x8D39;&#x63D0;&#x4F9B;&#x5B89;&#x5168;&#x529F;&#x80FD;</a>. 
-<img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-1.png" alt=""></p>
-<p><strong><code>&#x672C;&#x6B21;&#x5B9E;&#x9A8C;,&#x6240;&#x6709;ELK&#x7EC4;&#x4EF6;&#x7248;&#x672C;&#x5747;&#x4E3A;7.1.0,&#x4EE5;&#x5BB9;&#x5668;&#x5355;&#x8282;&#x70B9;&#x8FD0;&#x884C;</code></strong></p>
-<h1 id="&#x4E8C;-elasticsearch&#x5F00;&#x542F;xpack">&#x4E8C;. Elasticsearch&#x5F00;&#x542F;Xpack</h1>
-<ol>
-<li>elasticsearch&#x7684;&#x5BB9;&#x5668;&#x5316;&#x90E8;&#x7F72;&#x53C2;&#x8003;&#x7B14;&#x8BB0;: ElasticSearch&#x7684;&#x5BB9;&#x5668;&#x5316;&#x90E8;&#x7F72;.md </li>
-<li><p>&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x65B9;&#x5F0F;&#x6CE8;&#x5165;,&#x4E3B;&#x8981;&#x7684;&#x51E0;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x53C2;&#x6570;</p>
+						<h1 id="jenkins-pipeline-utility-steps&#x63D2;&#x4EF6;">Jenkins Pipeline-Utility-steps&#x63D2;&#x4EF6;</h1>
+<h1 id="&#x4E00;&#x3001;pipeline-utility-steps&#x63D2;&#x4EF6;&#x7B80;&#x4ECB;">&#x4E00;&#x3001;Pipeline-Utility-steps&#x63D2;&#x4EF6;&#x7B80;&#x4ECB;</h1>
+<p>Jekins&#x4E2D;&#x7684;Pipeline-Utility-steps&#x63D2;&#x4EF6;&#x80FD;&#x8BA9;&#x4F60;&#x5728;pipeline&#x7684;Step&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B83;&#x7684;API&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#xFF0C;&#x4F8B;&#x5982;&#x67E5;&#x627E;&#x6587;&#x4EF6;&#xFF0C;&#x8BFB;&#x53D6;YAML/JSON/Properties&#x6587;&#x4EF6;&#x3001;&#x8BFB;&#x53D6;Maven&#x5DE5;&#x7A0B;POM&#x6587;&#x4EF6;&#x7B49;&#x3002;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x6709;&#x4E00;&#x4E2A;&#x524D;&#x63D0;&#xFF0C;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#x90FD;&#x9700;&#x8981;&#x653E;&#x5728;jenkins&#x7684;workspace&#x4E0B;&#xFF0C;&#x6267;&#x884C;&#x7684;job&#x624D;&#x80FD;&#x53BB;&#x627E;&#x5230;&#x6587;&#x4EF6;&#x3002;</p>
+<p>Github&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin" _target="blank">https://github.com/jenkinsci/pipeline-utility-steps-plugin</a></p>
+<p>&#x76F8;&#x5173;&#x6587;&#x6863;&#xFF1A;<a href="https://jenkins.io/doc/pipeline/steps/pipeline-utility-steps/" _target="blank">https://jenkins.io/doc/pipeline/steps/pipeline-utility-steps/</a></p>
+<h1 id="&#x4E8C;&#x3001;pipeline-utility-steps&#x63D2;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;">&#x4E8C;&#x3001;Pipeline-Utility-steps&#x63D2;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;</h1>
 <ul>
-<li>xpack.monitoring.collection.enabled(&#x5F00;&#x542F;&#x81EA;&#x6211;&#x76D1;&#x63A7;): true</li>
-<li>path.repo(&#x8BBE;&#x7F6E;snapshot&#x5B58;&#x50A8;&#x4ED3;&#x5E93;&#x7684;&#x8DEF;&#x5F84;): /usr/share/elasticsearch/snapshots-repository</li>
-<li>discovery.type(&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4E3A;&#x5355;&#x8282;&#x70B9;&#x6A21;&#x5F0F;): single-node</li>
-<li>cluster.name(&#x8BBE;&#x7F6E;elasticsearch&#x7684;&#x96C6;&#x7FA4;&#x540D;): curiouser</li>
-<li>bootstrap.memory_lock: &apos;true&apos;</li>
-<li>TZ(&#x8BBE;&#x7F6E;&#x65F6;&#x533A;): Asia/Shanghai</li>
-<li>ES_JAVA_OPTS(&#x8BBE;&#x7F6E;elasticsearch&#x7684;JVM&#x5806;&#x6808;&#x5927;&#x5C0F;): &apos;-Xms1g -Xmx2g&apos;</li>
-<li>ELASTIC_USERNAME: &quot;kibana&quot;</li>
-<li>ELASTIC_PASSWORD: &quot;kibana&quot;</li>
-<li>xpack.security.enabled: &apos;true&apos;</li>
-<li>xpack.security.transport.ssl.enabled: &quot;true&quot;</li>
-<li>xpack.security.transport.ssl.verification_mode: &quot;certificate&quot;</li>
-<li>xpack.security.transport.ssl.keystore.path: &quot;/usr/share/elasticsearch/config/certs/elastic-certificates.p12&quot;</li>
-<li>xpack.security.transport.ssl.truststore.path: &quot;/usr/share/elasticsearch/config/certs/elastic-certificates.p12&quot;</li>
-<li>xpack.security.http.ssl.enabled: &quot;false&quot;</li>
+<li><p><strong>File System</strong></p>
+<ul>
+<li><p><code>findFiles</code>&#xFF1A;&#x6839;&#x636E;&#x4E00;&#x4E9B;&#x5B57;&#x7B26;&#x4E32;&#x89C4;&#x5219;&#x53BB;&#x67E5;&#x627E;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5339;&#x914D;&#x7684;&#x67E5;&#x627E;&#xFF0C;&#x8FD4;&#x56DE;&#x662F;&#x4E00;&#x4E2A;fille&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x3002;&#xFF08;<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/fs/FindFilesStep/help.html" _target="blank">&#x6587;&#x6863;</a>&#xFF09;</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>excludes(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String)</li>
+<li>glob(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String)</li>
 </ul>
 </li>
-<li><p>&#x67E5;&#x770B;elasticsearch&#x662F;&#x5426;&#x5F00;&#x542F;xpack&#x7684;&#x5B89;&#x5168;&#x9A8C;&#x8BC1;</p>
-<pre class="language-"><code class="lang-bash"><span class="token function">curl</span>  -XGET <span class="token string">&apos;localhost:9200/_cat/health?v&amp;pretty&apos;</span>
-<span class="token comment"># curl -XGET &quot;http://127.0.0.1:9200/_cat/health?v&amp;pretty&quot;</span>
-<span class="token comment"># &#x4F7F;&#x7528;&#x4E0A;&#x8FF0;&#x547D;&#x4EE4;&#x4F1A;&#x8FD4;&#x56DE;401,&#x63D0;&#x793A;&#x672A;&#x6388;&#x6743;&#x9A8C;&#x8BC1;,&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x5B89;&#x5168;&#x9A8C;&#x8BC1;&#x5730;&#x8BBF;&#x95EE;</span>
-<span class="token function">curl</span> --user kibana:****kibana&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;**** -XGET <span class="token string">&apos;localhost:9200/_cat/health?v&amp;pretty&apos;</span>
+<li><p>&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-groovy"><span class="token keyword">def</span> files <span class="token operator">=</span> <span class="token function">findFiles</span><span class="token punctuation">(</span>glob<span class="token punctuation">:</span> <span class="token string">&apos;**/TEST-*.xml&apos;</span><span class="token punctuation">)</span>
+
+echo <span class="token string">&quot;&quot;&quot;${files[0].name} ${files[0].path} ${files[0].directory} ${files[0].length} ${files[0].lastModified}&quot;&quot;&quot;</span>
 </code></pre>
 </li>
-</ol>
-<h1 id="&#x4E09;&#x3001;kibana&#x5F00;&#x542F;xpack">&#x4E09;&#x3001;Kibana&#x5F00;&#x542F;Xpack</h1>
-<ol>
-<li>kibana&#x7684;&#x5BB9;&#x5668;&#x5316;&#x90E8;&#x7F72;&#x8BE6;&#x89C1;&#x7B14;&#x8BB0;: Kibana&#x7684;&#x5BB9;&#x5668;&#x5316;&#x90E8;&#x7F72;.md </li>
-<li><p>&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x65B9;&#x5F0F;&#x6CE8;&#x5165;,&#x4E3B;&#x8981;&#x7684;&#x51E0;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x53C2;&#x6570;:</p>
-<ul>
-<li><code>ELASTICSEARCH_USERNAME</code>: <strong><strong>kibana&#x7528;&#x6237;</strong></strong></li>
-<li><code>ELASTICSEARCH_PASSWORD</code>: <strong><strong>kibana&#x7528;&#x6237;&#x7684;&#x968F;&#x673A;&#x5BC6;&#x7801;</strong></strong></li>
-<li><code>TZ(&#x8BBE;&#x7F6E;&#x65F6;&#x533A;)</code>: Asia/Shanghai </li>
 </ul>
 </li>
-<li><p>&#x955C;&#x50CF;&#x4E2D;&#x9ED8;&#x8BA4;&#x6307;&#x5B9A;&#x7684;elasticsearch&#x5730;&#x5740;&#x4E3A;:<a href="http://elasticsearch:9200,&#x521A;&#x597D;&#x5728;open" _target="blank">http://elasticsearch:9200,&#x521A;&#x597D;&#x5728;open</a> shift&#x4E2D;&#x90E8;&#x7F72;&#x7684;elasticsearch&#x7684;svc&#x540D;&#x4E3A;&quot;elasticsearch&quot;,&#x5B83;&#x7684;&#x8BBF;&#x95EE;&#x65B9;&#x5F0F;&#x4E3A;:<a href="http://elasticsearch:9200&#x6216;&#x8005;http://elasticsearch.&#x547D;&#x540D;&#x7A7A;&#x95F4;.svc:9200" _target="blank">http://elasticsearch:9200&#x6216;&#x8005;http://elasticsearch.&#x547D;&#x540D;&#x7A7A;&#x95F4;.svc:9200</a></p>
+<li><p><code>touch</code>&#xFF1A;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#xFF08;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x8BDD;&#xFF09;&#x5E76;&#x8BBE;&#x7F6E;&#x65F6;&#x95F4;&#x6233;. Returns a FileWrapper representing the file that was touched. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/fs/TouchStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String)&#xFF1A;The path to the file to touch.</li>
+<li>timestamp(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;long)&#xFF1A;The timestamp to set (number of ms since the epoc), leave empty for current system time.</li>
+</ul>
 </li>
-<li><p>&#x767B;&#x5F55;Kibana&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;</p>
-<p> &#x4F7F;&#x7528;elastic &#x8D85;&#x7EA7;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;&#xFF0C;&#x5BC6;&#x7801;&#x6765;&#x81EA; setup-passwords &#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C; </p>
-<p> <img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-2.png" alt=""></p>
+</ul>
 </li>
-</ol>
-<h1 id="&#x56DB;&#x3001;logstash&#x5F00;&#x542F;xpack">&#x56DB;&#x3001;Logstash&#x5F00;&#x542F;Xpack</h1>
-<ol>
-<li><p>&#x914D;&#x7F6E;logstash&#x53D1;&#x9001;&#x76D1;&#x63A7;&#x6570;&#x636E;&#x5230;elasticsearch</p>
-<pre class="language-"><code class="lang-bash"> xpack.monitoring.elasticsearch.hosts: <span class="token string">&quot;http://elasticsearch:9200&quot;</span>
- xpack.monitoring.enabled: <span class="token string">&quot;true&quot;</span>
- xpack.monitoring.elasticsearch.username: <span class="token string">&quot;logstash_system&quot;</span> 
- xpack.monitoring.elasticsearch.password: <span class="token string">&quot;***logstash_system&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;****&quot;</span>
+<li><p><code>sha1</code>&#xFF1A;&#x8BA1;&#x7B97;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x7684;SHA1 (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/fs/FileSha1Step/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): The path to the file to hash.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>tee</code>&#xFF1A;&#x5C06;&#x8F93;&#x51FA;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x6587;&#x4EF6;</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Zip Files</strong></p>
+<ul>
+<li><p><code>zip</code>&#xFF1A;&#x521B;&#x5EFA;Zip&#x6587;&#x4EF6;. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/zip/ZipStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>zipFile(&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): The name/path of the zip file to create.</li>
+<li>archive(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;boolean): If the zip file should be archived as an artifact of the current build. The file will still be kept in the workspace after archiving.</li>
+<li>dir(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): The path of the base directory to create the zip from. Leave empty to create from the current working directory.</li>
+<li>glob(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): Ant style pattern of files to include in the zip. Leave empty to include all files and directories.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>unzip</code>&#xFF1A;&#x89E3;&#x538B;&#x6216;&#x8BFB;&#x53D6;Zip&#x6587;&#x4EF6; (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/zip/UnZipStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li>&#x53C2;&#x6570;<ul>
+<li>zipFile(&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): The name/path of the zip file to extract.</li>
+<li>charset(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): Specify which Charset you wish to use eg. UTF-8</li>
+<li>dir(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): The path of the base directory to extract the zip to. Leave empty to extract in the current working directory.</li>
+<li>glob(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): Ant style pattern of files to extract from the zip. Leave empty to include all files and directories.</li>
+<li>quiet(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;boolean): Suppress the verbose output that logs every single file that is dealt with. E.g. unzip zipFile: &apos;example.zip&apos;, quiet: true</li>
+<li>read(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;boolean): Read the content of the files into a Map instead of writing them to the workspace. The keys of the map will be the path of the files read. E.g. def v = unzip zipFile: &apos;example.zip&apos;, glob: &apos;*.txt&apos;, read: true String version = v[&apos;version.txt&apos;]</li>
+<li>test(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;boolean): Test the integrity of the archive instead of extracting it. When this parameter is enabled, all other parameters (except for zipFile) will be ignored. The step will return true or false depending on the result instead of throwing an exception.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Configuration Files</strong></p>
+<ul>
+<li><p><code>readProperties</code>&#xFF1A;Reads a file in the current working directory or a String as a plain text <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html" _target="blank">Java Properties</a> file. The returned object is a normal Map with String keys. The map can also be pre loaded with default values before reading/parsing the data. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/conf/ReadPropertiesStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>defaults (&#x53EF;&#x9009;&#xFF0C;Nested Choice of Objects): An Map containing default key/values. These are added to the resulting map first.</li>
+<li>file(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): path to a file in the workspace to read the properties from. These are added to the resulting map after the defaults and so will overwrite any key/value pairs already present.</li>
+<li>interpolate (&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;boolean): Flag to indicate if the properties should be interpolated or not. In case of error or cycling dependencies, the original properties will be returned.</li>
+<li>text (&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): An String containing properties formatted data. These are added to the resulting map after file and so will overwrite any key/value pairs already present.</li>
+</ul>
+</li>
+<li><p>&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-groovy">  <span class="token keyword">def</span> d <span class="token operator">=</span> <span class="token punctuation">[</span>test<span class="token punctuation">:</span> <span class="token string">&apos;Default&apos;</span><span class="token punctuation">,</span> something<span class="token punctuation">:</span> <span class="token string">&apos;Default&apos;</span><span class="token punctuation">,</span> other<span class="token punctuation">:</span> <span class="token string">&apos;Default&apos;</span><span class="token punctuation">]</span>
+  <span class="token keyword">def</span> props <span class="token operator">=</span> readProperties defaults<span class="token punctuation">:</span> d<span class="token punctuation">,</span> file<span class="token punctuation">:</span> <span class="token string">&apos;dir/my.properties&apos;</span><span class="token punctuation">,</span> text<span class="token punctuation">:</span> <span class="token string">&apos;other=Override&apos;</span>
+  <span class="token keyword">assert</span> props<span class="token punctuation">[</span><span class="token string">&apos;test&apos;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;One&apos;</span>
+  <span class="token keyword">assert</span> props<span class="token punctuation">[</span><span class="token string">&apos;something&apos;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;Default&apos;</span>
+  <span class="token keyword">assert</span> props<span class="token operator">.</span>something <span class="token operator">==</span> <span class="token string">&apos;Default&apos;</span>
+  <span class="token keyword">assert</span> props<span class="token operator">.</span>other <span class="token operator">==</span> <span class="token string">&apos;Override&apos;</span>
+</code></pre>
+<pre class="language-"><code class="lang-groovy">  <span class="token keyword">def</span> props <span class="token operator">=</span> readProperties interpolate<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> file<span class="token punctuation">:</span> <span class="token string">&apos;test.properties&apos;</span>
+  <span class="token keyword">assert</span> props<span class="token operator">.</span>url <span class="token operator">=</span> <span class="token string">&apos;http://localhost&apos;</span>
+  <span class="token keyword">assert</span> props<span class="token operator">.</span>resource <span class="token operator">=</span> <span class="token string">&apos;README.txt&apos;</span>
+  <span class="token comment">// if fullUrl is defined to ${url}/${resource} then it should evaluate to http://localhost/README.txt</span>
+  <span class="token keyword">assert</span> props<span class="token operator">.</span>fullUrl <span class="token operator">=</span> <span class="token string">&apos;http://localhost/README.txt&apos;</span>
 </code></pre>
 </li>
-<li><p>&#x5728;kibana&#x4E2D;&#x67E5;&#x770B;logstash&#x7684;&#x76D1;&#x63A7;&#x6570;&#x636E;</p>
-<p> <img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-3.png" alt="">
- <img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-4.png" alt="">
- <img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-5.png" alt=""></p>
+</ul>
 </li>
-<li><p>&#x5728;kibana&#x4E2D;&#x521B;&#x5EFA;logstash-pipeline&#x89D2;&#x8272;,&#x6388;&#x4E88;&quot;manage_index_template&quot;,&quot;monitor&quot;&#x7684;&#x96C6;&#x7FA4;&#x6743;&#x9650;&#x548C;&quot;write&quot;,&quot;delete&quot;,&quot;create_index&quot;,&quot;manage_ilm&quot;,&quot;manage&quot;&#x7684;Index&#x6743;&#x9650;,&#x7136;&#x540E;&#x7ED1;&#x5B9A;&#x5230;logstash-pipeline&#x7528;&#x6237;&#x4E0A;,&#x7528;&#x4EE5;&#x521B;&#x5EFA;Index&#x5E76;&#x5411;&#x5176;&#x4E2D;&#x5199;&#x5165;&#x6570;&#x636E;</p>
-<p><img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-6.png" alt="">
-<img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-7.png" alt="">
-<img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-8.png" alt=""></p>
+<li><p><code>readManifest</code>&#xFF1A;Reads a Jar Manifest file or text and parses it into a set of Maps. The returned data structure has two properties: main for the main attributes, and entries containing each individual section (except for main). (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/conf/mf/ReadManifestStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String&#x3002;&#x503C;&#x53EA;&#x80FD;&#x662F;file&#x6216;text&#xFF0C;&#x4E24;&#x8005;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;): path to a file to read. It could be a plain text, .jar, .war or .ear. In the latter cases the manifest will be extracted from the archive and then read.</li>
+<li>text(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String&#x3002;&#x503C;&#x53EA;&#x80FD;&#x662F;file&#x6216;text&#xFF0C;&#x4E24;&#x8005;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;):  text containing the manifest data.</li>
+</ul>
 </li>
-<li><p>&#x5728;pipeline&#x7684;elasticsearch output&#x63D2;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E;&#x7528;&#x6237;&#x548C;&#x5BC6;&#x7801;</p>
-<pre class="language-"><code class="lang-bash"> output<span class="token punctuation">{</span>
-     elasticsearch<span class="token punctuation">{</span>
-         hosts <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;elasticsearch:9200&quot;</span>
-         index <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;%{AppID}-%{+YYYY.MM.dd}&quot;</span>
-         user <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;logstash-pipeline&quot;</span>
-         password <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;****logstash-pipeline&#x7528;&#x6237;&#x5BC6;&#x7801;****&quot;</span>
-     <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
+<li><p>&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-groovy">  <span class="token keyword">def</span> man <span class="token operator">=</span> readManifest file<span class="token punctuation">:</span> <span class="token string">&apos;target/my.jar&apos;</span>
+
+  <span class="token keyword">assert</span> man<span class="token operator">.</span>main<span class="token punctuation">[</span><span class="token string">&apos;Version&apos;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;6.15.8&apos;</span>
+  <span class="token keyword">assert</span> man<span class="token operator">.</span>main<span class="token punctuation">[</span><span class="token string">&apos;Application-Name&apos;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;My App&apos;</span>
+  <span class="token keyword">assert</span> man<span class="token operator">.</span>entries<span class="token punctuation">[</span><span class="token string">&apos;Section1&apos;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">&apos;Key1&apos;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;value1-1&apos;</span>
+  <span class="token keyword">assert</span> man<span class="token operator">.</span>entries<span class="token punctuation">[</span><span class="token string">&apos;Section2&apos;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">&apos;Key2&apos;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;value2-2&apos;</span>
 </code></pre>
 </li>
-<li><p>&#x67E5;&#x770B;logstash&#x7684;pipeline&#x662F;&#x5426;&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x7684;elasticsearch
-<img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-9.png" alt=""></p>
+</ul>
 </li>
-</ol>
-<h1 id="&#x9644;&#x5F55;&#xFF1A;kibana&#x4E0A;&#x7684;&#x89D2;&#x8272;&#x6743;&#x9650;">&#x9644;&#x5F55;&#xFF1A;Kibana&#x4E0A;&#x7684;&#x89D2;&#x8272;&#x6743;&#x9650;</h1>
-<p><strong><code>Cluster&#x76F8;&#x5173;&#x7684;&#x89D2;&#x8272;&#x6743;&#x9650;</code></strong></p>
-<table>
-<thead>
-<tr>
-<th>&#x89D2;&#x8272;&#x6743;&#x9650;</th>
-<th>&#x6743;&#x9650;&#x63CF;&#x8FF0;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>all</td>
-<td>Privileges to create snapshots for existing repositories. Can also list and view details on existing repositories and snapshots.</td>
-</tr>
-<tr>
-<td>create_snapshot</td>
-<td>Privileges to create snapshots for existing repositories. Can also list and view details on existing repositories and snapshots.</td>
-</tr>
-<tr>
-<td>manage</td>
-<td>Builds on <code>monitor</code> and adds cluster operations that change values in the cluster. This includes snapshotting, updating settings, and rerouting. It also includes obtaining snapshot and restore status. This privilege does not include the ability to manage security.</td>
-</tr>
-<tr>
-<td>manage_ccr</td>
-<td>All cross-cluster replication operations related to managing follower indices and auto-follow patterns. It also includes the authority to grant the privileges necessary to manage follower indices and auto-follow patterns. This privilege is necessary only on clusters that contain follower indices.</td>
-</tr>
-<tr>
-<td>manage_data_frame_transforms</td>
-<td>All operations on index templates.</td>
-</tr>
-<tr>
-<td>manage_ilm</td>
-<td>All operations on index templates.</td>
-</tr>
-<tr>
-<td>manage_index_templates</td>
-<td>All operations on index templates.</td>
-</tr>
-<tr>
-<td>manage_ingest_pipelines</td>
-<td>All operations on ingest node pipelines.</td>
-</tr>
-<tr>
-<td>manage_ml</td>
-<td>All machine learning operations, such as creating and deleting datafeeds, jobs, and model snapshots.<br>Note&#xFF1A;Datafeeds that were created prior to version 6.2 or created when security features were disabled run as a system user with elevated privileges, including permission to read all indices. Newer datafeeds run with the security roles of the user who created or updated them.</td>
-</tr>
-<tr>
-<td>manage_pipeline</td>
-<td>All operations on ingest pipelines.</td>
-</tr>
-<tr>
-<td>manage_rollup</td>
-<td>All rollup operations, including creating, starting, stopping and deleting rollup jobs.</td>
-</tr>
-<tr>
-<td>manage_saml</td>
-<td>Enables the use of internal Elasticsearch APIs to initiate and manage SAML authentication on behalf of other users.</td>
-</tr>
-<tr>
-<td>manage_security</td>
-<td>All security-related operations such as CRUD operations on users and roles and cache clearing.</td>
-</tr>
-<tr>
-<td>manage_token</td>
-<td>All security-related operations on tokens that are generated by the Elasticsearch Token Service.</td>
-</tr>
-<tr>
-<td>manage_watcher</td>
-<td>All watcher operations, such as putting watches, executing, activate or acknowledging.<br>Note&#xFF1A;Watches that were created prior to version 6.1 or created when the security features were disabled run as a system user with elevated privileges, including permission to read and write all indices. Newer watches run with the security roles of the user who created or updated them.</td>
-</tr>
-<tr>
-<td>monitor</td>
-<td>All cluster read-only operations, like cluster health and state, hot threads, node info, node and cluster stats, and pending cluster tasks.</td>
-</tr>
-<tr>
-<td>monitor_data_frame_transforms</td>
-<td>All read-only operations related to data frames.</td>
-</tr>
-<tr>
-<td>monitor_ml</td>
-<td>All read-only machine learning operations, such as getting information about datafeeds, jobs, model snapshots, or results.</td>
-</tr>
-<tr>
-<td>monitor_rollup</td>
-<td>All read-only rollup operations, such as viewing the list of historical and currently running rollup jobs and their capabilities.</td>
-</tr>
-<tr>
-<td>monitor_watcher</td>
-<td>All read-only watcher operations, such as getting a watch and watcher stats.</td>
-</tr>
-<tr>
-<td>read_ccr</td>
-<td>All read-only cross-cluster replication operations, such as getting information about indices and metadata for leader indices in the cluster. It also includes the authority to check whether users have the appropriate privileges to follow leader indices. This privilege is necessary only on clusters that contain leader indices.</td>
-</tr>
-<tr>
-<td>read_ilm</td>
-<td>All read-only index lifecycle management operations, such as getting policies and checking the status of index lifecycle management</td>
-</tr>
-<tr>
-<td>transport_client</td>
-<td>All privileges necessary for a transport client to connect. Required by the remote cluster to enable Cross Cluster Search.</td>
-</tr>
-</tbody>
-</table>
-<p><strong><code>Index&#x76F8;&#x5173;&#x7684;&#x89D2;&#x8272;&#x6743;&#x9650;</code></strong></p>
-<table>
-<thead>
-<tr>
-<th>&#x89D2;&#x8272;&#x6743;&#x9650;</th>
-<th>&#x6743;&#x9650;&#x63CF;&#x8FF0;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>all</td>
-<td>Any action on an index</td>
-</tr>
-<tr>
-<td>create</td>
-<td>Privilege to index documents. Also grants access to the update mapping action.<br>Note<br>This privilege does not restrict the index operation to the creation of documents but instead restricts API use to the index API. The index API allows a user to overwrite a previously indexed document.</td>
-</tr>
-<tr>
-<td>create_index</td>
-<td>Privilege to create an index. A create index request may contain aliases to be added to the index once created. In that case the request requires the manage privilege as well, on both the index and the aliases names.</td>
-</tr>
-<tr>
-<td>delete</td>
-<td>Privilege to delete documents.</td>
-</tr>
-<tr>
-<td>delete_index</td>
-<td>Privilege to delete an index.</td>
-</tr>
-<tr>
-<td>index</td>
-<td>Privilege to index and update documents. Also grants access to the update mapping action.</td>
-</tr>
-<tr>
-<td>manage</td>
-<td>All monitor privileges plus index administration (aliases, analyze, cache clear, close, delete, exists, flush, mapping, open, force merge, refresh, settings, search shards, templates, validate).</td>
-</tr>
-<tr>
-<td>manage_follow_index</td>
-<td>All actions that are required to manage the lifecycle of a follower index, which includes creating a follower index, closing it, and converting it to a regular index. This privilege is necessary only on clusters that contain follower indices.</td>
-</tr>
-<tr>
-<td>manage_ilm</td>
-<td>All index lifecycle management operations relating to managing the execution of policies of an index This includes operations like retrying policies, and removing a policy from an index.</td>
-</tr>
-<tr>
-<td>manage_leader_index</td>
-<td>All actions that are required to manage the lifecycle of a leader index, which includes forgetting a follower. This privilege is necessary only on clusters that contain leader indices.</td>
-</tr>
-<tr>
-<td>monitor</td>
-<td>All actions that are required for monitoring (recovery, segments info, index stats and status).</td>
-</tr>
-<tr>
-<td>read</td>
-<td>Read-only access to actions (count, explain, get, mget, get indexed scripts, more like this, multi percolate/search/termvector, percolate, scroll, clear_scroll, search, suggest, tv).</td>
-</tr>
-<tr>
-<td>read_cross_cluster</td>
-<td>Read-only access to the search action from a remote cluster.</td>
-</tr>
-<tr>
-<td>view_index_metadata</td>
-<td>Read-only access to index metadata (aliases, aliases exists, get index, exists, field mappings, mappings, search shards, type exists, validate, warmers, settings, ilm). This privilege is primarily available for use by Kibana users.</td>
-</tr>
-<tr>
-<td>write</td>
-<td>Privilege to perform all write operations to documents, which includes the permission to index, update, and delete documents as well as performing bulk operations. Also grants access to the update mapping action.</td>
-</tr>
-</tbody>
-</table>
-<h1 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;">&#x53C2;&#x8003;&#x94FE;&#x63A5;</h1>
-<p><a href="https://www.elastic.co/cn/blog/getting-started-with-elasticsearch-security" _target="blank">https://www.elastic.co/cn/blog/getting-started-with-elasticsearch-security</a> 
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html" _target="blank">https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html</a> 
-<a href="https://www.elastic.co/guide/en/elastic-stack-overview/7.1/get-started-logstash-user.html" _target="blank">https://www.elastic.co/guide/en/elastic-stack-overview/7.1/get-started-logstash-user.html</a> 
-<a href="https://www.elastic.co/guide/en/logstash/current/ls-security.html" _target="blank">https://www.elastic.co/guide/en/logstash/current/ls-security.html</a> 
-<a href="https://www.elastic.co/guide/en/logstash/current/docker-config.html#docker-env-config" _target="blank">https://www.elastic.co/guide/en/logstash/current/docker-config.html#docker-env-config</a></p>
+<li><p><code>readYaml</code>&#xFF1A;Reads a file in the current working directory or a String as a plain text <a href="http://yaml.org/" _target="blank">YAML</a> file. It uses <a href="https://bitbucket.org/asomov/snakeyaml" _target="blank">SnakeYAML</a> as YAML processor. The returned objects are standard Java objects like List, Long, String, ...: bool: [true, false, on, off] int: 42 float: 3.14159 list: [&apos;LITE&apos;, &apos;RES_ACID&apos;, &apos;SUS_DEXT&apos;] map: {hp: 13, sp: 5}. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/conf/ReadYamlStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String)</li>
+<li>text(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String)</li>
+</ul>
+</li>
+<li><p>&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-groovy">  <span class="token comment">// &#x8BFB;&#x53D6;&#x5355;&#x4E2A;YAML&#x6587;&#x4EF6;</span>
+  <span class="token keyword">def</span> datas <span class="token operator">=</span> readYaml text<span class="token punctuation">:</span> <span class="token string">&quot;&quot;&quot;
+  something: &apos;my datas&apos;
+  size: 3
+  isEmpty: false
+  &quot;&quot;&quot;</span>
+  <span class="token keyword">assert</span> datas<span class="token operator">.</span>something <span class="token operator">==</span> <span class="token string">&apos;my datas&apos;</span>
+  <span class="token keyword">assert</span> datas<span class="token operator">.</span>size <span class="token operator">==</span> <span class="token number">3</span>
+  <span class="token keyword">assert</span> datas<span class="token operator">.</span>isEmpty <span class="token operator">==</span> <span class="token boolean">false</span>
+</code></pre>
+<pre class="language-"><code class="lang-groovy">  <span class="token comment">// &#x8BFB;&#x53D6;&#x591A;&#x4E2A;YAML&#x6587;&#x4EF6;</span>
+  <span class="token keyword">def</span> datas <span class="token operator">=</span> readYaml text<span class="token punctuation">:</span> <span class="token string">&quot;&quot;&quot;
+  ---
+  something: &apos;my first document&apos;
+  ---
+  something: &apos;my second document&apos;
+  &quot;&quot;&quot;</span>
+  <span class="token keyword">assert</span> datas<span class="token operator">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span>
+  <span class="token keyword">assert</span> datas<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">.</span>something <span class="token operator">==</span> <span class="token string">&apos;my first document&apos;</span>
+  <span class="token keyword">assert</span> datas<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">.</span>something <span class="token operator">==</span> <span class="token string">&apos;my second document&apos;</span>
+</code></pre>
+<pre class="language-"><code class="lang-groovy">  <span class="token comment">// With file dir/my.yml containing something: &apos;my datas&apos; :</span>
+  <span class="token keyword">def</span> datas <span class="token operator">=</span> readYaml file<span class="token punctuation">:</span> <span class="token string">&apos;dir/my.yml&apos;</span><span class="token punctuation">,</span> text<span class="token punctuation">:</span> <span class="token string">&quot;something: &apos;Override&apos;&quot;</span>
+  <span class="token keyword">assert</span> datas<span class="token operator">.</span>something <span class="token operator">==</span> <span class="token string">&apos;Override&apos;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><code>writeYaml</code>&#xFF1A;Write a YAML file from an object. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/conf/WriteYamlStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li>&#x53C2;&#x6570;<ul>
+<li>file(&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): Mandatory path to a file in the workspace to write the YAML datas to.</li>
+<li>data: A Mandatory Object containing the data to be serialized.</li>
+<li>charset: Optionally specify the charset to use when writing the file. Defaults to UTF-8 if nothing else is specified. What charsets that are available depends on your Jenkins master system. The java specification tells us though that at least the following should be available:
+ [ US-ASCII&#x3001;ISO-8859-1&#x3001;UTF-8&#x3001;UTF-16BE&#x3001;UTF-16LE&#x3001;UTF-16]</li>
+</ul>
+</li>
+<li><p>&#x793A;&#x4F8B;</p>
+<p>  ```groovy
+  def amap = [&apos;something&apos;: &apos;my datas&apos;, &apos;size&apos;: 3, &apos;isEmpty&apos;: false]</p>
+</li>
+</ul>
+<p>writeYaml file: &apos;datas.yaml&apos;, data: amap
+def read = readYaml file: &apos;datas.yaml&apos;</p>
+<p>assert read.something == &apos;my datas&apos;</p>
+<pre class="language-"><code>assert read.size == 3
+</code></pre><p>assert read.isEmpty == false</p>
+<pre class="language-"><code>```
+</code></pre></li>
+</ul>
+</li>
+<li><p><code>readJSON</code>&#xFF1A;Reads a file in the current working directory or a String as a plain text <a href="http://www.json.org/json-it.html" _target="blank">JSON</a> file. The returned object is a normal Map with String keys or a List of primitives or Map. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/json/ReadJSONStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String&#x3002;&#x503C;&#x53EA;&#x80FD;&#x662F;file&#x6216;text&#xFF0C;&#x4E24;&#x8005;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;): Path to a file in the workspace from which to read the JSON data. Data could be access as an array or a map.</li>
+</ul>
+</li>
+<li>text(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String&#x3002;&#x503C;&#x53EA;&#x80FD;&#x662F;file&#x6216;text&#xFF0C;&#x4E24;&#x8005;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;): A string containing the JSON formatted data. Data could be access as an array or a map.</li>
+</ul>
+<ul>
+<li><p>&#x793A;&#x4F8B;</p>
+<p>  ```groovy</p>
+<pre class="language-"><code>def props = readJSON file: &apos;dir/input.json&apos;
+assert props[&apos;attr1&apos;] == &apos;One&apos;
+</code></pre><p>  assert props.attr1 == &apos;One&apos;</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>def props = readJSON text: &apos;{ &quot;key&quot;: &quot;value&quot; }&apos;
+        assert props[&apos;key&apos;] == &apos;value&apos;
+        assert props.key == &apos;value&apos;</p>
+<p>  def props = readJSON text: &apos;[ &quot;a&quot;, &quot;b&quot;]&apos;
+        assert props[0] == &apos;a&apos;
+      assert props[1] == &apos;b&apos;</p>
+<pre class="language-"><code>    ```
+</code></pre><ul>
+<li><p><code>writeJSON</code>&#xFF1A;Write a <a href="http://www.json.org/json-it.html" _target="blank">JSON</a> file in the current working directory. That for example was previously read by <code>readJSON</code>. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/json/WriteJSONStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): Path to a file in the workspace to write to.</li>
+<li>json(Nested Choice of Objects): The JSON object to write.</li>
+<li>pretty (&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;int): Prettify the output with this number of spaces added to each level of indentation.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-groovy">    <span class="token keyword">def</span> input <span class="token operator">=</span> readJSON file<span class="token punctuation">:</span> <span class="token string">&apos;myfile.json&apos;</span>
+    <span class="token comment">//Do some manipulation</span>
+    writeJSON file<span class="token punctuation">:</span> <span class="token string">&apos;output.json&apos;</span><span class="token punctuation">,</span> json<span class="token punctuation">:</span> input
+    <span class="token comment">//or pretty print it, indented with a configurable number of spaces</span>
+    writeJSON file<span class="token punctuation">:</span> <span class="token string">&apos;output.json&apos;</span><span class="token punctuation">,</span> json<span class="token punctuation">:</span> input<span class="token punctuation">,</span> pretty<span class="token punctuation">:</span> <span class="token number">4</span>
+</code></pre>
+</li>
+<li><p><code>readCSV</code>&#xFF1A;Reads a file in the current working directory or a String as a plain text. A List of <a href="https://commons.apache.org/proper/commons-csv/apidocs/org/apache/commons/csv/CSVRecord.html" _target="blank">CSVRecord</a> instances is returned. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/csv/ReadCSVStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String&#x3002;&#x503C;&#x53EA;&#x80FD;&#x662F;file&#x6216;text&#xFF0C;&#x4E24;&#x8005;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;): Path to a file in the workspace from which to read the CSV data. Data is accessed as a List of String Array.</li>
+<li>text(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String&#x3002;&#x503C;&#x53EA;&#x80FD;&#x662F;file&#x6216;text&#xFF0C;&#x4E24;&#x8005;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;): A string containing the CSV formatted data. Data is accessed as a List of String Arrays.</li>
+<li>format(&#x53EF;&#x9009;&#xFF0C;org.apache.commons.csv.CSVFormat)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-groovy">    <span class="token keyword">def</span> records <span class="token operator">=</span> readCSV file<span class="token punctuation">:</span> <span class="token string">&apos;dir/input.csv&apos;</span>
+    <span class="token keyword">assert</span> records<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;key&apos;</span>
+    <span class="token keyword">assert</span> records<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;b&apos;</span>
+
+<span class="token keyword">def</span> content <span class="token operator">=</span> readCSV text<span class="token punctuation">:</span> <span class="token string">&apos;key,value\na,b&apos;</span>
+  <span class="token keyword">assert</span> records<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;key&apos;</span>
+    <span class="token keyword">assert</span> records<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;b&apos;</span>
+
+<span class="token comment">// &#x8FDB;&#x9636;&#x793A;&#x4F8B;</span>
+    <span class="token keyword">def</span> excelFormat <span class="token operator">=</span> CSVFormat<span class="token operator">.</span>EXCEL
+    <span class="token keyword">def</span> records <span class="token operator">=</span> readCSV file<span class="token punctuation">:</span> <span class="token string">&apos;dir/input.csv&apos;</span><span class="token punctuation">,</span> format<span class="token punctuation">:</span> excelFormat
+  <span class="token keyword">assert</span> records<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;key&apos;</span>
+    <span class="token keyword">assert</span> records<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;b&apos;</span>
+
+<span class="token keyword">def</span> content <span class="token operator">=</span> readCSV text<span class="token punctuation">:</span> <span class="token string">&apos;key,value\na,b&apos;</span><span class="token punctuation">,</span> format<span class="token punctuation">:</span> CSVFormat<span class="token operator">.</span>DEFAULT<span class="token operator">.</span><span class="token function">withHeader</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">assert</span> records<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&apos;key&apos;</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&apos;a&apos;</span>
+    <span class="token keyword">assert</span> records<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&apos;value&apos;</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&apos;b&apos;</span>
+</code></pre>
+</li>
+<li><p><code>writeCSV</code>&#xFF1A;Write a CSV file in the current working directory. That for example was previously read by <code>readCSV</code>. See <a href="https://commons.apache.org/proper/commons-csv/apidocs/org/apache/commons/csv/CSVPrinter.html" _target="blank">CSVPrinter</a> for details.(<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/csv/WriteCSVStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+</li>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String): Path to a file in the workspace to write to.</li>
+<li>records(java.lang.Iterable): The list of CSVRecord instances to write.</li>
+<li>format(&#x53EF;&#x9009;&#xFF0C;org.apache.commons.csv.CSVFormat):See CSVFormat for details.</li>
+</ul>
+<ul>
+<li><p>&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-groovy">  <span class="token keyword">def</span> records <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">&apos;key&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;value&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;b&apos;</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+  writeCSV file<span class="token punctuation">:</span> <span class="token string">&apos;output.csv&apos;</span><span class="token punctuation">,</span> records<span class="token punctuation">:</span> records<span class="token punctuation">,</span> format<span class="token punctuation">:</span> CSVFormat<span class="token operator">.</span>EXCEL
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Maven Projects</strong></p>
+<ul>
+<li><p><code>readMavenPom</code>&#xFF1A;&#x8BFB;&#x53D6;Maven POM&#x6587;&#x4EF6;&#x5230;&#x4E00;&#x4E2A;<a href="http://maven.apache.org/components/ref/3.3.9/maven-model/apidocs/org/apache/maven/model/Model.html" _target="blank">Model</a>&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/maven/ReadMavenPomStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+<ul>
+<li>file(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String)&#xFF1A;&#x9ED8;&#x8BA4;&#x8BFB;&#x53D6;&#x76EE;&#x524D;&#x5DE5;&#x4F5C;&#x533A;&#x4E0B;&#x7684;POM.xml&#x6587;&#x4EF6;</li>
+</ul>
+</li>
+<li><p>&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-groovy">  stage <span class="token punctuation">(</span><span class="token string">&apos;&#x4E0A;&#x4F20;&#x5236;&#x54C1;&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  steps <span class="token punctuation">{</span>
+      script<span class="token punctuation">{</span>
+      <span class="token keyword">def</span> pomfile <span class="token operator">=</span> readMavenPom file<span class="token punctuation">:</span> <span class="token string">&apos;pom.xml&apos;</span>
+      nexusPublisher nexusInstanceId<span class="token punctuation">:</span> <span class="token string">&apos;curiouser-okd-nexus&apos;</span><span class="token punctuation">,</span> \
+      nexusRepositoryId<span class="token punctuation">:</span> <span class="token string">&apos;Maven-Releases&apos;</span><span class="token punctuation">,</span> \
+          packages<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token punctuation">$</span><span class="token keyword">class</span><span class="token punctuation">:</span> <span class="token string">&apos;MavenPackage&apos;</span><span class="token punctuation">,</span> \
+          mavenAssetList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>classifier<span class="token punctuation">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span> extension<span class="token punctuation">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span> \
+          filePath<span class="token punctuation">:</span> <span class="token string">&quot;target/${pomfile.artifactId}-${pomfile.version}.${pomfile.packaging}&quot;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> \
+          mavenCoordinate<span class="token punctuation">:</span> <span class="token punctuation">[</span>artifactId<span class="token punctuation">:</span> <span class="token string">&quot;${pomfile.artifactId}&quot;</span><span class="token punctuation">,</span> \
+          groupId<span class="token punctuation">:</span> <span class="token string">&quot;${pomfile.groupId}&quot;</span><span class="token punctuation">,</span> \
+          packaging<span class="token punctuation">:</span> <span class="token string">&quot;${pomfile.packaging}&quot;</span><span class="token punctuation">,</span> \
+          version<span class="token punctuation">:</span> <span class="token string">&quot;${pomfile.version}&quot;</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><code>writeMavenPom</code>&#xFF1A;Writes a <a href="https://maven.apache.org/pom.html" _target="blank">Maven project</a> file. That for example was previously read by <code>readMavenPom</code>. (<a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/pipeline/utility/steps/maven/WriteMavenPomStep/help.html" _target="blank">&#x6587;&#x6863;</a>)</p>
+<ul>
+<li><p>&#x53C2;&#x6570;</p>
+</li>
+<li><p>model(&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;org.apache.maven.model.Model): The Model object to write.</p>
+<ul>
+<li>file(&#x53EF;&#x9009;&#xFF0C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;String):  Optional path to a file in the workspace to write to. If left empty the step will write to pom.xml in the current working directory.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x793A;&#x4F8B;</p>
+<pre class="language-"><code class="lang-groovy">    <span class="token keyword">def</span> pom <span class="token operator">=</span> readMavenPom file<span class="token punctuation">:</span> <span class="token string">&apos;pom.xml&apos;</span>
+    <span class="token comment">//Do some manipulation</span>
+    writeMavenPom model<span class="token punctuation">:</span> pom
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-08-20 18:48:32
+2019-09-16 14:36:50
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -4312,8 +4386,12 @@
 
 		
 		
+		<a href="Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.html" class="navigation navigation-prev " aria-label="Previous page: Kubernetes Plugin">
+			<i class="fa fa-angle-left"></i>
+		</a>
 		
-		<a href="elasticSearch-索引的快照备份与恢复.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Snapshots">
+		
+		<a href="jenkins-Nexus-Platform的使用.html" class="navigation navigation-next " aria-label="Next page: Nexus Platform Plugin">
 			<i class="fa fa-angle-right"></i>
 		</a>
 		
@@ -4323,7 +4401,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"Xpack","level":"6.1.4.2.1","depth":4,"next":{"title":"Snapshots","level":"6.1.4.2.2","depth":4,"path":"origin/elasticSearch-索引的快照备份与恢复.md","ref":"origin/elasticSearch-索引的快照备份与恢复.md","articles":[]},"previous":{"title":"管理","level":"6.1.4.2","depth":3,"ref":"","articles":[{"title":"Xpack","level":"6.1.4.2.1","depth":4,"path":"origin/elasticsearch-7.1的xpack权限控制.md","ref":"origin/elasticsearch-7.1的xpack权限控制.md","articles":[]},{"title":"Snapshots","level":"6.1.4.2.2","depth":4,"path":"origin/elasticSearch-索引的快照备份与恢复.md","ref":"origin/elasticSearch-索引的快照备份与恢复.md","articles":[]},{"title":"插件管理","level":"6.1.4.2.3","depth":4,"path":"origin/elasticsearch-插件管理.md","ref":"origin/elasticsearch-插件管理.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/elasticsearch-7.1的xpack权限控制.md","mtime":"2019-08-20T10:48:32.144Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-16T10:38:34.277Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"Pipeline Utility Steps","level":"4.1.4.2","depth":3,"next":{"title":"Nexus Platform Plugin","level":"4.1.4.3","depth":3,"path":"origin/jenkins-Nexus-Platform的使用.md","ref":"origin/jenkins-Nexus-Platform的使用.md","articles":[]},"previous":{"title":"Kubernetes Plugin","level":"4.1.4.1","depth":3,"path":"origin/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.md","ref":"origin/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/jenkins-pipeline-utility-steps.md","mtime":"2019-09-16T06:36:50.355Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-16T10:38:34.277Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>

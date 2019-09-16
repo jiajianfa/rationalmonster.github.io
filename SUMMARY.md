@@ -67,11 +67,10 @@
     * 安装
     * 管理
     * Pipeline
-        * 语法
-        * 样例
+        * [声明式Declarative语法](origin/jenkins-声明式Declarative pipeline语法.md)
     * 插件
         * [Kubernetes Plugin](origin/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.md)
-        * Pipeline Utility Plugin
+        * [Pipeline Utility Steps](origin/jenkins-pipeline-utility-steps.md)
         * [Nexus Platform Plugin](origin/jenkins-Nexus-Platform的使用.md)
         * [Mail Plugin](origin/jenkins-配置SMTP邮箱服务.md)
         * [Mail Extension](origin/jenkins-Mailer邮箱功能扩展插件Email-Extension.md)

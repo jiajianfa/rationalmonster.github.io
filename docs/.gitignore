@@ -27,3 +27,4 @@ node_modules
 #Gitbook
 !docs
 .idea/
+_book

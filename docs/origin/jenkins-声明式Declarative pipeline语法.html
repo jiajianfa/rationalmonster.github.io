@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Xpack · Devops Roadmap</title>
+        <title>声明式Declarative语法 · Devops Roadmap</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -105,8 +105,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
-    
-    <link rel="next" href="elasticSearch-索引的快照备份与恢复.html" />
     
     
 
@@ -1159,7 +1157,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.3.1" data-path="jenkins-声明式Declarative pipeline语法.html">
+        <li class="chapter active" data-level="4.1.3.1" data-path="jenkins-声明式Declarative pipeline语法.html">
             
                 <a href="jenkins-声明式Declarative pipeline语法.html">
             
@@ -2233,7 +2231,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="6.1.4.2.1" data-path="elasticsearch-7.1的xpack权限控制.html">
+        <li class="chapter " data-level="6.1.4.2.1" data-path="elasticsearch-7.1的xpack权限控制.html">
             
                 <a href="elasticsearch-7.1的xpack权限控制.html">
             
@@ -4001,7 +3999,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Xpack</a>
+        <a href=".." >声明式Declarative语法</a>
     </h1>
 </div>
 
@@ -4016,274 +4014,334 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="&#x4E00;&#x3001;context">&#x4E00;&#x3001;Context</h1>
-<p>&#x4E4B;&#x524D;ELK&#x5957;&#x88C5;&#x5B89;&#x88C5;X-Pack&#x7684;&#x5B89;&#x5168;&#x529F;&#x80FD;&#x65F6;&#xFF0C;&#x53EA;&#x6709;&#x5B89;&#x88C5;30&#x5929;&#x7684;&#x8BD5;&#x7528;&#x8BB8;&#x53EF;&#x8BC1;&#x65F6;&#x95F4;&#xFF0C;&#x4EE5;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;&#x6240;&#x6709;&#x529F;&#x80FD;&#x3002; &#x5F53;&#x8BB8;&#x53EF;&#x8BC1;&#x5230;&#x671F;&#x65F6;&#xFF0C;X-Pack&#x5C06;&#x4EE5;&#x964D;&#x7EA7;&#x6A21;&#x5F0F;&#x8FD0;&#x884C;&#x3002;&#x53EF;&#x4EE5;&#x8D2D;&#x4E70;&#x8BA2;&#x9605;&#x4EE5;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;X-Pack&#x7EC4;&#x4EF6;&#x7684;&#x5168;&#x90E8;&#x529F;&#x80FD;&#xFF08;<a href="https://www.elastic.co/subscriptions&#xFF09;&#x3002;&#x4F46;&#x662F;,&#x6700;&#x8FD1;&#x5B98;&#x65B9;&#x4ECE;6.8.0&#x548C;7.1.0&#x5F00;&#x59CB;ELK&#x5F00;&#x59CB;&#x514D;&#x8D39;&#x63D0;&#x4F9B;&#x5B89;&#x5168;&#x529F;&#x80FD;" _target="blank">https://www.elastic.co/subscriptions&#xFF09;&#x3002;&#x4F46;&#x662F;,&#x6700;&#x8FD1;&#x5B98;&#x65B9;&#x4ECE;6.8.0&#x548C;7.1.0&#x5F00;&#x59CB;ELK&#x5F00;&#x59CB;&#x514D;&#x8D39;&#x63D0;&#x4F9B;&#x5B89;&#x5168;&#x529F;&#x80FD;</a>. 
-<img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-1.png" alt=""></p>
-<p><strong><code>&#x672C;&#x6B21;&#x5B9E;&#x9A8C;,&#x6240;&#x6709;ELK&#x7EC4;&#x4EF6;&#x7248;&#x672C;&#x5747;&#x4E3A;7.1.0,&#x4EE5;&#x5BB9;&#x5668;&#x5355;&#x8282;&#x70B9;&#x8FD0;&#x884C;</code></strong></p>
-<h1 id="&#x4E8C;-elasticsearch&#x5F00;&#x542F;xpack">&#x4E8C;. Elasticsearch&#x5F00;&#x542F;Xpack</h1>
-<ol>
-<li>elasticsearch&#x7684;&#x5BB9;&#x5668;&#x5316;&#x90E8;&#x7F72;&#x53C2;&#x8003;&#x7B14;&#x8BB0;: ElasticSearch&#x7684;&#x5BB9;&#x5668;&#x5316;&#x90E8;&#x7F72;.md </li>
-<li><p>&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x65B9;&#x5F0F;&#x6CE8;&#x5165;,&#x4E3B;&#x8981;&#x7684;&#x51E0;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x53C2;&#x6570;</p>
+						<h1 id="jenkins&#x58F0;&#x660E;&#x5F0F;declarative-pipeline">Jenkins&#x58F0;&#x660E;&#x5F0F;Declarative Pipeline</h1>
+<h1 id="&#x4E00;&#x3001;&#x8BED;&#x6CD5;&#x7ED3;&#x6784;">&#x4E00;&#x3001;&#x8BED;&#x6CD5;&#x7ED3;&#x6784;</h1>
+<p>Jenkins 2.5&#x65B0;&#x52A0;&#x5165;&#x7684;pipeline&#x8BED;&#x6CD5;</p>
+<p>&#x58F0;&#x660E;&#x5F0F;pipeline &#x57FA;&#x672C;&#x8BED;&#x6CD5;&#x548C;&#x8868;&#x8FBE;&#x5F0F;&#x9075;&#x5FAA; groovy&#x8BED;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x4EE5;&#x4E0B;&#x4F8B;&#x5916;&#xFF1A;</p>
 <ul>
-<li>xpack.monitoring.collection.enabled(&#x5F00;&#x542F;&#x81EA;&#x6211;&#x76D1;&#x63A7;): true</li>
-<li>path.repo(&#x8BBE;&#x7F6E;snapshot&#x5B58;&#x50A8;&#x4ED3;&#x5E93;&#x7684;&#x8DEF;&#x5F84;): /usr/share/elasticsearch/snapshots-repository</li>
-<li>discovery.type(&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4E3A;&#x5355;&#x8282;&#x70B9;&#x6A21;&#x5F0F;): single-node</li>
-<li>cluster.name(&#x8BBE;&#x7F6E;elasticsearch&#x7684;&#x96C6;&#x7FA4;&#x540D;): curiouser</li>
-<li>bootstrap.memory_lock: &apos;true&apos;</li>
-<li>TZ(&#x8BBE;&#x7F6E;&#x65F6;&#x533A;): Asia/Shanghai</li>
-<li>ES_JAVA_OPTS(&#x8BBE;&#x7F6E;elasticsearch&#x7684;JVM&#x5806;&#x6808;&#x5927;&#x5C0F;): &apos;-Xms1g -Xmx2g&apos;</li>
-<li>ELASTIC_USERNAME: &quot;kibana&quot;</li>
-<li>ELASTIC_PASSWORD: &quot;kibana&quot;</li>
-<li>xpack.security.enabled: &apos;true&apos;</li>
-<li>xpack.security.transport.ssl.enabled: &quot;true&quot;</li>
-<li>xpack.security.transport.ssl.verification_mode: &quot;certificate&quot;</li>
-<li>xpack.security.transport.ssl.keystore.path: &quot;/usr/share/elasticsearch/config/certs/elastic-certificates.p12&quot;</li>
-<li>xpack.security.transport.ssl.truststore.path: &quot;/usr/share/elasticsearch/config/certs/elastic-certificates.p12&quot;</li>
-<li>xpack.security.http.ssl.enabled: &quot;false&quot;</li>
+<li>&#x58F0;&#x660E;&#x5F0F;pipeline &#x5FC5;&#x987B;&#x5305;&#x542B;&#x5728;&#x56FA;&#x5B9A;&#x683C;&#x5F0F;&#x7684;pipeline{}&#x4E2D;</li>
+<li>&#x6BCF;&#x4E2A;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x5FC5;&#x987B;&#x72EC;&#x7ACB;&#x4E00;&#x884C;&#xFF0C; &#x884C;&#x5C3E;&#x65E0;&#x9700;&#x4F7F;&#x7528;&#x5206;&#x53F7;</li>
+<li>&#x5757;(Blocks{}) &#x53EA;&#x80FD;&#x5305;&#x542B;&#x7AE0;&#x8282;(Sections),&#x6307;&#x4EE4;&#xFF08;Directives&#xFF09;,&#x6B65;&#x9AA4;(Steps),&#x6216;&#x8005;&#x8D4B;&#x503C;&#x8BED;&#x53E5;</li>
+<li>&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x8BED;&#x53E5;&#x88AB;&#x89C6;&#x4E3A;&#x65E0;&#x53C2;&#x6570;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3002; &#x5982;input()</li>
+</ul>
+<p>&#x4E00;&#x4E2A;&#x58F0;&#x660E;&#x5F0F;Pipeline&#x4E2D;&#x5305;&#x542B;&#x7684;&#x5143;&#x7D20;</p>
+<ul>
+<li>pipeline&#xFF1A;&#x58F0;&#x660E;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x58F0;&#x660E;&#x5F0F;&#x7684;pipeline&#x811A;&#x672C;</li>
+<li>agent&#xFF1A;&#x6307;&#x5B9A;&#x8981;&#x6267;&#x884C;&#x8BE5;Pipeline&#x7684;&#x8282;&#x70B9;&#xFF08;job&#x8FD0;&#x884C;&#x7684;slave&#x6216;&#x8005;master&#x8282;&#x70B9;&#xFF09;</li>
+<li>stages&#xFF1A;&#x9636;&#x6BB5;&#x96C6;&#x5408;&#xFF0C;&#x5305;&#x88F9;&#x6240;&#x6709;&#x7684;&#x9636;&#x6BB5;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;&#x6253;&#x5305;&#xFF0C;&#x90E8;&#x7F72;&#x7B49;&#x5404;&#x4E2A;&#x9636;&#x6BB5;&#xFF09;</li>
+<li>stage&#xFF1A;&#x9636;&#x6BB5;&#xFF0C;&#x88AB;stages&#x5305;&#x88F9;&#xFF0C;&#x4E00;&#x4E2A;stages&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;stage</li>
+<li>steps&#xFF1A;&#x6B65;&#x9AA4;,&#x4E3A;&#x6BCF;&#x4E2A;&#x9636;&#x6BB5;&#x7684;&#x6700;&#x5C0F;&#x6267;&#x884C;&#x5355;&#x5143;,&#x88AB;stage&#x5305;&#x88F9;</li>
+<li>post&#xFF1A;&#x6267;&#x884C;&#x6784;&#x5EFA;&#x540E;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6839;&#x636E;&#x6784;&#x5EFA;&#x7ED3;&#x679C;&#x6765;&#x6267;&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x64CD;&#x4F5C;</li>
+</ul>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-groovy">pipeline<span class="token punctuation">{</span>
+    <span class="token comment">// &#x6307;&#x5B9A;pipeline&#x5728;&#x54EA;&#x4E2A;slave&#x8282;&#x70B9;&#x4E0A;&#x5141;&#x8BB8;</span>
+    agent <span class="token punctuation">{</span> label <span class="token string">&apos;jdk-maven&apos;</span> <span class="token punctuation">}</span>
+    <span class="token comment">// &#x6307;&#x5B9A;pipeline&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;</span>
+    option <span class="token punctuation">{</span>
+        <span class="token function">timeout</span><span class="token punctuation">(</span>time<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> unit<span class="token punctuation">:</span> <span class="token string">&apos;HOURS&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// &#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x53C2;&#x6570;</span>
+    parameters <span class="token punctuation">{</span>
+        <span class="token function">string</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;PERSON&apos;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">&apos;Mr Jenkins&apos;</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Who should I say hello to?&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">text</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;BIOGRAPHY&apos;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Enter some information about the person&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">booleanParam</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;TOGGLE&apos;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Toggle this value&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">choice</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;CHOICE&apos;</span><span class="token punctuation">,</span> choices<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;One&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Two&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Three&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Pick something&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">password</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;PASSWORD&apos;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">&apos;SECRET&apos;</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Enter a password&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// &#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span>
+    environment <span class="token punctuation">{</span>
+        Gitlab_Deploy_KEY <span class="token operator">=</span> <span class="token function">credentials</span><span class="token punctuation">(</span><span class="token string">&apos;gitlab-jenkins-depolykey&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// &#x5B9A;&#x4E49;pipeline&#x7684;&#x9636;&#x6BB5;&#x4EFB;&#x52A1;</span>
+    stages <span class="token punctuation">{</span>
+        stage <span class="token punctuation">(</span><span class="token string">&quot;&#x9636;&#x6BB5;1&#x4EFB;&#x52A1;&#xFF1A;&#x62C9;&#x4EE3;&#x7801;&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                <span class="token comment">// &#x62C9;&#x4EE3;&#x7801;&#x7684;&#x5177;&#x4F53;&#x547D;&#x4EE4;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        stage <span class="token punctuation">(</span><span class="token string">&quot;&#x9636;&#x6BB5;2&#x4EFB;&#x52A1;&#xFF1A;&#x7F16;&#x8BD1;&#x4EE3;&#x7801;&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                <span class="token comment">// &#x7F16;&#x8BD1;&#x4EE3;&#x7801;&#x7684;&#x5177;&#x4F53;&#x547D;&#x4EE4;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        stage <span class="token punctuation">(</span><span class="token string">&quot;&#x9636;&#x6BB5;3&#x4EFB;&#x52A1;&#xFF1A;&#x626B;&#x63CF;&#x4EE3;&#x7801;&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                <span class="token comment">// &#x62C9;&#x4EE3;&#x7801;&#x7684;&#x5177;&#x4F53;&#x547D;&#x4EE4;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        stage <span class="token punctuation">(</span><span class="token string">&quot;&#x9636;&#x6BB5;4&#x4EFB;&#x52A1;&#xFF1A;&#x6253;&#x5305;&#x4EE3;&#x7801;&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                <span class="token comment">// &#x6253;&#x5305;&#x4EE3;&#x7801;&#x7684;&#x5177;&#x4F53;&#x547D;&#x4EE4;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        stage <span class="token punctuation">(</span><span class="token string">&quot;&#x9636;&#x6BB5;5&#x4EFB;&#x52A1;&#xFF1A;&#x6784;&#x5EFA;&#x63A8;&#x9001;Docker&#x955C;&#x50CF;&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                <span class="token comment">// &#x6784;&#x5EFA;&#x63A8;&#x9001;Docker&#x955C;&#x50CF;&#x7684;&#x5177;&#x4F53;&#x547D;&#x4EE4;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        stage <span class="token punctuation">(</span><span class="token string">&quot;&#x9636;&#x6BB5;6&#x4EFB;&#x52A1;&#xFF1A;&#x90E8;&#x7F72;&#x955C;&#x50CF;&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                <span class="token comment">// &#x90E8;&#x7F72;&#x955C;&#x50CF;&#x7684;&#x5177;&#x4F53;&#x547D;&#x4EE4;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    post <span class="token punctuation">{</span>
+        success <span class="token punctuation">{</span>
+            <span class="token comment">// &#x5F53;pipeline&#x6784;&#x5EFA;&#x72B6;&#x6001;&#x4E3A;&quot;success&quot;&#x65F6;&#x8981;&#x6267;&#x884C;&#x7684;&#x4E8B;&#x60C5;</span>
+        <span class="token punctuation">}</span>
+        always <span class="token punctuation">{</span>
+            <span class="token comment">// &#x65E0;&#x8BBA;pipeline&#x6784;&#x5EFA;&#x72B6;&#x6001;&#x662F;&#x4EC0;&#x4E48;&#x90FD;&#x8981;&#x6267;&#x884C;&#x7684;&#x4E8B;&#x60C5;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="&#x4E8C;&#x3001;&#x7AE0;&#x8282;sections">&#x4E8C;&#x3001;&#x7AE0;&#x8282;Sections</h1>
+<h2 id="1&#x3001;agent&#xFF08;&#x5FC5;&#x987B;&#xFF09;">1&#x3001;agent&#xFF08;&#x5FC5;&#x987B;&#xFF09;</h2>
+<p>&#x6307;&#x5B9A;&#x6574;&#x4E2A;Pipeline&#x6216;&#x7279;&#x5B9A;&#x9636;&#x6BB5;&#x662F;&#x5728;Jenkins Master&#x8282;&#x70B9;&#x8FD8;&#x662F;Jenkins Slave&#x8282;&#x70B9;&#x4E0A;&#x8FD0;&#x884C;&#x3002;&#x53EF;&#x5728;&#x9876;&#x7EA7;<code>pipeline</code>&#x5757;&#x548C;&#x6BCF;&#x4E2A;<code>stage</code>&#x5757;&#x4E2D;&#x4F7F;&#x7528;&#xFF08;&#x5728;<code>&#x9876;&#x5C42;pipeline{}</code>&#x4E2D;&#x662F;&#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x7684; &#xFF0C;&#x4F46;&#x5728;&#x9636;&#x6BB5;Stage&#x4E2D;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF09;</p>
+<p>&#x53C2;&#x6570;&#xFF08;&#x4EE5;&#x4E0B;&#x53C2;&#x6570;&#x503C;&#x5728;<code>&#x9876;&#x5C42;pipeline{}</code>&#x548C;<code>stage{}</code>&#x4E2D;&#x90FD;&#x53EF;&#x4F7F;&#x7528;&#xFF09;&#xFF1A;</p>
+<ul>
+<li>any&#xFF1A;&#x5728;&#x4EFB;&#x4F55;&#x53EF;&#x7528;&#x7684;&#x8282;&#x70B9;&#x4E0A;&#x6267;&#x884C;Pipeline&#x6216;Stage</li>
+<li>none&#xFF1A;&#x5F53;&#x5728;<code>&#x9876;&#x5C42;pipeline{}</code>&#x4E2D;&#x5E94;&#x7528;&#x65F6;&#xFF0C;&#x5C06;&#x4E0D;&#x4F1A;&#x4E3A;&#x6574;&#x4E2A;Pipeline&#x8FD0;&#x884C;&#x5206;&#x914D;&#x5168;&#x5C40;&#x4EE3;&#x7406;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4E2A;<code>stage</code>&#x90E8;&#x5206;&#x5C06;&#x9700;&#x8981;&#x5305;&#x542B;&#x5176;&#x81EA;&#x5DF1;&#x7684;<code>agent</code>&#x90E8;&#x5206;</li>
+<li>label</li>
+<li>node</li>
+<li>docker</li>
+<li>dockerfile</li>
+<li>kubernetes</li>
+</ul>
+<p>&#x516C;&#x7528;&#x53C2;&#x6570;&#xFF1A;</p>
+<ul>
+<li>label</li>
+<li>customWorkspace</li>
+<li>reuseNode</li>
+<li>args</li>
+</ul>
+<h2 id="2&#x3001;post">2&#x3001;post</h2>
+<p>&#x5B9A;&#x4E49;&#x5728;Pipeline&#x8FD0;&#x884C;&#x6216;&#x9636;&#x6BB5;&#x7ED3;&#x675F;&#x65F6;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x5177;&#x4F53;&#x53D6;&#x51B3;&#x4E8E;Pipeline&#x7684;&#x72B6;&#x6001;</p>
+<p>&#x652F;&#x6301;pipeline&#x8FD0;&#x884C;&#x72B6;&#x6001;:</p>
+<ul>
+<li>always&#xFF1A;&#x65E0;&#x8BBA;Pipeline&#x8FD0;&#x884C;&#x7684;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#x5982;&#x4F55;&#x90FD;&#x8981;&#x8FD0;&#x884C;</li>
+<li>changed&#xFF1A;&#x53EA;&#x6709;&#x5F53;&#x524D;Pipeline&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;&#x4E0E;&#x5148;&#x524D;&#x5B8C;&#x6210;&#x7684;Pipeline&#x7684;&#x72B6;&#x6001;&#x4E0D;&#x540C;&#x65F6;&#xFF0C;&#x624D;&#x80FD;&#x8FD0;&#x884C;</li>
+<li>fixed&#xFF1A;&#x6574;&#x4E2A;pipeline&#x6216;&#x8005;stage&#x76F8;&#x5BF9;&#x4E8E;&#x4E0A;&#x4E00;&#x6B21;&#x5931;&#x8D25;&#x6216;&#x4E0D;&#x7A33;&#x5B9A;Pipeline&#x7684;&#x72B6;&#x6001;&#x6709;&#x6539;&#x53D8;&#x3002;&#x624D;&#x80FD;&#x8FD0;&#x884C;</li>
+<li>regression&#xFF1A;</li>
+<li>aborted&#xFF1A;&#x53EA;&#x6709;&#x5F53;&#x524D;Pipeline&#x5904;&#x4E8E;&#x201C;&#x4E2D;&#x6B62;&#x201D;&#x72B6;&#x6001;&#x65F6;&#xFF0C;&#x624D;&#x4F1A;&#x8FD0;&#x884C;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x7531;&#x4E8E;Pipeline&#x88AB;&#x624B;&#x52A8;&#x4E2D;&#x6B62;&#xFF08;&#x901A;&#x5E38;&#x5728;&#x5177;&#x6709;&#x7070;&#x8272;&#x6307;&#x793A;&#x7684;Web UI &#x4E2D;&#x8868;&#x793A;&#xFF09;</li>
+<li>failure&#xFF1A;&#x4EC5;&#x5F53;&#x5F53;&#x524D;Pipeline&#x5904;&#x4E8E;&#x201C;&#x5931;&#x8D25;&#x201D;&#x72B6;&#x6001;&#x65F6;&#x624D;&#x8FD0;&#x884C;&#xFF08;&#x901A;&#x5E38;&#x5728;Web UI&#x4E2D;&#x7528;&#x7EA2;&#x8272;&#x6307;&#x793A;&#x8868;&#x793A;&#xFF09;</li>
+<li>success&#xFF1A;&#x4EC5;&#x5F53;&#x5F53;&#x524D;Pipeline&#x5728;&#x201C;&#x6210;&#x529F;&#x201D;&#x72B6;&#x6001;&#x65F6;&#x624D;&#x8FD0;&#x884C;&#xFF08;&#x901A;&#x5E38;&#x5728;&#x5177;&#x6709;&#x84DD;&#x8272;&#x6216;&#x7EFF;&#x8272;&#x6307;&#x793A;&#x7684;Web UI&#x4E2D;&#x8868;&#x793A;&#xFF09;</li>
+<li>unstable&#xFF1A;&#x53EA;&#x6709;&#x5F53;&#x524D;Pipeline&#x5728;&#x4E0D;&#x7A33;&#x5B9A;&#x201D;&#x72B6;&#x6001;&#xFF0C;&#x901A;&#x5E38;&#x7531;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#xFF0C;&#x4EE3;&#x7801;&#x8FDD;&#x4F8B;&#x7B49;&#x5F15;&#x8D77;&#xFF0C;&#x624D;&#x80FD;&#x8FD0;&#x884C;&#xFF08;&#x901A;&#x5E38;&#x5728;&#x5177;&#x6709;&#x9EC4;&#x8272;&#x6307;&#x793A;&#x7684;Web UI&#x4E2D;&#x8868;&#x793A;&#xFF09;</li>
+<li>unsuccessful&#xFF1A;</li>
+<li>cleanup&#xFF1A;&#x65E0;&#x8BBA;Pipeline&#x6216;stage&#x7684;&#x72B6;&#x6001;&#x5982;&#x4F55;&#xFF0C;&#x5728;&#x8DD1;&#x5B8C;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x7684;<code>post</code>&#x6761;&#x4EF6;&#x540E;&#x8FD0;&#x884C;&#x6B64;&#x6761;&#x4EF6;&#x4E0B; &#x7684;<code>post</code>&#x6B65;&#x9AA4;&#x3002;</li>
+</ul>
+<h2 id="3&#x3001;stages&#xFF08;&#x5FC5;&#x987B;&#xFF09;">3&#x3001;stages&#xFF08;&#x5FC5;&#x987B;&#xFF09;</h2>
+<ul>
+<li>&#x81F3;&#x5C11;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x7684;<code>stage</code>&#x6307;&#x4EE4;</li>
+<li><code>pipeline{ }</code>&#x4E2D;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;<code>stages{}</code></li>
+</ul>
+<h2 id="4&#x3001;steps&#xFF08;&#x5FC5;&#x987B;&#xFF09;">4&#x3001;steps&#xFF08;&#x5FC5;&#x987B;&#xFF09;</h2>
+<ul>
+<li>&#x5728;<code>stage</code>&#x6307;&#x4EE4;&#x4E2D;&#x81F3;&#x5C11;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x7684;<code>steps</code></li>
+</ul>
+<h1 id="&#x4E09;&#x3001;&#x6307;&#x4EE4;directives">&#x4E09;&#x3001;&#x6307;&#x4EE4;Directives</h1>
+<h2 id="1&#x3001;environment&#x73AF;&#x5883;&#x53D8;&#x91CF;">1&#x3001;Environment&#x73AF;&#x5883;&#x53D8;&#x91CF;</h2>
+<p>environment{&#x2026;},&#x4F7F;&#x7528;&#x952E;&#x503C;&#x5BF9;&#x6765;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x5E76;&#x8D4B;&#x503C;&#x3002;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x8303;&#x56F4;&#xFF0C;&#x53D6;&#x51B3;environment{&#x2026;}&#x6240;&#x5199;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x5199;&#x5728;&#x9876;&#x5C42;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x6240;&#x6709;stage&#x4E0B;&#x7684;step&#x5171;&#x4EAB;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#xFF1B;&#x4E5F;&#x53EF;&#x4EE5;&#x5355;&#x72EC;&#x5B9A;&#x4E49;&#x5728;&#x67D0;&#x4E00;&#x4E2A;stage&#x4E0B;&#xFF0C;&#x53EA;&#x80FD;&#x4F9B;&#x8FD9;&#x4E2A;stage&#x53BB;&#x8C03;&#x7528;&#x53D8;&#x91CF;&#xFF0C;&#x5176;&#x4ED6;&#x7684;stage&#x4E0D;&#x80FD;&#x5171;&#x4EAB;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x3002;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x57FA;&#x672C;&#x4E0A;&#x4E0A;&#x5B9A;&#x4E49;&#x5168;&#x5C40;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5C40;&#x90E8;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x7528;def&#x5173;&#x952E;&#x5B57;&#x58F0;&#x660E;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x6CA1;&#x5FC5;&#x8981;&#x653E;environment{&#x2026;}&#x91CC;&#x9762;&#x3002;</p>
+<p>&#x540C;&#x65F6;&#xFF0C;environment{&#x2026;}&#x652F;&#x6301;<code>credentials()</code> &#x65B9;&#x6CD5;&#x6765;&#x8BBF;&#x95EE;&#x9884;&#x5148;&#x5728;Jenkins&#x4FDD;&#x5B58;&#x7684;&#x51ED;&#x636E;&#xFF0C;&#x5E76;&#x8D4B;&#x503C;&#x7ED9;&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+<p><code>credentials()</code> &#x652F;&#x6301;&#x7684;&#x51ED;&#x636E;&#x7C7B;&#x578B;&#xFF1A;</p>
+<ul>
+<li><p>Secret Text</p>
+</li>
+<li><p>Secret File</p>
+</li>
+<li><p>Username and password&#xFF1A;&#x4F7F;&#x7528;<code>&#x53D8;&#x91CF;&#x540D;_USR</code> and <code>&#x53D8;&#x91CF;&#x540D;_PSW</code> &#x6765;&#x83B7;&#x53D6;&#x5176;&#x4E2D;&#x7684;&#x7528;&#x6237;&#x540D;&#x548C;Password</p>
+<pre class="language-"><code class="lang-groovy">pipeline <span class="token punctuation">{</span>
+    agent any
+    stages <span class="token punctuation">{</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">&apos;Example Username/Password&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            environment <span class="token punctuation">{</span>
+                SERVICE_CREDS <span class="token operator">=</span> <span class="token function">credentials</span><span class="token punctuation">(</span><span class="token string">&apos;my-prefined-username-password&apos;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token string">&apos;echo &quot;Service user is $SERVICE_CREDS_USR&quot;&apos;</span>
+                sh <span class="token string">&apos;echo &quot;Service password is $SERVICE_CREDS_PSW&quot;&apos;</span>
+                sh <span class="token string">&apos;curl -u $SERVICE_CREDS https://myservice.example.com&apos;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+<ul>
+<li>SSH with Private Key</li>
+</ul>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-groovy">pipeline <span class="token punctuation">{</span>
+    agent any
+    stages <span class="token punctuation">{</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">&apos;Example Username/Password&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            environment <span class="token punctuation">{</span>
+                SERVICE_CREDS <span class="token operator">=</span> <span class="token function">credentials</span><span class="token punctuation">(</span><span class="token string">&apos;my-prefined-username-password&apos;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token string">&apos;echo &quot;Service user is $SERVICE_CREDS_USR&quot;&apos;</span>
+                sh <span class="token string">&apos;echo &quot;Service password is $SERVICE_CREDS_PSW&quot;&apos;</span>
+                sh <span class="token string">&apos;curl -u $SERVICE_CREDS https://myservice.example.com&apos;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">&apos;Example Username/Password&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            environment <span class="token punctuation">{</span>
+                SSH_CREDS <span class="token operator">=</span> <span class="token function">credentials</span><span class="token punctuation">(</span><span class="token string">&apos;my-prefined-ssh-creds&apos;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token string">&apos;echo &quot;SSH private key is located at $SSH_CREDS&quot;&apos;</span>
+                sh <span class="token string">&apos;echo &quot;SSH user is $SSH_CREDS_USR&quot;&apos;</span>
+                sh <span class="token string">&apos;echo &quot;SSH passphrase is $SSH_CREDS_PSW&quot;&apos;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="2&#x3001;parameters&#x53C2;&#x6570;">2&#x3001;Parameters&#x53C2;&#x6570;</h2>
+<ul>
+<li><code>pipeline{ }</code>&#x4E2D;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;<code>parameters{}</code></li>
+</ul>
+<h3 id="&#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x683C;&#x5F0F;">&#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x683C;&#x5F0F;</h3>
+<pre class="language-"><code class="lang-groovy">parameters <span class="token punctuation">{</span>
+  &#x53C2;&#x6570;&#x7C7B;&#x578B;<span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;&#x53C2;&#x6570;&#x540D;&apos;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">&apos;&#x9ED8;&#x8BA4;&#x503C;&apos;</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;&#x63CF;&#x8FF0;&apos;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x53C2;&#x6570;&#x7C7B;&#x578B;">&#x53C2;&#x6570;&#x7C7B;&#x578B;</h3>
+<ul>
+<li>string</li>
+<li>text</li>
+<li>boobleanParam</li>
+<li>choice</li>
+<li>password</li>
+</ul>
+<h3 id="&#x53C2;&#x6570;&#x8C03;&#x7528;&#x683C;&#x5F0F;&#xFF1A;params&#x53C2;&#x6570;&#x540D;">&#x53C2;&#x6570;&#x8C03;&#x7528;&#x683C;&#x5F0F;&#xFF1A;<code>${params.&#x53C2;&#x6570;&#x540D;}</code></h3>
+<h3 id="&#x793A;&#x4F8B;&#xFF1A;">&#x793A;&#x4F8B;&#xFF1A;</h3>
+<pre class="language-"><code class="lang-groovy">pipeline <span class="token punctuation">{</span>
+    agent any
+    parameters <span class="token punctuation">{</span>
+        <span class="token function">string</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;PERSON&apos;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">&apos;Mr Jenkins&apos;</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Who should I say hello to?&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">text</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;BIOGRAPHY&apos;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Enter some information about the person&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">booleanParam</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;TOGGLE&apos;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Toggle this value&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">choice</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;CHOICE&apos;</span><span class="token punctuation">,</span> choices<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;One&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Two&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Three&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Pick something&apos;</span><span class="token punctuation">)</span>
+        <span class="token function">password</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">&apos;PASSWORD&apos;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token string">&apos;SECRET&apos;</span><span class="token punctuation">,</span> description<span class="token punctuation">:</span> <span class="token string">&apos;Enter a password&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    stages <span class="token punctuation">{</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">&apos;Example&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                echo <span class="token string">&quot;Hello ${params.PERSON}&quot;</span>
+                echo <span class="token string">&quot;Biography: ${params.BIOGRAPHY}&quot;</span>
+                echo <span class="token string">&quot;Toggle: ${params.TOGGLE}&quot;</span>
+                echo <span class="token string">&quot;Choice: ${params.CHOICE}&quot;</span>
+                echo <span class="token string">&quot;Password: ${params.PASSWORD}&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="3&#x3001;options&#x9009;&#x9879;">3&#x3001;Options&#x9009;&#x9879;</h2>
+<ul>
+<li><p><code>pipeline{ }</code>&#x4E2D;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;<code>options{}</code></p>
+</li>
+<li><p>buildDiscarder</p>
+</li>
+<li>checkoutToSubdirectory</li>
+<li>disableConcurrentBuilds</li>
+<li>disableResume</li>
+<li>newContainerPerStage</li>
+<li>overrideIndexTriggers</li>
+<li>preserveStashes</li>
+<li>quietPeriod</li>
+<li>retry</li>
+<li>skipDefaultCheckout</li>
+<li>skipStagesAfterUnstable</li>
+<li>timeout</li>
+<li>timestamps</li>
+<li>parallelsAlwaysFailFast</li>
+</ul>
+<h2 id="4&#x3001;triggers&#x89E6;&#x53D1;&#x5668;">4&#x3001;Triggers&#x89E6;&#x53D1;&#x5668;</h2>
+<ul>
+<li><code>pipeline{ }</code>&#x4E2D;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;<code>triggers {}</code></li>
+</ul>
+<p>&#x89E6;&#x53D1;&#x5668;&#x7C7B;&#x578B;</p>
+<ul>
+<li>cron</li>
+<li>pollSCM</li>
+<li>upstream</li>
+</ul>
+<p>Jenkins&#x7684;Cron&#x8BED;&#x6CD5;</p>
+<h2 id="5&#x3001;stage&#x9636;&#x6BB5;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;">5&#x3001;Stage&#x9636;&#x6BB5;(&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;)</h2>
+<ul>
+<li>&#x5305;&#x542B;&#x5728;<code>stages{}</code>&#x4E2D;</li>
+<li>&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;</li>
+</ul>
+<h2 id="6&#x3001;tools&#x5DE5;&#x5177;">6&#x3001;Tools&#x5DE5;&#x5177;</h2>
+<ul>
+<li>&#x5305;&#x542B;&#x5728;<code>pipeline{}</code>&#x6216;<code>stage{}</code></li>
+</ul>
+<p>&#x652F;&#x6301;&#x7684;&#x5DE5;&#x5177;&#xFF1A;</p>
+<ul>
+<li>Maven</li>
+<li>JDK</li>
+<li>Gradle</li>
+</ul>
+<h2 id="7&#x3001;input&#x7528;&#x6237;&#x8F93;&#x5165;">7&#x3001;Input&#x7528;&#x6237;&#x8F93;&#x5165;</h2>
+<h2 id="8&#x3001;when&#x6761;&#x4EF6;">8&#x3001;When&#x6761;&#x4EF6;</h2>
+<p>&#x5185;&#x7F6E;&#x6761;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li><p><strong>branch</strong></p>
+<p>Execute the stage when the branch being built matches the branch pattern given, for example: when { branch &apos;master&apos; }. Note that this only works on a multibranch Pipeline.</p>
+</li>
+<li><p><strong>buildingTag</strong></p>
+<p>Execute the stage when the build is building a tag. Example: when { buildingTag() }</p>
+</li>
+<li><p><strong>changelog</strong></p>
+<p>Execute the stage if the build&#x2019;s SCM changelog contains a given regular expression pattern, for example: when { changelog &apos;.*^\[DEPENDENCY\] .+$&apos; }</p>
+</li>
+<li><p><strong>changeset</strong></p>
+<p>Execute the stage if the build&#x2019;s SCM changeset contains one or more files matching the given string or glob. Example: when { changeset &quot;<em>*/</em>.js&quot; }</p>
+<p>By default the path matching will be case insensitive, this can be turned off with the caseSensitive parameter, for example: when { changeset glob: &quot;ReadMe.*&quot;, caseSensitive: true }</p>
+</li>
+<li><p><strong>changeRequest</strong></p>
+<p>Executes the stage if the current build is for a &quot;change request&quot; (a.k.a. Pull Request on GitHub and Bitbucket, Merge Request on GitLab or Change in Gerrit etc.). When no parameters are passed the stage runs on every change request, for example: when { changeRequest() }.</p>
+<p>By adding a filter attribute with parameter to the change request, the stage can be made to run only on matching change requests. Possible attributes are id, target, branch, fork, url, title, author, authorDisplayName, and authorEmail. Each of these corresponds to a CHANGE_* environment variable, for example: when { changeRequest target: &apos;master&apos; }.</p>
+<p>The optional parameter comparator may be added after an attribute to specify how any patterns are evaluated for a match: EQUALS for a simple string comparison (the default), GLOB for an ANT style path glob (same as for example changeset), or REGEXP for regular expression matching. Example: when { changeRequest authorEmail: &quot;[\w_-.]+@example.com&quot;, comparator: &apos;REGEXP&apos; }</p>
+</li>
+<li><p><strong>environment</strong></p>
+<p>Execute the stage when the specified environment variable is set to the given value, for example: when { environment name: &apos;DEPLOY_TO&apos;, value: &apos;production&apos; }</p>
+</li>
+<li><p><strong>equals</strong></p>
+<p>Execute the stage when the expected value is equal to the actual value, for example: when { equals expected: 2, actual: currentBuild.number }</p>
+</li>
+<li><p><strong>expression</strong></p>
+<p>Execute the stage when the specified Groovy expression evaluates to true, for example: when { expression { return params.DEBUG_BUILD } } Note that when returning strings from your expressions they must be converted to booleans or return null to evaluate to false. Simply returning &quot;0&quot; or &quot;false&quot; will still evaluate to &quot;true&quot;.</p>
+</li>
+<li><p><strong>tag</strong></p>
+<p>Execute the stage if the TAG_NAME variable matches the given pattern. Example: when { tag &quot;release-*&quot; }. If an empty pattern is provided the stage will execute if the TAG_NAME variable exists (same as buildingTag()).</p>
+<p>The optional parameter comparator may be added after an attribute to specify how any patterns are evaluated for a match: EQUALS for a simple string comparison, GLOB (the default) for an ANT style path glob (same as for example changeset), or REGEXP for regular expression matching. For example: when { tag pattern: &quot;release-\d+&quot;, comparator: &quot;REGEXP&quot;}</p>
+</li>
+<li><p><strong>not</strong></p>
+<p>Execute the stage when the nested condition is false. Must contain one condition. For example: when { not { branch &apos;master&apos; } }</p>
+</li>
+<li><p><strong>allOf</strong></p>
+<p>Execute the stage when all of the nested conditions are true. Must contain at least one condition. For example: when { allOf { branch &apos;master&apos;; environment name: &apos;DEPLOY_TO&apos;, value: &apos;production&apos; } }</p>
+</li>
+<li><p><strong>anyOf</strong></p>
+<p>Execute the stage when at least one of the nested conditions is true. Must contain at least one condition. For example: when { anyOf { branch &apos;master&apos;; branch &apos;staging&apos; } }</p>
+</li>
+<li><p><strong>triggeredBy</strong></p>
+<p>Execute the stage when the current build has been triggered by the param given. For example:</p>
+<ul>
+<li>when { triggeredBy &apos;SCMTrigger&apos; }</li>
+<li>when { triggeredBy &apos;TimerTrigger&apos; }</li>
+<li>when { triggeredBy &apos;UpstreamCause&apos; }</li>
+<li>when { triggeredBy cause: &quot;UserIdCause&quot;, detail: &quot;vlinde&quot; }</li>
 </ul>
 </li>
-<li><p>&#x67E5;&#x770B;elasticsearch&#x662F;&#x5426;&#x5F00;&#x542F;xpack&#x7684;&#x5B89;&#x5168;&#x9A8C;&#x8BC1;</p>
-<pre class="language-"><code class="lang-bash"><span class="token function">curl</span>  -XGET <span class="token string">&apos;localhost:9200/_cat/health?v&amp;pretty&apos;</span>
-<span class="token comment"># curl -XGET &quot;http://127.0.0.1:9200/_cat/health?v&amp;pretty&quot;</span>
-<span class="token comment"># &#x4F7F;&#x7528;&#x4E0A;&#x8FF0;&#x547D;&#x4EE4;&#x4F1A;&#x8FD4;&#x56DE;401,&#x63D0;&#x793A;&#x672A;&#x6388;&#x6743;&#x9A8C;&#x8BC1;,&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x5B89;&#x5168;&#x9A8C;&#x8BC1;&#x5730;&#x8BBF;&#x95EE;</span>
-<span class="token function">curl</span> --user kibana:****kibana&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;**** -XGET <span class="token string">&apos;localhost:9200/_cat/health?v&amp;pretty&apos;</span>
-</code></pre>
-</li>
-</ol>
-<h1 id="&#x4E09;&#x3001;kibana&#x5F00;&#x542F;xpack">&#x4E09;&#x3001;Kibana&#x5F00;&#x542F;Xpack</h1>
-<ol>
-<li>kibana&#x7684;&#x5BB9;&#x5668;&#x5316;&#x90E8;&#x7F72;&#x8BE6;&#x89C1;&#x7B14;&#x8BB0;: Kibana&#x7684;&#x5BB9;&#x5668;&#x5316;&#x90E8;&#x7F72;.md </li>
-<li><p>&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x65B9;&#x5F0F;&#x6CE8;&#x5165;,&#x4E3B;&#x8981;&#x7684;&#x51E0;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x53C2;&#x6570;:</p>
-<ul>
-<li><code>ELASTICSEARCH_USERNAME</code>: <strong><strong>kibana&#x7528;&#x6237;</strong></strong></li>
-<li><code>ELASTICSEARCH_PASSWORD</code>: <strong><strong>kibana&#x7528;&#x6237;&#x7684;&#x968F;&#x673A;&#x5BC6;&#x7801;</strong></strong></li>
-<li><code>TZ(&#x8BBE;&#x7F6E;&#x65F6;&#x533A;)</code>: Asia/Shanghai </li>
 </ul>
-</li>
-<li><p>&#x955C;&#x50CF;&#x4E2D;&#x9ED8;&#x8BA4;&#x6307;&#x5B9A;&#x7684;elasticsearch&#x5730;&#x5740;&#x4E3A;:<a href="http://elasticsearch:9200,&#x521A;&#x597D;&#x5728;open" _target="blank">http://elasticsearch:9200,&#x521A;&#x597D;&#x5728;open</a> shift&#x4E2D;&#x90E8;&#x7F72;&#x7684;elasticsearch&#x7684;svc&#x540D;&#x4E3A;&quot;elasticsearch&quot;,&#x5B83;&#x7684;&#x8BBF;&#x95EE;&#x65B9;&#x5F0F;&#x4E3A;:<a href="http://elasticsearch:9200&#x6216;&#x8005;http://elasticsearch.&#x547D;&#x540D;&#x7A7A;&#x95F4;.svc:9200" _target="blank">http://elasticsearch:9200&#x6216;&#x8005;http://elasticsearch.&#x547D;&#x540D;&#x7A7A;&#x95F4;.svc:9200</a></p>
-</li>
-<li><p>&#x767B;&#x5F55;Kibana&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;</p>
-<p> &#x4F7F;&#x7528;elastic &#x8D85;&#x7EA7;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x767B;&#x5F55;&#xFF0C;&#x5BC6;&#x7801;&#x6765;&#x81EA; setup-passwords &#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C; </p>
-<p> <img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-2.png" alt=""></p>
-</li>
-</ol>
-<h1 id="&#x56DB;&#x3001;logstash&#x5F00;&#x542F;xpack">&#x56DB;&#x3001;Logstash&#x5F00;&#x542F;Xpack</h1>
-<ol>
-<li><p>&#x914D;&#x7F6E;logstash&#x53D1;&#x9001;&#x76D1;&#x63A7;&#x6570;&#x636E;&#x5230;elasticsearch</p>
-<pre class="language-"><code class="lang-bash"> xpack.monitoring.elasticsearch.hosts: <span class="token string">&quot;http://elasticsearch:9200&quot;</span>
- xpack.monitoring.enabled: <span class="token string">&quot;true&quot;</span>
- xpack.monitoring.elasticsearch.username: <span class="token string">&quot;logstash_system&quot;</span> 
- xpack.monitoring.elasticsearch.password: <span class="token string">&quot;***logstash_system&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;****&quot;</span>
-</code></pre>
-</li>
-<li><p>&#x5728;kibana&#x4E2D;&#x67E5;&#x770B;logstash&#x7684;&#x76D1;&#x63A7;&#x6570;&#x636E;</p>
-<p> <img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-3.png" alt="">
- <img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-4.png" alt="">
- <img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-5.png" alt=""></p>
-</li>
-<li><p>&#x5728;kibana&#x4E2D;&#x521B;&#x5EFA;logstash-pipeline&#x89D2;&#x8272;,&#x6388;&#x4E88;&quot;manage_index_template&quot;,&quot;monitor&quot;&#x7684;&#x96C6;&#x7FA4;&#x6743;&#x9650;&#x548C;&quot;write&quot;,&quot;delete&quot;,&quot;create_index&quot;,&quot;manage_ilm&quot;,&quot;manage&quot;&#x7684;Index&#x6743;&#x9650;,&#x7136;&#x540E;&#x7ED1;&#x5B9A;&#x5230;logstash-pipeline&#x7528;&#x6237;&#x4E0A;,&#x7528;&#x4EE5;&#x521B;&#x5EFA;Index&#x5E76;&#x5411;&#x5176;&#x4E2D;&#x5199;&#x5165;&#x6570;&#x636E;</p>
-<p><img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-6.png" alt="">
-<img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-7.png" alt="">
-<img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-8.png" alt=""></p>
-</li>
-<li><p>&#x5728;pipeline&#x7684;elasticsearch output&#x63D2;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E;&#x7528;&#x6237;&#x548C;&#x5BC6;&#x7801;</p>
-<pre class="language-"><code class="lang-bash"> output<span class="token punctuation">{</span>
-     elasticsearch<span class="token punctuation">{</span>
-         hosts <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;elasticsearch:9200&quot;</span>
-         index <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;%{AppID}-%{+YYYY.MM.dd}&quot;</span>
-         user <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;logstash-pipeline&quot;</span>
-         password <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;****logstash-pipeline&#x7528;&#x6237;&#x5BC6;&#x7801;****&quot;</span>
-     <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-</code></pre>
-</li>
-<li><p>&#x67E5;&#x770B;logstash&#x7684;pipeline&#x662F;&#x5426;&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x7684;elasticsearch
-<img src="../assets/elasticsearch7.1&#x7684;xpack&#x6743;&#x9650;&#x63A7;&#x5236;-9.png" alt=""></p>
-</li>
-</ol>
-<h1 id="&#x9644;&#x5F55;&#xFF1A;kibana&#x4E0A;&#x7684;&#x89D2;&#x8272;&#x6743;&#x9650;">&#x9644;&#x5F55;&#xFF1A;Kibana&#x4E0A;&#x7684;&#x89D2;&#x8272;&#x6743;&#x9650;</h1>
-<p><strong><code>Cluster&#x76F8;&#x5173;&#x7684;&#x89D2;&#x8272;&#x6743;&#x9650;</code></strong></p>
-<table>
-<thead>
-<tr>
-<th>&#x89D2;&#x8272;&#x6743;&#x9650;</th>
-<th>&#x6743;&#x9650;&#x63CF;&#x8FF0;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>all</td>
-<td>Privileges to create snapshots for existing repositories. Can also list and view details on existing repositories and snapshots.</td>
-</tr>
-<tr>
-<td>create_snapshot</td>
-<td>Privileges to create snapshots for existing repositories. Can also list and view details on existing repositories and snapshots.</td>
-</tr>
-<tr>
-<td>manage</td>
-<td>Builds on <code>monitor</code> and adds cluster operations that change values in the cluster. This includes snapshotting, updating settings, and rerouting. It also includes obtaining snapshot and restore status. This privilege does not include the ability to manage security.</td>
-</tr>
-<tr>
-<td>manage_ccr</td>
-<td>All cross-cluster replication operations related to managing follower indices and auto-follow patterns. It also includes the authority to grant the privileges necessary to manage follower indices and auto-follow patterns. This privilege is necessary only on clusters that contain follower indices.</td>
-</tr>
-<tr>
-<td>manage_data_frame_transforms</td>
-<td>All operations on index templates.</td>
-</tr>
-<tr>
-<td>manage_ilm</td>
-<td>All operations on index templates.</td>
-</tr>
-<tr>
-<td>manage_index_templates</td>
-<td>All operations on index templates.</td>
-</tr>
-<tr>
-<td>manage_ingest_pipelines</td>
-<td>All operations on ingest node pipelines.</td>
-</tr>
-<tr>
-<td>manage_ml</td>
-<td>All machine learning operations, such as creating and deleting datafeeds, jobs, and model snapshots.<br>Note&#xFF1A;Datafeeds that were created prior to version 6.2 or created when security features were disabled run as a system user with elevated privileges, including permission to read all indices. Newer datafeeds run with the security roles of the user who created or updated them.</td>
-</tr>
-<tr>
-<td>manage_pipeline</td>
-<td>All operations on ingest pipelines.</td>
-</tr>
-<tr>
-<td>manage_rollup</td>
-<td>All rollup operations, including creating, starting, stopping and deleting rollup jobs.</td>
-</tr>
-<tr>
-<td>manage_saml</td>
-<td>Enables the use of internal Elasticsearch APIs to initiate and manage SAML authentication on behalf of other users.</td>
-</tr>
-<tr>
-<td>manage_security</td>
-<td>All security-related operations such as CRUD operations on users and roles and cache clearing.</td>
-</tr>
-<tr>
-<td>manage_token</td>
-<td>All security-related operations on tokens that are generated by the Elasticsearch Token Service.</td>
-</tr>
-<tr>
-<td>manage_watcher</td>
-<td>All watcher operations, such as putting watches, executing, activate or acknowledging.<br>Note&#xFF1A;Watches that were created prior to version 6.1 or created when the security features were disabled run as a system user with elevated privileges, including permission to read and write all indices. Newer watches run with the security roles of the user who created or updated them.</td>
-</tr>
-<tr>
-<td>monitor</td>
-<td>All cluster read-only operations, like cluster health and state, hot threads, node info, node and cluster stats, and pending cluster tasks.</td>
-</tr>
-<tr>
-<td>monitor_data_frame_transforms</td>
-<td>All read-only operations related to data frames.</td>
-</tr>
-<tr>
-<td>monitor_ml</td>
-<td>All read-only machine learning operations, such as getting information about datafeeds, jobs, model snapshots, or results.</td>
-</tr>
-<tr>
-<td>monitor_rollup</td>
-<td>All read-only rollup operations, such as viewing the list of historical and currently running rollup jobs and their capabilities.</td>
-</tr>
-<tr>
-<td>monitor_watcher</td>
-<td>All read-only watcher operations, such as getting a watch and watcher stats.</td>
-</tr>
-<tr>
-<td>read_ccr</td>
-<td>All read-only cross-cluster replication operations, such as getting information about indices and metadata for leader indices in the cluster. It also includes the authority to check whether users have the appropriate privileges to follow leader indices. This privilege is necessary only on clusters that contain leader indices.</td>
-</tr>
-<tr>
-<td>read_ilm</td>
-<td>All read-only index lifecycle management operations, such as getting policies and checking the status of index lifecycle management</td>
-</tr>
-<tr>
-<td>transport_client</td>
-<td>All privileges necessary for a transport client to connect. Required by the remote cluster to enable Cross Cluster Search.</td>
-</tr>
-</tbody>
-</table>
-<p><strong><code>Index&#x76F8;&#x5173;&#x7684;&#x89D2;&#x8272;&#x6743;&#x9650;</code></strong></p>
-<table>
-<thead>
-<tr>
-<th>&#x89D2;&#x8272;&#x6743;&#x9650;</th>
-<th>&#x6743;&#x9650;&#x63CF;&#x8FF0;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>all</td>
-<td>Any action on an index</td>
-</tr>
-<tr>
-<td>create</td>
-<td>Privilege to index documents. Also grants access to the update mapping action.<br>Note<br>This privilege does not restrict the index operation to the creation of documents but instead restricts API use to the index API. The index API allows a user to overwrite a previously indexed document.</td>
-</tr>
-<tr>
-<td>create_index</td>
-<td>Privilege to create an index. A create index request may contain aliases to be added to the index once created. In that case the request requires the manage privilege as well, on both the index and the aliases names.</td>
-</tr>
-<tr>
-<td>delete</td>
-<td>Privilege to delete documents.</td>
-</tr>
-<tr>
-<td>delete_index</td>
-<td>Privilege to delete an index.</td>
-</tr>
-<tr>
-<td>index</td>
-<td>Privilege to index and update documents. Also grants access to the update mapping action.</td>
-</tr>
-<tr>
-<td>manage</td>
-<td>All monitor privileges plus index administration (aliases, analyze, cache clear, close, delete, exists, flush, mapping, open, force merge, refresh, settings, search shards, templates, validate).</td>
-</tr>
-<tr>
-<td>manage_follow_index</td>
-<td>All actions that are required to manage the lifecycle of a follower index, which includes creating a follower index, closing it, and converting it to a regular index. This privilege is necessary only on clusters that contain follower indices.</td>
-</tr>
-<tr>
-<td>manage_ilm</td>
-<td>All index lifecycle management operations relating to managing the execution of policies of an index This includes operations like retrying policies, and removing a policy from an index.</td>
-</tr>
-<tr>
-<td>manage_leader_index</td>
-<td>All actions that are required to manage the lifecycle of a leader index, which includes forgetting a follower. This privilege is necessary only on clusters that contain leader indices.</td>
-</tr>
-<tr>
-<td>monitor</td>
-<td>All actions that are required for monitoring (recovery, segments info, index stats and status).</td>
-</tr>
-<tr>
-<td>read</td>
-<td>Read-only access to actions (count, explain, get, mget, get indexed scripts, more like this, multi percolate/search/termvector, percolate, scroll, clear_scroll, search, suggest, tv).</td>
-</tr>
-<tr>
-<td>read_cross_cluster</td>
-<td>Read-only access to the search action from a remote cluster.</td>
-</tr>
-<tr>
-<td>view_index_metadata</td>
-<td>Read-only access to index metadata (aliases, aliases exists, get index, exists, field mappings, mappings, search shards, type exists, validate, warmers, settings, ilm). This privilege is primarily available for use by Kibana users.</td>
-</tr>
-<tr>
-<td>write</td>
-<td>Privilege to perform all write operations to documents, which includes the permission to index, update, and delete documents as well as performing bulk operations. Also grants access to the update mapping action.</td>
-</tr>
-</tbody>
-</table>
-<h1 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;">&#x53C2;&#x8003;&#x94FE;&#x63A5;</h1>
-<p><a href="https://www.elastic.co/cn/blog/getting-started-with-elasticsearch-security" _target="blank">https://www.elastic.co/cn/blog/getting-started-with-elasticsearch-security</a> 
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html" _target="blank">https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html</a> 
-<a href="https://www.elastic.co/guide/en/elastic-stack-overview/7.1/get-started-logstash-user.html" _target="blank">https://www.elastic.co/guide/en/elastic-stack-overview/7.1/get-started-logstash-user.html</a> 
-<a href="https://www.elastic.co/guide/en/logstash/current/ls-security.html" _target="blank">https://www.elastic.co/guide/en/logstash/current/ls-security.html</a> 
-<a href="https://www.elastic.co/guide/en/logstash/current/docker-config.html#docker-env-config" _target="blank">https://www.elastic.co/guide/en/logstash/current/docker-config.html#docker-env-config</a></p>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-08-20 18:48:32
+2019-09-16 18:37:57
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -4313,17 +4371,13 @@
 		
 		
 		
-		<a href="elasticSearch-索引的快照备份与恢复.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Snapshots">
-			<i class="fa fa-angle-right"></i>
-		</a>
-		
 		
 		
 	</div>
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"Xpack","level":"6.1.4.2.1","depth":4,"next":{"title":"Snapshots","level":"6.1.4.2.2","depth":4,"path":"origin/elasticSearch-索引的快照备份与恢复.md","ref":"origin/elasticSearch-索引的快照备份与恢复.md","articles":[]},"previous":{"title":"管理","level":"6.1.4.2","depth":3,"ref":"","articles":[{"title":"Xpack","level":"6.1.4.2.1","depth":4,"path":"origin/elasticsearch-7.1的xpack权限控制.md","ref":"origin/elasticsearch-7.1的xpack权限控制.md","articles":[]},{"title":"Snapshots","level":"6.1.4.2.2","depth":4,"path":"origin/elasticSearch-索引的快照备份与恢复.md","ref":"origin/elasticSearch-索引的快照备份与恢复.md","articles":[]},{"title":"插件管理","level":"6.1.4.2.3","depth":4,"path":"origin/elasticsearch-插件管理.md","ref":"origin/elasticsearch-插件管理.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/elasticsearch-7.1的xpack权限控制.md","mtime":"2019-08-20T10:48:32.144Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-16T10:38:34.277Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"声明式Declarative语法","level":"4.1.3.1","depth":3,"next":{"title":"插件","level":"4.1.4","depth":2,"ref":"","articles":[{"title":"Kubernetes Plugin","level":"4.1.4.1","depth":3,"path":"origin/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.md","ref":"origin/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点.md","articles":[]},{"title":"Pipeline Utility Steps","level":"4.1.4.2","depth":3,"path":"origin/jenkins-pipeline-utility-steps.md","ref":"origin/jenkins-pipeline-utility-steps.md","articles":[]},{"title":"Nexus Platform Plugin","level":"4.1.4.3","depth":3,"path":"origin/jenkins-Nexus-Platform的使用.md","ref":"origin/jenkins-Nexus-Platform的使用.md","articles":[]},{"title":"Mail Plugin","level":"4.1.4.4","depth":3,"path":"origin/jenkins-配置SMTP邮箱服务.md","ref":"origin/jenkins-配置SMTP邮箱服务.md","articles":[]},{"title":"Mail Extension","level":"4.1.4.5","depth":3,"path":"origin/jenkins-Mailer邮箱功能扩展插件Email-Extension.md","ref":"origin/jenkins-Mailer邮箱功能扩展插件Email-Extension.md","articles":[]}]},"previous":{"title":"Pipeline","level":"4.1.3","depth":2,"ref":"","articles":[{"title":"声明式Declarative语法","level":"4.1.3.1","depth":3,"path":"origin/jenkins-声明式Declarative pipeline语法.md","ref":"origin/jenkins-声明式Declarative pipeline语法.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/jenkins-声明式Declarative pipeline语法.md","mtime":"2019-09-16T10:37:57.071Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-16T10:38:34.277Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
