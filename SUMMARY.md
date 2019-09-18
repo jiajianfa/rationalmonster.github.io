@@ -74,11 +74,12 @@
         * [Nexus Platform Plugin](origin/jenkins-Nexus-Platform的使用.md)
         * [Mail Plugin](origin/jenkins-配置SMTP邮箱服务.md)
         * [Mail Extension](origin/jenkins-Mailer邮箱功能扩展插件Email-Extension.md)
-        * [Gitlab Hook](origin/jenkins-gitlab-hook插件的使用.md)
+        * [Gitlab](origin/jenkins-gitlab插件的使用.md)
 * Gitlab
     * 安装
     * 管理
         * [配置SMTP邮件服务](origin/gitlab-配置SMTP邮件服务.md)
+        * [代码仓库配置事件触发器Webhook](origin/gitlab-配置代码仓库事件触发器Webhook.md)
 * [Nexus](origin/nexus-简介.md)
     * 配置
         * [使用OrientDB Console在DB层面修改配置](origin/nexus-使用OrientDB Console在DB层面修改配置.md)
@@ -137,7 +138,7 @@
         * 管理
             * [Xpack](origin/elasticsearch-7.1的xpack权限控制.md)
             * [Snapshots](origin/elasticSearch-索引的快照备份与恢复.md)
-            * [插件管理](origin\elasticsearch-插件管理.md)
+            * [插件管理](origin/elasticsearch-插件管理.md)
         * [问题总结](origin/elasticsearch-问题总结.md)
     * Kibana
 * Metrics
@@ -178,9 +179,9 @@
         * [数值型的判断](origin/shell-数值型的判断.md)
     * 语句控制
         * [if判断](origin/shell-if判断.md)
-        * [for循环语句](origin\shell-for循环语句.md)
-        * [while循环语句](origin\shell-while循环语句.md)
-        * [until循环语句](origin\shell-until循环语句.md)
+        * [for循环语句](origin/shell-for循环语句.md)
+        * [while循环语句](origin/shell-while循环语句.md)
+        * [until循环语句](origin/shell-until循环语句.md)
     * 字符串操作
         * [字符串的截取拼接](origin/shell-字符串的截取拼接.md)
         * [字符串的包含判断关系](origin/shell-字符串的包含判断关系.md)
@@ -241,4 +242,4 @@
         * Apache
 * iSCSI
     * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)
-* [GitBook](origin/gitbook-简介安装.md)
+* [GitBook](origin/gitbook-简介安装配置.md)
