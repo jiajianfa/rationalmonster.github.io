@@ -173,8 +173,6 @@ environment{…},使用键值对来定义一些环境变量并赋值。它的作
   }
   ```
 
-  
-
 - SSH with Private Key
 
 示例：
@@ -210,8 +208,6 @@ pipeline {
 
 
 ## 2、Parameters参数
-
-
 
 - `pipeline{ }`中只能有一个`parameters{}`
 
@@ -260,22 +256,24 @@ pipeline {
 
 ## 3、Options选项
 
-- `pipeline{ }`中只能有一个`options{}`
+options指令允许在Pipeline本身内配置Pipeline专用选项。Pipeline本身提供了许多选项，例如buildDiscarder，但它们也可能由插件提供，例如 timestamps。
 
-- buildDiscarder
-- checkoutToSubdirectory
-- disableConcurrentBuilds
-- disableResume
-- newContainerPerStage
-- overrideIndexTriggers
-- preserveStashes
-- quietPeriod
-- retry
-- skipDefaultCheckout
-- skipStagesAfterUnstable
-- timeout
-- timestamps
-- parallelsAlwaysFailFast
+`pipeline{ }`中只能有一个`options{}`
+
+- **buildDiscarder**：pipeline保持构建的最大个数。例如：options {buildDiscarder(logRotator(numToKeepStr: ‘1’)) }
+- **checkoutToSubdirectory**
+- **disableConcurrentBuilds**：不允许并行执行Pipeline,可用于防止同时访问共享资源等。例如：options { disableConcurrentBuilds() }
+- **disableResume**
+- **newContainerPerStage**
+- **overrideIndexTriggers**
+- **preserveStashes**
+- **quietPeriod**：
+- **retry**：失败后，重试整个Pipeline的次数。例如：options { retry(3) }
+- **skipDefaultCheckout**：默认跳过来自源代码控制的代码。例如：options { skipDefaultCheckout() }
+- **skipStagesAfterUnstable**：一旦构建状态进入了“Unstable”状态，就跳过此stage。例如：options { skipStagesAfterUnstable() }
+- **timeout**：设置Pipeline运行的超时时间。例如：options { timeout(time: 1, unit: ‘HOURS’) }
+- **timestamps**：
+- **parallelsAlwaysFailFast**
 
 ## 4、Triggers触发器
 
@@ -305,8 +303,6 @@ Jenkins的Cron语法
 - Gradle
 
 ## 7、Input用户输入
-
-
 
 ## 8、When条件
 

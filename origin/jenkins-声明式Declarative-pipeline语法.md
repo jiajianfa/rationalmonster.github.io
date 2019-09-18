@@ -173,8 +173,6 @@ environment{…},使用键值对来定义一些环境变量并赋值。它的作
   }
   ```
 
-  
-
 - SSH with Private Key
 
 示例：
@@ -210,8 +208,6 @@ pipeline {
 
 
 ## 2、Parameters参数
-
-
 
 - `pipeline{ }`中只能有一个`parameters{}`
 
@@ -305,8 +301,6 @@ Jenkins的Cron语法
 - Gradle
 
 ## 7、Input用户输入
-
-
 
 ## 8、When条件
 
