@@ -1,10 +1,10 @@
-# GitBook简介安装
+# GitBook简介安装配置
 
 # 一、GitBook简介
 
 - gitbook 是一个基于node.js的命令行工具
 - gitbook 支持markdown/asciiDoc语法格式构建书籍
-- gitbook 支持输出静态网页和电子书等多种格式,其中默认输出静态网页格式
+- gitbook 支持输出静态网页（可定制和可扩展）和电子书（PDF，ePub或Mobi）等多种格式，其中默认输出静态网页格式
 - gitbook 不仅支持本地构建书籍,还可以托管在gitbook 官网上，或者Github上
 
 # 二、GitBook安装
@@ -13,7 +13,7 @@
 
 NodeJs官网下载链接:https://nodejs.org/en/download/ 
 
-### **`Linux`**：
+### **`Linux`**
 
 以安装NodeJs 10.16.3为例
 
@@ -37,13 +37,15 @@ npm version
 
 ## 2、安装Gitbook CLI命令行工具
 
-gitbook-cli 是 gitbook 的一个命令行工具, 通过它可以在电脑上安装和管理 gitbook 的多个版本.
+gitbook-cli 是 gitbook 的一个命令行工具, 通过它可以在电脑上安装和管理多个版本的gitbook.
 
 ```bash
 npm install gitbook-cli -g
 ```
 
 # 三、GitBook版本的管理
+
+gitbook-cli 和 gitbook 是两个软件，gitbook-cli 会将下载的 gitbook 的不同版本放到 ~/.gitbook中, 可以通过设置GITBOOK_DIR环境变量来指定另外的文件夹
 
 GitBook可以在本地安装多个版本并在执行命令的时候指定某个版本，如果指定的版本还没安装就会自动下载安装，下载后的GitBook会被放到~/.gitbook目录下。
 
@@ -125,6 +127,9 @@ mobi [book] [output]        构建书籍为ebook文件
 ```bash
 gitbook init
 # 在当前路径下自动生成README.md 和 SUMMARY.md。也可以先手动创建SUMMARY.md，再执行gitbook init，如果SUMMARY.md中配置的文件夹和文件不存在，就会自动创建文件夹和文件，已经存在的文件夹和文件不会被覆盖。
+
+gitbook init ./directory 
+# 可将书籍初始化到指定目录 
 ```
 
 ## 3、gitbook build构建gitbook书籍静态HTML资源
@@ -132,6 +137,8 @@ gitbook init
 ```bash
 gitbook build [book] [output]
 # 会在书籍的文件夹中生成一个 _book 的文件夹, 里面有生成的静态HTML资源。可将 _book 文件夹下的文件拷贝到nginx、httpd等web服务器内
+gitbook build --gitbook=2.0.1
+# 指定Gitbook版本
 ```
 
 ## 4、gitbook serve启动本地预览书籍服务
@@ -195,39 +202,34 @@ gitbook parse [book]
 
 # 七、book.json编写规则
 
-
 ## 常规设置
 
-| 变量          | 描述                                                         |
-| :------------ | :----------------------------------------------------------- |
-| `root`        | 包含所有图书文件的根文件夹的路径，除了 `book.json`           |
-| `structure`   | 指定自述文件，摘要，词汇表等的路径，参考 [Structure paragraph](https://blog.csdn.net/stu059074244/article/details/77767835#structure). |
-| `title`       | 您的书名，默认值是从 README 中提取出来的。在 GitBook.com 上，这个字段是预填的。 |
-| `description` | 您的书籍的描述，默认值是从 README 中提取出来的。在 GitBook.com 上，这个字段是预填的。 |
-| `author`      | 作者名。在GitBook.com上，这个字段是预填的。                  |
-| `isbn`        | 国际标准书号 ISBN                                            |
-| `language`    | 本书的语言类型 —— [ISO code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 。默认值是 `en` |
-| `direction`   | 文本阅读顺序。可以是 `rtl` （从右向左）或 `ltr` （从左向右），默认值依赖于 `language` 的值。 |
-| `gitbook`     | 应该使用的GitBook版本。使用 [SemVer](http://semver.org/) 规范，并接受类似于 `“> = 3.0.0”` 的条件。 |
+| 变量              | 描述                                                         |
+| :---------------- | :----------------------------------------------------------- |
+| **root**          | 包含所有图书文件的根文件夹的路径，除了 `book.json`           |
+| **structure**     | 指定 Readme，Summary，Glossary 和 Languages 的名称（而不是使用默认名称，如README.md）。这些文件必须在项目的根目录下（或 `root` 属性指定的根目录）<br>structure.readme：Readme 文件名（默认值是  `README.md` ）<br/>structure.summary：Summary 文件名（默认值是 `SUMMARY.md` ）<br/>structure.glossary：Glossary 文件名（默认值是 `GLOSSARY.md` ）<br/>structure.languages：Languages 文件名（默认值是 `LANGS.md` ） |
+| **title**         | 您的书名，默认值是从 README 中提取出来的。在 GitBook.com 上，这个字段是预填的。 |
+| **description**   | 您的书籍的描述，默认值是从 README 中提取出来的。在 GitBook.com 上，这个字段是预填的。 |
+| **author**        | 作者名。在GitBook.com上，这个字段是预填的。                  |
+| **isbn**          | 国际标准书号 ISBN                                            |
+| **language**      | 本书的语言类型 —— [ISO code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 。默认值是 `en` |
+| **direction**     | 文本阅读顺序。可以是 `rtl` （从右向左）或 `ltr` （从左向右），默认值依赖于 `language` 的值。 |
+| **gitbook**       | 应该使用的GitBook版本。使用 [SemVer](http://semver.org/) 规范，并接受类似于 `“> = 3.0.0”` 的条件。 |
+| **links**         | 在左侧导航栏添加链接信息                                     |
+| **plugins**       | 要加载的插件列表                                             |
+| **pluginsConfig** | 插件的配置                                                   |
 
-## plugins
+**Gitbook 默认带有 5 个插件**：
 
-Gitbook 默认带有 5 个插件：
+- highlight：语法高亮插件
+- search：搜索插件
+- sharing：分享插件
+- font-settings：字体设置插件
+- livereload：热加载插件
 
-- highlight
-- search
-- sharing
-- font-settings
-- livereload
+**Note**：去除插件`"plugins": [ "-search" ]`
 
-| 变量            | 描述             |
-| :-------------- | :--------------- |
-| `plugins`       | 要加载的插件列表 |
-| `pluginsConfig` | 插件的配置       |
-
-
-
-## 示例
+## 插件配置示例
 
 ```json
 {
@@ -327,7 +329,71 @@ Gitbook 默认带有 5 个插件：
 
 - GLOSSARY.md 的格式是 h2 标题的列表，以及描述段落
 
-# 九、托管到 Github Pages
+# 九、忽略文件和文件夹
+
+GitBook将读取 `.gitignore`，`.bookignore` 和 `.ignore` 文件，来过滤不需要进行git版本控制的文件和文件夹。这些文件中的格式遵循 `.gitignore` 的规则：
+
+```yaml
+# This is a comment  
+# Ignore the file test.md 
+test.md  
+# Ignore everything in the directory "bin" 
+bin/*
+
+### gitbook ###
+_node
+!docs
+_book
+node_modules
+
+### IDEA ###
+.idea/
+
+### VS Code ###
+.vscode/
+
+### OS ###
+.DS_Store
+```
+
+# 十、封面
+
+封面用于所有电子书格式。您可以自己提供一个，也可以使用 [autocover plugin](https://plugins.gitbook.com/plugin/autocover) 生成一个。
+
+要提供封面，请将 `cover.jpg` 文件放在书本的根目录下。添加一个 `cover_small.jpg` 将指定一个较小版本的封面。封面应为 `JPEG` 文件。
+
+好的封面应该遵守以下准则：
+
+- `cover.jpg` 的尺寸为 1800x2360 像素，`cover_small.jpg` 为 200x262
+- 没有边界
+- 清晰可见的书名
+- 任何重要的文字应该在小版本中可见
+
+# 十一、多语言支持
+
+gitbook 支持构建用多种语言书写的书籍。每种语言应该是一个子目录，遵循正常的gitbook格式，然后需要在根目录下放置一个名为 LANGS.md 的文件，存放下列内容：
+
+```bash
+# Languages
+
+* [English](en/)
+* [French](fr/)
+* [Español](es/)
+```
+
+注意：
+
+1. 当一个语言的书(如：en)有 book.json 时，它的配置将扩展主要配置。
+2. 唯一的一个例外是插件，插件是全局设置的，并且不能指定语言特定的插件
+3. 插件的配置必须写在根目录下的 book.json 文件中。然后其他语言的配置可以分别写在各自语言目录下的 book.json 文件中。
+4. LANGS.md 文件中各个语言出现的顺序，就是书籍首页出现的顺利。因此，写在第一位的语言，就自然成为书籍首页打开时的默认语言。
+
+当一个语言的书(如：en)有 book.json 时，它的配置将扩展主要配置。
+
+唯一的一个例外是插件，插件是全局设置的，并且不能指定语言特定的插件。
+
+# 十二、托管到 Github Pages
+
 Github 有个功能： GitHub Pages 。它允许用户在 GitHub 仓库托管你的个人、组织或项目的静态页面（自动识别 html、css、javascript）。
 
 ## 1、建立 xxx.github.io 仓库
@@ -338,7 +404,34 @@ Github 有个功能： GitHub Pages 。它允许用户在 GitHub 仓库托管你
 
 xxx.github.io 仓库中建立一个名为 gh-pages 的分支。只要 gh-pages 中的内容符合一个静态站点要求，就可以在如下地址中进行访问：https://Github用户名.gitbooks.io/Github 仓库 。
 
+## 3、自动化发布
 
+### 方式一：**使用 gh-pages 插件**
+
+在本地安装插件
+
+```bash
+npm i -D gh-pages
+```
+
+在 package.json 文件中添加脚本命令：
+
+如下：-d 命令参数后面是要发布的静态站点内容的目录
+
+```json
+"scripts": { "deploy": "gh-pages -d build" },
+```
+
+### 方式二：**使用脚本**
+
+```bash
+cd build \
+git init \
+git checkout -b gh-pages \
+git add . \
+git commit -am "Update" \
+git push git@github.com:****4/gitbook-notes gh-pages --force"
+```
 
 # 参考链接
 
