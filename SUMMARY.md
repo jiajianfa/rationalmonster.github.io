@@ -187,6 +187,10 @@
         * [字符串的包含判断关系](origin/shell-字符串的包含判断关系.md)
     * [自定义函数](origin/shell-自定义函数.md)
 * Maven
+    * Maven POM项目对象模型
+    * [Mave Settings文件详解](origin/maven-Settings配置文件详解.md)
+    * [Maven 生命周期阶段](origin/maven-生命周期阶段.md)
+    * Maven 多模块构建
 * Git
 * Ceph
     * 安装
