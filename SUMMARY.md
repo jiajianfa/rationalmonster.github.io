@@ -119,6 +119,8 @@
 
 ## Part Ⅴ：监控体系
 * Logging
+    * [日志系统技术概览简介](origin/logging-日志系统技术概览简介.md)
+    * [日志系统数据在个组件中的流转格式](origin/logging-日志系统数据在个组件中的流转格式.md)
     * Kafka
         * 安装
         * 基础知识
