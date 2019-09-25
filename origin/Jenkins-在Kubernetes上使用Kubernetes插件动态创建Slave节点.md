@@ -13,7 +13,7 @@
 * 资源分配不均衡，有的 Slave 要运行的 job 出现排队等待，而有的 Slave 处于空闲状态；
 * 资源有浪费，每台 Slave 可能是实体机或者 VM，当 Slave 处于空闲状态时，也不会完全释放掉资源。
 
-![](/assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-1.png)
+![](../assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-1.png)
 
  而使用Kubernetes插件可以在Kubernetes上动态创建slave POD作为Slave节点。Jenkins Master 和 Slave 节点以 Docker Container 形式运行在 Kubernetes 集群的 Node 上，Master 运行在其中一个节点，并且将其配置数据存储到一个 Volume 上去，Slave 运行在各个节点上，并且它不是一直处于运行状态，它会按照需求动态的创建并自动删除。
  
@@ -35,10 +35,10 @@ Jenkins的Master/Slave相当于Server和agent的概念。Master提供web接口�
 
 1. 安装
    
-    ![](/assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-2.png)
+    ![](../assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-2.png)
 2. 配置
 
-    ![](/assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-3.png)
+    ![](../assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-3.png)
    
 # 四、定制Slave镜像
 
@@ -98,13 +98,13 @@ ENTRYPOINT ["/usr/bin/dumb-init", "--", "/usr/bin/run-jnlp-client"]
 
     创建一个自由风格的Job
 
-    ![](/assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-4.png)
+    ![](../assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-4.png)
 
     点击构建后，会自动创建一个Slave POD，并通过JNLP协议与Jenkins Master的Agent端口5000进行通通信
     
-    ![](/assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-5.png)
-    ![](/assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-6.png)
-    ![](/assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-7.png)
+    ![](../assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-5.png)
+    ![](../assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-6.png)
+    ![](../assets/Jenkins-在Kubernetes上使用Kubernetes插件动态创建Slave节点-7.png)
 
 2. Declarative Pipeline
     ```bash

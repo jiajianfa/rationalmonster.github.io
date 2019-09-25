@@ -43,7 +43,7 @@ $ ansible-playbook playbooks/openshift-checks/certificate_expiry/easy-mode.yaml
 
 它将会展示出所有Master oc证书、etcd证书、kube证书、router默认证书、私有镜像仓库registry证书的过期时间
 
-![](/assets/openshift-组件TLS证书管理-1.png)
+![](../assets/openshift-组件TLS证书管理-1.png)
 
 # 三、更新证书
 

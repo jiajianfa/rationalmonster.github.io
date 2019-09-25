@@ -2,8 +2,8 @@
 
 **OpenLDAP的条目组织形式**
 
-![](/assets/ldap-Grafana对接LDAP-1.png)
-![](/assets/ldap-Grafana对接LDAP-2.png)
+![](../assets/ldap-Grafana对接LDAP-1.png)
+![](../assets/ldap-Grafana对接LDAP-2.png)
 
 # 二、操作
 

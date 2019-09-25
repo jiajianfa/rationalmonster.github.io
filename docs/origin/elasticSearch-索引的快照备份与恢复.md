@@ -1,6 +1,6 @@
 # 一、Context
 
-![](/assets/elasticSearch索引的快照备份与恢复-1.png)
+![](../assets/elasticSearch索引的快照备份与恢复-1.png)
 
 * shared file system：NFS 
 * S3
@@ -186,5 +186,5 @@ ES版本：5.6.8 HDFS版本：2.6.0
 
 Elasticsearch 7.2.0新版本有了管理Snapshot Repository的新功能
 
-![](/assets/elasticSearch索引的快照备份与恢复-2.png)
-![](/assets/elasticSearch索引的快照备份与恢复-3.png)
+![](../assets/elasticSearch索引的快照备份与恢复-2.png)
+![](../assets/elasticSearch索引的快照备份与恢复-3.png)

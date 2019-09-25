@@ -123,7 +123,7 @@
     * [日志系统数据在个组件中的流转格式](origin/logging-日志系统数据在个组件中的流转格式.md)
     * Kafka
         * 安装
-        * 基础知识
+        * [基础知识](origin/logging-kafka基础知识.md)
         * [kafka常用操作](origin/logging-kafka常用操作.md)
     * Filebeat
         * 安装配置

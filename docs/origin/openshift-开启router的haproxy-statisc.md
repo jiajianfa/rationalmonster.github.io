@@ -6,7 +6,7 @@
 
 2. 获取访问router haproxy statics 页面的用户名密码。
 
-    ![](/assets/OCP3-11开启router的haproxy-statisc-1.png)
+    ![](../assets/OCP3-11开启router的haproxy-statisc-1.png)
 
 3. 删除掉router dc中的环境变量”ROUTER_METRICS_TYPE“
     
@@ -18,7 +18,7 @@
 
 4. 将健康检查readiness的HTTP GET URL由“/healthz/ready”改为"/healthz"。（不然router POD无法通过健康检查）
 
-    ![](/assets/OCP3-11开启router的haproxy-statisc-2.png)
+    ![](../assets/OCP3-11开启router的haproxy-statisc-2.png)
 
 5. 验证监听端口80，443，1936
 
@@ -32,7 +32,7 @@
    
     访问方式是：http://<user>:<password>@router所在节点IP地址:1936 例如：http://admin:MJbJFvODhP@allinone.curiouser.com:1936
 
-    ![](/assets/OCP3-11开启router的haproxy-statisc-3.png)
+    ![](../assets/OCP3-11开启router的haproxy-statisc-3.png)
 
 7. 相关链接
    

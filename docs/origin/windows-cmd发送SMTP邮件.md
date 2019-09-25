@@ -17,7 +17,7 @@
     helo 163.com
     # 如果成功，服务器返回 250 OK
 
-   ![](/assets/windows-cmd下SMTP发送邮件-1.png)
+   ![](../assets/windows-cmd下SMTP发送邮件-1.png)
    
 ## 4. 登录认证
 
@@ -28,9 +28,9 @@
     *****
     # 对于字符串的Base64加密可使用CMD中的“certutil -encode 包含想要加密字符串的文本文件 Base64加密后输出文本文件”
 
-   ![](/assets/windows-cmd下SMTP发送邮件-2.png)
+   ![](../assets/windows-cmd下SMTP发送邮件-2.png)
     
-   ![](/assets/windows-cmd下SMTP发送邮件-3.jpg)
+   ![](../assets/windows-cmd下SMTP发送邮件-3.jpg)
     
 ## 5. 填写发件人和收件人邮箱地址
 
@@ -52,5 +52,5 @@
     .
     # 服务器返回 250 Ok: queues as ... 表示邮件已经发送
     
-   ![](/assets/windows-cmd下SMTP发送邮件-4.png)
-   ![](/assets/windows-cmd下SMTP发送邮件-5.jpg)
+   ![](../assets/windows-cmd下SMTP发送邮件-4.png)
+   ![](../assets/windows-cmd下SMTP发送邮件-5.jpg)

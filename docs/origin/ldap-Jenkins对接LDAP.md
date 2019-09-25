@@ -2,8 +2,8 @@
 
 ### OpenLDAP的条目组织形式
 
-![](/assets/ldap-Jenkins对接LDAP-1.png)
-![](/assets/ldap-Jenkins对接LDAP-2.png)
+![](../assets/ldap-Jenkins对接LDAP-1.png)
+![](../assets/ldap-Jenkins对接LDAP-2.png)
 
 # 二. Jenkins配置
 
@@ -24,12 +24,12 @@
 **安装方法：官网下载插件 --> 登录Jenkins --> 系统管理 --> 插件管理 --> 高级 --> 上传插件 --> 选择文件 --> 上传 --> 安装完成后重启**
 LDAP插件下载地址：https://updates.jenkins.io/download/plugins/ldap/
 
-![](/assets/ldap-Jenkins对接LDAP-3.png)
-![](/assets/ldap-Jenkins对接LDAP-4.png)
+![](../assets/ldap-Jenkins对接LDAP-3.png)
+![](../assets/ldap-Jenkins对接LDAP-4.png)
 
 ## 2. 登录Jenkins --> 系统管理 --> 全局安全配置
 
-![](/assets/ldap-Jenkins对接LDAP-5.png)
+![](../assets/ldap-Jenkins对接LDAP-5.png)
 
 - **root DN**：这里的root DN只是指搜索的根，并非LDAP服务器的root dn。由于LDAP数据库的数据组织结构类似一颗大树，而搜索是递归执行的，理论上，我们如果从子节点（而不是根节点）开始搜索，因为缩小了搜索范围那么就可以获得更高的性能。这里的root DN指的就是这个子节点的DN，当然也可以不填，表示从LDAP的根节点开始搜索
 - **User search base**：这个配置也是为了缩小LDAP搜索的范围，例如Jenkins系统只允许ou为Admin下的用户才能登陆，那么你这里可以填写ou=Admin，这是一个相对的值，相对于上边的root DN，例如你上边的root DN填写的是dc=domain,dc=com，那么user search base这里填写了ou=Admin，那么登陆用户去LDAP搜索时就只会搜索ou=Admin,dc=domain,dc=com下的用户了
@@ -44,7 +44,7 @@ LDAP插件下载地址：https://updates.jenkins.io/download/plugins/ldap/
 
 ## 3. 登录验证
 
-![](/assets/ldap-Jenkins对接LDAP-6.png)
+![](../assets/ldap-Jenkins对接LDAP-6.png)
 
 # 参考链接
 

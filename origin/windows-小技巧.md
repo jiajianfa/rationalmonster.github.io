@@ -81,13 +81,13 @@
 
 将ISO镜像中source/sxs目录拷贝到某个路径下（以桌面为例）
 
-![](/assets/windows-小技巧-1.png)
+![](../assets/windows-小技巧-1.png)
 
 在以管理员身份运行的CMD执行以下命令
     
     dism.exe /online /enable-feature /featurename:netfx3 /Source:C:\Users\user\Desktop\sxs
 
-![](/assets/windows-小技巧-2.png)
+![](../assets/windows-小技巧-2.png)
 
 ## 8. 添加开机自启动bat脚本
 
@@ -97,9 +97,9 @@
 
 **`方法二`**：
 
-![](/assets/windows-小技巧-3.png)
-![](/assets/windows-小技巧-4.png)
-![](/assets/windows-小技巧-5.png)
+![](../assets/windows-小技巧-3.png)
+![](../assets/windows-小技巧-4.png)
+![](../assets/windows-小技巧-5.png)
 
 ## 9. 修改远程桌面的默认端口3389
 
@@ -111,7 +111,7 @@ Windows+R,输入regedit，打开注册表，修改一下注册表的值(十进�
 
 ## 10. 防火墙放行指定端口
 
-![](/assets/windows-小技巧-6.png)
-![](/assets/windows-小技巧-7.png)
-![](/assets/windows-小技巧-8.png)
-![](/assets/windows-小技巧-9.png)
+![](../assets/windows-小技巧-6.png)
+![](../assets/windows-小技巧-7.png)
+![](../assets/windows-小技巧-8.png)
+![](../assets/windows-小技巧-9.png)

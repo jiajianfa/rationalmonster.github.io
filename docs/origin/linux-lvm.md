@@ -15,7 +15,7 @@
 - PE（physical extend）：每一个物理卷被划分为称为PE(Physical Extents)的基本单元，具有唯一编号的PE是可以被LVM寻址的最小单元。PE的大小是可配置的，默认为4MB
 - 逻辑卷LV（logical volume）：由多个LV“块”组成可供挂载使用的设备文件
 
-![](/assets/linux-lvm-1.jpg)
+![](../assets/linux-lvm-1.jpg)
 
 # 二、使用步骤
 

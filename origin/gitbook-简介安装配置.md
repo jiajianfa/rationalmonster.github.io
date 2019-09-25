@@ -316,7 +316,7 @@ gitbook parse [book]
             ]
         },
          "donate": {
-            "wechat": "/assets/wechat-donate.jpg",
+            "wechat": "../assets/wechat-donate.jpg",
             "title": "",
             "button": "赏",
             "wechatText": "微信打赏"

@@ -181,7 +181,7 @@ This is a test log ! hahaha
 }
 ```
 
-![](/assets/logging-日志系统数据流转-1.png)
+![](../assets/logging-日志系统数据流转-1.png)
 
 # 附录
 

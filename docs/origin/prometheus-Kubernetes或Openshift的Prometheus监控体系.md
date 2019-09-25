@@ -2,7 +2,7 @@
 
 # 一、Overview
 
-![](/assets/Openshift或Kubernetes的Prometheus监控体系-1.png)
+![](../assets/Openshift或Kubernetes的Prometheus监控体系-1.png)
 
 
 - **cluster-monitoring-operator** ：负责在 OpenShfit 环境中部署基于 Prometheus 的监控系统
@@ -22,7 +22,7 @@
         - Target Services via Labels: 基于常见的Kubernetes label查询，自动生成监控target 配置；不需要学习普罗米修斯特定的配置语言。
     - 架构
 
-    ![](/assets/Openshift或Kubernetes的Prometheus监控体系-2.png)
+    ![](../assets/Openshift或Kubernetes的Prometheus监控体系-2.png)
 - **kube-state-metrics**：监听 Kubernetes API server 并自动生成相关对象的metrics信息(并不修改相关对象的配置)，在80端口(默认)暴露出HTTP的endpoint /metric
     - GIthub：https://github.com/kubernetes/kube-state-metrics
 - **node-exporter**：以Daemonset的形式部署在Openshift集群的各个节点上，采集OS级别的metrics信息
@@ -40,10 +40,10 @@
 
 **Note:**
 1. Prometheus Pod 中，除了 Prometheus 容器外，还有一个 prometheus-config-reloader 容器。它负责导入在需要的时候让Prometheus 重新加载配置文件。
-    ![](/assets/Openshift或Kubernetes的Prometheus监控体系-3.png)
-    ![](/assets/Openshift或Kubernetes的Prometheus监控体系-4.png)
+    ![](../assets/Openshift或Kubernetes的Prometheus监控体系-3.png)
+    ![](../assets/Openshift或Kubernetes的Prometheus监控体系-4.png)
 2. 配置文件被以 Secret 形式创建并挂载给 prometheus-config-reloader Pod。一旦配置有变化，它会调用 Prometheus 的接口，使其重新加载配置文件。
-    ![](/assets/Openshift或Kubernetes的Prometheus监控体系-5.png)
+    ![](../assets/Openshift或Kubernetes的Prometheus监控体系-5.png)
 
 
 

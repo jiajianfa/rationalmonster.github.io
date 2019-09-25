@@ -248,7 +248,7 @@ oc delete po -l component=fluentd -n openshift-logging
 
 在ocp集群系统的Kibana上添加".audit\*"的Index Pattern,并在"Discover"查看、筛选审计日志
 
-![](/assets/import1.png)![](/assets/import2.png)
+![](../assets/import1.png)![](../assets/import2.png)
 
 # 四、将审计日志通过WebHook
 

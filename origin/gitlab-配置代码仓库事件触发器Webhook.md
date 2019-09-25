@@ -14,20 +14,20 @@ WebHook就是一个接收HTTP POST（或GET，PUT，DELETE）的URL
 
 1. 配置Gitlab的网络限制
 
-   ![](/assets/gitlab-配置webhook-1.png)
+   ![](../assets/gitlab-配置webhook-1.png)
     否则后续发送webhook请求时会报错"Requests to the local network are not allowed",原因详见附录
 
 2. 配置代码代码仓库的Webhook
 
-    ![配置代码代码仓库的Webhook](/assets/gitlab-配置webhook-2.png)
+    ![配置代码代码仓库的Webhook](../assets/gitlab-配置webhook-2.png)
 
 3. 配置完可以模拟一些事件进行测试
 
-   ![](/assets/gitlab-配置webhook-3.png)
+   ![](../assets/gitlab-配置webhook-3.png)
 
 4. 查看详细的Webhook请求信息
-   ![](/assets/gitlab-配置webhook-4.png)
-   ![](/assets/gitlab-配置webhook-5.png)
+   ![](../assets/gitlab-配置webhook-4.png)
+   ![](../assets/gitlab-配置webhook-5.png)
 
 # 附录：gitlab发送webhook请求时报错原因
 

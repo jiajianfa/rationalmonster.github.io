@@ -2,7 +2,7 @@
 
 由于在Openshift集群外使用了Ceph RBD和Ceph Filesystem作为PV的后端动态存储文件系统，所以ceph的集群监控也可使用Prometheus体系中的Ceph Exporter，接入到Openshift集群中的Prometheus。
 * 
-![](/assets/prometheus-Ceph&#32;Exporter对接Prometheus以监控ceph集群-1.jpg)
+![](../assets/prometheus-Ceph&#32;Exporter对接Prometheus以监控ceph集群-1.jpg)
 
 
 # 二、以DaemonSet的形式部署Ceph Exporter
@@ -130,7 +130,7 @@
 # 三、Ceph Exporter对接Prometheus 
 
 1. 备份Prometheus原配置文件secret
-  [Prometheus原始配置secret文件](/assets/prometheus-Openshift集群Prometheus原始配置secret文件)
+  [Prometheus原始配置secret文件](../assets/prometheus-Openshift集群Prometheus原始配置secret文件)
 
 2. 创建新的Prometheus配置secret
 
@@ -191,13 +191,13 @@
   ```
 
 3. 替换Prometheus的POD secret
-![](/assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-3.png)
+![](../assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-3.png)
 
 # 四、验证
 
-![](/assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-4.png)
-![](/assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-5.png)
-![](/assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-6.png)
-![](/assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-7.png)
-![](/assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-8.png)
-![](/assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-9.png)
+![](../assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-4.png)
+![](../assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-5.png)
+![](../assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-6.png)
+![](../assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-7.png)
+![](../assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-8.png)
+![](../assets/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群-9.png)

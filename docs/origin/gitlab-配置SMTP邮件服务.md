@@ -51,4 +51,4 @@ uto-generated>, <X-Auto-Response-Suppress: All>>
 irb(main):002:0>
 ```
 
-![](/assets/gitlab-配置SMTP邮件服务-1.jpg)
+![](../assets/gitlab-配置SMTP邮件服务-1.jpg)

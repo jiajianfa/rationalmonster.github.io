@@ -2,8 +2,8 @@
 
 ### OpenLDAP的条目组织形式
 
-![](/assets/ldap-Gitlab对接LDAP-1.png)
-![](/assets/ldap-Gitlab对接LDAP-2.png)
+![](../assets/ldap-Gitlab对接LDAP-1.png)
+![](../assets/ldap-Gitlab对接LDAP-2.png)
 
 # 二、配置
 
@@ -63,7 +63,7 @@ EOS
 
 # 三、测试登录
 
-![](/assets/ldap-Gitlab对接LDAP-3.png)
+![](../assets/ldap-Gitlab对接LDAP-3.png)
 
 # 四、注意
 
@@ -71,11 +71,11 @@ EOS
 
 换句话说，如果现有的GitLab用户希望自己启用LDAP登录，那么他们应该检查他们的GitLab电子邮件地址是否匹配LDAP电子邮件地址，然后通过他们的LDAP凭证登录GitLab。
 
-![](/assets/ldap-Gitlab对接LDAP-4.png)
+![](../assets/ldap-Gitlab对接LDAP-4.png)
 
 https://docs.gitlab.com/ee/administration/auth/ldap.html#enabling-ldap-sign-in-for-existing-gitlab-users
 
-![](/assets/ldap-Gitlab对接LDAP-5.png)
+![](../assets/ldap-Gitlab对接LDAP-5.png)
 
 # 参考链接
 

@@ -17,18 +17,18 @@ Jenkins自带的邮件插件功能太弱，有个邮箱扩展插件。
 
 ## 1、安装
 
-![](/assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-1.png)
+![](../assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-1.png)
 
 ## 2、配置
 
-![](/assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-2.png)
+![](../assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-2.png)
 
 # 三、使用
 
 ## 1、Jobs中
 
-![](/assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-3.png)
-![](/assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-4.png)
+![](../assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-3.png)
+![](../assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-4.png)
 
 ## 2、Pipeline中
 
@@ -104,7 +104,7 @@ Jenkins自带的邮件插件功能太弱，有个邮箱扩展插件。
   </body>
   ```
 - 使用pipeline语法生成器生成pipeline
-   ![](/assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-5.png)
+   ![](../assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-5.png)
 - 压缩pipeline（压缩HTML源代码的工具网站：http://tool.oschina.net/jscompress?type=2
 
 ```bash
@@ -118,4 +118,4 @@ pipeline{
 }
 ```
 
-![](/assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-6.png)
+![](../assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-6.png)

@@ -22,7 +22,7 @@ PXE(Pre-boot Execution Environment，预启动执行环境)是由Intel公司开�
 
 详细工作流程，请参考下面这幅图：
 
-![](/assets/pxe-kickstart无人值守部署OS-1.png)
+![](../assets/pxe-kickstart无人值守部署OS-1.png)
 
 ## 3. Kickstart简介
 
@@ -30,7 +30,7 @@ Kickstart是一种无人值守的安装方式。它的工作原理是在安装�
 
 # 二、PXE+Kickstart无人值守安装OS的工作流程
 
-![](/assets/pxe-kickstart无人值守部署OS-2.png)
+![](../assets/pxe-kickstart无人值守部署OS-2.png)
 
 # 三、PXE服务端配置
 
@@ -297,8 +297,8 @@ echo "    #######################" >> /etc/motd
 yum install -y system-config-kickstart
 ```
 
-![](/assets/pxe-kickstart无人值守部署OS-3.jpg)
-![](/assets/pxe-kickstart无人值守部署OS-4.jpg)
+![](../assets/pxe-kickstart无人值守部署OS-3.jpg)
+![](../assets/pxe-kickstart无人值守部署OS-4.jpg)
 
 ## 7、验证KS文件的语法正确性
 
@@ -312,7 +312,7 @@ ksvalidator  /var/www/html/CentOS7.cfg
 前提：
 
 - CentOS-7-x86_64-Everything-1804.iso已经放置在/mnt/iso文件夹下
-    [pxe-kickstart-CentOS7.cfg](/assets/pxe-kickstart-CentOS7.cfg)
+    [pxe-kickstart-CentOS7.cfg](../assets/pxe-kickstart-CentOS7.cfg)
 
     ```bash
     mkdir /mnt/cdrom && \

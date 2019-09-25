@@ -1,6 +1,6 @@
 # 一、定制WebConsole中左上角的logo
 
-![](/assets/openshift-WebConsole定制化-1.jpg)
+![](../assets/openshift-WebConsole定制化-1.jpg)
 
 1. 制作图标
 使用Windows 10自带的Paint 3D。制作高度40pixel，宽度为logo字体宽的透明画布（建议logo字体宽度为100-300pixel之间）。保存为PNG格式。
@@ -35,16 +35,16 @@
         }
 
 5. 修改WebConsole的配置文件
-    ![](/assets/openshift-WebConsole定制化-2.jpg)
+    ![](../assets/openshift-WebConsole定制化-2.jpg)
 
     待Webconsole的容器重启过后（等待约5分钟），再次刷新页面可见修改过后的效果。可使用F12调出浏览器开发者模式，查看页面渲染的元素。
 
-    ![](/assets/openshift-WebConsole定制化-3.jpg)
-    ![](/assets/openshift-WebConsole定制化-4.jpg)
+    ![](../assets/openshift-WebConsole定制化-3.jpg)
+    ![](../assets/openshift-WebConsole定制化-4.jpg)
 
 # 二、汉化项目左侧导航栏
 
-![](/assets/openshift-WebConsole定制化-5.png)
+![](../assets/openshift-WebConsole定制化-5.png)
 
 创建js
 
@@ -68,7 +68,7 @@
 
 修改WebConsole的配置文件
 
-![](/assets/openshift-WebConsole定制化-6.png)
+![](../assets/openshift-WebConsole定制化-6.png)
 
 
 # 三、定制登陆页面
@@ -77,7 +77,7 @@
 
         oc adm create-login-template > login.html
 
-2. 修改该HTML文件，然后放到master节点上的/etc/origin/master/login-template/路径下（示例可见[附件](/assets/openshift-webconsole-login.html)）
+2. 修改该HTML文件，然后放到master节点上的/etc/origin/master/login-template/路径下（示例可见[附件](../assets/openshift-webconsole-login.html)）
 
 3. 修改Master节点的/etc/origin/master/master-config.yaml文件
 

@@ -6,25 +6,25 @@
 
 插件Github：https://github.com/jenkinsci/nexus-platform-plugin
 
-![](/assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-00.png)
-![](/assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-0.png)
+![](../assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-00.png)
+![](../assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-0.png)
 
 # 二、Jenkins使用Nexus Platform上传maven格式制品
 
 ## 1、安装
 
-![](/assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-1.png)
+![](../assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-1.png)
 
 ## 2、配置
 
 系统管理--> 系统设置--> Sonatype Nexus
 
-![](/assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-2.png)
-![](/assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-3.png)
+![](../assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-2.png)
+![](../assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-3.png)
 
 ## 3、Jenkins Job
 
-![](/assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-4.png)
+![](../assets/nexus-使用jenkins插件上传CI流程制品到Nexus仓库-4.png)
 
 ## 4、Jenkins Pipeline
 
@@ -46,7 +46,7 @@ stage ('上传制品') {
                                                    packaging: "${pomfile.packaging}", \
                                                    version: "${pomfile.version}"]]]
       //拼接maven制品的搜索链接,该链接是以源代码POM文件中的maven制品坐标信息参数对nexus api进行搜索，返回的response会重定向到制品的下载链接
-      echo "The Jar Format Asset of Maven have been pushed to Hosted Repository: Maven-Release. The Download URL of the Asset: http://Nexus-IP地址:8081/service/rest/v1/search/assets/download?maven.groupId=${pomfile.groupId}&maven.artifactId=${pomfile.artifactId}&maven.baseVersion=${pomfile.version}&maven.extension=jar&maven.classifier"
+      echo "The Jar Format Asset of Maven have been pushed to Hosted Repository: Maven-Release. The Download URL of the Asset: http://Nexus-IP地址:8081/service/rest/v1/search../assets/download?maven.groupId=${pomfile.groupId}&maven.artifactId=${pomfile.artifactId}&maven.baseVersion=${pomfile.version}&maven.extension=jar&maven.classifier"
     }
   }
 }

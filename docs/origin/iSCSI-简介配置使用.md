@@ -8,7 +8,7 @@ iSCSI使用 TCP/IP 协议（一般使用TCP端口860和3260）。 本质上，iS
 
 两部计算机之间利用iSCSI的协议来交换SCSI命令，让计算机可以透过高速的局域网集线来把SAN模拟成为本地的储存装置
 
-![](/assets/iSCSI-简介配置使用-1.jpg)
+![](../assets/iSCSI-简介配置使用-1.jpg)
 
 - **`iSCSI target`**：就是iSCSI的server，可以是一个物理磁阵；也可以是软件实现的iSCSI server。有硬件方式实现的iSCSI target，例如iSCSI的hba卡和带isoe（iSCSI offload engine）网卡（硬件上将iSCSI 包接包和封包）
 - **`iSCSI initiator`**：就是iSCSI的客户端，它可以是一个软件，也可以是一个硬件。如果是软件在linux上，用户态实现的是tgt框架（linux scsi target frame）；还有一种内核太实现的架构是iet（iSCSI enterprise target）。在centos上目前已经默认安装了tgt了。
@@ -27,25 +27,25 @@ iSCSI使用 TCP/IP 协议（一般使用TCP端口860和3260）。 本质上，iS
 
 **`创建LUN`**
 
-![](/assets/iSCSI-简介配置使用-2.jpg)
-![](/assets/iSCSI-简介配置使用-3.png)
+![](../assets/iSCSI-简介配置使用-2.jpg)
+![](../assets/iSCSI-简介配置使用-3.png)
 
 **`创建Target`**
 
-![](/assets/iSCSI-简介配置使用-4.png)
+![](../assets/iSCSI-简介配置使用-4.png)
 
 **`Target关联LUN`**
 
-![](/assets/iSCSI-简介配置使用-5.png)
-![](/assets/iSCSI-简介配置使用-6.png)
+![](../assets/iSCSI-简介配置使用-5.png)
+![](../assets/iSCSI-简介配置使用-6.png)
 
 # 三、Windows挂载
 
-![](/assets/iSCSI-简介配置使用-7.png)
-![](/assets/iSCSI-简介配置使用-8.png)
-![](/assets/iSCSI-简介配置使用-9.png)
-![](/assets/iSCSI-简介配置使用-10.jpg)
-![](/assets/iSCSI-简介配置使用-11.jpg)
+![](../assets/iSCSI-简介配置使用-7.png)
+![](../assets/iSCSI-简介配置使用-8.png)
+![](../assets/iSCSI-简介配置使用-9.png)
+![](../assets/iSCSI-简介配置使用-10.jpg)
+![](../assets/iSCSI-简介配置使用-11.jpg)
 
 # 参考链接
 
@@ -59,7 +59,7 @@ iSCSI使用 TCP/IP 协议（一般使用TCP端口860和3260）。 本质上，iS
 Thick LUN在创建时会分配所有需要的空间
 Thin LUN是一种按需分配的空间组织方法，它在创建时存储池不会分配所有需要的空间，而是根据使用情况动态分配。二者的空间分配区别如下图所示：
 
-![](/assets/iSCSI-简介配置使用-12.png)
+![](../assets/iSCSI-简介配置使用-12.png)
 
 
 ## 2、空间回收的区别
@@ -69,7 +69,7 @@ Thin LUN是一种按需分配的空间组织方法，它在创建时存储池不
 Thick LUN没有空间回收的概念，因为它在创建时就占用存储池中所有分配给它的空间，即使Thick LUN中的数据被删除，存储池中分配给它的空间还是被占用，不能被其他的LUN使用。但是如果手动删除不再使用的Thick LUN，则对应的空间会被回收。
 Thin LUN不仅能够做到空间占用率增大时自动分配新的存储空间，而且当Thin LUN中的文件删除时也可以实现空间的释放，从而实现存储空间的反复利用，大大提高存储空间的利用率。Thin LUN的空间回收如下图所示：
 
-![](/assets/iSCSI-简介配置使用-13.png)
+![](../assets/iSCSI-简介配置使用-13.png)
 
 ## 3、性能的区别
 

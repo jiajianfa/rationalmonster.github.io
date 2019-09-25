@@ -42,7 +42,7 @@ import urllib2,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18c
 
 **解决无法安装插件问题**
 
-使用第三方Channel，见[附件](/assets/SublimeTest-channel_v3.json)
+使用第三方Channel，见[附件](../assets/SublimeTest-channel_v3.json)
 
 Preference-->Package Settings-->Package Control-->Settings User
 

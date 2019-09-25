@@ -2,12 +2,12 @@
 
 ### OpenLDAP的条目组织形式
 
-![](/assets/ldap-SonarQube对接LDAP-1.png)
-![](/assets/ldap-SonarQube对接LDAP-2.png)
+![](../assets/ldap-SonarQube对接LDAP-1.png)
+![](../assets/ldap-SonarQube对接LDAP-2.png)
 
 #### Sonaeqube官方文档的操作步骤
 
-![](/assets/ldap-SonarQube对接LDAP-3.png)
+![](../assets/ldap-SonarQube对接LDAP-3.png)
 
 # 二、操作
 
@@ -15,7 +15,7 @@
 
 配置--> 应用市场
 
-![](/assets/ldap-SonarQube对接LDAP-4.png)
+![](../assets/ldap-SonarQube对接LDAP-4.png)
 
 ### 2、修改配置文件/opt/sonarqube/conf/sonar.properties 
 
@@ -79,13 +79,13 @@ INFO o.s.p.l.LdapContextFactory Test LDAP connection: OK
 
 ### 3、登录验证
 
-![](/assets/ldap-SonarQube对接LDAP-5.png)
+![](../assets/ldap-SonarQube对接LDAP-5.png)
 
 ### 4、权限控制
 
 将admin用户的管理员权限删除，赋予另一个用户
 
-![](/assets/ldap-SonarQube对接LDAP-6.png)
+![](../assets/ldap-SonarQube对接LDAP-6.png)
 
  
 

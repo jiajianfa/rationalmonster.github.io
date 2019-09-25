@@ -5,19 +5,19 @@
 
 **功能**：
 
-![](/assets/jenkins-Nexus-Platform的使用-1.png)
-![](/assets/jenkins-Nexus-Platform的使用-2.png)
+![](../assets/jenkins-Nexus-Platform的使用-1.png)
+![](../assets/jenkins-Nexus-Platform的使用-2.png)
 
 
 ## 一、安装
 
-![](/assets/jenkins-Nexus-Platform的使用-3.png)
+![](../assets/jenkins-Nexus-Platform的使用-3.png)
 
 ## 二、配置
 
 系统管理--> 系统设置--> Sonatype Nexus
-![](/assets/jenkins-Nexus-Platform的使用-4.png)
-![](/assets/jenkins-Nexus-Platform的使用-5.png)
+![](../assets/jenkins-Nexus-Platform的使用-4.png)
+![](../assets/jenkins-Nexus-Platform的使用-5.png)
 
 
 ## 三、使用
@@ -26,7 +26,7 @@
 
 **Job**
 
-![](/assets/jenkins-Nexus-Platform的使用-6.png)
+![](../assets/jenkins-Nexus-Platform的使用-6.png)
 
 **Declarative Pipeline**
 
@@ -47,7 +47,7 @@
                                                     packaging: "${pomfile.packaging}", \
                                                     version: "${pomfile.version}"]]]
         //拼接maven制品的搜索链接,该链接是以源代码POM文件中的maven制品坐标信息参数对nexus api进行搜索，返回的response会重定向到制品的下载链接
-        echo "The Jar Format Asset of Maven have been pushed to Hosted Repository: Maven-Release. The Download URL of the Asset: http://nexus-nexus.apps.okd311.curiouser.com/service/rest/v1/search/assets/download?maven.groupId=${pomfile.groupId}&maven.artifactId=${pomfile.artifactId}&maven.baseVersion=${pomfile.version}&maven.extension=jar&maven.classifier"
+        echo "The Jar Format Asset of Maven have been pushed to Hosted Repository: Maven-Release. The Download URL of the Asset: http://nexus-nexus.apps.okd311.curiouser.com/service/rest/v1/search../assets/download?maven.groupId=${pomfile.groupId}&maven.artifactId=${pomfile.artifactId}&maven.baseVersion=${pomfile.version}&maven.extension=jar&maven.classifier"
         }
     }
     }
@@ -56,7 +56,7 @@
 
 如果Job再次构建，产生相同的Jar，上传信息还是一样的，Nexus的Release仓库需要设置为"允许Redeploy"。不然，仓库中已经相同版本信息的制品，会造成上传失败
 
-![](/assets/jenkins-Nexus-Platform的使用-7.png)
+![](../assets/jenkins-Nexus-Platform的使用-7.png)
 
 ## 参考链接
 

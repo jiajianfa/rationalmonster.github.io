@@ -388,8 +388,8 @@ docker tag mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.10.1 k8s.gcr.io/
 docker rmi mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.10.1
 ```
 
-![](/assets/kubernetes-使用Kubeadm安装单机版Kubernetes-1.png)
-![](/assets/kubernetes-使用Kubeadm安装单机版Kubernetes-2.png)
+![](../assets/kubernetes-使用Kubeadm安装单机版Kubernetes-1.png)
+![](../assets/kubernetes-使用Kubeadm安装单机版Kubernetes-2.png)
 
 ## Weave Scope
 
@@ -427,5 +427,5 @@ docker rmi mirrorgooglecontainers/kubernetes-dashboard-amd64:v1.10.1
     type: NodePort
   ```
 
-  ![](/assets/kubernetes-使用Kubeadm安装单机版Kubernetes-3.png)
-  ![](/assets/kubernetes-使用Kubeadm安装单机版Kubernetes-4.png)
+  ![](../assets/kubernetes-使用Kubeadm安装单机版Kubernetes-3.png)
+  ![](../assets/kubernetes-使用Kubeadm安装单机版Kubernetes-4.png)

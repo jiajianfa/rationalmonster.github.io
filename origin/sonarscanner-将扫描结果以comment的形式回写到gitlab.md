@@ -10,7 +10,7 @@ sonarqube可以安装插件gitlab,让sonarscanner扫描完代码,将结果以git
 - **sonarscanner**: 3.3.0.1492
 - **sonarqube gitlab插件**: 4.0.0
     
-    ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-1.png)
+    ![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-1.png)
 - **gitlab**: 10.8.4 ce
 - **jenkins**:  2.150.2
  
@@ -21,34 +21,34 @@ Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave P
 ## 1、安装sonar-gitlab-plugin插件
 
    插件Github:https://github.com/gabrie-allaigre/sonar-gitlab-plugin/
-   ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-2.png)
+   ![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-2.png)
 
 ## 2、生成用户访问Token
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-3.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-3.png)
 
 ## 3、gitlab创建sonarscanner的用户,并生成AccessKey
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-4.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-4.png)
 
 ## 4、在gitlab中将sonarqube加入到对应项目仓库的Members中
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-5.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-5.png)
 
 ## 5、Sonarqube中编辑gitlab插件的全局配置
 
 扫描项目时，扫描参数生效优先级如下：
 
 1. UI界面中的全局参数配置
-   ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-15.png)
+   ![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-15.png)
 2. 项目UI界面中的参数配置
-   ![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-16.png)
+   ![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-16.png)
 3. 项目分析客户端全局配置文件中的参数（例如sonar scanner的全局配置文件/opt/sonarscanner/conf/sonar.properties中的参数）
 4. 项目分析客户端命令行中配置的参数
 
 所以可以在UI界面全局配置中配置一些通用、不经常变动的、由管理员控制的参数。例如：gitlab插件的通用配置、gitlab地址等参数
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-14.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-14.png)
 
 ## 6、Jenkins Pipeline中使用sonarscanner扫描代码
 
@@ -78,8 +78,8 @@ stage("代码扫描"){
 
 # 三、效果
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-6.png)
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-7.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-6.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-7.png)
 
 
 # 四、Soanarscanner参数详解
@@ -126,13 +126,13 @@ stage("代码扫描"){
 
 ## 1、当项目是私有仓库时
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-8.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-8.png)
 
 ## 2、获取项目仓库的ProjectID
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-9.png)
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-10.png)
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-11.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-9.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-10.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-11.png)
 
 ## 3、gitlab插件4.0.0无法兼容Sonarqube 7.6-community至7.9-community的版本
 
@@ -195,11 +195,11 @@ Caused by: org.apache.maven.plugin.MojoExecutionException:com.talanlabs.sonar.pl
 
 **原因**
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-12.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-12.png)
 
 **解决方案**
 
-![](/assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-13.png)
+![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-13.png)
 
 已经修改编译好的插件Jar包：https://github.com/gabrie-allaigre/sonar-gitlab-plugin/releases/download/4.1.0-SNAPSHOT/sonar-gitlab-plugin-4.1.0-SNAPSHOT.jar
 

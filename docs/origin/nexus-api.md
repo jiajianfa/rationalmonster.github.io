@@ -4,8 +4,8 @@
 
 官网API文档：https://help.sonatype.com/repomanager3/rest-and-integration-api
 
-![](/assets/nexus-api-1.png)
-![](/assets/nexus-api-2.png)
+![](../assets/nexus-api-1.png)
+![](../assets/nexus-api-2.png)
 
 # 二、Search API
 
@@ -66,7 +66,7 @@ Search API用于搜索component和asset。
 
 例如在maven-central仓库中搜索"group=org.osgi"的assets
 
-    $ curl -u admin:admin123 -X GET 'http://localhost:8081/service/rest/v1/search/assets?repository=maven-central&group=org.osgi'
+    $ curl -u admin:admin123 -X GET 'http://localhost:8081/service/rest/v1/search../assets?repository=maven-central&group=org.osgi'
     
     {
     "items" : [ {
@@ -107,15 +107,15 @@ Search API用于搜索component和asset。
 
 用于搜索一个资产，然后将请求重定向到该资产的downloadUrl
 
-    GET /service/rest/v1/search/assets/download
+    GET /service/rest/v1/search../assets/download
 
 例如获取一个maven坐标为"groupId=com.curiosuer，artifactId=SpringBoot2，version=0.0.0"Jar包的下载链接
 
-    $ curl -v -u admin:admin123 -X GET 'http://localhost:8081/service/rest/v1/search/assets/download?maven.groupId=com.curiosuer&maven.artifactId=SpringBoot2&maven.baseVersion=0.0.0&maven.extension=jar&maven.classifier'
+    $ curl -v -u admin:admin123 -X GET 'http://localhost:8081/service/rest/v1/search../assets/download?maven.groupId=com.curiosuer&maven.artifactId=SpringBoot2&maven.baseVersion=0.0.0&maven.extension=jar&maven.classifier'
 
 浏览器中
 
-![](/assets/nexus-api-3.png)
+![](../assets/nexus-api-3.png)
 
 # 三、Repositories API
 
@@ -146,11 +146,11 @@ Search API用于搜索component和asset。
 
 列出指定Repository仓库中包含的Assets
 
-    GET /service/rest/v1/assets
+    GET /service/rest/v1../assets
 
 例如列出maven-central仓库中的Assets
 
-    $ curl -u admin:admin123 -X GET 'http://localhost:8081/service/rest/v1/assets?repository=Maven-Releases'
+    $ curl -u admin:admin123 -X GET 'http://localhost:8081/service/rest/v1../assets?repository=Maven-Releases'
     
     {
     "items" : [ {
@@ -174,11 +174,11 @@ Search API用于搜索component和asset。
 
 ## 2、Get Asset
 
-    GET /service/rest/v1/assets/{id}
+    GET /service/rest/v1../assets/{id}
 
 This endpoint allows us to get the details of an individual asset.
 
-    $ curl -u admin:admin123 -X GET 'http://localhost:8081/service/rest/v1/assets/bWF2ZW4tY2VudHJhbDozZjVjYWUwMTc2MDIzM2I2MjRiOTEwMmMwMmNiYmU4YQ'
+    $ curl -u admin:admin123 -X GET 'http://localhost:8081/service/rest/v1../assets/bWF2ZW4tY2VudHJhbDozZjVjYWUwMTc2MDIzM2I2MjRiOTEwMmMwMmNiYmU4YQ'
     
     {
     "downloadUrl" : "http://localhost:8081/repository/maven-central/org/sonatype/nexus/buildsupport/nexus-buildsupport-metrics/2.9.1-02/nexus-buildsupport-metrics-2.9.1-02.pom",
@@ -192,11 +192,11 @@ This endpoint allows us to get the details of an individual asset.
     }}
 ## 3、Delete Asset
 
-    DELETE /service/rest/v1/assets/{id}
+    DELETE /service/rest/v1../assets/{id}
 
 This endpoint can be used to delete an individual asset.
 
-    $ curl -u admin:admin123 -X DELETE 'http://localhost:8081/service/rest/v1/assets/bWF2ZW4tY2VudHJhbDozZjVjYWUwMTc2MDIzM2I2MjRiOTEwMmMwMmNiYmU4YQ'
+    $ curl -u admin:admin123 -X DELETE 'http://localhost:8081/service/rest/v1../assets/bWF2ZW4tY2VudHJhbDozZjVjYWUwMTc2MDIzM2I2MjRiOTEwMmMwMmNiYmU4YQ'
     
     HTTP/1.1 204 No Content
     Date: Fri, 19 Jan 2018 20:41:47 GMT
@@ -418,8 +418,8 @@ Date: Fri, 19 Jan 2018 20:26:13 GMT
 
 # 六、Metrics API
 
-![](/assets/nexus-api-4.png)
-![](/assets/nexus-api-5.png)
+![](../assets/nexus-api-4.png)
+![](../assets/nexus-api-5.png)
 
 # 示例
 

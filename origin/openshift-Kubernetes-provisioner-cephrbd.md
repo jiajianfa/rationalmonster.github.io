@@ -76,4 +76,4 @@ spec:
 
 结果如下图：
 
-![](/assets/openshift-Kubernetes-provisioner-cephrbd-1.png)
+![](../assets/openshift-Kubernetes-provisioner-cephrbd-1.png)

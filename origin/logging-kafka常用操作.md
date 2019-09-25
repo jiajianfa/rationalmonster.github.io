@@ -46,7 +46,7 @@ Topic: Test       Partition: 1    Leader: 3   Replicas: 3     Isr: 3
 ## 5、增加Topic分区个数（只能增加扩容）
 
 ```bash
-kafka-topics.bat --zookeeper 127.0.0.1:2181 --alter --topic Test --partitions 2 
+kafka-topics.sh --zookeeper 127.0.0.1:2181 --alter --topic Test --partitions 2 
 ```
 
 ## 6、给Topic增加配置
@@ -91,7 +91,7 @@ console-consumer-98995      Test                 1            -1                
 方式二：
 
 ```bash
-kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --offsets --group Group-Name
+$ kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --describe --offsets --group Group-Name
 
 
 TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                     HOST            CLIENT-ID
@@ -120,18 +120,148 @@ $ bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --group test-co
 $ bin/kafka-consumer-groups.sh --zookeeper kafka_zk1:2181 --group test-consumer-group --topic test --execute --reset-offsets --to-offset 10000
 ```
 
+## 12、修改topic副本因子数
+
+官方文档：https://kafka.apache.org/21/documentation.html#replication
+
+① 先查看Topic的信息
+
+```bash
+$ kafka-topics.sh --zookeeper localhost:2181 --topic test --describe
+
+Topic:test  PartitionCount:2  ReplicationFactor:1 Configs:
+  Topic: test Partition: 0  Leader: 2 Replicas: 2 Isr: 2
+  Topic: test Partition: 1  Leader: 3 Replicas: 3 Isr: 3
+```
+
+② 准备JSON文件
+
+```json
+{
+  "version": 1,
+  "partitions": [
+  {
+      "topic": "test",
+      "partition": 0,
+      "replicas": [2, 1, 3]
+  },
+  {
+      "topic": "test",
+      "partition": 1,
+      "replicas": [3, 2, 1]
+   }]
+}
+```
+
+③ kafka-reassign-partitions命令增加topic分区副本数
+
+```bash
+$ kafka-reassign-partitions.sh --zookeeper localhost:2181 --reassignment-json-file replication.json --execute
+
+Current partition replica assignment
+{"version":1,"partitions":[{"topic":"test","partition":0,"replicas":[2]},{"topic":"test","partition":1,"replicas":[3]}]}
+
+Save this to use as the --reassignment-json-file option during rollback
+Successfully started reassignment of partitions {"version":1,"partitions":[{"topic":"test","partition":0,"replicas":[2,1,3]},{"topic":"test","partition":1,"replicas":[3,2,1]}]}
+```
+
+④ 使用verify参数来检查副本数据是否复制分配完成
+
+```json
+$ kafka-reassign-partitions.sh --zookeeper www.iteblog.com:2181 --reassignment-json-file replication.json --verify
+
+Status of partition reassignment:
+Reassignment of partition [test,0] is still in progress
+Reassignment of partition [test,1] is still in progress
+
+$ kafka-reassign-partitions.sh --zookeeper www.iteblog.com:2181 --reassignment-json-file replication.json --verify
+
+Status of partition reassignment:
+Reassignment of partition [test,0] completed successfully
+Reassignment of partition [test,1] completed successfully
+
+$ kafka-topics.sh --zookeeper localhost:2181 --topic test --describe
+
+Topic:iteblog  PartitionCount:2  ReplicationFactor:3 Configs:
+  Topic: test Partition: 0  Leader: 2 Replicas: 2,1,3 Isr: 2,1,3
+  Topic: test Partition: 1  Leader: 3 Replicas: 3,2,1 Isr: 3,2,1
+```
+
+## 13、均衡Topic分区到新增Broker节点
+
+重新分配官方文档地址：http://kafka.apache.org/documentation/#basic_ops_cluster_expansion
+
+翻译官方文档中文地址：http://orchome.com/36
+
+参考文章：https://blog.csdn.net/forrest_ou/article/details/79141391
+
+① 确定要重启分配分区的主题，新建topics-to-move.json   json文件 
+
+```json
+{
+  "topics": [
+    {"topic": "foo1"},
+    {"topic": "foo2"}
+  ],
+  "version":1
+}
+// foo1 foo2 为要重新分配的主题
+```
+
+② 使用 bin/kafka-reassign-partitions.sh重新分配工具生成分配规则的json语句分配到 5，6机器
+
+```bash
+kafka-reassign-partitions.sh --zookeeper localhost:2181 --topics-to-move-json-file topics-to-move.json --broker-list "5,6"  –generate
+```
+
+③ 有分配规则的json语句输出到控制台，复制到新建的json文件expand-cluster-reassignment.json中，例如：
+
+```json
+{"version":1,
+  "partitions":[{"topic":"foo1","partition":0,"replicas":[5,6]},
+ 		{"topic":"foo1","partition":1,"replicas":[5,6]},
+    {"topic":"foo1","partition":2,"replicas":[5,6]},
+    {"topic":"foo2","partition":0,"replicas":[5,6]},
+    {"topic":"foo2","partition":1,"replicas":[5,6]},
+    {"topic":"foo2","partition":2,"replicas":[5,6]}]
+}
+
+//描述分配之后分区的分布情况
+```
+
+④ 执行命令，开始分区重新分配
+
+```bash
+kafka-reassign-partitions.sh --zookeeper localhost:2181 --reassignment-json-file expand-cluster-reassignment.json –execute
+```
+
+⑤ 验证是否完成
+
+```bash
+kafka-reassign-partitions.sh --zookeeper localhost:2181 --reassignment-json-file expand-cluster-reassignment.json –verify
+//当输出全部都是completed successfully表明移动已经完成.
+```
+
+**注意**
+
+1. kafka新建主题时的分区分配策略：随机选取第一个分区节点，然后往后依次增加。例如第一个分区选取为1，第二个分区就 是2，第三个分区就是3.  1，2，3是brokerid。不会负载均衡，所以要手动重新分配分区操作，尽量均衡。
+2. 在生产的同时进行数据迁移会出现重复数据。所以迁移的时候避免重复生产数据，应该停止迁移主题的生产。同时消费不会，同时消费之后出现短暂的leader报错，会自动恢复。
+3. 新增了broker节点，如果有主题的分区在新增加的节点上，生产和消费的客户端都应该在hosts配置文件中增加新增的broker节点，否则无法生产消费，但是也不报错。
+4. 可以不需要第一步和第二步，自己手动新建分配的json文件
+
 # 二、其他
-## 1、Kafka自带的测试生产者
+
+## 1、自带测试生产者
 ```bash
 kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic Test
 ```
 
-## 2、Kafka自带的测试消费者
+## 2、自带测试消费者
 ```json
 kafka-console-consumer.sh --zookeeper 127.0.0.1:2181 --from-beginning --topic Test
 ```
 
-## 3、kafka自带的性能测试
+## 3、自带性能测试
 
 位于bin/kafka-producer-perf-test.sh.主要参数有以下:
 
@@ -143,7 +273,7 @@ kafka-console-consumer.sh --zookeeper 127.0.0.1:2181 --from-beginning --topic Te
   例如
 
 ```
-bin/kafka-producer-perf-test.sh --messages 100000 --message-size 1000 --batch-size 10000 --topics test --threads 4 --broker-list 127.0.0.1:9092
+kafka-producer-perf-test.sh --messages 100000 --message-size 1000 --batch-size 10000 --topics test --threads 4 --broker-list 127.0.0.1:9092
 
 start.time, end.time, compression, message.size, batch.size, total.data.sent.in.MB, MB.sec, total.data.sent.in.nMsg, nMsg.sec
 2015-10-15 18:56:27:542, 2015-10-15 18:56:30:880, 0, 1000, 10000, 95.37, 28.5702, 100000, 29958.0587

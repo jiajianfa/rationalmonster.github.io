@@ -49,12 +49,12 @@
 
 实际操作过程中，在以某以开发人员登录过程openshift过程中，依旧会看到openshift 其他一些项目的namespace。例如base namespace，该namespace项目是在registry镜像注册仓库中创建镜像项目时自动创建的openshift namespace（在registry镜像注册仓库中创建base镜像项目是为了存放一些自定义的s2i镜像）。为了使其他openshift namespace使用其中的s2i镜像，特别在registry镜像注册仓库中是镜像项目的访问策略设置为共享的。种种以上，导致openshift上的base namespace是能被所有的已认证的用户查看到。
 
-![](/assets/openshift-openshift用户权限管理实例-1.png)
+![](../assets/openshift-openshift用户权限管理实例-1.png)
 
 
 在openshift中查看base项目的membership
 
-![](/assets/openshift-openshift用户权限管理实例-2.png)
+![](../assets/openshift-openshift用户权限管理实例-2.png)
 
 可以发现，凡是在registry镜像注册仓库中设置问访问策略设置为共享的，都会在openshift 项目中添加一个系统用户system:authenticated 。这个系统用户上绑定的是这个角色registry-viewer。在openshift后台查看该角色的详细信息
 
@@ -226,6 +226,6 @@
 
     出现以下界面
 
-    ![](/assets/openshift-openshift用户权限管理实例-3.png)
+    ![](../assets/openshift-openshift用户权限管理实例-3.png)
 
     点击"Allow selected permissions"，发现也能正常登录jenkins。然后进行一次构建触发。发现一切正常。Bazinga！Everything is ok !

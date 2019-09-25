@@ -4,23 +4,23 @@
 | :----- | :----- |
 | 3.15.2-01 | 1.2.4 |
 
-![](/assets/ldap-Nexus对接LDAP-1.png)
+![](../assets/ldap-Nexus对接LDAP-1.png)
 
 # 一、Context
 
 ### OpenLDAP的条目组织形式
 
-![](/assets/ldap-Nexus对接LDAP-2.png)
-![](/assets/ldap-Nexus对接LDAP-3.png)
+![](../assets/ldap-Nexus对接LDAP-2.png)
+![](../assets/ldap-Nexus对接LDAP-3.png)
 
 # 二、Nexus设置
 ## 1. Nexus开启认证Realm
 
-![](/assets/ldap-Nexus对接LDAP-4.png)
+![](../assets/ldap-Nexus对接LDAP-4.png)
 
 ## 2. 配置LDAP
 
-![](/assets/ldap-Nexus对接LDAP-5.png)
+![](../assets/ldap-Nexus对接LDAP-5.png)
 
 - **Name**：Enter a unique name for the new configuration.
 - **LDAP server address**：Enter Protocol, Hostname, and Port of your LDAP server.
@@ -39,7 +39,7 @@ You can configure one of four authentication methods to be used when connecting 
 - **Username or DN**：Username or DN (Distinguished Name) of an LDAP user with read access to all necessary users and groups. It is used to connect to the LDAP server.
 - **Password**：Password for the Username or DN configured above.
 
-![](/assets/ldap-Nexus对接LDAP-6.png)
+![](../assets/ldap-Nexus对接LDAP-6.png)
 
 - **Base DN**：Corresponds to the collection of distinguished names used as the base for user entries. This DN is relative to the Search Base. For example, if your users are all contained in ou=users,dc=sonatype,dc=com and you specified a Search Base of dc=sonatype,dc=com, you use a value of ou=users.
 - **User subtree**：Check the box if True. Uncheck if False. Values are true if there is a tree below the Base DN that can contain user entries and false if all users are contain within the specified Base DN. For example, if all users are in ou=users,dc=sonatype,dc=com this field should be False. If users can appear in organizational units within organizational units such as ou=development,ou=users,dc=sonatype,dc=com, this field should be True .
@@ -58,8 +58,8 @@ You can configure one of four authentication methods to be used when connecting 
 
 ## 3. 分配Nexus管理员的角色"nx-admin"给LDAP上的一个用户，作为nexus新的管理员。然后将admin用户禁用。
 
-![](/assets/ldap-Nexus对接LDAP-7.png)
-![](/assets/ldap-Nexus对接LDAP-8.png)
+![](../assets/ldap-Nexus对接LDAP-7.png)
+![](../assets/ldap-Nexus对接LDAP-8.png)
 
 
 # 参考链接

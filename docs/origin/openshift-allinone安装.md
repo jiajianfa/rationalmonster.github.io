@@ -71,7 +71,7 @@
     sed -i 's/enabled=1/enabled=0/g' /root/openshift-ansible/roles/openshift_repos/templates/CentOS-OpenShift-Origin.repo.j2 && \
     sed -i 's/enabled=1/enabled=0/g' /root/openshift-ansible/roles/openshift_repos/templates/CentOS-OpenShift-Origin311.repo.j2
     ```
-6. **(可选)将附件中定制化的OKD登陆页面文件放置/etc/origin/master/custom路径下**（[自定义的登陆首页](/assets/openshift-custom-login.html "自定义的登陆首页")）
+6. **(可选)将附件中定制化的OKD登陆页面文件放置/etc/origin/master/custom路径下**（[自定义的登陆首页](../assets/openshift-custom-login.html "自定义的登陆首页")）
    ```bash
    # 路径需要新建
    mkdir -p /etc/origin/master/custom

@@ -1,6 +1,6 @@
 # 一、Context
 之前ELK套装安装X-Pack的安全功能时，只有安装30天的试用许可证时间，以允许访问所有功能。 当许可证到期时，X-Pack将以降级模式运行。可以购买订阅以继续使用X-Pack组件的全部功能（https://www.elastic.co/subscriptions）。但是,最近官方从6.8.0和7.1.0开始ELK开始免费提供安全功能. 
-![](/assets/elasticsearch7.1的xpack权限控制-1.png)
+![](../assets/elasticsearch7.1的xpack权限控制-1.png)
 
 **`本次实验,所有ELK组件版本均为7.1.0,以容器单节点运行`**
 
@@ -46,7 +46,7 @@ curl --user kibana:****kibana用户的密码**** -XGET 'localhost:9200/_cat/heal
     
     使用elastic 超级用户进行登录，密码来自 setup-passwords 命令输出的结果 
 
-    ![](/assets/elasticsearch7.1的xpack权限控制-2.png)
+    ![](../assets/elasticsearch7.1的xpack权限控制-2.png)
 
 # 四、Logstash开启Xpack
 
@@ -60,15 +60,15 @@ curl --user kibana:****kibana用户的密码**** -XGET 'localhost:9200/_cat/heal
 
 2. 在kibana中查看logstash的监控数据
 
-    ![](/assets/elasticsearch7.1的xpack权限控制-3.png)
-    ![](/assets/elasticsearch7.1的xpack权限控制-4.png)
-    ![](/assets/elasticsearch7.1的xpack权限控制-5.png)
+    ![](../assets/elasticsearch7.1的xpack权限控制-3.png)
+    ![](../assets/elasticsearch7.1的xpack权限控制-4.png)
+    ![](../assets/elasticsearch7.1的xpack权限控制-5.png)
 
 3. 在kibana中创建logstash-pipeline角色,授予"manage_index_template","monitor"的集群权限和"write","delete","create_index","manage_ilm","manage"的Index权限,然后绑定到logstash-pipeline用户上,用以创建Index并向其中写入数据
 
-   ![](/assets/elasticsearch7.1的xpack权限控制-6.png)
-   ![](/assets/elasticsearch7.1的xpack权限控制-7.png)
-   ![](/assets/elasticsearch7.1的xpack权限控制-8.png)
+   ![](../assets/elasticsearch7.1的xpack权限控制-6.png)
+   ![](../assets/elasticsearch7.1的xpack权限控制-7.png)
+   ![](../assets/elasticsearch7.1的xpack权限控制-8.png)
 
 4. 在pipeline的elasticsearch output插件中设置用户和密码
    ```bash
@@ -83,7 +83,7 @@ curl --user kibana:****kibana用户的密码**** -XGET 'localhost:9200/_cat/heal
    ```
 
 5. 查看logstash的pipeline是否将数据写入的elasticsearch
-![](/assets/elasticsearch7.1的xpack权限控制-9.png)
+![](../assets/elasticsearch7.1的xpack权限控制-9.png)
 
 
 # 附录：Kibana上的角色权限
