@@ -33,7 +33,7 @@ htpasswd(选项)(参数)
 ## 1、利用htpasswd命令添加用户
 
 ```bash
-htpasswd -bc .passwd www.linuxde.net php
+htpasswd .passwd -bc  www.linuxde.net php
 
 # 在bin目录下生成一个.passwd文件，用户名www.linuxde.net，密码：php，默认采用MD5加密方式
 ```
@@ -41,7 +41,7 @@ htpasswd -bc .passwd www.linuxde.net php
 ## 2、在原有密码文件中增加下一个用户
 
 ```bash
-htpasswd -b .passwd Jack 123456
+htpasswd .passwd -b Jack 123456
 
 #去掉-c选项，即可在第一个用户之后添加第二个用户，依此类推。
 ```
@@ -57,13 +57,14 @@ htpasswd -nb Jack 123456
 ## 4、利用htpasswd命令删除用户名和密码
 
 ```bash
-htpasswd -D .passwd Jack
+htpasswd .passwd -D Jack
 ```
 
 ## 5、利用htpasswd命令修改密码
 
 ```bash
-htpasswd -D .passwd Jack htpasswd -b .passwd Jack 123456 
+htpasswd .passwd -D Jack
+htpasswd .passwd -b Jack 123456
 
 # 即先使用htpasswd删除命令删除指定用户，再利用htpasswd添加用户命令创建用户即可实现修改密码的功能。
 ```

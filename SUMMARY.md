@@ -124,8 +124,11 @@
     * Kafka
         * 安装
         * 基础知识
+        * [kafka常用操作](origin/logging-kafka常用操作.md)
+    * Filebeat
+        * 安装配置
     * Logstash
-        * 安装
+        * 安装配置
         * Pipeline
             * Input
             * Filter

@@ -126,7 +126,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
-    app: apache-kafka
+    app: apache-kibana
   name: kibana
 spec:
   port:
@@ -285,9 +285,3 @@ spec:
           serviceName: kibana
           servicePort: 5601
 ```
-
-
-
-
-
-

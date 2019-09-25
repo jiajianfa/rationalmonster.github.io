@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>NPM · Devops Roadmap</title>
+        <title>kafka常用操作 · Devops Roadmap</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -106,10 +106,6 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="nexus-yum仓库的配置与使用.html" />
-    
-    
-    <link rel="prev" href="nexus-maven仓库的配置与使用.html" />
     
 
     <style>
@@ -1497,7 +1493,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.3.3.2" data-path="nexus-npm仓库的配置与使用.html">
+        <li class="chapter " data-level="4.3.3.2" data-path="nexus-npm仓库的配置与使用.html">
             
                 <a href="nexus-npm仓库的配置与使用.html">
             
@@ -2054,7 +2050,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.3" data-path="logging-kafka常用操作.html">
+        <li class="chapter active" data-level="6.1.3.3" data-path="logging-kafka常用操作.html">
             
                 <a href="logging-kafka常用操作.html">
             
@@ -4180,7 +4176,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >NPM</a>
+        <a href=".." >kafka常用操作</a>
     </h1>
 </div>
 
@@ -4195,114 +4191,108 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="npm&#x4ED3;&#x5E93;&#x7684;&#x914D;&#x7F6E;&#x4E0E;&#x4F7F;&#x7528;">NPM&#x4ED3;&#x5E93;&#x7684;&#x914D;&#x7F6E;&#x4E0E;&#x4F7F;&#x7528;</h1>
-<h1 id="&#x4E00;&#x3001;npm&#x4ED3;&#x5E93;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;">&#x4E00;&#x3001;npm&#x4ED3;&#x5E93;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;</h1>
+						<h1 id="apache-kafka&#x5E38;&#x7528;&#x64CD;&#x4F5C;">Apache Kafka&#x5E38;&#x7528;&#x64CD;&#x4F5C;</h1>
+<h1 id="&#x4E00;&#x3001;topic&#x7BA1;&#x7406;">&#x4E00;&#x3001;Topic&#x7BA1;&#x7406;</h1>
+<h2 id="1&#x3001;&#x5217;&#x51FA;&#x6240;&#x6709;topic">1&#x3001;&#x5217;&#x51FA;&#x6240;&#x6709;Topic</h2>
+<pre class="language-"><code class="lang-bash">kafka-topics.sh --zookeeper <span class="token number">127.0</span>.0.1:2181 --list
+
+kafka-topics.sh --bootstrap-server <span class="token number">127.0</span>.0.1:9092 --list
+</code></pre>
+<h2 id="2&#x3001;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;topic">2&#x3001;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;topic</h2>
+<pre class="language-"><code class="lang-bash">kafka-topics.sh --create --zookeeper  <span class="token number">127.0</span>.0.1:2181 --replication-factor <span class="token number">2</span> --partitions <span class="token number">3</span> --topic Test
+<span class="token comment">#--replication-factor&#x53C2;&#x6570;&#x6307;&#x5B9A;Topic&#x7684;&#x6570;&#x636E;&#x526F;&#x672C;&#x4E2A;&#x6570;</span>
+<span class="token comment">#--partitions&#x53C2;&#x6570;&#x6307;&#x5B9A;Topic&#x7684;&#x5206;&#x533A;&#x4E2A;&#x6570;</span>
+</code></pre>
+<h2 id="3&#x3001;&#x5220;&#x9664;topic">3&#x3001;&#x5220;&#x9664;Topic</h2>
+<pre class="language-"><code class="lang-bash">kafka-topics.sh --delete --zookeeper <span class="token number">127.0</span>.0.1:2181 --topic Test
+&#x6216;&#x8005;
+<span class="token comment">#&#x53EA;&#x4F1A;&#x5220;&#x9664;zookeeper&#x4E2D;&#x7684;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x6D88;&#x606F;&#x6587;&#x4EF6;&#x987B;&#x624B;&#x52A8;&#x5220;&#x9664;</span>
+kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper <span class="token number">172.16</span>.3.12:2181/kafka/q-35aw0fye --topic Test
+</code></pre>
+<h2 id="4&#x3001;&#x67E5;&#x770B;topic&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;">4&#x3001;&#x67E5;&#x770B;Topic&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</h2>
+<pre class="language-"><code class="lang-bash">kafka-topics.sh --describe --zookeeper <span class="token number">127.0</span>.0.1:2181 --topic Test
+
+Topic:Test        PartitionCount:2        ReplicationFactor:1     Configs:
+Topic: Test       Partition: <span class="token number">0</span>    Leader: <span class="token number">2</span>  Replicas: <span class="token number">2</span>          Isr: <span class="token number">2</span>
+Topic: Test       Partition: <span class="token number">1</span>    Leader: <span class="token number">3</span>   Replicas: <span class="token number">3</span>     Isr: <span class="token number">3</span>
+
+<span class="token comment">#&#x7B2C;&#x4E00;&#x884C;&#xFF0C;&#x5217;&#x51FA;&#x4E86;topic&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5206;&#x533A;&#x6570;(PartitionCount),&#x526F;&#x672C;&#x6570;(ReplicationFactor)&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x7684;&#x914D;&#x7F6E;(Config.s) </span>
+<span class="token comment">#Leader:1 &#x8868;&#x793A;&#x4E3A;&#x505A;&#x4E3A;&#x8BFB;&#x5199;&#x7684;broker&#x7684;&#x8282;&#x70B9;&#x7F16;&#x53F7; </span>
+<span class="token comment">#Replicas:&#x8868;&#x793A;&#x8BE5;topic&#x7684;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x5728;&#x90A3;&#x4E9B;borker&#x4E2D;&#x4FDD;&#x5B58; </span>
+<span class="token comment">#Isr:&#x8868;&#x793A;&#x5F53;&#x524D;&#x6709;&#x6548;&#x7684;broker, Isr&#x662F;Replicas&#x7684;&#x5B50;&#x96C6;</span>
+</code></pre>
+<h2 id="5&#x3001;&#x589E;&#x52A0;topic&#x5206;&#x533A;&#x4E2A;&#x6570;&#xFF08;&#x53EA;&#x80FD;&#x589E;&#x52A0;&#x6269;&#x5BB9;&#xFF09;">5&#x3001;&#x589E;&#x52A0;Topic&#x5206;&#x533A;&#x4E2A;&#x6570;&#xFF08;&#x53EA;&#x80FD;&#x589E;&#x52A0;&#x6269;&#x5BB9;&#xFF09;</h2>
+<pre class="language-"><code class="lang-bash">kafka-topics.bat --zookeeper <span class="token number">127.0</span>.0.1:2181 --alter --topic Test --partitions <span class="token number">2</span>
+</code></pre>
+<h2 id="6&#x3001;&#x7ED9;topic&#x589E;&#x52A0;&#x914D;&#x7F6E;">6&#x3001;&#x7ED9;Topic&#x589E;&#x52A0;&#x914D;&#x7F6E;</h2>
+<pre class="language-"><code class="lang-bash">kafka-topics.sh --zookeeper <span class="token number">127.0</span>.0.1:2181 --alter --topic Test --config flush.messages<span class="token operator">=</span><span class="token number">1</span>
+</code></pre>
+<h2 id="7&#x3001;&#x5220;&#x9664;topic&#x7684;&#x914D;&#x7F6E;">7&#x3001;&#x5220;&#x9664;Topic&#x7684;&#x914D;&#x7F6E;</h2>
+<pre class="language-"><code class="lang-bash">kafka-topics.sh --zookeeper <span class="token number">127.0</span>.0.1:2181 --alter --topic Test
+--delete-config flush.messages<span class="token operator">=</span><span class="token number">1</span>
+</code></pre>
+<h2 id="8&#x3001;&#x67E5;&#x770B;&#x6D88;&#x8D39;&#x8005;&#x7EC4;">8&#x3001;&#x67E5;&#x770B;&#x6D88;&#x8D39;&#x8005;&#x7EC4;</h2>
+<pre class="language-"><code class="lang-bash">kafka-consumer-groups.sh --bootstrap-server <span class="token number">127.0</span>.0.1:9092 --list
+</code></pre>
+<h2 id="9&#x3001;&#x67E5;&#x770B;topic&#x5404;&#x4E2A;&#x5206;&#x533A;&#x7684;&#x6D88;&#x606F;&#x504F;&#x79FB;&#x91CF;&#x6700;&#x5927;&#xFF08;&#x5C0F;&#xFF09;&#x503C;">9&#x3001;&#x67E5;&#x770B;Topic&#x5404;&#x4E2A;&#x5206;&#x533A;&#x7684;&#x6D88;&#x606F;&#x504F;&#x79FB;&#x91CF;&#x6700;&#x5927;&#xFF08;&#x5C0F;&#xFF09;&#x503C;</h2>
+<pre class="language-"><code class="lang-bash">kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list <span class="token number">127.0</span>.0.1:9092 --time -1 --topic Test
+<span class="token comment"># time&#x4E3A;-1&#x65F6;&#x8868;&#x793A;&#x6700;&#x5927;&#x503C;&#xFF0C;time&#x4E3A;-2&#x65F6;&#x8868;&#x793A;&#x6700;&#x5C0F;&#x503C;</span>
+</code></pre>
+<h2 id="10&#x3001;&#x67E5;&#x770B;topic&#x4E2D;&#x6307;&#x5B9A;consumer&#x7EC4;&#x5185;&#x6D88;&#x606F;&#x6D88;&#x8D39;&#x7684;offset">10&#x3001;&#x67E5;&#x770B;Topic&#x4E2D;&#x6307;&#x5B9A;consumer&#x7EC4;&#x5185;&#x6D88;&#x606F;&#x6D88;&#x8D39;&#x7684;offset</h2>
+<p>kafka&#x7684;offset&#x4FDD;&#x5B58;&#x4F4D;&#x7F6E;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#x60C5;&#x51B5; 0.9.0.0&#x7248;&#x672C;&#x4E4B;&#x524D;&#x9ED8;&#x8BA4;&#x4FDD;&#x5B58;&#x5728;zookeeper&#x5F53;&#x4E2D; &#xFF0C;0.9.0.0&#x7248;&#x672C;&#x4E4B;&#x540E;&#x4FDD;&#x5B58;&#x5728;broker&#x5BF9;&#x5E94;&#x7684;topic&#x5F53;&#x4E2D;</p>
+<pre class="language-"><code class="lang-bash">kafka-consumer-offset-checker.sh --zookeeper <span class="token number">127.0</span>.0.1:2181 --group logstash-group --topic Test
+
+GROUP                       TOPIC                PID           OFFSET                LOGSIZE         LAG            Ower
+&#x6D88;&#x8D39;&#x8005;&#x7EC4;                    &#x8BDD;&#x9898;id               &#x5206;&#x533A;id        &#x5F53;&#x524D;&#x5DF2;&#x6D88;&#x8D39;&#x7684;&#x6761;&#x6570;      &#x603B;&#x6761;&#x6570;      &#x672A;&#x6D88;&#x8D39;&#x7684;&#x6761;&#x6570;       &#x6240;&#x6709;&#x8005;
+console-consumer-98995      Test                 <span class="token number">0</span>            <span class="token number">112</span>                   <span class="token number">318084</span>         <span class="token number">317972</span>          none
+console-consumer-98995      Test                 <span class="token number">1</span>            -1                    <span class="token number">318088</span>         unknown         none
+</code></pre>
+<p>&#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">kafka-consumer-groups.sh --bootstrap-server <span class="token number">127.0</span>.0.1:9092 --describe --offsets --group Group-Name
+
+
+TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                     HOST            CLIENT-ID
+basic_log_k8s   <span class="token number">1</span>          <span class="token number">127509</span>          <span class="token number">333334</span>          <span class="token number">205825</span>          logstash-0-490058d7-154f-4111-b514-57de254ecae8 /192.168.3.72   logstash-0
+basic_log_k8s   <span class="token number">0</span>          <span class="token number">127317</span>          <span class="token number">333333</span>          <span class="token number">206016</span>          logstash-0-2bd85bcc-282e-41a0-a9c3-6d0dbefd547f /192.168.0.40   logstash-0
+</code></pre>
+<h2 id="11&#x3001;&#x4FEE;&#x6539;&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x8005;&#x5206;&#x7EC4;&#x5BF9;&#x5E94;topic&#x7684;offset">11&#x3001;&#x4FEE;&#x6539;&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x8005;&#x5206;&#x7EC4;&#x5BF9;&#x5E94;topic&#x7684;offset</h2>
+<p>&#x7B2C;&#x4E00;&#x79CD;&#x60C5;&#x51B5;offset&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5728;topic&#x4E2D;</p>
+<pre class="language-"><code class="lang-bash">$ bin/kafka-consumer-groups.sh --bootstrap-server <span class="token number">127.0</span>.0.1:9092 --group test-consumer-group --topic <span class="token builtin class-name">test</span> --execute --reset-offsets --to-offset <span class="token number">10000</span>
+<span class="token comment">#&#x53C2;&#x6570;&#x89E3;&#x6790;&#xFF1A; </span>
+<span class="token comment">#--bootstrap-server &#x4EE3;&#x8868;&#x4F60;&#x7684;kafka&#x96C6;&#x7FA4; &#x4F60;&#x7684;offset&#x4FDD;&#x5B58;&#x5728;topic&#x4E2D;</span>
+<span class="token comment">#--group &#x4EE3;&#x8868;&#x4F60;&#x7684;&#x6D88;&#x8D39;&#x8005;&#x5206;&#x7EC4;</span>
+<span class="token comment">#--topic &#x4EE3;&#x8868;&#x4F60;&#x6D88;&#x8D39;&#x7684;&#x4E3B;&#x9898;</span>
+<span class="token comment">#--execute &#x4EE3;&#x8868;&#x652F;&#x6301;&#x590D;&#x4F4D;&#x504F;&#x79FB;</span>
+<span class="token comment">#--reset-offsets &#x4EE3;&#x8868;&#x8981;&#x8FDB;&#x884C;&#x504F;&#x79FB;&#x64CD;&#x4F5C;</span>
+<span class="token comment">#--to-offset &#x4EE3;&#x8868;&#x4F60;&#x8981;&#x504F;&#x79FB;&#x5230;&#x54EA;&#x4E2A;&#x4F4D;&#x7F6E; &#x662F;long&#x7C7B;&#x578B;&#x6570;&#x503C;&#xFF0C;&#x53EA;&#x80FD;&#x6BD4;&#x524D;&#x9762;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x5C0F;</span>
+<span class="token comment">#&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x7684;--to- ** &#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x9A8C;&#x8BC1; &#x672C;&#x4EBA;&#x9A8C;&#x8BC1;&#x8FC7;--to-datetime &#x6CA1;&#x6709;&#x6210;&#x529F;</span>
+</code></pre>
+<p>&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;offset&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5728;zookeeper&#x5F53;&#x4E2D;</p>
+<pre class="language-"><code class="lang-bash">$ bin/kafka-consumer-groups.sh --zookeeper kafka_zk1:2181 --group test-consumer-group --topic <span class="token builtin class-name">test</span> --execute --reset-offsets --to-offset <span class="token number">10000</span>
+</code></pre>
+<h1 id="&#x4E8C;&#x3001;&#x5176;&#x4ED6;">&#x4E8C;&#x3001;&#x5176;&#x4ED6;</h1>
+<h2 id="1&#x3001;kafka&#x81EA;&#x5E26;&#x7684;&#x6D4B;&#x8BD5;&#x751F;&#x4EA7;&#x8005;">1&#x3001;Kafka&#x81EA;&#x5E26;&#x7684;&#x6D4B;&#x8BD5;&#x751F;&#x4EA7;&#x8005;</h2>
+<pre class="language-"><code class="lang-bash">kafka-console-producer.sh --broker-list <span class="token number">127.0</span>.0.1:9092 --topic Test
+</code></pre>
+<h2 id="2&#x3001;kafka&#x81EA;&#x5E26;&#x7684;&#x6D4B;&#x8BD5;&#x6D88;&#x8D39;&#x8005;">2&#x3001;Kafka&#x81EA;&#x5E26;&#x7684;&#x6D4B;&#x8BD5;&#x6D88;&#x8D39;&#x8005;</h2>
+<pre class="language-"><code class="lang-json">kafka-console-consumer.sh --zookeeper <span class="token number">127.0</span>.<span class="token number">0.1</span><span class="token operator">:</span><span class="token number">2181</span> --from-beginning --topic Test
+</code></pre>
+<h2 id="3&#x3001;kafka&#x81EA;&#x5E26;&#x7684;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;">3&#x3001;kafka&#x81EA;&#x5E26;&#x7684;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;</h2>
+<p>&#x4F4D;&#x4E8E;bin/kafka-producer-perf-test.sh.&#x4E3B;&#x8981;&#x53C2;&#x6570;&#x6709;&#x4EE5;&#x4E0B;:</p>
 <ul>
-<li><strong>Group&#x7C7B;&#x578B;&#x4ED3;&#x5E93;</strong><ul>
-<li>NPM<ul>
-<li><code>npm-taobao</code></li>
-<li><code>npm-cnpm</code></li>
-<li><code>npm-cnpm</code></li>
+<li>messages &#x751F;&#x4EA7;&#x8005;&#x53D1;&#x9001;&#x603B;&#x7684;&#x6D88;&#x606F;&#x6570;&#x91CF;</li>
+<li>message-size &#x6BCF;&#x6761;&#x6D88;&#x606F;&#x5927;&#x5C0F;&#xFF08;&#x5355;&#x4F4D;&#x4E3A;b&#xFF09;</li>
+<li>batch-size &#x6BCF;&#x6B21;&#x6279;&#x91CF;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x7684;&#x6570;&#x91CF;</li>
+<li>topics &#x751F;&#x4EA7;&#x8005;&#x53D1;&#x9001;&#x7684;topic</li>
+<li>threads &#x751F;&#x4EA7;&#x8005;&#x4F7F;&#x7528;&#x51E0;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x53D1;&#x9001;
+&#x4F8B;&#x5982;</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><strong>Proxy&#x7C7B;&#x578B;&#x4ED3;&#x5E93;</strong><ul>
-<li><code>npm-taobao</code>&#xFF1A;<a href="http://registry.npm.taobao.org/" _target="blank">http://registry.npm.taobao.org/</a></li>
-<li><code>npm-cnpm</code>&#xFF1A;<a href="http://registry.cnpmjs.org/" _target="blank">http://registry.cnpmjs.org/</a></li>
-</ul>
-</li>
-<li><strong>Hosted&#x7C7B;&#x578B;&#x4ED3;&#x5E93;</strong><ul>
-<li><code>npm-hosted</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="&#x4E8C;&#x3001;&#x4F7F;&#x7528;npm&#x4ED3;&#x5E93;">&#x4E8C;&#x3001;&#x4F7F;&#x7528;NPM&#x4ED3;&#x5E93;</h1>
-<pre class="language-"><code class="lang-bash"><span class="token function">npm</span> config <span class="token builtin class-name">set</span> registry http://nexus-ip&#x5730;&#x5740;:8081/repository/NPM/
-</code></pre>
-<h1 id="&#x4E09;&#x3001;&#x53D1;&#x5E03;&#x5236;&#x54C1;&#x5230;npm&#x7684;hosted&#x4ED3;&#x5E93;">&#x4E09;&#x3001;&#x53D1;&#x5E03;&#x5236;&#x54C1;&#x5230;NPM&#x7684;Hosted&#x4ED3;&#x5E93;</h1>
-<pre class="language-"><code class="lang-bash"><span class="token builtin class-name">echo</span> <span class="token string">&quot;hello&quot;</span> <span class="token operator">&gt;&gt;</span> <span class="token builtin class-name">test</span>
-<span class="token function">npm</span> init
-<span class="token comment">#   package name: (test) sadsada</span>
-<span class="token comment">#   version: (1.0.0)</span>
-<span class="token comment">#   description:</span>
-<span class="token comment">#   entry point: (index.js) test</span>
-<span class="token comment">#   test command:</span>
-<span class="token comment">#   git repository:</span>
-<span class="token comment">#   keywords:</span>
-<span class="token comment">#   author:</span>
-<span class="token comment">#   license: (ISC)</span>
-<span class="token comment">#   About to write to /root/test/package.json:</span>
-<span class="token comment">#   {</span>
-<span class="token comment">#     &quot;name&quot;: &quot;sadsada&quot;,</span>
-<span class="token comment">#     &quot;version&quot;: &quot;1.0.0&quot;,</span>
-<span class="token comment">#     &quot;description&quot;: &quot;&quot;,</span>
-<span class="token comment">#     &quot;main&quot;: &quot;f&quot;,</span>
-<span class="token comment">#     &quot;scripts&quot;: {</span>
-<span class="token comment">#       &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
-<span class="token comment">#     },</span>
-<span class="token comment">#     &quot;author&quot;: &quot;&quot;,</span>
-<span class="token comment">#     &quot;license&quot;: &quot;ISC&quot;</span>
-<span class="token comment">#   }</span>
-<span class="token function">npm</span> login --registry http://Nexus-IP&#x5730;&#x5740;:8081/repository/NPM-Hosted/
-<span class="token comment"># Username: admin</span>
-<span class="token comment">#Password: *****</span>
-<span class="token comment"># Email: (this IS public) asdad@sada.com</span>
-<span class="token function">npm</span> publish -registry http://Nexus-IP&#x5730;&#x5740;:8081/repository/NPM-Hosted/
-</code></pre>
-<h1 id="&#x56DB;&#x3001;&#x4F7F;&#x7528;nrm&#x5DE5;&#x5177;&#x5207;&#x6362;npm&#x4ED3;&#x5E93;">&#x56DB;&#x3001;&#x4F7F;&#x7528;nrm&#x5DE5;&#x5177;&#x5207;&#x6362;npm&#x4ED3;&#x5E93;</h1>
-<p>Github&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/Pana/nrm" _target="blank">https://github.com/Pana/nrm</a>
-&#x5E2E;&#x52A9;&#x5FEB;&#x901F;&#x5207;&#x6362;npm&#x4ED3;&#x5E93;&#x6E90;&#x3002;&#x9ED8;&#x8BA4;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x4E86;npm&#x3001;yarn&#x3001;taobao&#x3001;cnpm&#x3001;nj&#x3001;npmMirror&#x3001;edunpm&#x7B49;&#x5E38;&#x89C1;&#x7684;&#x4ED3;&#x5E93;&#x6E90;&#x3002;</p>
-<h2 id="1-&#x5B89;&#x88C5;">1. &#x5B89;&#x88C5;</h2>
-<pre class="language-"><code class="lang-bash"><span class="token function">npm</span> <span class="token function">install</span> nrm -g
-</code></pre>
-<h2 id="2-&#x547D;&#x4EE4;&#x8BE6;&#x89E3;">2. &#x547D;&#x4EE4;&#x8BE6;&#x89E3;</h2>
-<pre class="language-"><code class="lang-bash">$ nrm -h
-Usage: nrm <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>command<span class="token punctuation">]</span>
-Options:
-  -V, --version output the version number
-  -h, --help output usage information
-Commands:
-  <span class="token function">ls</span> List all the registries
-  current Show current registry name
-  use <span class="token operator">&lt;</span>registry<span class="token operator">&gt;</span> Change registry to registry
-  <span class="token function">add</span> <span class="token operator">&lt;</span>registry<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>url<span class="token operator">&gt;</span> <span class="token punctuation">[</span>home<span class="token punctuation">]</span> Add one custom registry
-  set-auth <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token operator">&lt;</span>registry<span class="token operator">&gt;</span> <span class="token punctuation">[</span>value<span class="token punctuation">]</span> Set authorize information <span class="token keyword">for</span> a custom registry with a base64 encoded string or username and pasword
-  set-email <span class="token operator">&lt;</span>registry<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span> Set email <span class="token keyword">for</span> a custom registry
-  set-hosted-repo <span class="token operator">&lt;</span>registry<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>value<span class="token operator">&gt;</span> Set hosted <span class="token function">npm</span> repository <span class="token keyword">for</span> a custom registry to publish packages
-  del <span class="token operator">&lt;</span>registry<span class="token operator">&gt;</span> Delete one custom registry
-  home <span class="token operator">&lt;</span>registry<span class="token operator">&gt;</span> <span class="token punctuation">[</span>browser<span class="token punctuation">]</span> Open the homepage of registry with optional browser
-  publish <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">&lt;</span>tarball<span class="token operator">&gt;|</span><span class="token operator">&lt;</span>folder<span class="token operator">&gt;</span><span class="token punctuation">]</span> Publish package to current registry <span class="token keyword">if</span> current registry is a custom registry.
-   <span class="token keyword">if</span> you&apos;re not using custom registry, this <span class="token builtin class-name">command</span> will run <span class="token function">npm</span> publish directly
-  <span class="token builtin class-name">test</span> <span class="token punctuation">[</span>registry<span class="token punctuation">]</span> Show response <span class="token function">time</span> <span class="token keyword">for</span> specific or all registries
-  <span class="token builtin class-name">help</span> Print this <span class="token builtin class-name">help</span>
-</code></pre>
-<h2 id="3-&#x5E38;&#x7528;&#x547D;&#x4EE4;">3. &#x5E38;&#x7528;&#x547D;&#x4EE4;</h2>
-<p>&#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x652F;&#x6301;&#x7684;npm &#x4ED3;&#x5E93;</p>
-<pre class="language-"><code class="lang-bash">$ nrm <span class="token function">ls</span>
-* <span class="token function">npm</span> -------- https://registry.npmjs.org/
-  <span class="token function">yarn</span> ------- https://registry.yarnpkg.com/
-  cnpm ------- http://r.cnpmjs.org/
-  taobao ----- https://registry.npm.taobao.org/
-  nj --------- https://registry.nodejitsu.com/
-  npmMirror -- https://skimdb.npmjs.com/registry/
-  edunpm ----- http://registry.enpmjs.org/
-<span class="token comment"># &quot;*&quot;&#x7F16;&#x6CE8;&#x7684;&#x4ED3;&#x5E93;&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x4ED3;&#x5E93;</span>
-</code></pre>
-<p>&#x6DFB;&#x52A0;&#x79C1;&#x6709;&#x7684;npm&#x4ED3;&#x5E93;</p>
-<pre class="language-"><code class="lang-bash">nrm <span class="token function">add</span> curiouser http://nexus.apps.okd311.curiouser.com/repository/NPM
-</code></pre>
-<p>&#x5207;&#x6362;npm&#x4ED3;&#x5E93;</p>
-<pre class="language-"><code class="lang-bash"> nrm use &#x4ED3;&#x5E93;&#x540D;
-</code></pre>
-<p>&#x5220;&#x9664;&#x4ED3;&#x5E93;</p>
-<pre class="language-"><code class="lang-bash"> nrm del &#x4ED3;&#x5E93;&#x540D;
-</code></pre>
-<p>&#x6D4B;&#x8BD5;&#x4ED3;&#x5E93;&#x901F;&#x5EA6;</p>
-<pre class="language-"><code class="lang-bash">nrm <span class="token builtin class-name">test</span>
-</code></pre>
-<footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-09-02 09:37:33
+<pre class="language-"><code>bin/kafka-producer-perf-test.sh --messages 100000 --message-size 1000 --batch-size 10000 --topics test --threads 4 --broker-list 127.0.0.1:9092
+
+start.time, end.time, compression, message.size, batch.size, total.data.sent.in.MB, MB.sec, total.data.sent.in.nMsg, nMsg.sec
+2015-10-15 18:56:27:542, 2015-10-15 18:56:30:880, 0, 1000, 10000, 95.37, 28.5702, 100000, 29958.0587
+</code></pre><footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2019-09-25 10:42:03
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -4331,14 +4321,6 @@ Commands:
 
 		
 		
-		<a href="nexus-maven仓库的配置与使用.html" class="navigation navigation-prev " aria-label="Previous page: Maven">
-			<i class="fa fa-angle-left"></i>
-		</a>
-		
-		
-		<a href="nexus-yum仓库的配置与使用.html" class="navigation navigation-next " aria-label="Next page: YUM">
-			<i class="fa fa-angle-right"></i>
-		</a>
 		
 		
 		
@@ -4346,7 +4328,7 @@ Commands:
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"NPM","level":"4.3.3.2","depth":3,"next":{"title":"YUM","level":"4.3.3.3","depth":3,"path":"origin/nexus-yum仓库的配置与使用.md","ref":"origin/nexus-yum仓库的配置与使用.md","articles":[]},"previous":{"title":"Maven","level":"4.3.3.1","depth":3,"path":"origin/nexus-maven仓库的配置与使用.md","ref":"origin/nexus-maven仓库的配置与使用.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/nexus-npm仓库的配置与使用.md","mtime":"2019-09-02T01:37:33.339Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-25T02:46:24.401Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"kafka常用操作","level":"6.1.3.3","depth":3,"next":{"title":"Filebeat","level":"6.1.4","depth":2,"ref":"","articles":[{"title":"安装配置","level":"6.1.4.1","depth":3,"ref":"","articles":[]}]},"previous":{"title":"基础知识","level":"6.1.3.2","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/logging-kafka常用操作.md","mtime":"2019-09-25T02:42:03.442Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-09-25T02:46:24.401Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
