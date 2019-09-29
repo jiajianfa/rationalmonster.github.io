@@ -80,7 +80,7 @@ gitbook current
 # 列出远程可用版本
 gitbook ls-remote
 
-# 安装指定版本
+# 安装指定版本(如果安装比较慢的话，将npm镜像源切到国内的CNPM镜像源。可使用NRM管理NPM的镜像源)
 gitbook fetch [version]
 
 # 卸载指定版本
@@ -433,8 +433,13 @@ git commit -am "Update" \
 git push git@github.com:****4/gitbook-notes gh-pages --force"
 ```
 
+# 问题
+
+1. gitbook serve时，偶尔不规律性地出现编译错误,而且每次出现的错误文件还可能不一样，实在是头疼得很，每次修改要编译多次才能成功
+    
+    修改 `C:\Users\当前用户名\.gitbook\versions\当前使用的gitbook版本\lib\output\website\copyPluginAssets.js`文件中的112行，将`confirm: true`改为`confirm: false`
+
 # 参考链接
 
 1. https://www.jianshu.com/p/f38d8ff999cb?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 
-# 未完待整理更新

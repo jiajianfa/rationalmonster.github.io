@@ -182,7 +182,56 @@ ES版本：5.6.8 HDFS版本：2.6.0
     POST _snapshot/快照仓库名/快照名/_restore
     ```
 
-# 六、更新
+# 六、使用 `_cat` API格式化查询快照仓库中的的快照
+
+使用Snapshot API查出来的信息是JSON格式的，后续处理比较麻烦。可使用"_cat" API Endpoint格式化查询输出Snapshot仓库中的快照信息。关于"_cat" API的详细使用信息详见[Elasticsearch的"_cat"API](elasticsearch--_cat-API.md)
+
+## 1、查看`_cat`的snapshots API的所有参数
+
+```bash
+GET _cat/snapshots?help
+
+或
+curl -XGET "http://localhost:9200/_cat/snapshots?help"
+```
+
+| 名字 | 简称 | 描述 |
+| :-------- | :-------| :-------| 
+| id | id,snapshot | unique snapshot |        
+| status | s,status | snapshot name |
+| start_epoch | ste,startEpoch | start time in seconds since 1970-01-01 00:00:00| 
+| start_time | sti,startTime | start time in HH:MM:SS |        
+| end_epoch | ete,endEpoch | end time in seconds since 1970-01-01 00:00:00 |
+| end_time | eti,endTime | end time in HH:MM:SS |        
+| duration | dur,duration | duration |        
+| indices | i,indices | number of indices |        
+| successful_shards | ss,successful_shards | number of successful shards |        
+| failed_shards | fs,failed_shards | number of failed shards |        
+| total_shards | ts,total_shards | number of total shards |        
+| reason | r,reason | reason for failures |
+
+## 2、示例
+
+例如只查看快照仓库中的快照名并排序
+
+```bash
+GET _cat/snapshots/pvc-snap-repo?h=id&s=id
+或
+curl -XGET "http://elasticsearch:9200/_cat/snapshots/pvc-snap-repo?h=id&s=id"
+
+# 返回的结果格式是纯文本的
+# apm-7.1.1-metric-2019.07.16-snapshot-2019.07.22
+# apm-7.1.1-onboarding-2019.07.16-snapshot-2019.07.22
+# apm-7.1.1-span-2019.07.16-snapshot-2019.07.22
+# apm-7.1.1-transaction-2019.07.16-snapshot-2019.07.22
+# ansi-kpo-tek1269219-h136-2019.07.16-snapshot-2019.07.22
+# curiouser-ocp-allinone-audit-2019.08.15-snapshot-2019.08.22
+# kibana_sample_data_logs-snapshot-2019.07.22
+# springboot2-demo-dev-2019.07.12-snapshot-2019.07.15
+# springboot2-demo-dev-2019.07.13-snapshot-2019.07.17
+```
+
+# 七、更新
 
 Elasticsearch 7.2.0新版本有了管理Snapshot Repository的新功能
 
