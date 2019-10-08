@@ -185,7 +185,7 @@ This is a test log ! hahaha
 
 # 附录
 
-1. filebeat配置
+## 1、filebeat配置
 
    ```yaml
    filebeat.inputs:
@@ -221,7 +221,7 @@ This is a test log ! hahaha
    #  filename: filebeat.log
    ```
 
-2. logstash_producer配置
+## 2、logstash_producer配置
 
    ```json
    input {
@@ -246,7 +246,7 @@ This is a test log ! hahaha
    }
    ```
 
-3. logstash_consumer配置
+## 3、logstash_consumer配置
 
    ```json
    input {

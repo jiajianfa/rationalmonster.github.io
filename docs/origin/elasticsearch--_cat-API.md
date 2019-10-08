@@ -1,46 +1,50 @@
-# 官方文档：https://www.elastic.co/guide/en/elasticsearch/reference/current/cat.html
+# Elasticsearch _cat APIs
 
-## 1. 查看_cat所有的Endpoint
+官方文档：https://www.elastic.co/guide/en/elasticsearch/reference/current/cat.html
 
-    GET /_cat
-    curl -XGET http://127.0.0.1:9200/_cat
-　
+## 查看_cat API支持的所有Endpoint
 
-    /_cat/allocation				
-    /_cat/shards
-    /_cat/shards/{index}
-    /_cat/master
-    /_cat/nodes
-    /_cat/tasks
-    /_cat/indices
-    /_cat/indices/{index}
-    /_cat/segments
-    /_cat/segments/{index}
-    /_cat/count
-    /_cat/count/{index}
-    /_cat/recovery
-    /_cat/recovery/{index}
-    /_cat/health
-    /_cat/pending_tasks
-    /_cat/aliases
-    /_cat/aliases/{alias}
-    /_cat/thread_pool
-    /_cat/thread_pool/{thread_pools}
-    /_cat/plugins
-    /_cat/fielddata
-    /_cat/fielddata/{fields}
-    /_cat/nodeattrs
-    /_cat/repositories
-    /_cat/snapshots/{repository}
-    /_cat/templates   
+```json
+GET /_cat
+curl -XGET http://127.0.0.1:9200/_cat
+```
 
-**查询Endpoint的参数**
+```json
+/_cat/allocation
+/_cat/shards
+/_cat/shards/{index}
+/_cat/master
+/_cat/nodes
+/_cat/tasks
+/_cat/indices
+/_cat/indices/{index}
+/_cat/segments
+/_cat/segments/{index}
+/_cat/count
+/_cat/count/{index}
+/_cat/recovery
+/_cat/recovery/{index}
+/_cat/health
+/_cat/pending_tasks
+/_cat/aliases
+/_cat/aliases/{alias}
+/_cat/thread_pool
+/_cat/thread_pool/{thread_pools}
+/_cat/plugins
+/_cat/fielddata
+/_cat/fielddata/{fields}
+/_cat/nodeattrs
+/_cat/repositories
+/_cat/snapshots/{repository}
+/_cat/templates
+```
+## 查询Endpoint参数
 
     GET /_cat/health?help
     curl -XGET "http://127.0.0.1:9200/_cat/health?help"
 　    　
 
-    # 参数全称			   | 参数缩写    							   | 参数详解
+    # 参数全称             | 参数缩写    							   | 参数详解
     ----------------------------------------------------------------------------------------------------
     epoch                 | t,time                                   | seconds since 1970-01-01 00:00:00  
     timestamp             | ts,hms,hhmmss                            | time in HH:MM:SS                   
@@ -57,19 +61,19 @@
     max_task_wait_time    | mtwt,maxTaskWaitTime                     | wait time of longest task pending  
     active_shards_percent | asp,activeShardsPercent                  | active number of shards in percent 
 
-**使用参数控制查询条件**
+## 使用参数控制查询条件
 
     GET /_cat/health?h=st,t
     #带表头
     GET /_cat/health?v&h=st,t
 
-**控制查询的输出排序**
+## 控制查询的输出排序
 
     GET _cat/indices?v&h=index,store.size,creation.date&s=store.size:desc,creation.date
     #查询出来的Index将会以store.size的大小降序输出。只输出Index名，store.size大小，创建时间戳
     curl -XGET "http://elasticsearch-service.logger.svc:9200/_cat/indices?v&h=index,store.size,creation.date&s=store.size:desc,creation.date"
 
-**控制查询的输出格式**
+## 控制查询的输出格式
 
     GET _cat/indices?v&h=index,store.size,creation.date&s=store.size:desc,creation.date&format=yaml
 
