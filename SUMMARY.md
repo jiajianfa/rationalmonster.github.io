@@ -128,14 +128,10 @@
         * [基础知识](origin/logging-kafka基础知识.md)
         * [kafka常用操作](origin/logging-kafka常用操作.md)
     * Filebeat
-        * 简介安装
-        * Pipeline插件
+        * [简介安装配置](origin/filebeat-简介安装配置.md)
     * Logstash
-        * 简介安装
-        * Pipeline插件
-            * Input插件
-            * Filter插件
-            * Output插件
+        * [简介安装配置Pipeline](origin/logstash-简介安装配置Pipeline.md)
+        * [Pipeline示例--采集MySQL慢查询日志到Elasticsearch](origin/logstash-采集MySQL慢查询日志到Elasticsearch.md)
     * Fluentd
     * Elasticsearch
         * 基础知识
