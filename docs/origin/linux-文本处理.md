@@ -76,7 +76,7 @@ s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可
 sed '$ s/$/新增内容/'  file_path
 ```
 
-## 2、去除文本中空行和"##"行
+## 2、去除文本中空行和开头"##"的行
 
 ```bash
 sed '/^$/d;/^##/d'  file_path
@@ -109,7 +109,7 @@ sed -i '/ha/ s/^/la' test #在查找包含"ha"的行首追加"la","laha"
 sed -i '/ha/ s/$/la' test #在查找包含"ha"的行末追加"la"，"hala"
 ```
 
-## 7、去掉文本中带#号注释的行
+## 7、去掉文本中开头带#号注释的行
 
 ```bash
 sed -i -c -e '/^$/d;/^#/d'  file
@@ -192,7 +192,7 @@ grep -rn "hello,world!" *
 ## 1、只显示文本中的非空行和非注释行
 
 ```bash
-egrep -v '^$|^#'  file_path
+egrep -v '^$|#'  file_path
 ```
 
 # 五、cut

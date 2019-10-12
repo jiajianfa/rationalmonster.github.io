@@ -2,7 +2,7 @@
 
 
 
-# 一、简介
+# 一. 简介
 
 官方文档：https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html
 
@@ -45,7 +45,7 @@ Logstash使用Pipeline流水线的形式来处理数据Event事件，大致流�
 
 **queue分类**
 
-- In Memory： 在内存中，固定大小，无法处理进程crash、机器宕机等情况，会导致数据丢失。
+- In Memory： 在内存中，固定大小，无法处理进程crash. 机器宕机等情况，会导致数据丢失。
 - Persistent Queue：可处理进程crash情况，保证数据不丢失。保证数据至少消费一次；充当缓冲区，可代替kafka等消息队列作用。
 - Dead Letter Queues：存放logstash因数据类型错误等原因无法处理的Event
 
@@ -57,15 +57,15 @@ Logstash使用Pipeline流水线的形式来处理数据Event事件，大致流�
 
 
 
-# 二、安装
+# 二. 安装
 
-**1、安装Java**
+## **1. 安装Java**环境
 
 在一些Linux环境下，必须设置JAVA_HOME环境变量，否则Logstash在安装期间没有检测到JAVA_HOME环境变量，会报错并且启动不起来服务。如果JDK目录在/opt下，则  在/usr/bin/下建立软连接指向JAVA_HOME/bin路径下的java
 
-**2、安装Logstash**
+## **2. 安装Logstash**
 
-`YUM/RPM`
+### YUM/RPM
 
 ```yaml
 [elasticsearch-7.x]
@@ -80,7 +80,7 @@ type=rpm-md
 yum install -y logstash-7.2.0
 ```
 
-`手动下载RPM安装，官方下载链接：https://www.elastic.co/downloads/logstash`
+手动下载RPM安装，官方下载链接：https://www.elastic.co/downloads/logstash
 
 ```bash
 yum localinstall -y logstash-7*.rpm
@@ -98,7 +98,7 @@ RPM包安装后各个配置文件的位置
 | **plugins**  | Local, non Ruby-Gem plugin files. Each plugin is contained in a subdirectory. Recommended for development only. | `/usr/share/logstash/plugins` | `path.plugins`                    |
 | **data**     | Data files used by logstash and its plugins for any persistence needs. | `/var/lib/logstash`           | `path.data`                       |
 
-`二进制包(.zip .tar.gz)安装`
+### 二进制包
 
 二进制包中各个配置文件的位置
 
@@ -111,7 +111,7 @@ RPM包安装后各个配置文件的位置
 | **plugins**  | Local, non Ruby-Gem plugin files. Each plugin is contained in a subdirectory. Recommended for development only. | `{extract.path}/plugins`                                     | `path.plugins`  |
 | **data**     | Data files used by logstash and its plugins for any persistence needs. | `{extract.path}/data`                                        | `path.data`     |
 
-**3、启动**
+## 3. 启动
 
 `以服务形式或命令启动Logstash`
 
@@ -131,7 +131,7 @@ jps -l
 #--config.reload.interval <seconds> 设置多少秒检测一次配置文件  如果Logstash启动时没有配置自动加载配置文件，重启进程时加上。
 ```
 
-**4、验证**
+## 4. 验证
 
 ```bash
 /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
@@ -145,7 +145,7 @@ stdout> 2013-11-21T01:22:14.405+0000 0.0.0.0 hello world
 #Ctrl+D 退出Logstash
 ```
 
-**5、命令行参数**
+## 5. 命令行参数
 
 | 参数                                         | 描述                                                         | 默认值                     |
 | -------------------------------------------- | ------------------------------------------------------------ | -------------------------- |
@@ -179,7 +179,7 @@ stdout> 2013-11-21T01:22:14.405+0000 0.0.0.0 hello world
 
 
 
-# 三、Docker镜像
+# 三. Docker镜像
 
 ```bash
 docker pull docker.elastic.co/logstash/logstash:7.4.0
@@ -231,21 +231,19 @@ Note：基于该镜像启动的容器，日志是直接输出到控制台的，�
 
   `docker run --rm -it -e PIPELINE_WORKERS:2 docker.elastic.co/logstash/logstash:7.4.0 `。例如以下环境变量对应的logstash配置
 
-  | **Environment Variable**   | **Logstash Setting**       |
-  | -------------------------- | -------------------------- |
-  | `PIPELINE_WORKERS`         | `pipeline.workers`         |
-  | `LOG_LEVEL`                | `log.level`                |
-  | `XPACK_MONITORING_ENABLED` | `xpack.monitoring.enabled` |
+| **Environment Variable**   | **Logstash Setting**       |
+| -------------------------- | -------------------------- |
+| `PIPELINE_WORKERS`         | `pipeline.workers`         |
+| `LOG_LEVEL`                | `log.level`                |
+| `XPACK_MONITORING_ENABLED` | `xpack.monitoring.enabled` |
 
-- logstash docker 镜像中的默认设置
+- logstash docker 镜像中的默认配置
 
-  | `http.host`                            | `0.0.0.0`                   |
-  | -------------------------------------- | --------------------------- |
-  | `xpack.monitoring.elasticsearch.hosts` | `http://elasticsearch:9200` |
+| `http.host`                            | `0.0.0.0`                   |
+| -------------------------------------- | --------------------------- |
+| `xpack.monitoring.elasticsearch.hosts` | `http://elasticsearch:9200` |
 
-**Kubernetes部署**
-
-# 四、配置
+# 四. 配置
 
 **Logstash配置文件中配置项的格式是基于YAML语法，例如：**
 
@@ -286,7 +284,7 @@ modules:
     var.PLUGIN_TYPE1.PLUGIN_NAME1.KEY2: VALUE
 ```
 
-**常见的logstash配置**
+## 常见的logstash配置
 
 | Setting                        | Description                                                  | Default value                                                |
 | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -326,9 +324,9 @@ modules:
 | `path.logs`                    | The directory where Logstash will write its log to.          | `LOGSTASH_HOME/logs`                                         |
 | `path.plugins`                 | Where to find custom plugins. You can specify this setting multiple times to include multiple paths. Plugins are expected to be in a specific directory hierarchy: `PATH/logstash/TYPE/NAME.rb` where `TYPE` is `inputs`, `filters`, `outputs`, or `codecs`, and `NAME` is the name of the plugin. | Platform-specific. See [Logstash Directory Layout](https://www.elastic.co/guide/en/logstash/7.4/dir-layout.html). |
 
-# 五、Pipeline
+# 五. Pipeline
 
-**1、Pipeline配置项**
+## 1. 配置项结构
 
 Logstash Pipeline文件的配置项分为三个部分：
 
@@ -351,19 +349,19 @@ output{
 
 ```
 
-Note:
+**`Note:`**
 
 1. 如果在filter中添加了多种处理规则，则按照它的顺序一一处理，但是有一些插件并不是线程安全的。
 
 2. 如果在filter中指定了两个一样的的插件，这两个任务并不能保证准确的按顺序执行，因此官方也推荐避免在filter中重复使用插件。
 
-**2、Pipeline中插件顺序的控制**
+## 2. 插件的条件控制
 
 官方文档：https://www.elastic.co/guide/en/logstash/6.7/event-dependent-configuration.html#conditionals
 
 有时需要在特定条件下过滤或输出事件。为此，您可以使用条件（conditional）来决定filter和output处理特定的事件。比如在elk系统中想要添加一个type类型的关键字来根据不同的条件赋值，最后好做统计。条件语支持if，else if和else语句并且可以嵌套。
 
-**支持条件语法**
+### 条件语法
 
 ```json
 if EXPRESSION {
@@ -375,24 +373,21 @@ if EXPRESSION {
 }
 ```
 
-**支持的操作符**
+### 操作符
 
-**比较操作**：
+- **比较操作**：
+  - 相等: `==`, `!=`, `<`, `>`, `<=`, `>=`
+  - 正则: ``=~`(匹配正则), `!~`(不匹配正则)
+  - 包含:`in`(包含), `not in`(不包含)
 
-- 相等: `==`, `!=`, `<`, `>`, `<=`, `>=`
-- 正则: ``=~`(匹配正则), `!~`(不匹配正则)
-- 包含:`in`(包含), `not in`(不包含)
+- **布尔操作**：
+  - `and`(与), `or`(或), `nand`(非与), `xor`(非或)
 
-**布尔操作**：
+- **一元运算符**：
+  - `!`(取反)
+  - `()`(复合表达式), `!()`(对复合表达式结果取反)
 
-- `and`(与), `or`(或), `nand`(非与), `xor`(非或)
-
-**一元运算符**：
-
-- `!`(取反)
-- `()`(复合表达式), `!()`(对复合表达式结果取反)
-
-**示例**
+### 示例
 
 ```json
 
@@ -453,7 +448,7 @@ if ["foo"] {
 }
 ```
 
-**3、Pipe中引用logstash event的字段**
+## 3. 引用event中的字段
 
 - 直接引用字段，使用`[]`,嵌套字段使用多层`[][]`即可
 
@@ -493,9 +488,10 @@ if ["foo"] {
   }
   ```
 
-  
 
-# 六、Input插件
+# 六. Input插件
+
+## 插件一览表
 
 | Plugin                                                       | Description                                                  | Github repository                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -553,7 +549,7 @@ if ["foo"] {
 | [wmi](https://www.elastic.co/guide/en/logstash/7.4/plugins-inputs-wmi.html) | Creates events based on the results of a WMI query           | [logstash-input-wmi](https://github.com/logstash-plugins/logstash-input-wmi) |
 | [xmpp](https://www.elastic.co/guide/en/logstash/7.4/plugins-inputs-xmpp.html) | Receives events over the XMPP/Jabber protocol                | [logstash-input-xmpp](https://github.com/logstash-plugins/logstash-input-xmpp) |
 
-**Input插件通用配置选项**
+## 插件通用配置项
 
 | **参数**        | **参数值类型** | **必须** | **默认值** | **详解**                                                     |
 | --------------- | -------------- | -------- | ---------- | ------------------------------------------------------------ |
@@ -564,7 +560,9 @@ if ["foo"] {
 | `tags`          | array          | No       |            | 向事件添加任意数量的标记，这有助于以后的处理。               |
 | `type`          | string         | No       |            | 向该输入处理的所有事件添加type字段，类型主要用于过滤器激活，该type作为事件本身的一部分存储，因此你也可以使用该类型在Kibana中搜索它。如果你试图在已经拥有一个type的事件上设置一个type（例如，当你将事件从发送者发送到索引器时），那么新的输入将不会覆盖现有的type，发送方的type集在其生命周期中始终与该事件保持一致，甚至在发送到另一个Logstash服务器时也是如此。 |
 
-# 七、Filter插件
+# 七. Filter插件
+
+## 插件一览表
 
 | Plugin                                                       | Description                                                  | Github repository                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -615,7 +613,7 @@ if ["foo"] {
 | [uuid](https://www.elastic.co/guide/en/logstash/current/plugins-filters-uuid.html) | Adds a UUID to events                                        | [logstash-filter-uuid](https://github.com/logstash-plugins/logstash-filter-uuid) |
 | [xml](https://www.elastic.co/guide/en/logstash/current/plugins-filters-xml.html) | Parses XML into fields                                       | [logstash-filter-xml](https://github.com/logstash-plugins/logstash-filter-xml) |
 
-**Filter插件通用配置选项**
+## 插件通用配置项
 
 | Setting                                                      | Input type                                                   | Required |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
@@ -627,7 +625,9 @@ if ["foo"] {
 | [`remove_field`](https://www.elastic.co/guide/en/logstash/current/plugins-filters-mutate.html#plugins-filters-mutate-remove_field) | [array](http://www.elastic.co/guide/en/logstash/7.4/configuration-file-structure.html#array) | No       |
 | [`remove_tag`](https://www.elastic.co/guide/en/logstash/current/plugins-filters-mutate.html#plugins-filters-mutate-remove_tag) | [array](http://www.elastic.co/guide/en/logstash/7.4/configuration-file-structure.html#array) | No       |
 
-# 八、Output插件
+# 八. Output插件
+
+## 插件一览表
 
 | Plugin                                                       | Description                                                  | Github repository                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -687,7 +687,7 @@ if ["foo"] {
 | [xmpp](https://www.elastic.co/guide/en/logstash/7.4/plugins-outputs-xmpp.html) | Posts events over XMPP                                       | [logstash-output-xmpp](https://github.com/logstash-plugins/logstash-output-xmpp) |
 | [zabbix](https://www.elastic.co/guide/en/logstash/7.4/plugins-outputs-zabbix.html) | Sends events to a Zabbix server                              | [logstash-output-zabbix](https://github.com/logstash-plugins/logstash-output-zabbix) |
 
-**Output插件通用配置选项**
+## 插件通用配置项
 
 | Setting                                                      | Input type                                                   | Required |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
@@ -695,7 +695,9 @@ if ["foo"] {
 | [`enable_metric`](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-csv.html#plugins-outputs-csv-enable_metric) | [boolean](http://www.elastic.co/guide/en/logstash/7.4/configuration-file-structure.html#boolean) | No       |
 | [`id`](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-csv.html#plugins-outputs-csv-id) | [string](http://www.elastic.co/guide/en/logstash/7.4/configuration-file-structure.html#string) | No       |
 
-# 九、Codec插件
+# 九. Codec插件
+
+## 插件一览表
 
 | Plugin                                                       | Description                                                  | Github repository                                            |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -725,7 +727,7 @@ if ["foo"] {
 | [protobuf](https://www.elastic.co/guide/en/logstash/current/plugins-codecs-protobuf.html) | Reads protobuf messages and converts to Logstash Events      | [logstash-codec-protobuf](https://github.com/logstash-plugins/logstash-codec-protobuf) |
 | [rubydebug](https://www.elastic.co/guide/en/logstash/current/plugins-codecs-rubydebug.html) | Applies the Ruby Awesome Print library to Logstash events    | [logstash-codec-rubydebug](https://github.com/logstash-plugins/logstash-codec-rubydebug) |
 
-# 十、插件管理
+# 十. 插件管理
 
 Logstash 插件是使用 Ruby开发的，Logstash 从很早的1.5.0+版开始，其插件模块和核心模块便分开维护，其插件使用的是 RubyGems包管理器来管理维护。所以 Logstash插件本质上就是自包含的RubyGems。
 
@@ -733,7 +735,7 @@ RubyGems（简称 gems）是一个用于对 Ruby组件进行打包的 Ruby 打�
 
 插件的名字格式：`logstash-{input/output/filter}-插件名`     示例：filter中的date插件：logstash-filter-date
 
-1、安装插件
+## 1. 安装插件
 
 ```bash
 #以安装dissect插件为例
@@ -742,7 +744,7 @@ RubyGems（简称 gems）是一个用于对 Ruby组件进行打包的 Ruby 打�
 --path.plugins  指定安装路径
 ```
 
-2、查看已安装的插件
+## 2. 查看已安装的插件
 
 ```bash
 /usr/share/logstash/bin/logstash-plugin list
@@ -751,7 +753,7 @@ RubyGems（简称 gems）是一个用于对 Ruby组件进行打包的 Ruby 打�
 --verbose  查看组（input, filter, codec, output）下面的所有插件。例如查看filter下的所有插件
 ```
 
-3、更新插件
+## 3. 更新插件
 
 ```bash
 #更新某个插件
@@ -760,19 +762,19 @@ RubyGems（简称 gems）是一个用于对 Ruby组件进行打包的 Ruby 打�
 /usr/share/logstash/bin/logstash-plugin update
 ```
 
-4、卸载插件
+## 4. 卸载插件
 
 ```bash
 /usr/share/logstash/bin/logstash-plugin remove  插件名
 ```
 
-5、给插件管理器设置代理
+## 5. 给插件管理器设置代理
 
 ```bash
 export HTTP_PROXY=http://127.0.0.1:3128
 ```
 
-6、修改插件仓库地址
+## 6. 修改插件仓库地址
 
 Logstash插件默认仓库地址是：http://rubygems.org
 
