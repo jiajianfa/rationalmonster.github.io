@@ -60,6 +60,7 @@
 * 集群管理
   * [kubectl多集群上下文配置](origin/kubernetes-kubectl多集群上下文配置.md)
   * [Network Policy容器流量管理](origin/kubernetes-NetworkPolicy.md)
+  * [Kubernetes应用管理工具helm详解](origin/kubernetes-helm详解.md)
 
 ## Part Ⅲ：持续集成与持续部署
 
@@ -196,6 +197,7 @@
     * [Maven 生命周期阶段](origin/maven-生命周期阶段.md)
     * Maven 多模块构建
 * Git
+* [正则表达式](origin/regular-expression详解.md)
 * Ceph
     * 安装
         * [Ceph RBD单节点安装](origin/ceph-rbd单节点安装.md)

@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>反向代理 · Devops Roadmap</title>
+        <title>正则表达式 · Devops Roadmap</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -3223,7 +3223,7 @@
             
         </li>
     
-        <li class="chapter " data-level="8.5" data-path="regular-expression详解.html">
+        <li class="chapter active" data-level="8.5" data-path="regular-expression详解.html">
             
                 <a href="regular-expression详解.html">
             
@@ -4025,7 +4025,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.14.2" data-path="常见反向代理服务软件之间的区别.html">
+        <li class="chapter " data-level="8.14.2" data-path="常见反向代理服务软件之间的区别.html">
             
                 <a href="常见反向代理服务软件之间的区别.html">
             
@@ -4185,7 +4185,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >反向代理</a>
+        <a href=".." >正则表达式</a>
     </h1>
 </div>
 
@@ -4200,9 +4200,22 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="&#x5E38;&#x89C1;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x8F6F;&#x4EF6;&#x7684;&#x5BF9;&#x6BD4;&#x533A;&#x522B;&#x6316;&#x5751;">&#x5E38;&#x89C1;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x8F6F;&#x4EF6;&#x7684;&#x5BF9;&#x6BD4;&#x533A;&#x522B;(&#x6316;&#x5751;)</h1>
+						<h1 id="&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x8BE6;&#x89E3;">&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x8BE6;&#x89E3;</h1>
+<h1 id="&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF1F;">&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF1F;</h1>
+<p> &#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;regular expression&#xFF09;&#x5C31;&#x662F;&#x7528;&#x4E00;&#x4E2A;&#x201C;&#x5B57;&#x7B26;&#x4E32;&#x201D;&#x6765;&#x63CF;&#x8FF0;&#x4E00;&#x4E2A;<code>&#x7279;&#x5F81;</code>&#xFF0C;&#x7136;&#x540E;&#x53BB;&#x9A8C;&#x8BC1;&#x53E6;&#x4E00;&#x4E2A;&#x201C;&#x5B57;&#x7B26;&#x4E32;&#x201D;&#x662F;&#x5426;&#x7B26;&#x5408;&#x8FD9;&#x4E2A;&#x7279;&#x5F81;&#x3002;&#x6BD4;&#x5982; &#x8868;&#x8FBE;&#x5F0F;&#x201C;ab+&#x201D; &#x63CF;&#x8FF0;&#x7684;&#x7279;&#x5F81;&#x662F;&#x201C;&#x4E00;&#x4E2A; &apos;a&apos; &#x548C; &#x4EFB;&#x610F;&#x4E2A; &apos;b&apos; &#x201D;&#xFF0C;&#x90A3;&#x4E48; &apos;ab&apos;, &apos;abb&apos;, &apos;abbbbbbbbbb&apos; &#x90FD;&#x7B26;&#x5408;&#x8FD9;&#x4E2A;&#x7279;&#x5F81;&#x3002;</p>
+<h1 id="&#x4E8C;&#x3001;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x80FD;&#x5E72;&#x4EC0;&#x4E48;&#xFF1F;">&#x4E8C;&#x3001;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x80FD;&#x5E72;&#x4EC0;&#x4E48;&#xFF1F;</h1>
+<ul>
+<li><strong>&#x9A8C;&#x8BC1;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x7B26;&#x5408;&#x6307;&#x5B9A;&#x7279;&#x5F81;</strong>&#xFF0C;&#x6BD4;&#x5982;&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x662F;&#x5408;&#x6CD5;&#x7684;&#x90AE;&#x4EF6;&#x5730;&#x5740;</li>
+<li><strong>&#x7528;&#x6765;&#x67E5;&#x627E;&#x5B57;&#x7B26;&#x4E32;</strong>&#xFF0C;&#x4ECE;&#x4E00;&#x4E2A;&#x957F;&#x7684;&#x6587;&#x672C;&#x4E2D;&#x67E5;&#x627E;&#x7B26;&#x5408;&#x6307;&#x5B9A;&#x7279;&#x5F81;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6BD4;&#x67E5;&#x627E;&#x56FA;&#x5B9A;&#x5B57;&#x7B26;&#x4E32;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x65B9;&#x4FBF;</li>
+<li><strong>&#x7528;&#x6765;&#x66FF;&#x6362;</strong>&#xFF0C;&#x6BD4;&#x666E;&#x901A;&#x7684;&#x66FF;&#x6362;&#x66F4;&#x5F3A;&#x5927;</li>
+</ul>
+<h1 id="&#x4E09;&#x3001;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x89C4;&#x5219;">&#x4E09;&#x3001;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x89C4;&#x5219;</h1>
+<h1 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;">&#x53C2;&#x8003;&#x94FE;&#x63A5;</h1>
+<ol>
+<li><a href="http://www.regexlab.com/zh/regref.htm" _target="blank">http://www.regexlab.com/zh/regref.htm</a> </li>
+</ol>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-09-18 10:08:23
+2019-10-16 11:52:39
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -4238,7 +4251,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"反向代理","level":"8.14.2","depth":2,"next":{"title":"Nginx","level":"8.14.2.1","depth":3,"ref":"","articles":[]},"previous":{"title":"Nginx第三方正向代理插件","level":"8.14.1.3","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"/assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/常见反向代理服务软件之间的区别.md","mtime":"2019-09-18T02:08:23.041Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-10-16T04:01:52.381Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"正则表达式","level":"8.5","depth":1,"next":{"title":"Ceph","level":"8.6","depth":1,"ref":"","articles":[{"title":"安装","level":"8.6.1","depth":2,"ref":"","articles":[{"title":"Ceph RBD单节点安装","level":"8.6.1.1","depth":3,"path":"origin/ceph-rbd单节点安装.md","ref":"origin/ceph-rbd单节点安装.md","articles":[]},{"title":"Ceph FileSystem单节点安装","level":"8.6.1.2","depth":3,"path":"origin/ceph-filesystem单节点安装.md","ref":"origin/ceph-filesystem单节点安装.md","articles":[]}]},{"title":"基础知识","level":"8.6.2","depth":2,"ref":"","articles":[]}]},"previous":{"title":"Git","level":"8.4","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"/assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/regular-expression详解.md","mtime":"2019-10-16T03:52:39.725Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-10-16T04:01:52.381Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>

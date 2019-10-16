@@ -28,17 +28,15 @@ Zsh具有以下主要优势：
 yum install -y zsh
 ```
 
-**`Ubuntu`** 
+**`Ubuntu`**
 
 ```bash
 apt-get install -y zsh
 ```
 
-
-
 > 检查下系统的 shell：`$ cat /etc/shells`，你会发现多了一个：/bin/zsh
 
-**`设置默认shell`**
+**`设置用户的默认shell`**
 
 ```bash
 # 给root用户设置
@@ -48,10 +46,6 @@ chsh -s /bin/zsh 用户名
 #　恢复bash
 chsh -s /bin/bash [user]
 ```
-
-
-
-
 
 # 三、安装oh-my-zsh
 
@@ -140,8 +134,10 @@ plugins=(
   zsh-syntax-highlighting
   kubectl
   docker
+  sudo
+  extract
 )
-
+source /etc/profile
 source $ZSH/oh-my-zsh.sh
 
 # 用户配置
@@ -170,47 +166,37 @@ alias k='kubectl'
 
 # 五、oh-my-zsh常用插件
 
-- **git**
+- **git**：可以使用git缩写，默认自带
 
-  默认自带。可以使用git缩写 比如 git add --all => gaa
+   `git add --all` => `gaa`
 
-  查看所有缩写：alias | grep git
+  查看所有缩写：`alias | grep git`
 
-- **autojump**
+- **autojump**：快速跳转文件夹
 
-  快速跳转文件夹
+- **last-working-dir**：可以记录上一次退出命令行时候的所在路径，并且在下一次启动命令行的时候自动恢复到上一次所在的路径。
+  
+- **wd**：快速地切换到常用的目录
+  `wd add web`相当于给当前目录做了一个标识，标识名叫做 `web` ，我们下次如果再想进入这个目录，只需输入：`wd web`
 
-- **last-working-dir**
-  可以记录上一次退出命令行时候的所在路径，并且在下一次启动命令行的时候自动恢复到上一次所在的路径。
+- **catimg**：将图片的内容输出到命令行
+  
+`catimg demo.jpg`
+  
+- **zsh-syntax-highlighting**：命令高亮 正确路径自带下划线
 
-- **wd**
-  它的作用就是能够快速的切换到常用的目录。`wd add web`相当于给当前目录做了一个标识，标识名叫做 `web` ，我们下次如果再想进入这个目录，只需输入：`wd web`
+  安装：`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
-- **catimg**
-  可以将图片的内容输出到命令行中`catimg demo.jpg`
-
-- **zsh-syntax-highlighting**
-
-  命令高亮 正确路径自带下划线
-
-  安装方法：`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
-
-- **zsh-autosuggestions**
-  自动补全可能的路径
+- **zsh-autosuggestions**：自动补全可能的路径
   
   安装：`git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions`
-
-- **sudo**
-  连按两次Esc添加或去掉sudo
-
-- **extract**
-  功能强大的解压插件
-  例如：需要解压demo.tar.gz
+  
+- **sudo**：连按两次Esc添加或去掉sudo
+  
+- **extract**：功能强大的解压插件
   执行`x demo.tar.gz`
-
-- **git-open**
-
-  在终端里打开当前项目的远程仓库地址
+  
+- **git-open**：在终端里打开当前项目的远程仓库地址
 
   安装：`git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open`
 
