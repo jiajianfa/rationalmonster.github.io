@@ -1,6 +1,6 @@
 
 
-# Filebeat的简介. 安装. 配置. Pipeline
+# Filebeat的简介、安装、配置、Pipeline
 
 # 一. 简介
 
@@ -21,10 +21,6 @@ Filebeat由两个主要组件组成：
     - 如果在harvester仍在读取文件时文件被删除，则关闭文件句柄，释放底层资源。
     - 文件的采集只会在scan_frequency过后重新开始
     - 如果在harvester关闭的情况下移动或移除文件，则不会继续处理文件
-
-
-
-
 
 # 二. 安装
 
@@ -53,15 +49,11 @@ type=rpm-md
 yum install filebeat-7.4.0
 ```
 
-
-
 RPM下载地址：https://www.elastic.co/cn/downloads/beats/filebeat
 
 ```bash
 yum localinstall -y filebeat-7*.rpm
 ```
-
-
 
 安装文件路径
 
@@ -73,13 +65,9 @@ yum localinstall -y filebeat-7*.rpm
 | **data**   | The location for persistent data files.        | `/var/lib/filebeat`       |
 | **logs**   | The location for the logs created by Filebeat. | `/var/log/filebeat`       |
 
-
-
 ## 二进制文件
 
  zip, tar.gz, tgz 压缩格式的二进制安装包，下载地址：https://www.elastic.co/cn/downloads/beats/filebeat
-
-
 
 安装文件路径
 
@@ -91,28 +79,85 @@ yum localinstall -y filebeat-7*.rpm
 | **data**   | The location for persistent data files.        | `{extract.path}/data` |
 | **logs**   | The location for the logs created by Filebeat. | `{extract.path}/logs` |
 
-## 启动
+## Filebeat命令行启动
 
 ```bash
-# systemD
+/usr/share/filebeat/bin/filebeat Commands SUBCOMMAND [FLAGS]
+```
+
+
+
+| Commands                                                     | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [`export`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#export-command) | 导出配置到控制台，包括index template, ILM policy, dashboard  |
+| [`help`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#help-command) | 显示帮助文档                                                 |
+| [`keystore`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#keystore-command) | 管理[secrets keystore](https://www.elastic.co/guide/en/beats/filebeat/current/keystore.html). |
+| [`modules`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#modules-command) | 管理配置Modules                                              |
+| [`run`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#run-command) | Runs Filebeat. This command is used by default if you start Filebeat without specifying a command. |
+| [`setup`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#setup-command) | 设置初始环境。包括index template, ILM policy, write alias, Kibana dashboards (when available), machine learning jobs (when available). |
+| [`test`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#test-command) | 测试配置文件                                                 |
+| [`version`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#version-command) | 显示版本信息                                                 |
+
+
+
+| Global Flags              | 描述                                                 |      |
+| ------------------------- | ---------------------------------------------------- | ---- |
+| `-E "SETTING_NAME=VALUE"` | 覆盖配置文件中的配置项                               |      |
+| `--M "VAR_NAME=VALUE"`    | 覆盖Module配置文件的中配置项                         |      |
+| `-c FILE`                 | 指定filebeat的配置文件路径。路径要相对于`path.config |      |
+| `-d SELECTORS`            |                                                      |      |
+| `-e`                      |                                                      |      |
+| `--path.config`           |                                                      |      |
+| `--path.data`             |                                                      |      |
+| `--path.home`             |                                                      |      |
+| ` --path.logs`            |                                                      |      |
+| `--strict.perms`          |                                                      |      |
+
+示例：
+
+- `/usr/share/filebeat/bin/filebeat --modules mysql -M "mysql.slowlog.var.paths=[/root/slow.log]" -e`
+- `/usr/share/filebeat/bin/filebeat -e -E output.console.pretty=true  --modules mysql -M "mysql.slowlog.var.paths=["/root/mysql-slow-sql-log/mysql-slowsql.log"]" -M "mysql.error.enabled=false" -E output.elasticsearch.enabled=false`
+
+## SystemD启动
+
+```bash
 systemctl enable filebeat
 systemctl start filebeat 
 systemctl stop filebeat
 systemctl status filebeat
 journalctl -u filebeat.service
-# Cli
-filebeat -e
+systemctl daemon-reload
+systemctl restart filebeat
 ```
 
-## Filebeat命令行参数
+**Filebeat的SystemD配置文件**
 
+```properties
+$ /usr/lib/systemd/system/filebeat.service
+[Unit]
+Description=Filebeat sends log files to Logstash or directly to Elasticsearch.
+Documentation=https://www.elastic.co/products/beats/filebeat
+Wants=network-online.target
+After=network-online.target
 
+[Service]
+Environment="BEAT_LOG_OPTS=-e"
+Environment="BEAT_CONFIG_OPTS=-c /etc/filebeat/filebeat.yml"
+Environment="BEAT_PATH_OPTS=-path.home /usr/share/filebeat -path.config /etc/filebeat -path.data /var/lib/filebeat -path.logs /var/log/filebeat"
+ExecStart=/usr/share/filebeat/bin/filebeat $BEAT_LOG_OPTS $BEAT_CONFIG_OPTS $BEAT_PATH_OPTS
+Restart=always
 
+[Install]
+WantedBy=multi-user.target
 ```
-filebeat test config
-```
 
 
+
+| Variable             | Description                       | Default value                                                |
+| -------------------- | --------------------------------- | ------------------------------------------------------------ |
+| **BEAT_LOG_OPTS**    | Log options                       | `-e`                                                         |
+| **BEAT_CONFIG_OPTS** | Flags for configuration file path | `-c /etc/filebeat/filebeat.yml`                              |
+| **BEAT_PATH_OPTS**   | Other paths                       | `-path.home /usr/share/filebeat -path.config /etc/filebeat -path.data /var/lib/filebeat -path.logs /var/log/filebeat` |
 
 # 三. Docker镜像
 
@@ -121,8 +166,6 @@ docker pull docker.elastic.co/beats/filebeat:7.4.0
 
 docker pull filebeat:7.4.0
 ```
-
-
 
 ## 镜像中的安装文件路径
 
@@ -169,37 +212,82 @@ curl -L -O https://raw.githubusercontent.com/elastic/beats/7.4/deploy/kubernetes
 securityContext:
     runAsUser: 0
     privileged: true
-    
+   
 oc adm policy add-scc-to-user privileged system:serviceaccount:kube-system:filebeat
-
 ```
 
 
 
 # 四. 配置
 
+- Filebeat的配置文件路径：/etc/filebeat/filebeat.yml
+
+- 配置语法为YAML
+
+
+| 配置项                  | 描述                   | 示例                                                         |
+| ----------------------- | ---------------------- | ------------------------------------------------------------ |
+| processors.*            | Processors配置         | processors:<br/>- include_fields:<br/>    fields: ["cpu"]<br/>- drop_fields:<br/>    fields: ["cpu.user", "cpu.system"] |
+| filebeat.modules:       | Module配置             | filebeat.modules:<br/>- module: mysql<br/>  error:<br/>     enabled: true |
+| filebeat.inputs:        | Input配置              | filebeat.inputs:<br/>- type: log<br/>  enabled: false<br/>  paths:<br/>     - /var/log/*.log |
+| output.*:               | Output配置             | output.console:<br/>    enabled: true                        |
+| path.*                  | 组件产生文件的位置配置 | path.home:  /usr/share/filebeat<br/>path.data: \${path.home}/data<br/>path.logs: \${path.home}/logs |
+| setup.template.*        | Template配置           |                                                              |
+| logging.*               | 日志配置               | logging.level: info<br/>logging.to_stderr: false<br/>logging.to_files: true<br/> |
+| monitoring.*            | X-Pack监控配置         | monitoring.enabled: false<br/>monitoring.elasticsearch.hosts: ["localhost:9200"] |
+| http.*                  | HTTP Endpoint配置      | http.enabled: false<br/>http.port: 5066<br/>http.host: localhost |
+| filebeat.autodiscover.* | Filebeat自动发现配置   |                                                              |
+|                         | 通用配置               |                                                              |
+|                         | 全局配置项             |                                                              |
+| queue.*                 | 缓存队列设置           |                                                              |
+
 ## 全局配置项
 
-| 配置项                    | 默认值                | 描述                                   |
-| ------------------------- | --------------------- | -------------------------------------- |
-| registry.path             | ${path.data}/registry | 注册表文件的根路径                     |
-| registry.file_permissions | 0600                  | 注册表文件的权限。Window下该配置项无效 |
-| registry.flush            | 0s                    |                                        |
-| registry.migrate_file     |                       |                                        |
-| config_dir                |                       |                                        |
-| config_dir                |                       |                                        |
-| name                      |                       |                                        |
-| tags                      |                       |                                        |
-| fields                    |                       |                                        |
-| fields_under_root         |                       |                                        |
-| processors                |                       |                                        |
-| max_procs                 |                       |                                        |
-|                           |                       |                                        |
-|                           |                       |                                        |
+| 配置项                    | 默认值                | 描述                                   | 示例                                                       |
+| ------------------------- | --------------------- | -------------------------------------- | ---------------------------------------------------------- |
+| registry.path             | ${path.data}/registry | 注册表文件的根路径                     | filebeat.registry.path: registry                           |
+| registry.file_permissions | 0600                  | 注册表文件的权限。Window下该配置项无效 | filebeat.registry.file_permissions: 0600                   |
+| registry.flush            | 0s                    |                                        | filebeat.registry.flush: 5s                                |
+| registry.migrate_file     |                       |                                        | filebeat.registry.migrate_file: /path/to/old/registry_file |
+| config_dir                |                       |                                        | filebeat.config_dir: path/to/configs                       |
+| shutdown_timeout          | 5s                    |                                        | filebeat.shutdown_timeout: 5s                              |
+
+## 通用配置项
+| 配置项            | 默认值 | 描述                                                         | 示例                                                    |
+| ----------------- | ------ | ------------------------------------------------------------ | ------------------------------------------------------- |
+| name              |        |                                                              | name: "my-shipper"                                      |
+| tags              |        |                                                              | tags: ["service-X", "web-tier"]                         |
+| fields            |        |                                                              | fields: {project: "myproject", instance-id: "57452459"} |
+| fields_under_root |        | 如果该选项设置为true，则新增fields会放在根路径下，而不是放在fields路径下。自定义的field会覆盖filebeat默认的field。 | fields_under_root: true                                 |
+| processors        |        | 该配置项可配置以下Processors，详见                           |                                                         |
+| max_procs         |        |                                                              |                                                         |
+
+## 配置示例
+
+```yaml
+# Modules配置项
+filebeat.modules:
+  - module: system
+# 通用配置项
+fields:
+  level: debug
+  review: 1
+fields_under_root: false
+# Processors配置项
+processors:
+  - decode_json_fields:
+# Input配置项
+filebeat.inputs:
+  - type: log
+
+# Output配置项
+output.elasticsearch:
+output.logstash:
+```
 
 
 
-# 五. Input
+# 五. Input插件类型
 
 Input类型
 
@@ -220,7 +308,7 @@ Input类型
 
 
 
-# 六. Output
+# 六. Output插件类型
 
 | 类型                                                         | 描述 | 配置样例                                                     |
 | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
@@ -234,7 +322,7 @@ Input类型
 
 
 
-# 七. Processors
+# 七. Processors插件
 
 ## 配置语法
 
@@ -397,13 +485,11 @@ processors:
 
 
 
-# 八. Pipeline
+# 
 
 
 
-# 九. Modules
-
-
+# 八. Modules
 
 Filebeat modules simplify the collection, parsing, and visualization of common log formats.
 
@@ -418,8 +504,6 @@ Filebeat automatically adjusts these configurations based on your environment an
 
 Filebeat modules require Elasticsearch 5.2 or later.
 
-
-
 ## Modules管理
 
 ### 1. 查看所有Modules
@@ -428,15 +512,11 @@ Filebeat modules require Elasticsearch 5.2 or later.
 filebeat modules list
 ```
 
-### 2、开启Modules
+### 2. 开启Modules
 
 ```bash
 filebeat modules enable module名
 ```
-
-
-
-
 
 ## 支持的Modules
 
@@ -479,22 +559,24 @@ filebeat modules enable module名
 
 
 
+# 九. 采集注册文件解析
+
+采集注册文件路径：`/var/lib/filebeat/registry/filebeat/data.json`
+
 ```json
 [{"source":"/root/mysql-slow-sql-log/mysql-slowsql.log","offset":1365442,"timestamp":"2019-10-11T09:29:35.185399057+08:00","ttl":-1,"type":"log","meta":null,"FileStateOS":{"inode":2360926,"device":2051}}]
 ```
 
-
-
-```
-source  记录采集日志的完整路径
-offset　已经采集的日志的字节数;已经采集到日志的哪个字节位置
-timestamp　　日志最后一次发生变化的时间戳
-ttl　　采集失效时间，-1表示只要日志存在，就一直采集该日志
-type: log
+```json
+source				# 记录采集日志的完整路径
+offset				# 已经采集的日志的字节数;已经采集到日志的哪个字节位置
+timestamp			# 日志最后一次发生变化的时间戳
+ttl					# 采集失效时间，-1表示只要日志存在，就一直采集该日志
+type: 				
 meta
-filestateos　　操作系统相关
-　　inode　　日志文件的inode号
-　　device    日志所在磁盘的磁盘编号
+filestateos		    # 操作系统相关
+　　inode			  # 日志文件的inode号
+　　device	      # 日志所在磁盘的磁盘编号
 ```
 
 硬盘格式化的时候，操作系统自动将硬盘分成了两个区域。

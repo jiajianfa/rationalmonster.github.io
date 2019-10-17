@@ -1,7 +1,7 @@
 # Apache Kafka常用操作
 
 # 一、Topic管理
-## 1、列出所有Topic
+## 1. 列出所有Topic
 
 ```bash
 kafka-topics.sh --zookeeper 127.0.0.1:2181 --list
@@ -9,7 +9,7 @@ kafka-topics.sh --zookeeper 127.0.0.1:2181 --list
 kafka-topics.sh --bootstrap-server 127.0.0.1:9092 --list
 ```
 
-## 2、创建一个topic
+## 2. 创建一个topic
 
 ```bash
 kafka-topics.sh --create --zookeeper  127.0.0.1:2181 --replication-factor 2 --partitions 3 --topic Test
@@ -17,7 +17,7 @@ kafka-topics.sh --create --zookeeper  127.0.0.1:2181 --replication-factor 2 --pa
 #--partitions参数指定Topic的分区个数
 ```
 
-## 3、删除Topic
+## 3. 删除Topic
 
 ```bash
 kafka-topics.sh --delete --zookeeper 127.0.0.1:2181 --topic Test
@@ -26,8 +26,7 @@ kafka-topics.sh --delete --zookeeper 127.0.0.1:2181 --topic Test
 kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper 172.16.3.12:2181/kafka/q-35aw0fye --topic Test
 ```
 
-
-## 4、查看Topic的详细信息
+## 4. 查看Topic的详细信息
 
 ```bash
 kafka-topics.sh --describe --zookeeper 127.0.0.1:2181 --topic Test
@@ -42,40 +41,39 @@ Topic: Test       Partition: 1    Leader: 3   Replicas: 3     Isr: 3
 #Isr:表示当前有效的broker, Isr是Replicas的子集
 ```
 
-
-## 5、增加Topic分区个数（只能增加扩容）
+## 5. 增加Topic分区个数（只能增加扩容）
 
 ```bash
 kafka-topics.sh --zookeeper 127.0.0.1:2181 --alter --topic Test --partitions 2 
 ```
 
-## 6、给Topic增加配置
+## 6. 给Topic增加配置
 
 ```bash
 kafka-topics.sh --zookeeper 127.0.0.1:2181 --alter --topic Test --config flush.messages=1
 ```
 
-## 7、删除Topic的配置
+## 7. 删除Topic的配置
 
 ```bash
 kafka-topics.sh --zookeeper 127.0.0.1:2181 --alter --topic Test
 --delete-config flush.messages=1
 ```
 
-## 8、查看消费者组
+## 8. 查看消费者组
 
 ```bash
 kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --list
 ```
 
-## 9、查看Topic各个分区的消息偏移量最大（小）值
+## 9. 查看Topic各个分区的消息偏移量最大（小）值
 
 ```bash
 kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list 127.0.0.1:9092 --time -1 --topic Test
 # time为-1时表示最大值，time为-2时表示最小值
 ```
 
-## 10、查看Topic中指定consumer组内消息消费的offset
+## 10. 查看Topic中指定consumer组内消息消费的offset
 
 kafka的offset保存位置分为两种情况 0.9.0.0版本之前默认保存在zookeeper当中 ，0.9.0.0版本之后保存在broker对应的topic当中
 
@@ -99,7 +97,7 @@ basic_log_k8s   1          127509          333334          205825          logst
 basic_log_k8s   0          127317          333333          206016          logstash-0-2bd85bcc-282e-41a0-a9c3-6d0dbefd547f /192.168.0.40   logstash-0
 ```
 
-## 11、修改指定消费者分组对应topic的offset
+## 11. 修改指定消费者分组对应topic的offset
 第一种情况offset信息保存在topic中
 
 ```bash
@@ -120,7 +118,7 @@ $ bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 --group test-co
 $ bin/kafka-consumer-groups.sh --zookeeper kafka_zk1:2181 --group test-consumer-group --topic test --execute --reset-offsets --to-offset 10000
 ```
 
-## 12、修改topic副本因子数
+## 12. 修改topic副本因子数
 
 官方文档：https://kafka.apache.org/21/documentation.html#replication
 
@@ -187,7 +185,7 @@ Topic:iteblog  PartitionCount:2  ReplicationFactor:3 Configs:
   Topic: test Partition: 1  Leader: 3 Replicas: 3,2,1 Isr: 3,2,1
 ```
 
-## 13、均衡Topic分区到新增Broker节点
+## 13. 均衡Topic分区到新增Broker节点
 
 重新分配官方文档地址：http://kafka.apache.org/documentation/#basic_ops_cluster_expansion
 
@@ -219,7 +217,7 @@ kafka-reassign-partitions.sh --zookeeper localhost:2181 --topics-to-move-json-fi
 ```json
 {"version":1,
   "partitions":[{"topic":"foo1","partition":0,"replicas":[5,6]},
- 		{"topic":"foo1","partition":1,"replicas":[5,6]},
+    {"topic":"foo1","partition":1,"replicas":[5,6]},
     {"topic":"foo1","partition":2,"replicas":[5,6]},
     {"topic":"foo2","partition":0,"replicas":[5,6]},
     {"topic":"foo2","partition":1,"replicas":[5,6]},
@@ -249,19 +247,27 @@ kafka-reassign-partitions.sh --zookeeper localhost:2181 --reassignment-json-file
 3. 新增了broker节点，如果有主题的分区在新增加的节点上，生产和消费的客户端都应该在hosts配置文件中增加新增的broker节点，否则无法生产消费，但是也不报错。
 4. 可以不需要第一步和第二步，自己手动新建分配的json文件
 
+## 14. 查询Topic不可用的分区
+
+```bash
+kafka-topics.sh --describe --unavailable-partitions --zookeeper  localhost:2181
+```
+
 # 二、其他
 
-## 1、自带测试生产者
+## 1. 自带测试生产者
+
 ```bash
 kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic Test
 ```
 
-## 2、自带测试消费者
+## 2. 自带测试消费者
+
 ```json
 kafka-console-consumer.sh --zookeeper 127.0.0.1:2181 --from-beginning --topic Test
 ```
 
-## 3、自带性能测试
+## 3. 自带性能测试
 
 位于bin/kafka-producer-perf-test.sh.主要参数有以下:
 
@@ -272,11 +278,9 @@ kafka-console-consumer.sh --zookeeper 127.0.0.1:2181 --from-beginning --topic Te
 - threads 生产者使用几个线程同时发送
   例如
 
-```
+```bash
 kafka-producer-perf-test.sh --messages 100000 --message-size 1000 --batch-size 10000 --topics test --threads 4 --broker-list 127.0.0.1:9092
 
 start.time, end.time, compression, message.size, batch.size, total.data.sent.in.MB, MB.sec, total.data.sent.in.nMsg, nMsg.sec
 2015-10-15 18:56:27:542, 2015-10-15 18:56:30:880, 0, 1000, 10000, 95.37, 28.5702, 100000, 29958.0587
 ```
-
-
