@@ -95,13 +95,8 @@
     * [数据备份恢复](origin/nexus-数据的备份恢复.md)
     * [API](/origin/nexus-api.md)
     * [Jenkins相关插件](origin/nexus-使用jenkins插件上传CI流程制品到Nexus仓库.md)
-* SonarQube静态代码扫描分析
-    * [简介](origin/SonarQube静态代码扫描分析简介.md)
-    * 配置
-        * [配置SMTP服务](origin/sonarqube-配置SMTP邮箱.md)
-    * [SonarScanner](origin/sonarqube-SonarScanner简介安装配置.md)
-    * 使用案例
-        * [SonarScanner-将扫描结果以comment的形式回写到gitlab](origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md)
+* [SonarQube静态代码扫描分析](origin/SonarQube静态代码扫描分析简介.md)
+    * [SonarScanner-将扫描结果以comment的形式回写到gitlab](origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md)
 * LDAP
     * 安装
     * 客户端

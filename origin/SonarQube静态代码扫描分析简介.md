@@ -40,9 +40,9 @@
 ![](../assets/SonarQube静态代码扫描分析简介-体系架构.png)
 
 - `Project`：是需要被分析的源码
-- `SonarQube Scanner`：用于执行代码分析的工具，在Project的根目录下执行，我们还需要在Project下进行SonarQube配置，其中指定了工程的相关信息，还指定了SonarQube Server的地址，SonarQube Scanner分析完毕之后，会将结果上报到该Server。
-
-- `SonarQube Server`：显示分析结果的Web Server，在SonarQube Scanner第一次将一个工程的分析结果上报给SonarQube Server后，Server上会自动创建一个工程显示分析的结果，可以在Server上设置代码质量管理相关的各种配置，如设置代码检查规则（Rule）和质量门限（Quality Gate）等。包含三个子进程（web服务（界面管理）、搜索服务、计算引擎服务（写入数据库））
+- `SonarQube Scanner`：用于执行代码分析的工具，SonarQube Scanner分析完毕之后，会将结果上报到指定的SonarQube Server。
+- `SonarQube Server`：显示分析结果的Web Server，在SonarQube Scanner第一次将一个工程的分析结果上报给SonarQube Server后，Server上会自动创建一个工程显示分析的结果，可以在Server上设置代码质量管理相关的各种配置，如设置代码检查规则（Rule）和质量门限（Quality Gate）等。SonarQube Server包含三个子进程（web服务（界面管理）、搜索服务、计算引擎服务（写入数据库））
+- `SonarQube Database`：保存SonarQube服务端的权限配置，插件配置，项目快照，项目视图等
 
 
 
@@ -68,14 +68,187 @@
 
 **SonarQube**：
 
-# 四、在SonarQube上分析管理代码扫描的结果
+# 四、SonarQube服务端配置
 
-## 1、配置代码规则插件
+## 1. 配置代码规则插件
 
-## 2、管理扫描结果
+## 2. 管理扫描结果
 
-## 3、质量门禁
+## 3. 质量门禁
 
+
+
+# 五、扫描器SonarScanner
+
+当SonaQube服务端搭建配置好了，Sonar提供了Sonar Scanner扫描器的各种插件供你选择来扫描你的源代码。
+
+- **SonarScanner**：下载二进制客户端安装包进行扫描
+- **SonarScanner for Maven**：以Maven插件的形式扫描代码
+- **SonarScanner for Jenkins**：以Jenkins插件的形式配置扫描代码
+- **SonarScanner for Gradle**：以Gradle插件的形式配置扫描代码
+- **SonarScanner for Ant**：以Gradle插件的形式配置扫描代码
+- **SonarScanner for Azure DevOps**：以Gradle插件的形式配置扫描代码
+
+## SonarScanner配置参数生效优先级
+
+1. **UI界面中的全局参数配置**
+2. **项目UI界面中的参数配置**
+3. **项目分析客户端全局配置文件中的参数**
+   - 例如sonar scanner的全局配置文件/opt/sonarscanner/conf/sonar.properties中的参数
+   - 例如sonar scanner Maven插件在settings.xml中配置的
+4. **sonar-scanner命令行中配置的以“-D”开头的参数**
+
+
+
+## SonarScanner项目扫描参数
+
+[官方文档说明](https://docs.sonarqube.org/latest/analysis/analysis-parameters/)
+
+| 参数                            | 描述                                                         | 默认值                                                       | 是否必要 |
+| ------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
+| sonar.host.url                  | SonarQube服务端地址                                          | http://localhost:9000                                        | 是       |
+| sonar.projectKey                | 项目的唯一标识。以`字母`,`-`,`_`,`:`,至少有一个非数字        | 对于Maven插件的话,默认值是 `<groupId>:<artifactId>`<br/>其他形式插件不提供默认值 | 是       |
+| sonar.projectName               | 在SonarQube Web UI上面显示的项目名                           | 对于Maven插件形式,默认值是`<name>`<br/>其他形式插件不提供默认值 | 否       |
+| sonar.projectVersion            | 项目的扫描版本                                               | 对于Maven插件形式,默认值是`<version>`<br/>其他形式插件不提供默认值 | 否       |
+| sonar.login                     | 发送扫描结果到SonarQube时的认证方式之一。值类型可为`用户生成的认证Token`，`用户名` |                                                              | 是       |
+| sonar.password                  | 当`sonar.login`值类型为认证Token时，则不填                   |                                                              | 是       |
+| sonar.ws.timeout                | 等待服务端响应的最大秒数                                     | 60                                                           | 否       |
+| sonar.projectDescription        | 项目描述。用于在项目Web UI中显示项目的描述                   | 对于Maven插件形式,默认值是`<description>`                    | 否       |
+| sonar.links.homepage            | 项目地址。用于在项目Web UI中显示项目访问链接                 | 对于Maven插件形式,默认值是`<url>`                            | 否       |
+| sonar.links.issue               | 项目代码Issue管理地址。用于在项目Web UI中显示Issue管理链接   | 对于Maven插件形式,默认值是`<issueManagement><url>`           | 否       |
+| sonar.links.scm                 | 项目源代码仓库地址。用于在项目Web UI中显示源代码仓库链接     | `<scm><url>` for Maven projects                              | 否       |
+| sonar.sources                   | 以逗号分割的main源代码文件夹路径                             |                                                              | 否       |
+| sonar.tests                     | 以逗号分割的测试源代码文件夹路径                             |                                                              | 否       |
+| sonar.sourceEncoding            | 源代码文件的编码格式，例如：`UTF-8`, `MacRoman`, `Shift_JIS` | 系统的编码格式                                               | 否       |
+| sonar.externalIssuesReportPaths |                                                              |                                                              | 否       |
+| sonar.projectDate               | 格式： `yyyy-MM-dd`, 例如: 2010-12-01                        | Current date                                                 | 否       |
+| sonar.projectBaseDir            |                                                              |                                                              | 否       |
+| sonar.working.directory         |                                                              | ~/.scannerwork                                               | 否       |
+| sonar.scm.provider              |                                                              |                                                              | 否       |
+| sonar.scm.forceReloadAll        |                                                              |                                                              | 否       |
+| sonar.scm.exclusions.disabled   |                                                              |                                                              | 否       |
+| sonar.scm.revision              |                                                              |                                                              | 否       |
+| sonar.buildString               |                                                              | 100                                                          | 否       |
+| sonar.analysis.[yourKey]        |                                                              | 10                                                           | 否       |
+| sonar.log.level                 |                                                              | INFO                                                         | 否       |
+| sonar.verbose                   |                                                              | false                                                        | 否       |
+| sonar.showProfiling             |                                                              | false                                                        | 否       |
+| sonar.scanner.dumpToFile        |                                                              |                                                              | 否       |
+| sonar.scanner.metadataFilePath  |                                                              | 等于sonar.working.directory的值                              | 否       |
+
+## 1. SonarScanner
+
+下载地址：https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/
+
+### 配置文件
+
+- 全局配置文件路径：`$安装目录/conf/sonar-scanner.properties`
+- 项目配置文件路径：`$项目根目录/sonar-project.properties`
+
+### CLI命令参数
+
+```
+$ sonar-scanner
+usage: sonar-scanner [options]
+
+参数:
+ -D,--define <arg>     Define property
+ -h,--help             Display help information
+ -v,--version          Display version information
+ -X,--debug            Produce execution debug output
+ 
+If you need more debug information you can add one of the following to your command line: -X, --verbose, or -Dsonar.verbose=true.
+```
+
+## 2. SonarScanner for Maven
+
+官方文档：https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/
+
+**注意：**
+
+- 从maven-sonar-plugin 3.4.0.905开始，不再支持SonarQube <5.6。如果使用5.6之前的SonarQube实例，则应该使用maven-sonar-plugin 3.3.0.603。
+
+- 从maven-sonar-plugin 3.1开始，不再支持Maven <3.0。如果在3.0之前使用Maven，你应该使用maven-sonar-plugin 3.0.2。
+
+**配置Maven的setting.xml**
+
+```xml
+
+<settings>
+  <!-- ....上文省略.... -->
+  <pluginGroups>
+      <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+  </pluginGroups>
+  <profiles>
+      <profile>
+          <id>sonar</id>
+          <activation>
+              <activeByDefault>true</activeByDefault>
+          </activation>
+          <properties>
+              <!-- 配置SonarQube服务端地址 -->
+              <sonar.host.url>http://myserver:9000</sonar.host.url>
+              <!-- 配置SonarQube服务端认证Token -->
+              <sonar.login>f6eedc3d8bfa850a15f2ffcd</sonar.login>
+          </properties>
+      </profile>
+   </profiles>
+   <!-- ....下文省略.... -->
+</settings>
+```
+**在项目pom.xml中配置项目扫描参数**
+
+```xml
+<project>
+....上文省略....
+
+<groupId>com.curiosuer</groupId>
+<artifactId>SpringBoot2</artifactId>
+<version>0.0.0</version>
+<description>用于演示Spring Boot 2的一些功能</description>
+
+<name>Curiouser-Demo-SpringBoot2</name>
+<url>http://springboot2-demo.apps.okd311.curiouser.com/</url>
+
+<scm>
+  <url>ssh://git@gitlab.apps.okd311.curiouser.com:30022/Demo/springboot2.git</url>
+</scm>
+<issueManagement>
+  <url>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/issues</url>
+</issueManagement>
+<ciManagement>
+  <url>https://jenkins.apps.okd311.curiouser.com/view/Deploy-To-Kubernetes/job/Demo-springboot2-pipeline/</url>
+</ciManagement>
+
+<properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  <java.version>1.8</java.version>
+  <sonar.sources>src/main</sonar.sources>
+  <sonar.tests>src/test</sonar.tests>
+</properties>
+....下文省略....
+</project>
+```
+
+**执行扫描命令**
+
+```bash
+mvn test sonar:sonar -Dspring.profiles.active=local
+```
+
+**默认参数**
+
+- `sonar.projectKey` ==> POM中的`<groupId>:<artifactId>`
+- `sonar.projectName`  ==> POM中的``<name>``
+- `sonar.projectVersion` ==> POM中的`<version>`
+- `sonar.projectDescription` ==> POM中的`<description>`
+- `sonar.links.homepage` ==> POM中的`<url>`
+- `sonar.links.ci` ==> POM中的`<ciManagement><url>`
+- `sonar.links.issue` ==> POM中的`<issueManagement><url>`
+- `sonar.links.scm` ==> POM中的`<scm><url>`
+
+# 六、解析扫描结果
 
 
 

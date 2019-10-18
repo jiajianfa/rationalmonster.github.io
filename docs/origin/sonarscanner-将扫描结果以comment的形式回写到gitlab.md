@@ -9,13 +9,13 @@ sonarqube可以安装插件gitlab,让sonarscanner扫描完代码,将结果以git
 - **sonarqube**: 7.3 (build 15553)
 - **sonarscanner**: 3.3.0.1492
 - **sonarqube gitlab插件**: 4.0.0
-    
+  
     ![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-1.png)
 - **gitlab**: 10.8.4 ce
 - **jenkins**:  2.150.2
- 
+
 Jenkins CI流水线是在使用Jenkins Slave(Kubernetes插件动态生成Slave POD)节点中来运行的,所以Sonarscanner,Maven等工具都是在Kubernetes Jenkins Slave镜像中已经安装好的.
- 
+
 # 二、操作
 
 ## 1、安装sonar-gitlab-plugin插件
@@ -82,7 +82,7 @@ stage("代码扫描"){
 ![](../assets/sonarscanner-将扫描结果以comment的形式回写到gitlab-7.png)
 
 
-# 四、Soanarscanner参数详解
+# 四、Soanarscanner Gitlab插件参数详解
 
 | Variable                                 | Comment                                                      | Type                              | Version  |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- | -------- |
@@ -203,7 +203,7 @@ Caused by: org.apache.maven.plugin.MojoExecutionException:com.talanlabs.sonar.pl
 
 已经修改编译好的插件Jar包：https://github.com/gabrie-allaigre/sonar-gitlab-plugin/releases/download/4.1.0-SNAPSHOT/sonar-gitlab-plugin-4.1.0-SNAPSHOT.jar
 
-# 参考链接：
+# 参考链接
 
 1. https://gitlab.com/gitlab-org/gitlab-ce/issues/28342
 2. https://www.cnblogs.com/amyzhu/p/8988519.html
