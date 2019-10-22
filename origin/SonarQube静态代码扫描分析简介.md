@@ -122,19 +122,19 @@
 | sonar.sourceEncoding            | 源代码文件的编码格式，例如：`UTF-8`, `MacRoman`, `Shift_JIS` | 系统的编码格式                                               | 否       |
 | sonar.externalIssuesReportPaths |                                                              |                                                              | 否       |
 | sonar.projectDate               | 格式： `yyyy-MM-dd`, 例如: 2010-12-01                        | Current date                                                 | 否       |
-| sonar.projectBaseDir            |                                                              |                                                              | 否       |
-| sonar.working.directory         |                                                              | ~/.scannerwork                                               | 否       |
+| sonar.projectBaseDir            | 针对多模块项目时，指定要扫描源代码的目录路径                 |                                                              | 否       |
+| sonar.working.directory         | 指定Sonarscanner的工作空间。必须是不存在的，相对路径。针对MSBuild的插件，此参数不兼容 | ~/.scannerwork                                               | 否       |
 | sonar.scm.provider              |                                                              |                                                              | 否       |
 | sonar.scm.forceReloadAll        |                                                              |                                                              | 否       |
 | sonar.scm.exclusions.disabled   |                                                              |                                                              | 否       |
 | sonar.scm.revision              |                                                              |                                                              | 否       |
 | sonar.buildString               |                                                              | 100                                                          | 否       |
 | sonar.analysis.[yourKey]        |                                                              | 10                                                           | 否       |
-| sonar.log.level                 |                                                              | INFO                                                         | 否       |
-| sonar.verbose                   |                                                              | false                                                        | 否       |
-| sonar.showProfiling             |                                                              | false                                                        | 否       |
-| sonar.scanner.dumpToFile        |                                                              |                                                              | 否       |
-| sonar.scanner.metadataFilePath  |                                                              | 等于sonar.working.directory的值                              | 否       |
+| sonar.log.level                 | 控制Sonarscanner输出日志的级别                               | INFO                                                         | 否       |
+| sonar.verbose                   | 输出更多Sonarscanner客户端和Sonarqube服务的扫描信息          | false                                                        | 否       |
+| sonar.showProfiling             |                                                              |                                                              | 否       |
+| sonar.scanner.dumpToFile        | 输出扫描期间所有的配置参数到文件中                           |                                                              | 否       |
+| sonar.scanner.metadataFilePath  | 指定report-task.txt文件的生成路径                            | 等于sonar.working.directory的值                              | 否       |
 
 ## 1. SonarScanner
 
@@ -203,29 +203,40 @@ If you need more debug information you can add one of the following to your comm
 ....上文省略....
 
 <groupId>com.curiosuer</groupId>
-<artifactId>SpringBoot2</artifactId>
-<version>0.0.0</version>
-<description>用于演示Spring Boot 2的一些功能</description>
+<artifactId>springboot2</artifactId>
+<version>0.0.1</version>
 
+
+<!-- 用于在SonarQube服务端Web UI界面显示的一些链接 -->
+<description>用于演示Spring Boot2的一些功能</description>
 <name>Curiouser-Demo-SpringBoot2</name>
-<url>http://springboot2-demo.apps.okd311.curiouser.com/</url>
+<url>http://springboot2-demo.apps.okd311.curiouser.com/swagger-ui.html</url>
 
 <scm>
-  <url>ssh://git@gitlab.apps.okd311.curiouser.com:30022/Demo/springboot2.git</url>
+    <url>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/commit/${GIT_COMMIT}</url>
 </scm>
+    
 <issueManagement>
-  <url>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/issues</url>
+    <url>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/issues</url>
 </issueManagement>
+    
 <ciManagement>
-  <url>https://jenkins.apps.okd311.curiouser.com/view/Deploy-To-Kubernetes/job/Demo-springboot2-pipeline/</url>
+    <url>https://jenkins.apps.okd311.curiouser.com/job/Demo-springboot2-Pipeline/${BUILD_NUMBER}</url>
 </ciManagement>
 
 <properties>
-  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  <java.version>1.8</java.version>
-  <sonar.sources>src/main</sonar.sources>
-  <sonar.tests>src/test</sonar.tests>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <!--  使用配置SonarScanner Maven插件  -->
+        <sonar.sources>src/main</sonar.sources>
+        <sonar.tests>src/test</sonar.tests>
+        <sonar.gitlab.project_id>1</sonar.gitlab.project_id>
+        <sonar.gitlab.commit_sha>${GIT_COMMIT}</sonar.gitlab.commit_sha>
+        <sonar.gitlab.ref_name>${GIT_BRANCH}</sonar.gitlab.ref_name>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.projectVersion>${GIT_COMMIT}</sonar.projectVersion>
 </properties>
 ....下文省略....
 </project>

@@ -4305,13 +4305,13 @@
 </tr>
 <tr>
 <td>sonar.projectBaseDir</td>
-<td></td>
+<td>&#x9488;&#x5BF9;&#x591A;&#x6A21;&#x5757;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x6307;&#x5B9A;&#x8981;&#x626B;&#x63CF;&#x6E90;&#x4EE3;&#x7801;&#x7684;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;</td>
 <td></td>
 <td>&#x5426;</td>
 </tr>
 <tr>
 <td>sonar.working.directory</td>
-<td></td>
+<td>&#x6307;&#x5B9A;Sonarscanner&#x7684;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x3002;&#x5FC5;&#x987B;&#x662F;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#xFF0C;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;&#x9488;&#x5BF9;MSBuild&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x6B64;&#x53C2;&#x6570;&#x4E0D;&#x517C;&#x5BB9;</td>
 <td>~/.scannerwork</td>
 <td>&#x5426;</td>
 </tr>
@@ -4353,31 +4353,31 @@
 </tr>
 <tr>
 <td>sonar.log.level</td>
-<td></td>
+<td>&#x63A7;&#x5236;Sonarscanner&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#x7684;&#x7EA7;&#x522B;</td>
 <td>INFO</td>
 <td>&#x5426;</td>
 </tr>
 <tr>
 <td>sonar.verbose</td>
-<td></td>
+<td>&#x8F93;&#x51FA;&#x66F4;&#x591A;Sonarscanner&#x5BA2;&#x6237;&#x7AEF;&#x548C;Sonarqube&#x670D;&#x52A1;&#x7684;&#x626B;&#x63CF;&#x4FE1;&#x606F;</td>
 <td>false</td>
 <td>&#x5426;</td>
 </tr>
 <tr>
 <td>sonar.showProfiling</td>
 <td></td>
-<td>false</td>
+<td></td>
 <td>&#x5426;</td>
 </tr>
 <tr>
 <td>sonar.scanner.dumpToFile</td>
-<td></td>
+<td>&#x8F93;&#x51FA;&#x626B;&#x63CF;&#x671F;&#x95F4;&#x6240;&#x6709;&#x7684;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x5230;&#x6587;&#x4EF6;&#x4E2D;</td>
 <td></td>
 <td>&#x5426;</td>
 </tr>
 <tr>
 <td>sonar.scanner.metadataFilePath</td>
-<td></td>
+<td>&#x6307;&#x5B9A;report-task.txt&#x6587;&#x4EF6;&#x7684;&#x751F;&#x6210;&#x8DEF;&#x5F84;</td>
 <td>&#x7B49;&#x4E8E;sonar.working.directory&#x7684;&#x503C;</td>
 <td>&#x5426;</td>
 </tr>
@@ -4439,29 +4439,40 @@ If you need more debug information you can add one of the following to your comm
 ....&#x4E0A;&#x6587;&#x7701;&#x7565;....
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.curiosuer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>SpringBoot2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>0.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>&#x7528;&#x4E8E;&#x6F14;&#x793A;Spring Boot 2&#x7684;&#x4E00;&#x4E9B;&#x529F;&#x80FD;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>springboot2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>0.0.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
 
+
+<span class="token comment">&lt;!-- &#x7528;&#x4E8E;&#x5728;SonarQube&#x670D;&#x52A1;&#x7AEF;Web UI&#x754C;&#x9762;&#x663E;&#x793A;&#x7684;&#x4E00;&#x4E9B;&#x94FE;&#x63A5; --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>&#x7528;&#x4E8E;&#x6F14;&#x793A;Spring Boot2&#x7684;&#x4E00;&#x4E9B;&#x529F;&#x80FD;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>Curiouser-Demo-SpringBoot2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>http://springboot2-demo.apps.okd311.curiouser.com/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>http://springboot2-demo.apps.okd311.curiouser.com/swagger-ui.html<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scm</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>ssh://git@gitlab.apps.okd311.curiouser.com:30022/Demo/springboot2.git<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/commit/${GIT_COMMIT}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scm</span><span class="token punctuation">&gt;</span></span>
+
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>issueManagement</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/issues<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/issues<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>issueManagement</span><span class="token punctuation">&gt;</span></span>
+
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ciManagement</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>https://jenkins.apps.okd311.curiouser.com/view/Deploy-To-Kubernetes/job/Demo-springboot2-pipeline/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">&gt;</span></span>https://jenkins.apps.okd311.curiouser.com/job/Demo-springboot2-Pipeline/${BUILD_NUMBER}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ciManagement</span><span class="token punctuation">&gt;</span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.sources</span><span class="token punctuation">&gt;</span></span>src/main<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.sources</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.tests</span><span class="token punctuation">&gt;</span></span>src/test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.tests</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!--  &#x4F7F;&#x7528;&#x914D;&#x7F6E;SonarScanner Maven&#x63D2;&#x4EF6;  --&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.sources</span><span class="token punctuation">&gt;</span></span>src/main<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.sources</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.tests</span><span class="token punctuation">&gt;</span></span>src/test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.tests</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.gitlab.project_id</span><span class="token punctuation">&gt;</span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.gitlab.project_id</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.gitlab.commit_sha</span><span class="token punctuation">&gt;</span></span>${GIT_COMMIT}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.gitlab.commit_sha</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.gitlab.ref_name</span><span class="token punctuation">&gt;</span></span>${GIT_BRANCH}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.gitlab.ref_name</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.java.coveragePlugin</span><span class="token punctuation">&gt;</span></span>jacoco<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.java.coveragePlugin</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.dynamicAnalysis</span><span class="token punctuation">&gt;</span></span>reuseReports<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.dynamicAnalysis</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sonar.projectVersion</span><span class="token punctuation">&gt;</span></span>${GIT_COMMIT}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sonar.projectVersion</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span>
 ....&#x4E0B;&#x6587;&#x7701;&#x7565;....
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
@@ -4536,7 +4547,7 @@ If you need more debug information you can add one of the following to your comm
 <li>&#x5783;&#x573E;&#x56DE;&#x6536;&#xFF1A;&#x68C0;&#x67E5;&#x53D8;&#x91CF;&#x53CA; JDBC &#x8D44;&#x6E90;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x9690;&#x60A3;</li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-10-18 18:22:31
+2019-10-22 14:28:10
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -4580,7 +4591,7 @@ If you need more debug information you can add one of the following to your comm
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"SonarQube静态代码扫描分析","level":"4.4","depth":1,"next":{"title":"SonarScanner-将扫描结果以comment的形式回写到gitlab","level":"4.4.1","depth":2,"path":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","ref":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","articles":[]},"previous":{"title":"Jenkins相关插件","level":"4.3.6","depth":2,"path":"origin/nexus-使用jenkins插件上传CI流程制品到Nexus仓库.md","ref":"origin/nexus-使用jenkins插件上传CI流程制品到Nexus仓库.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"/assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/SonarQube静态代码扫描分析简介.md","mtime":"2019-10-18T10:22:31.718Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-10-18T10:22:40.775Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"SonarQube静态代码扫描分析","level":"4.4","depth":1,"next":{"title":"SonarScanner-将扫描结果以comment的形式回写到gitlab","level":"4.4.1","depth":2,"path":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","ref":"origin/sonarscanner-将扫描结果以comment的形式回写到gitlab.md","articles":[]},"previous":{"title":"Jenkins相关插件","level":"4.3.6","depth":2,"path":"origin/nexus-使用jenkins插件上传CI流程制品到Nexus仓库.md","ref":"origin/nexus-使用jenkins插件上传CI流程制品到Nexus仓库.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"/assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/SonarQube静态代码扫描分析简介.md","mtime":"2019-10-22T06:28:10.275Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-10-22T10:38:03.395Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
