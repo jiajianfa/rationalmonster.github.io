@@ -67,6 +67,7 @@
 * Jenkins
     * 安装
     * 管理
+        * [Jenkins Shared Libraries](origin/jenkins-SharedLibraries.md)
     * Pipeline
         * [声明式Declarative语法](origin/jenkins-声明式Declarative-pipeline语法.md)
     * 插件
