@@ -4136,24 +4136,85 @@
 						
 						<h1 id="jenkins-pipeline&#x5171;&#x4EAB;&#x5E93;shared-libraries">Jenkins Pipeline&#x5171;&#x4EAB;&#x5E93;Shared Libraries</h1>
 <h1 id="&#x4E00;&#x3001;&#x7B80;&#x4ECB;">&#x4E00;&#x3001;&#x7B80;&#x4ECB;</h1>
-<p>&#x968F;&#x7740;Job&#x7684;&#x589E;&#x591A;&#x548C;pipeline&#x7684;&#x529F;&#x80FD;&#x8D8A;&#x6765;&#x8D8A;&#x590D;&#x6742;&#xFF0C;Pipeline&#x4EE3;&#x7801;&#x5197;&#x4F59;&#x5EA6;&#x9AD8;&#x3002;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E9B;&#x516C;&#x5171;&#x7684;pipeline&#x62BD;&#x8C61;&#x505A;&#x6210;&#x6A21;&#x5757;&#x4EE3;&#x7801;&#xFF0C;&#x5728;&#x5404;&#x79CD;&#x9879;&#x76EE;pipeline&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x6838;&#x5FC3;&#x5B9E;&#x73B0;&#xFF0C;&#x4EE5;&#x51CF;&#x5C11;&#x5197;&#x4F59;&#x5E76;&#x4FDD;&#x8BC1;&#x6240;&#x6709;job&#x5728;&#x6784;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8C03;&#x7528;&#x6700;&#x65B0;&#x7684;&#x5171;&#x4EAB;&#x5E93;&#x4EE3;&#x7801;&#x3002;&#x8FD9;&#x65F6;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x5230;pipline&#x7684;&#x5171;&#x4EAB;&#x5E93;Shared Libraries&#x529F;&#x80FD;</p>
-<h1 id="&#x4E8C;&#x3001;&#x7F16;&#x5199;&#x89C4;&#x5219;">&#x4E8C;&#x3001;&#x7F16;&#x5199;&#x89C4;&#x5219;</h1>
+<p>&#x968F;&#x7740;Job&#x7684;&#x589E;&#x591A;&#x548C;pipeline&#x7684;&#x529F;&#x80FD;&#x8D8A;&#x6765;&#x8D8A;&#x590D;&#x6742;&#xFF0C;Pipeline&#x4EE3;&#x7801;&#x5197;&#x4F59;&#x5EA6;&#x9AD8;&#x3002;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E9B;&#x516C;&#x5171;&#x7684;pipeline&#x62BD;&#x8C61;&#x505A;&#x6210;&#x6A21;&#x5757;&#x4EE3;&#x7801;&#xFF0C;&#x5728;&#x5404;&#x79CD;&#x9879;&#x76EE;pipeline&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x6838;&#x5FC3;&#x5B9E;&#x73B0;&#xFF0C;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x653E;&#x5230;SVM&#x4E2D;&#x8FDB;&#x884C;&#x7248;&#x672C;&#x63A7;&#x5236;&#x3002;&#x4EE5;&#x51CF;&#x5C11;&#x5197;&#x4F59;&#x5E76;&#x4FDD;&#x8BC1;&#x6240;&#x6709;job&#x5728;&#x6784;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8C03;&#x7528;&#x6700;&#x65B0;&#x7684;&#x5171;&#x4EAB;&#x5E93;&#x4EE3;&#x7801;&#x3002;&#x8FD9;&#x65F6;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x5230;pipline&#x7684;&#x5171;&#x4EAB;&#x5E93;Shared Libraries&#x529F;&#x80FD;&#x3002;</p>
+<h1 id="&#x4E8C;&#x3001;&#x5171;&#x4EAB;&#x5E93;&#x7684;&#x7F16;&#x5199;&#x89C4;&#x5219;">&#x4E8C;&#x3001;&#x5171;&#x4EAB;&#x5E93;&#x7684;&#x7F16;&#x5199;&#x89C4;&#x5219;</h1>
 <ul>
 <li>Shared Library&#x901A;&#x8FC7;&#x5E93;&#x540D;&#x79F0;&#x3001;&#x4EE3;&#x7801;&#x68C0;&#x7D22;&#x65B9;&#x6CD5;&#xFF08;&#x5982;SCM&#xFF09;&#x3001;&#x4EE3;&#x7801;&#x7248;&#x672C;&#x4E09;&#x4E2A;&#x8981;&#x7D20;&#x8FDB;&#x884C;&#x5B9A;&#x4E49;</li>
 <li>&#x5E93;&#x540D;&#x79F0;&#x5C3D;&#x91CF;&#x7B80;&#x6D01;</li>
 <li>&#x6BCF;&#x4E2A;<em>.groovy&#x6587;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x540D;&#x79F0;&#x5E94;&#x4F7F;&#x7528;&#x9A7C;&#x5CF0;&#xFF08;camelCased&#xFF09;&#x6A21;&#x5F0F;&#xFF0C;</em>.txt&#xFF08;&#x5982;&#x679C;&#x5B58;&#x5728;&#xFF09;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x683C;&#x5F0F;&#x5316;&#x5904;&#x7406;&#x7684;&#x6587;&#x6863;&#x3002;</li>
 </ul>
-<pre class="language-"><code class="lang-json">(root)
-jenkins-shared-library
+<pre class="language-"><code class="lang-json">jenkins-shared-library(root)
 |____vars
-|____src
+|____src               # src &#x76EE;&#x5F55;&#x662F;&#x6807;&#x51C6;&#x7684;Java&#x6E90;&#x7801;&#x7ED3;&#x6784;&#xFF0C;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x7C7B;&#x88AB;&#x79F0;&#x4E3A;&#x7C7B;&#x5E93;(Library class)
+                       #&#x800C;@Library(&apos;global-shared-library@master&apos;) &#x5C31;&#x662F;&#x4E00;&#x6B21;&#x6027;&#x9759;&#x6001;&#x52A0;&#x8F7D;src&#x76EE;&#x5F55;&#x4E0B;&#x6240;&#x6709;&#x4EE3;&#x7801;&#x5230;classpath&#x4E2D;
 |____resources
 </code></pre>
-<p>&#x5168;&#x5C40; Shared Library&#x7684;&#x65B9;&#x5F0F;,&#x901A;&#x8FC7;Manage Jenkins &#xBB; Configure System &#xBB; Global Pipeline Libraries &#x7684;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5171;&#x4EAB;&#x5E93;</p>
-<p>library &apos;my-shared-library@master&apos;</p>
-<p>library &quot;my-shared-library@$BRANCH_NAME&quot; </p>
+<h2 id="&#x793A;&#x4F8B;&#xFF1A;">&#x793A;&#x4F8B;&#xFF1A;</h2>
+<h1 id="&#x4E09;&#x3001;jenkins&#x914D;&#x7F6E;&#x5168;&#x5C40;&#x7684;&#x5171;&#x4EAB;&#x5E93;">&#x4E09;&#x3001;Jenkins&#x914D;&#x7F6E;&#x5168;&#x5C40;&#x7684;&#x5171;&#x4EAB;&#x5E93;</h1>
+<p>&#x53EF;&#x5728;Jenkins&#x4E2D;&#x7684;<strong><code>Manage Jenkins</code></strong>  &#x2013;&gt;  <strong><code>Configure System</code></strong>&#x3000;&#x2013;&gt; <strong><code>Global Pipeline Libraries</code></strong> &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x5171;&#x4EAB;&#x5E93;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x6784;&#x5EFA;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4F4D;&#x7F6E;&#x4F7F;&#x7528;<code>library</code> step&#x52A8;&#x4F5C;&#x52A8;&#x6001;&#x5730;&#x914D;&#x7F6E;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;&#xFF0C;&#x8BE6;&#x89C1;<a href="# 2. &#x52A8;&#x6001;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;">&#x52A8;&#x6001;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;</a></p>
+<p><img src="../assets/jenkins-sharelibiaries-1.png" alt="1571906388403"></p>
+<h1 id="&#x56DB;&#x3001;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;">&#x56DB;&#x3001;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;</h1>
+<p><code>@Library(&apos;my-shared-library-1@$Branch/Tag&apos;,&apos;my-shared-library-1@$Branch/Tag&apos;) _</code></p>
+<h2 id="1-&#x5F15;&#x7528;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x7684;&#x3001;&#x591A;&#x4E2A;&#x3001;&#x6307;&#x5B9A;&#x5206;&#x652F;tag&#x7684;&#x5168;&#x5C40;&#x5171;&#x4EAB;&#x5E93;">1. &#x5F15;&#x7528;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x7684;&#x3001;&#x591A;&#x4E2A;&#x3001;&#x6307;&#x5B9A;&#x5206;&#x652F;/tag&#x7684;&#x5168;&#x5C40;&#x5171;&#x4EAB;&#x5E93;</h2>
+<pre class="language-"><code class="lang-groovy"><span class="token shebang comment">#!groovy</span>
+<span class="token comment">// &#x5F15;&#x7528;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x7684;&#x5171;&#x4EAB;&#x5E93;</span>
+<span class="token annotation punctuation">@Library</span><span class="token punctuation">(</span><span class="token string">&apos;demo-shared-library&apos;</span><span class="token punctuation">)</span> <span class="token number">_</span>
+
+<span class="token comment">// &#x5F15;&#x7528;&#x6307;&#x5B9A;&#x5206;&#x652F;&#x3001;tag&#x7684;&#x5171;&#x4EAB;&#x5E93;&#x4EE3;&#x7801;</span>
+<span class="token annotation punctuation">@Library</span><span class="token punctuation">(</span><span class="token string">&apos;demo-shared-library@1.0&apos;</span><span class="token punctuation">)</span> <span class="token number">_</span>
+
+<span class="token comment">// &#x5F15;&#x7528;&#x591A;&#x4E2A;&#x6307;&#x5B9A;&#x5206;&#x652F;tag&#x7684;&#x5171;&#x4EAB;&#x5E93;</span>
+<span class="token annotation punctuation">@Library</span><span class="token punctuation">(</span><span class="token string">&apos;my-shared-library-1@$Branch/Tag&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;my-shared-library-1@$Branch/Tag&apos;</span><span class="token punctuation">)</span> <span class="token number">_</span>
+</code></pre>
+<h2 id="2-&#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;">2. &#x52A8;&#x6001;&#x914D;&#x7F6E;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;</h2>
+<p>2.7&#x7248;&#x672C;&#x540E;&#x7684;<code>Shared Groovy Libraries</code>&#x63D2;&#x4EF6;&#xFF0C;&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;<code>library</code>&#x7684;<code>setp</code>,&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x5728;&#x6784;&#x5EFA;&#x8FC7;&#x7A0B;&#x4E2D;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;</p>
+<pre class="language-"><code class="lang-groovy"><span class="token shebang comment">#!groovy</span>
+
+library <span class="token string">&apos;my-shared-library@$BRANCH_NAME&apos;</span>
+
+library <span class="token string">&quot;my-shared-library@${params.LIB_VERSION}&quot;</span>
+<span class="token function">library</span><span class="token punctuation">(</span><span class="token string">&apos;my-shared-library&apos;</span><span class="token punctuation">)</span><span class="token operator">.</span>com<span class="token operator">.</span>mycorp<span class="token operator">.</span>pipeline<span class="token operator">.</span>Utils<span class="token operator">.</span><span class="token function">someStaticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+library identifier<span class="token punctuation">:</span> <span class="token string">&apos;custom-lib@master&apos;</span><span class="token punctuation">,</span> retriever<span class="token punctuation">:</span> <span class="token function">modernSCM</span><span class="token punctuation">(</span>
+  <span class="token punctuation">[</span><span class="token punctuation">$</span><span class="token keyword">class</span><span class="token punctuation">:</span> <span class="token string">&apos;GitSCMSource&apos;</span><span class="token punctuation">,</span>
+   remote<span class="token punctuation">:</span> <span class="token string">&apos;git@git.mycorp.com:my-jenkins-utils.git&apos;</span><span class="token punctuation">,</span>
+   credentialsId<span class="token punctuation">:</span> <span class="token string">&apos;my-private-key&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="3-&#x8C03;&#x7528;&#x7B2C;&#x4E09;&#x65B9;java&#x5E93;">3. &#x8C03;&#x7528;&#x7B2C;&#x4E09;&#x65B9;Java&#x5E93;</h2>
+<pre class="language-"><code class="lang-grooxy">@Grab(&apos;org.apache.commons:commons-math3:3.4.1&apos;)
+import org.apache.commons.math3.primes.Primes
+</code></pre>
+<p>&#x5F15;&#x7528;&#x5B8C;&#x7684;&#x7B2C;&#x4E09;&#x65B9;Java&#x5E93;&#x540E;&#x4F1A;&#x7F13;&#x5B58;&#x5728;Jenkins Master&#x8282;&#x70B9;&#x7684;<code>~/.groovy/grapes/</code> &#x76EE;&#x5F55;&#x4E0B;</p>
+<h1 id="&#x4E94;&#x3001;&#x8C03;&#x7528;&#x5171;&#x4EAB;&#x5E93;&#x4E2D;&#x7684;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;">&#x4E94;&#x3001;&#x8C03;&#x7528;&#x5171;&#x4EAB;&#x5E93;&#x4E2D;&#x7684;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;</h1>
+<ul>
+<li><p>&#x5728;&#x5171;&#x4EAB;&#x5E93;<code>&#x6839;&#x76EE;&#x5F55;/var</code>&#x8DEF;&#x5F84;&#x4E0B;&#x5B9A;&#x4E49;&#x7C7B;&#x4E2D;&#x7684;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</p>
+<p>```groovy</p>
+<h1 id="groovy">!groovy</h1>
+<p>@Library(&apos;demo-shared-library@1.0&apos;) _</p>
+</li>
+</ul>
+<pre class="language-"><code>
+- &#x5728;&#x5171;&#x4EAB;&#x5E93;`&#x6839;&#x76EE;&#x5F55;/src`&#x8DEF;&#x5F84;&#x4E0B;&#x5B9A;&#x4E49;&#x7C7B;&#x4E2D;&#x7684;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x8C03;&#x7528;
+
+  ```groovy
+  #!groovy
+  @Library(&apos;demo-shared-library@1.0&apos;) _
+  import com.mycorp.pipeline.somelib.UsefulClass
+
+  def z = new org.foo.Zot()
+  z.checkOutFrom(repo)
+</code></pre><ul>
+<li><p>&#x52A8;&#x6001;&#x6389;&#x7528;&#x5171;&#x4EAB;&#x5E93;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;</p>
+<p>```groovy</p>
+<h1 id="groovy">!groovy</h1>
+<p>@Library(&apos;demo-shared-library@1.0&apos;) _</p>
+</li>
+</ul>
+<p>  ```</p>
+<h1 id="&#x516D;&#x3001;&#x4F7F;&#x7528;jenkins-pipeline&#x751F;&#x6210;&#x5668;&#x751F;&#x6210;&#x52A8;&#x6001;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;&#x7684;&#x4EE3;&#x7801;">&#x516D;&#x3001;&#x4F7F;&#x7528;Jenkins Pipeline&#x751F;&#x6210;&#x5668;&#x751F;&#x6210;&#x52A8;&#x6001;&#x5F15;&#x7528;&#x5171;&#x4EAB;&#x5E93;&#x7684;&#x4EE3;&#x7801;</h1>
+<p><img src="../assets/jenkins-sharelibiaries-2.png" alt="1571909795787"> </p>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-10-23 18:30:49
+2019-10-24 18:10:32
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -4189,7 +4250,7 @@ jenkins-shared-library
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"Jenkins Shared Libraries","level":"4.1.2.1","depth":3,"next":{"title":"Pipeline","level":"4.1.3","depth":2,"ref":"","articles":[{"title":"声明式Declarative语法","level":"4.1.3.1","depth":3,"path":"origin/jenkins-声明式Declarative-pipeline语法.md","ref":"origin/jenkins-声明式Declarative-pipeline语法.md","articles":[]}]},"previous":{"title":"管理","level":"4.1.2","depth":2,"ref":"","articles":[{"title":"Jenkins Shared Libraries","level":"4.1.2.1","depth":3,"path":"origin/jenkins-SharedLibraries.md","ref":"origin/jenkins-SharedLibraries.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"/assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/jenkins-SharedLibraries.md","mtime":"2019-10-23T10:30:49.847Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-10-23T10:31:07.837Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"Jenkins Shared Libraries","level":"4.1.2.1","depth":3,"next":{"title":"Pipeline","level":"4.1.3","depth":2,"ref":"","articles":[{"title":"声明式Declarative语法","level":"4.1.3.1","depth":3,"path":"origin/jenkins-声明式Declarative-pipeline语法.md","ref":"origin/jenkins-声明式Declarative-pipeline语法.md","articles":[]}]},"previous":{"title":"管理","level":"4.1.2","depth":2,"ref":"","articles":[{"title":"Jenkins Shared Libraries","level":"4.1.2.1","depth":3,"path":"origin/jenkins-SharedLibraries.md","ref":"origin/jenkins-SharedLibraries.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"/assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"ORIGIN In Github"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/jenkins-SharedLibraries.md","mtime":"2019-10-24T10:10:32.148Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-10-24T10:11:34.822Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
