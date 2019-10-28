@@ -72,33 +72,32 @@
 
 ## 1. 配置代码规则插件
 
-## 2. 管理扫描结果
+## 2. 配置全局参数 
 
-## 3. 质量门禁
+## 3. 管理扫描结果
+
+## 4. 质量门禁
 
 
 
-# 五、扫描器SonarScanner
-
-当SonaQube服务端搭建配置好了，Sonar提供了Sonar Scanner扫描器的各种插件供你选择来扫描你的源代码。
-
-- **SonarScanner**：下载二进制客户端安装包进行扫描
-- **SonarScanner for Maven**：以Maven插件的形式扫描代码
-- **SonarScanner for Jenkins**：以Jenkins插件的形式配置扫描代码
-- **SonarScanner for Gradle**：以Gradle插件的形式配置扫描代码
-- **SonarScanner for Ant**：以Gradle插件的形式配置扫描代码
-- **SonarScanner for Azure DevOps**：以Gradle插件的形式配置扫描代码
-
-## SonarScanner配置参数生效优先级
+# 五、Sonar体系中的配置参数生效优先级
 
 1. **UI界面中的全局参数配置**
 2. **项目UI界面中的参数配置**
 3. **项目分析客户端全局配置文件中的参数**
    - 例如sonar scanner的全局配置文件/opt/sonarscanner/conf/sonar.properties中的参数
-   - 例如sonar scanner Maven插件在settings.xml中配置的
-4. **sonar-scanner命令行中配置的以“-D”开头的参数**
+   - 例如sonar scanner Maven插件在settings.xml中配置的参数
+4. **项目分析客户端命令行运行时配置的参数，例如sonar-scanner二进制命令行运行时以“-D”开头的配置参数**
 
+# 六、扫描器SonarScanner
 
+当SonarQube服务端搭建配置好了，Sonar提供了各种插件形式的Sonar Scanner扫描器供你选择来扫描你的源代码。
+
+- **SonarScanner**：下载二进制客户端进行扫描
+- **SonarScanner for Maven**：以Maven插件的形式扫描代码
+- **SonarScanner for Jenkins**：以Jenkins插件的形式配置扫描代码
+- **SonarScanner for Gradle**：以Gradle插件的形式配置扫描代码
+- **SonarScanner for Ant**：以Ant插件的形式配置扫描代码
 
 ## SonarScanner项目扫描参数
 
@@ -167,8 +166,11 @@ If you need more debug information you can add one of the following to your comm
 **注意：**
 
 - 从maven-sonar-plugin 3.4.0.905开始，不再支持SonarQube <5.6。如果使用5.6之前的SonarQube实例，则应该使用maven-sonar-plugin 3.3.0.603。
-
 - 从maven-sonar-plugin 3.1开始，不再支持Maven <3.0。如果在3.0之前使用Maven，你应该使用maven-sonar-plugin 3.0.2。
+
+**全局参数**
+
+详见[SonarQube服务端配置](#1. 配置全局参数)
 
 **配置Maven的setting.xml**
 
@@ -202,42 +204,39 @@ If you need more debug information you can add one of the following to your comm
 <project>
 ....上文省略....
 
-<groupId>com.curiosuer</groupId>
-<artifactId>springboot2</artifactId>
-<version>0.0.1</version>
+  <groupId>com.curiosuer</groupId>
+  <artifactId>springboot2</artifactId>
+  <version>0.0.1</version>
 
 
-<!-- 用于在SonarQube服务端Web UI界面显示的一些链接 -->
-<description>用于演示Spring Boot2的一些功能</description>
-<name>Curiouser-Demo-SpringBoot2</name>
-<url>http://springboot2-demo.apps.okd311.curiouser.com/swagger-ui.html</url>
-
-<scm>
-    <url>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/commit/${GIT_COMMIT}</url>
-</scm>
+  <!-- 用于在SonarQube服务端Web UI界面显示的一些链接 -->
     
-<issueManagement>
-    <url>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/issues</url>
-</issueManagement>
-    
-<ciManagement>
-    <url>https://jenkins.apps.okd311.curiouser.com/job/Demo-springboot2-Pipeline/${BUILD_NUMBER}</url>
-</ciManagement>
+  <description>用于演示Spring Boot2的一些功能</description>
+  <name>Curiouser-Demo-SpringBoot2</name>
+  <url>http://springboot2-demo.apps.okd311.curiouser.com/swagger-ui.html</url>
+  <scm>
+      <url>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/commit/${GIT_COMMIT}</url>
+  </scm>
+  <issueManagement>
+      <url>http://gitlab.apps.okd311.curiouser.com/Demo/springboot2/issues</url>
+  </issueManagement>
+  <ciManagement>
+      <url>https://jenkins.apps.okd311.curiouser.com/job/Demo-springboot2-Pipeline/${BUILD_NUMBER}</url>
+  </ciManagement>
 
-<properties>
+  <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <!--  使用配置SonarScanner Maven插件  -->
-        <sonar.sources>src/main</sonar.sources>
-        <sonar.tests>src/test</sonar.tests>
+        <sonar.projectVersion>${env.gitlabMergeRequestLastCommit}</sonar.projectVersion>
         <sonar.gitlab.project_id>1</sonar.gitlab.project_id>
         <sonar.gitlab.commit_sha>${GIT_COMMIT}</sonar.gitlab.commit_sha>
         <sonar.gitlab.ref_name>${GIT_BRANCH}</sonar.gitlab.ref_name>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.projectVersion>${GIT_COMMIT}</sonar.projectVersion>
-</properties>
+  </properties>
 ....下文省略....
 </project>
 ```
@@ -259,7 +258,11 @@ mvn test sonar:sonar -Dspring.profiles.active=local
 - `sonar.links.issue` ==> POM中的`<issueManagement><url>`
 - `sonar.links.scm` ==> POM中的`<scm><url>`
 
-# 六、解析扫描结果
+# 七、扫描结果解析
+
+
+
+
 
 
 
