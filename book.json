@@ -59,7 +59,7 @@
         },
         "theme-fexa":{
             "search-placeholder":"搜索文章",
-            "logo": "/assets/logo.png"
+            "logo": "./assets/logo.png"
         },
         "tbfed-pagefooter": {
             "copyright":"Copyright Curiouser",
