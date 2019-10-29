@@ -105,7 +105,7 @@ pipeline{
 
 - 使用pipeline语法生成器生成pipeline
    ![](../assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-5.png)
-- 压缩pipeline（压缩HTML源代码的工具网站：http://tool.oschina.net/jscompress?type=2）
+- 压缩pipeline. (压缩HTML源代码的工具网站：http://tool.oschina.net/jscompress?type=2)
 
 ```bash
 pipeline{
