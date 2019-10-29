@@ -32,18 +32,17 @@ Jenkins自带的邮件插件功能太弱，有个邮箱扩展插件。
 
 ## 2、Pipeline中
 
-    ```bash
-    pipeline{
-        ...上文省略...
-        post {
-            always {
-                emailext attachLog: true, body: '''
-                    构建任务的完整日志详见见附件,Jenkins查看链接: $BUILD_URL''', subject: '$PROJECT_NAME的第$BUILD_NUMBER次构建$BUILD_STATUS !', to: '*******@163.com'
-            }
+```bash
+pipeline{
+    ...上文省略...
+    post {
+        always {
+            emailext attachLog: true, body: '''
+                构建任务的完整日志详见见附件,Jenkins查看链接: $BUILD_URL''', subject: '$PROJECT_NAME的第$BUILD_NUMBER次构建$BUILD_STATUS !', to: '*******@163.com'
         }
-
     }
-    ```
+}
+```
 
 # 四、发送HTML格式的邮件
 
@@ -103,6 +102,7 @@ Jenkins自带的邮件插件功能太弱，有个邮箱扩展插件。
       </div>
   </body>
   ```
+
 - 使用pipeline语法生成器生成pipeline
    ![](../assets/jenkins-Mailer邮箱功能扩展插件Email-Extension-5.png)
 - 压缩pipeline（压缩HTML源代码的工具网站：http://tool.oschina.net/jscompress?type=2
