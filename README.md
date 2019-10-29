@@ -8,7 +8,7 @@ This gitbook records the technical roadmap of Devops Curiouser.
 
 `GitHub`: [https://github.com/RationalMonster](https://github.com/RationalMonster)
 
-## **What I had done at Openshift or Kubernetes**
+## What I had done at Openshift or Kubernetes
 
 ![](http://assets.processon.com/chart_image/5ca2b2e2e4b0cfb7342436a2.png)
 
