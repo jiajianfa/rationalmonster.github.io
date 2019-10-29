@@ -80,7 +80,7 @@ library identifier: 'custom-lib@master', retriever: modernSCM(
 
 ## 3. 调用第三方Java库
 
-```grooxy
+```groovy
 @Grab('org.apache.commons:commons-math3:3.4.1')
 import org.apache.commons.math3.primes.Primes
 ```

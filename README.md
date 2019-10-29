@@ -12,6 +12,12 @@ This gitbook records the technical roadmap of Devops Curiouser.
 
 ![](http://assets.processon.com/chart_image/5ca2b2e2e4b0cfb7342436a2.png)
 
+## CI/CD Flow
+
+### 1. Gitlab Webhook + Jenkins SharedLibraries/Kubernetes + SonarScanner Maven Plugin
+
+![](http://assets.processon.com/chart_image/5db1147be4b0ea86c4119d0e.png)
+
 ## **The technical MindMap**
 
 ![](http://assets.processon.com/chart_image/5d3d8bbce4b0511f13158e83.png)
