@@ -79,6 +79,7 @@
         * [Mail Plugin](origin/jenkins-配置SMTP邮箱服务.md)
         * [Mail Extension](origin/jenkins-Mailer邮箱功能扩展插件Email-Extension.md)
         * [Gitlab](origin/jenkins-gitlab插件的使用.md)
+        * [Generic Webhook Trigger](origin/jenkins-generic-webhook-trigger插件.md)
 * Gitlab
     * 安装
     * 管理
