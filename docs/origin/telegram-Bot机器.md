@@ -24,9 +24,11 @@ Telegram Bot是运行在Telegram内部的第三方应用程序，相当于Telegr
 
 # 三、API
 
-Telegram有两种api，一种是bot api，一种是telegram api。bot api是基于http访问，telegram api是基于mtproto访问，访问需要加密，相对要复杂一些。后者也可以实现发送消息等功能 
+- Telegram有两种api，一种是bot api，一种是telegram api。bot api是基于http访问，telegram api是基于mtproto访问，访问需要加密，相对要复杂一些。后者也可以实现发送消息等功能 
 
-可使用**`PostMan`**或者**`Curl`**等工具发送HTTPS请求调用Bot的API
+- 可使用**`PostMan`**或者**`Curl`**等工具发送HTTPS请求调用Bot的API。
+
+- 当时用Curl命令时可使用`"-x"`参数设置代理。例如`“curl -x 127.0.0.1:3128 -sk https://www.google.com”`
 
 # 四、Bot API
 
@@ -68,7 +70,7 @@ Bot机器人将返回`JSON`格式的对象，里面会包含返回状态信息
   https://api.telegram.org/bot90****93:AAF***RfFma8/sendMessage \
   -d 'chat_id=623***17' \
   -d 'parse_mode=Markdown' \
-  -d 'text=*Jenkins*'
+  -d 'text=*Jenkins '$BUILD_NUMBER' *'
   ```
 
 ## 3. 支持的消息格式
