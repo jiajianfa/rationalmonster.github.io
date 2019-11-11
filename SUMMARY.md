@@ -61,6 +61,8 @@
   * [kubectl多集群上下文配置](origin/kubernetes-kubectl多集群上下文配置.md)
   * [Network Policy容器流量管理](origin/kubernetes-NetworkPolicy.md)
   * [Kubernetes应用管理工具helm详解](origin/kubernetes-helm详解.md)
+* 问题
+  * [Service与SpringBoot应用启动参数冲突的问题排查及解决方案](origin/Service与SpringBoot应用启动参数冲突的问题排查及解决方案.md)
 
 ## Part Ⅲ：持续集成与持续部署
 
@@ -249,3 +251,4 @@
 * iSCSI
     * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)
 * [GitBook](origin/gitbook-简介安装配置.md)
+* [Telegram机器人](origin/telegram-Bot机器.md)
