@@ -67,8 +67,8 @@
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
         "edit-link": {
-          "base": "https://github.com/RationalMonster/rationalmonster.github.io/blob/master",
-          "label": "查看源文件"
+          "base": "https://raw.githubusercontent.com/RationalMonster/rationalmonster.github.io/master/",
+          "label": "查MD文件"
         },
         "prism": {
             "css": [
