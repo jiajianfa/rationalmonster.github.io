@@ -68,7 +68,7 @@
         },
         "edit-link": {
           "base": "https://raw.githubusercontent.com/RationalMonster/rationalmonster.github.io/master/",
-          "label": "查MD文件"
+          "label": "查看源MD文件"
         },
         "prism": {
             "css": [
