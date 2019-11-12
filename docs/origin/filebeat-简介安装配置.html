@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.0.0">
+        <meta name="generator" content="GitBook 3.2.0">
         <meta name="author" content="Curiouser <rationalmonster@163.com>">
         
         
@@ -45,10 +45,6 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-fexa/fexa.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
                 
             
@@ -69,11 +65,15 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
                 
             
         
@@ -4200,77 +4200,50 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="filebeat&#x7684;&#x7B80;&#x4ECB;&#x3001;&#x5B89;&#x88C5;&#x3001;&#x914D;&#x7F6E;&#x3001;pipeline">Filebeat&#x7684;&#x7B80;&#x4ECB;&#x3001;&#x5B89;&#x88C5;&#x3001;&#x914D;&#x7F6E;&#x3001;Pipeline</h1>
-<h1 id="&#x4E00;-&#x7B80;&#x4ECB;">&#x4E00;. &#x7B80;&#x4ECB;</h1>
-<p><img src="../assets/filebeat-&#x7B80;&#x4ECB;&#x5B89;&#x88C5;&#x914D;&#x7F6E;pipeline-1.png" alt="Beats design"></p>
-<p>Filebeat&#x7531;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x7EC4;&#x4EF6;&#x7EC4;&#x6210;&#xFF1A;</p>
-<ul>
-<li><p><strong>Inputs</strong>&#xFF1A;</p>
-<ul>
-<li><p>&#x8D1F;&#x8D23;&#x7BA1;&#x7406;harvester&#x5E76;&#x627E;&#x5230;&#x6240;&#x6709;&#x8981;&#x8BFB;&#x53D6;&#x7684;&#x6587;&#x4EF6;&#x6765;&#x6E90;&#x3002;&#x5982;&#x679C;&#x8F93;&#x5165;&#x7C7B;&#x578B;&#x4E3A;&#x65E5;&#x5FD7;&#xFF0C;&#x5219;&#x67E5;&#x627E;&#x5668;&#x5C06;&#x67E5;&#x627E;&#x8DEF;&#x5F84;&#x5339;&#x914D;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E3A;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x542F;&#x52A8;&#x4E00;&#x4E2A;harvester&#x3002;&#x6BCF;&#x4E2A;Inputs&#x90FD;&#x5728;&#x81EA;&#x5DF1;&#x7684;Go&#x534F;&#x7A0B;&#x4E2D;&#x8FD0;&#x884C;</p>
+						<h1 id="filebeat&#x7684;&#x7B80;&#x4ECB;&#x3001;&#x5B89;&#x88C5;&#x3001;&#x914D;&#x7F6E;&#x3001;pipeline">Filebeat&#x7684;&#x7B80;&#x4ECB;&#x3001;&#x5B89;&#x88C5;&#x3001;&#x914D;&#x7F6E;&#x3001;Pipeline</h1><h1 id="&#x4E00;-&#x7B80;&#x4ECB;">&#x4E00;. &#x7B80;&#x4ECB;</h1><p><img alt="Beats design" src="../assets/filebeat-&#x7B80;&#x4ECB;&#x5B89;&#x88C5;&#x914D;&#x7F6E;pipeline-1.png"></p><p>Filebeat&#x7531;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x7EC4;&#x4EF6;&#x7EC4;&#x6210;&#xFF1A;</p><ul><li><p><strong>Inputs</strong>&#xFF1A;</p><ul><li><p>&#x8D1F;&#x8D23;&#x7BA1;&#x7406;harvester&#x5E76;&#x627E;&#x5230;&#x6240;&#x6709;&#x8981;&#x8BFB;&#x53D6;&#x7684;&#x6587;&#x4EF6;&#x6765;&#x6E90;&#x3002;&#x5982;&#x679C;&#x8F93;&#x5165;&#x7C7B;&#x578B;&#x4E3A;&#x65E5;&#x5FD7;&#xFF0C;&#x5219;&#x67E5;&#x627E;&#x5668;&#x5C06;&#x67E5;&#x627E;&#x8DEF;&#x5F84;&#x5339;&#x914D;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E3A;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x542F;&#x52A8;&#x4E00;&#x4E2A;harvester&#x3002;&#x6BCF;&#x4E2A;Inputs&#x90FD;&#x5728;&#x81EA;&#x5DF1;&#x7684;Go&#x534F;&#x7A0B;&#x4E2D;&#x8FD0;&#x884C;</p></li>
+<li><p>&#x6BCF;&#x4E2A;prospector&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x591A;&#x6B21;</p></li></ul>
+</li></ul>
+<ul><li><p><strong>Harvesters</strong>&#xFF1A;</p><ul><li>&#x4E00;&#x4E2A;harvester&#x8D1F;&#x8D23;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x542F;&#x52A8;&#x4E00;&#x4E2A;harvester&#x3002;harvester&#x9010;&#x884C;&#x8BFB;&#x53D6;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#xFF08;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x5730;&#x8BFB;&#x53D6;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#xFF09;&#xFF0C;&#x5E76;&#x628A;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x5230;&#x8F93;&#x51FA;&#x3002;&#x5728;harvester&#x6B63;&#x5728;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;&#x6216;&#x8005;&#x91CD;&#x547D;&#x540D;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;Filebeat&#x4F1A;&#x7EED;&#x8BFB;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x3002;&#x8FD9;&#x5C31;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x4E86;&#xFF0C;&#x5C31;&#x662F;&#x53EA;&#x8981;&#x8D1F;&#x8D23;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;harvester&#x6CA1;&#x7528;&#x5173;&#x95ED;&#xFF0C;&#x90A3;&#x4E48;&#x78C1;&#x76D8;&#x7A7A;&#x95F4;&#x5C31;&#x4E0D;&#x4F1A;&#x91CA;&#x653E;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Filebeat&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#x6253;&#x5F00;&#x7684;&#x72B6;&#x6001;&#x76F4;&#x5230;close_inactive&#x5230;&#x8FBE;&#x3002;
 </li>
-<li><p>&#x6BCF;&#x4E2A;prospector&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x591A;&#x6B21;</p>
+<li>&#x5173;&#x95ED;harvester&#x4F1A;&#x4EA7;&#x751F;&#x4EE5;&#x4E0B;&#x7ED3;&#x679C;&#xFF1A;
+<ul><li>&#x5982;&#x679C;&#x5728;harvester&#x4ECD;&#x5728;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x65F6;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;&#xFF0C;&#x5219;&#x5173;&#x95ED;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#xFF0C;&#x91CA;&#x653E;&#x5E95;&#x5C42;&#x8D44;&#x6E90;&#x3002;
 </li>
-</ul>
+<li>&#x6587;&#x4EF6;&#x7684;&#x91C7;&#x96C6;&#x53EA;&#x4F1A;&#x5728;scan_frequency&#x8FC7;&#x540E;&#x91CD;&#x65B0;&#x5F00;&#x59CB;
 </li>
-<li><p><strong>Harvesters</strong>&#xFF1A;</p>
-<ul>
-<li>&#x4E00;&#x4E2A;harvester&#x8D1F;&#x8D23;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x542F;&#x52A8;&#x4E00;&#x4E2A;harvester&#x3002;harvester&#x9010;&#x884C;&#x8BFB;&#x53D6;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#xFF08;&#x4E00;&#x884C;&#x4E00;&#x884C;&#x5730;&#x8BFB;&#x53D6;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#xFF09;&#xFF0C;&#x5E76;&#x628A;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x5230;&#x8F93;&#x51FA;&#x3002;&#x5728;harvester&#x6B63;&#x5728;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;&#x6216;&#x8005;&#x91CD;&#x547D;&#x540D;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;Filebeat&#x4F1A;&#x7EED;&#x8BFB;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x3002;&#x8FD9;&#x5C31;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x4E86;&#xFF0C;&#x5C31;&#x662F;&#x53EA;&#x8981;&#x8D1F;&#x8D23;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;harvester&#x6CA1;&#x7528;&#x5173;&#x95ED;&#xFF0C;&#x90A3;&#x4E48;&#x78C1;&#x76D8;&#x7A7A;&#x95F4;&#x5C31;&#x4E0D;&#x4F1A;&#x91CA;&#x653E;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Filebeat&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#x6253;&#x5F00;&#x7684;&#x72B6;&#x6001;&#x76F4;&#x5230;close_inactive&#x5230;&#x8FBE;&#x3002;</li>
-<li>&#x5173;&#x95ED;harvester&#x4F1A;&#x4EA7;&#x751F;&#x4EE5;&#x4E0B;&#x7ED3;&#x679C;&#xFF1A;<ul>
-<li>&#x5982;&#x679C;&#x5728;harvester&#x4ECD;&#x5728;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x65F6;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;&#xFF0C;&#x5219;&#x5173;&#x95ED;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#xFF0C;&#x91CA;&#x653E;&#x5E95;&#x5C42;&#x8D44;&#x6E90;&#x3002;</li>
-<li>&#x6587;&#x4EF6;&#x7684;&#x91C7;&#x96C6;&#x53EA;&#x4F1A;&#x5728;scan_frequency&#x8FC7;&#x540E;&#x91CD;&#x65B0;&#x5F00;&#x59CB;</li>
-<li>&#x5982;&#x679C;&#x5728;harvester&#x5173;&#x95ED;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x79FB;&#x52A8;&#x6216;&#x79FB;&#x9664;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x7EE7;&#x7EED;&#x5904;&#x7406;&#x6587;&#x4EF6;</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="&#x4E8C;-&#x5B89;&#x88C5;">&#x4E8C;. &#x5B89;&#x88C5;</h1>
-<p>&#x9ED8;&#x8BA4;&#x7684;&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p>
-<table>
+<li>&#x5982;&#x679C;&#x5728;harvester&#x5173;&#x95ED;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x79FB;&#x52A8;&#x6216;&#x79FB;&#x9664;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x7EE7;&#x7EED;&#x5904;&#x7406;&#x6587;&#x4EF6;
+</li></ul>
+</li></ul>
+</li></ul>
+<h1 id="&#x4E8C;-&#x5B89;&#x88C5;">&#x4E8C;. &#x5B89;&#x88C5;</h1><p>&#x9ED8;&#x8BA4;&#x7684;&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p><table>
 <thead>
-<tr>
-<th>Type</th>
+<tr><th>Type</th>
 <th>Description</th>
 <th>Default Location</th>
 <th>Config Option</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>home</strong></td>
+</tr></thead><tbody>
+<tr><td>**home**</td>
 <td>Home of the Filebeat installation.</td>
 <td></td>
-<td><code>path.home</code></td>
-</tr>
-<tr>
-<td><strong>bin</strong></td>
+<td>`path.home`</td>
+</tr><tr><td>**bin**</td>
 <td>The location for the binary files.</td>
-<td><code>{path.home}/bin</code></td>
+<td>`{path.home}/bin`</td>
 <td></td>
-</tr>
-<tr>
-<td><strong>config</strong></td>
+</tr><tr><td>**config**</td>
 <td>The location for configuration files.</td>
-<td><code>{path.home}</code></td>
-<td><code>path.config</code></td>
-</tr>
-<tr>
-<td><strong>data</strong></td>
+<td>`{path.home}`</td>
+<td>`path.config`</td>
+</tr><tr><td>**data**</td>
 <td>The location for persistent data files.</td>
-<td><code>{path.home}/data</code></td>
-<td><code>path.data</code></td>
-</tr>
-<tr>
-<td><strong>logs</strong></td>
+<td>`{path.home}/data`</td>
+<td>`path.data`</td>
+</tr><tr><td>**logs**</td>
 <td>The location for the logs created by Filebeat.</td>
-<td><code>{path.home}/logs</code></td>
-<td><code>path.logs</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="yumrpm">YUM/RPM</h2>
-<pre class="language-"><code class="lang-properties">[elastic-7.x]
+<td>`{path.home}/logs`</td>
+<td>`path.logs`</td>
+</tr></tbody></table>
+
+<h2 id="yumrpm">YUM/RPM</h2><pre class="language-"><code class="lang-properties">[elastic-7.x]
 <span class="token attr-name">name</span><span class="token punctuation">=</span><span class="token attr-value">Elastic repository for 7.x packages</span>
 <span class="token attr-name">baseurl</span><span class="token punctuation">=</span><span class="token attr-value">https://artifacts.elastic.co/packages/7.x/yum</span>
 <span class="token attr-name">gpgcheck</span><span class="token punctuation">=</span><span class="token attr-value">1</span>
@@ -4279,208 +4252,128 @@
 <span class="token attr-name">autorefresh</span><span class="token punctuation">=</span><span class="token attr-value">1</span>
 <span class="token attr-name">type</span><span class="token punctuation">=</span><span class="token attr-value">rpm-md</span>
 
-<span class="token attr-name">yum</span> <span class="token attr-value">install filebeat-7.4.0</span>
-</code></pre>
-<p>RPM&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://www.elastic.co/cn/downloads/beats/filebeat" _target="blank">https://www.elastic.co/cn/downloads/beats/filebeat</a></p>
-<pre class="language-"><code class="lang-bash">yum localinstall -y filebeat-7*.rpm
-</code></pre>
-<p>&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p>
-<table>
+<span class="token attr-name">yum</span> <span class="token attr-value">install filebeat-7.4.0</span></code></pre>
+<p>RPM&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://www.elastic.co/cn/downloads/beats/filebeat" target="_blank">https://www.elastic.co/cn/downloads/beats/filebeat</a></p><pre class="language-"><code class="lang-bash">yum localinstall -y filebeat-7*.rpm</code></pre>
+<p>&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p><table>
 <thead>
-<tr>
-<th>Type</th>
+<tr><th>Type</th>
 <th>Description</th>
 <th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>home</strong></td>
+</tr></thead><tbody>
+<tr><td>**home**</td>
 <td>Home of the Filebeat installation.</td>
-<td><code>/usr/share/filebeat</code></td>
-</tr>
-<tr>
-<td><strong>bin</strong></td>
+<td>`/usr/share/filebeat`</td>
+</tr><tr><td>**bin**</td>
 <td>The location for the binary files.</td>
-<td><code>/usr/share/filebeat/bin</code></td>
-</tr>
-<tr>
-<td><strong>config</strong></td>
+<td>`/usr/share/filebeat/bin`</td>
+</tr><tr><td>**config**</td>
 <td>The location for configuration files.</td>
-<td><code>/etc/filebeat</code></td>
-</tr>
-<tr>
-<td><strong>data</strong></td>
+<td>`/etc/filebeat`</td>
+</tr><tr><td>**data**</td>
 <td>The location for persistent data files.</td>
-<td><code>/var/lib/filebeat</code></td>
-</tr>
-<tr>
-<td><strong>logs</strong></td>
+<td>`/var/lib/filebeat`</td>
+</tr><tr><td>**logs**</td>
 <td>The location for the logs created by Filebeat.</td>
-<td><code>/var/log/filebeat</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;">&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;</h2>
-<p> zip, tar.gz, tgz &#x538B;&#x7F29;&#x683C;&#x5F0F;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x5B89;&#x88C5;&#x5305;&#xFF0C;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://www.elastic.co/cn/downloads/beats/filebeat" _target="blank">https://www.elastic.co/cn/downloads/beats/filebeat</a></p>
-<p>&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p>
-<table>
+<td>`/var/log/filebeat`</td>
+</tr></tbody></table>
+
+<h2 id="&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;">&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;</h2><p>zip, tar.gz, tgz &#x538B;&#x7F29;&#x683C;&#x5F0F;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x5B89;&#x88C5;&#x5305;&#xFF0C;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://www.elastic.co/cn/downloads/beats/filebeat" target="_blank">https://www.elastic.co/cn/downloads/beats/filebeat</a></p><p>&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p><table>
 <thead>
-<tr>
-<th>Type</th>
+<tr><th>Type</th>
 <th>Description</th>
 <th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>home</strong></td>
+</tr></thead><tbody>
+<tr><td>**home**</td>
 <td>Home of the Filebeat installation.</td>
-<td><code>{extract.path}</code></td>
-</tr>
-<tr>
-<td><strong>bin</strong></td>
+<td>`{extract.path}`</td>
+</tr><tr><td>**bin**</td>
 <td>The location for the binary files.</td>
-<td><code>{extract.path}</code></td>
-</tr>
-<tr>
-<td><strong>config</strong></td>
+<td>`{extract.path}`</td>
+</tr><tr><td>**config**</td>
 <td>The location for configuration files.</td>
-<td><code>{extract.path}</code></td>
-</tr>
-<tr>
-<td><strong>data</strong></td>
+<td>`{extract.path}`</td>
+</tr><tr><td>**data**</td>
 <td>The location for persistent data files.</td>
-<td><code>{extract.path}/data</code></td>
-</tr>
-<tr>
-<td><strong>logs</strong></td>
+<td>`{extract.path}/data`</td>
+</tr><tr><td>**logs**</td>
 <td>The location for the logs created by Filebeat.</td>
-<td><code>{extract.path}/logs</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="filebeat&#x547D;&#x4EE4;&#x884C;&#x542F;&#x52A8;">Filebeat&#x547D;&#x4EE4;&#x884C;&#x542F;&#x52A8;</h2>
-<pre class="language-"><code class="lang-bash">/usr/share/filebeat/bin/filebeat Commands SUBCOMMAND <span class="token punctuation">[</span>FLAGS<span class="token punctuation">]</span>
-</code></pre>
+<td>`{extract.path}/logs`</td>
+</tr></tbody></table>
+
+<h2 id="filebeat&#x547D;&#x4EE4;&#x884C;&#x542F;&#x52A8;">Filebeat&#x547D;&#x4EE4;&#x884C;&#x542F;&#x52A8;</h2><pre class="language-"><code class="lang-bash">/usr/share/filebeat/bin/filebeat Commands SUBCOMMAND <span class="token punctuation">[</span>FLAGS<span class="token punctuation">]</span></code></pre>
 <table>
 <thead>
-<tr>
-<th>Commands</th>
+<tr><th>Commands</th>
 <th>&#x63CF;&#x8FF0;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#export-command" _target="blank"><code>export</code></a></td>
+</tr></thead><tbody>
+<tr><td>[`export`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#export-command)</td>
 <td>&#x5BFC;&#x51FA;&#x914D;&#x7F6E;&#x5230;&#x63A7;&#x5236;&#x53F0;&#xFF0C;&#x5305;&#x62EC;index template, ILM policy, dashboard</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#help-command" _target="blank"><code>help</code></a></td>
+</tr><tr><td>[`help`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#help-command)</td>
 <td>&#x663E;&#x793A;&#x5E2E;&#x52A9;&#x6587;&#x6863;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#keystore-command" _target="blank"><code>keystore</code></a></td>
-<td>&#x7BA1;&#x7406;<a href="https://www.elastic.co/guide/en/beats/filebeat/current/keystore.html" _target="blank">secrets keystore</a>.</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#modules-command" _target="blank"><code>modules</code></a></td>
+</tr><tr><td>[`keystore`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#keystore-command)</td>
+<td>&#x7BA1;&#x7406;[secrets keystore](https://www.elastic.co/guide/en/beats/filebeat/current/keystore.html).</td>
+</tr><tr><td>[`modules`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#modules-command)</td>
 <td>&#x7BA1;&#x7406;&#x914D;&#x7F6E;Modules</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#run-command" _target="blank"><code>run</code></a></td>
+</tr><tr><td>[`run`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#run-command)</td>
 <td>Runs Filebeat. This command is used by default if you start Filebeat without specifying a command.</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#setup-command" _target="blank"><code>setup</code></a></td>
+</tr><tr><td>[`setup`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#setup-command)</td>
 <td>&#x8BBE;&#x7F6E;&#x521D;&#x59CB;&#x73AF;&#x5883;&#x3002;&#x5305;&#x62EC;index template, ILM policy, write alias, Kibana dashboards (when available), machine learning jobs (when available).</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#test-command" _target="blank"><code>test</code></a></td>
+</tr><tr><td>[`test`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#test-command)</td>
 <td>&#x6D4B;&#x8BD5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#version-command" _target="blank"><code>version</code></a></td>
+</tr><tr><td>[`version`](https://www.elastic.co/guide/en/beats/filebeat/current/command-line-options.html#version-command)</td>
 <td>&#x663E;&#x793A;&#x7248;&#x672C;&#x4FE1;&#x606F;</td>
-</tr>
-</tbody>
-</table>
+</tr></tbody></table>
+
 <table>
 <thead>
-<tr>
-<th>Global Flags</th>
+<tr><th>Global Flags</th>
 <th>&#x63CF;&#x8FF0;</th>
 <th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-E &quot;SETTING_NAME=VALUE&quot;</code></td>
+</tr></thead><tbody>
+<tr><td>`-E &quot;SETTING_NAME=VALUE&quot;`</td>
 <td>&#x8986;&#x76D6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x9879;</td>
 <td></td>
-</tr>
-<tr>
-<td><code>--M &quot;VAR_NAME=VALUE&quot;</code></td>
+</tr><tr><td>`--M &quot;VAR_NAME=VALUE&quot;`</td>
 <td>&#x8986;&#x76D6;Module&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x4E2D;&#x914D;&#x7F6E;&#x9879;</td>
 <td></td>
-</tr>
-<tr>
-<td><code>-c FILE</code></td>
+</tr><tr><td>`-c FILE`</td>
 <td>&#x6307;&#x5B9A;filebeat&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;&#x8DEF;&#x5F84;&#x8981;&#x76F8;&#x5BF9;&#x4E8E;`path.config</td>
 <td></td>
-</tr>
-<tr>
-<td><code>-d SELECTORS</code></td>
+</tr><tr><td>`-d SELECTORS`</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><code>-e</code></td>
+</tr><tr><td>`-e`</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><code>--path.config</code></td>
+</tr><tr><td>`--path.config`</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><code>--path.data</code></td>
+</tr><tr><td>`--path.data`</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><code>--path.home</code></td>
+</tr><tr><td>`--path.home`</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><code>--path.logs</code></td>
+</tr><tr><td>` --path.logs`</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><code>--strict.perms</code></td>
+</tr><tr><td>`--strict.perms`</td>
 <td></td>
-</tr>
-</tbody>
-</table>
-<p>&#x793A;&#x4F8B;&#xFF1A;</p>
-<ul>
-<li><code>/usr/share/filebeat/bin/filebeat --modules mysql -M &quot;mysql.slowlog.var.paths=[/root/slow.log]&quot; -e</code></li>
-<li><code>/usr/share/filebeat/bin/filebeat -e -E output.console.pretty=true  --modules mysql -M &quot;mysql.slowlog.var.paths=[&quot;/root/mysql-slow-sql-log/mysql-slowsql.log&quot;]&quot; -M &quot;mysql.error.enabled=false&quot; -E output.elasticsearch.enabled=false</code></li>
-</ul>
-<h2 id="systemd&#x542F;&#x52A8;">SystemD&#x542F;&#x52A8;</h2>
-<pre class="language-"><code class="lang-bash">systemctl <span class="token builtin class-name">enable</span> filebeat
+<td></td>
+</tr></tbody></table>
+
+<p>&#x793A;&#x4F8B;&#xFF1A;</p><ul><li><code>/usr/share/filebeat/bin/filebeat --modules mysql -M &quot;mysql.slowlog.var.paths=[/root/slow.log]&quot; -e</code>
+</li>
+<li><code>/usr/share/filebeat/bin/filebeat -e -E output.console.pretty=true  --modules mysql -M &quot;mysql.slowlog.var.paths=[&quot;/root/mysql-slow-sql-log/mysql-slowsql.log&quot;]&quot; -M &quot;mysql.error.enabled=false&quot; -E output.elasticsearch.enabled=false</code>
+</li></ul>
+<h2 id="systemd&#x542F;&#x52A8;">SystemD&#x542F;&#x52A8;</h2><pre class="language-"><code class="lang-bash">systemctl <span class="token builtin class-name">enable</span> filebeat
 systemctl start filebeat 
 systemctl stop filebeat
 systemctl status filebeat
 journalctl -u filebeat.service
 systemctl daemon-reload
-systemctl restart filebeat
-</code></pre>
-<p><strong>Filebeat&#x7684;SystemD&#x914D;&#x7F6E;&#x6587;&#x4EF6;</strong></p>
-<pre class="language-"><code class="lang-properties"><span class="token attr-name">$</span> <span class="token attr-value">/usr/lib/systemd/system/filebeat.service</span>
+systemctl restart filebeat</code></pre>
+<p><strong>Filebeat&#x7684;SystemD&#x914D;&#x7F6E;&#x6587;&#x4EF6;</strong></p><pre class="language-"><code class="lang-properties"><span class="token attr-name">$</span> <span class="token attr-value">/usr/lib/systemd/system/filebeat.service</span>
 [Unit]
 <span class="token attr-name">Description</span><span class="token punctuation">=</span><span class="token attr-value">Filebeat sends log files to Logstash or directly to Elasticsearch.</span>
 <span class="token attr-name">Documentation</span><span class="token punctuation">=</span><span class="token attr-value">https://www.elastic.co/products/beats/filebeat</span>
@@ -4495,290 +4388,188 @@ systemctl restart filebeat
 <span class="token attr-name">Restart</span><span class="token punctuation">=</span><span class="token attr-value">always</span>
 
 [Install]
-<span class="token attr-name">WantedBy</span><span class="token punctuation">=</span><span class="token attr-value">multi-user.target</span>
-</code></pre>
+<span class="token attr-name">WantedBy</span><span class="token punctuation">=</span><span class="token attr-value">multi-user.target</span></code></pre>
 <table>
 <thead>
-<tr>
-<th>Variable</th>
+<tr><th>Variable</th>
 <th>Description</th>
 <th>Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>BEAT_LOG_OPTS</strong></td>
+</tr></thead><tbody>
+<tr><td>**BEAT_LOG_OPTS**</td>
 <td>Log options</td>
-<td><code>-e</code></td>
-</tr>
-<tr>
-<td><strong>BEAT_CONFIG_OPTS</strong></td>
+<td>`-e`</td>
+</tr><tr><td>**BEAT_CONFIG_OPTS**</td>
 <td>Flags for configuration file path</td>
-<td><code>-c /etc/filebeat/filebeat.yml</code></td>
-</tr>
-<tr>
-<td><strong>BEAT_PATH_OPTS</strong></td>
+<td>`-c /etc/filebeat/filebeat.yml`</td>
+</tr><tr><td>**BEAT_PATH_OPTS**</td>
 <td>Other paths</td>
-<td><code>-path.home /usr/share/filebeat -path.config /etc/filebeat -path.data /var/lib/filebeat -path.logs /var/log/filebeat</code></td>
-</tr>
-</tbody>
-</table>
-<h1 id="&#x4E09;-docker&#x955C;&#x50CF;">&#x4E09;. Docker&#x955C;&#x50CF;</h1>
-<pre class="language-"><code class="lang-sh">docker pull docker.elastic.co/beats/filebeat:7.4.0
+<td>`-path.home /usr/share/filebeat -path.config /etc/filebeat -path.data /var/lib/filebeat -path.logs /var/log/filebeat`</td>
+</tr></tbody></table>
 
-docker pull filebeat:7.4.0
-</code></pre>
-<h2 id="&#x955C;&#x50CF;&#x4E2D;&#x7684;&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;">&#x955C;&#x50CF;&#x4E2D;&#x7684;&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</h2>
-<table>
+<h1 id="&#x4E09;-docker&#x955C;&#x50CF;">&#x4E09;. Docker&#x955C;&#x50CF;</h1><pre class="language-"><code class="lang-sh">docker pull docker.elastic.co/beats/filebeat:7.4.0
+
+docker pull filebeat:7.4.0</code></pre>
+<h2 id="&#x955C;&#x50CF;&#x4E2D;&#x7684;&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;">&#x955C;&#x50CF;&#x4E2D;&#x7684;&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</h2><table>
 <thead>
-<tr>
-<th>Type</th>
+<tr><th>Type</th>
 <th>Description</th>
 <th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>home</strong></td>
+</tr></thead><tbody>
+<tr><td>**home**</td>
 <td>Home of the Filebeat installation.</td>
-<td><code>/usr/share/filebeat</code></td>
-</tr>
-<tr>
-<td><strong>bin</strong></td>
+<td>`/usr/share/filebeat`</td>
+</tr><tr><td>**bin**</td>
 <td>The location for the binary files.</td>
-<td><code>/usr/share/filebeat</code></td>
-</tr>
-<tr>
-<td><strong>config</strong></td>
+<td>`/usr/share/filebeat`</td>
+</tr><tr><td>**config**</td>
 <td>The location for configuration files.</td>
-<td><code>/usr/share/filebeat</code></td>
-</tr>
-<tr>
-<td><strong>data</strong></td>
+<td>`/usr/share/filebeat`</td>
+</tr><tr><td>**data**</td>
 <td>The location for persistent data files.</td>
-<td><code>/usr/share/filebeat/data</code></td>
-</tr>
-<tr>
-<td><strong>logs</strong></td>
+<td>`/usr/share/filebeat/data`</td>
+</tr><tr><td>**logs**</td>
 <td>The location for the logs created by Filebeat.</td>
-<td><code>/usr/share/filebeat/logs</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="kubernetes&#x90E8;&#x7F72;">Kubernetes&#x90E8;&#x7F72;</h2>
-<ul>
-<li><p>&#x9ED8;&#x8BA4;&#x90E8;&#x7F72;&#x5230;kube-system&#x547D;&#x540D;&#x7A7A;&#x95F4;</p>
-</li>
-<li><p>&#x90E8;&#x7F72;&#x7C7B;&#x578B;&#x662F;Daemonset&#xFF0C;&#x4F1A;&#x90E8;&#x7F72;&#x5230;&#x6BCF;&#x4E00;&#x4E2A;Node&#x4E0A;</p>
-</li>
-<li><p>&#x6BCF;&#x4E2A;Node&#x4E0A;&#x7684;/var/lib/docker/containers&#x76EE;&#x5F55;&#x4F1A;&#x6302;&#x8F7D;&#x5230;filebeat&#x5BB9;&#x5668;&#x4E2D;</p>
-</li>
-<li><p>&#x9ED8;&#x8BA4;Filebeat&#x4F1A;&#x5C06;&#x65E5;&#x5FD7;&#x5410;&#x5230;kube-system&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x4E0B;&#x7684;elasticsearch&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x5410;&#x5230;&#x5176;&#x4ED6;elasticsearch&#x4E2D;&#xFF0C;&#x4FEE;&#x6539;&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
-<pre class="language-"><code class="lang-json">- name<span class="token operator">:</span> ELASTICSEARCH_HOST
+<td>`/usr/share/filebeat/logs`</td>
+</tr></tbody></table>
+
+<h2 id="kubernetes&#x90E8;&#x7F72;">Kubernetes&#x90E8;&#x7F72;</h2><ul><li><p>&#x9ED8;&#x8BA4;&#x90E8;&#x7F72;&#x5230;kube-system&#x547D;&#x540D;&#x7A7A;&#x95F4;</p></li>
+<li><p>&#x90E8;&#x7F72;&#x7C7B;&#x578B;&#x662F;Daemonset&#xFF0C;&#x4F1A;&#x90E8;&#x7F72;&#x5230;&#x6BCF;&#x4E00;&#x4E2A;Node&#x4E0A;</p></li>
+<li><p>&#x6BCF;&#x4E2A;Node&#x4E0A;&#x7684;/var/lib/docker/containers&#x76EE;&#x5F55;&#x4F1A;&#x6302;&#x8F7D;&#x5230;filebeat&#x5BB9;&#x5668;&#x4E2D;</p></li>
+<li><p>&#x9ED8;&#x8BA4;Filebeat&#x4F1A;&#x5C06;&#x65E5;&#x5FD7;&#x5410;&#x5230;kube-system&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x4E0B;&#x7684;elasticsearch&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x5410;&#x5230;&#x5176;&#x4ED6;elasticsearch&#x4E2D;&#xFF0C;&#x4FEE;&#x6539;&#x73AF;&#x5883;&#x53D8;&#x91CF;</p><pre class="language-"><code class="lang-json">- name<span class="token operator">:</span> ELASTICSEARCH_HOST
   value<span class="token operator">:</span> elasticsearch
 - name<span class="token operator">:</span> ELASTICSEARCH_PORT
   value<span class="token operator">:</span> <span class="token string">&quot;9200&quot;</span>
 - name<span class="token operator">:</span> ELASTICSEARCH_USERNAME
   value<span class="token operator">:</span> elastic
 - name<span class="token operator">:</span> ELASTICSEARCH_PASSWORD
-  value<span class="token operator">:</span> changeme
-</code></pre>
-</li>
-</ul>
+  value<span class="token operator">:</span> changeme</code></pre>
+</li></ul>
 <pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -L -O https://raw.githubusercontent.com/elastic/beats/7.4/deploy/kubernetes/filebeat-kubernetes.yaml
 kubectl create -f filebeat-kubernetes.yaml
-kubectl --namespace<span class="token operator">=</span>kube-system get ds/filebeat
-</code></pre>
-<h2 id="okd&#x90E8;&#x7F72;">OKD&#x90E8;&#x7F72;</h2>
-<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -L -O https://raw.githubusercontent.com/elastic/beats/7.4/deploy/kubernetes/filebeat-kubernetes.yaml
+kubectl --namespace<span class="token operator">=</span>kube-system get ds/filebeat</code></pre>
+<h2 id="okd&#x90E8;&#x7F72;">OKD&#x90E8;&#x7F72;</h2><pre class="language-"><code class="lang-bash"><span class="token function">curl</span> -L -O https://raw.githubusercontent.com/elastic/beats/7.4/deploy/kubernetes/filebeat-kubernetes.yaml
 &#x4FEE;&#x6539;&#x90E8;&#x7F72;&#x6587;&#x4EF6;
 securityContext:
     runAsUser: <span class="token number">0</span>
     privileged: <span class="token boolean">true</span>
 
-oc adm policy add-scc-to-user privileged system:serviceaccount:kube-system:filebeat
-</code></pre>
-<h1 id="&#x56DB;-&#x914D;&#x7F6E;">&#x56DB;. &#x914D;&#x7F6E;</h1>
-<ul>
-<li><p>Filebeat&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF1A;/etc/filebeat/filebeat.yml</p>
-</li>
-<li><p>&#x914D;&#x7F6E;&#x8BED;&#x6CD5;&#x4E3A;YAML</p>
-</li>
-</ul>
+oc adm policy add-scc-to-user privileged system:serviceaccount:kube-system:filebeat</code></pre>
+<h1 id="&#x56DB;-&#x914D;&#x7F6E;">&#x56DB;. &#x914D;&#x7F6E;</h1><ul><li><p>Filebeat&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF1A;/etc/filebeat/filebeat.yml</p></li>
+<li><p>&#x914D;&#x7F6E;&#x8BED;&#x6CD5;&#x4E3A;YAML</p></li></ul>
 <table>
 <thead>
-<tr>
-<th>&#x914D;&#x7F6E;&#x9879;</th>
+<tr><th>&#x914D;&#x7F6E;&#x9879;</th>
 <th>&#x63CF;&#x8FF0;</th>
 <th>&#x793A;&#x4F8B;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>processors.*</td>
+</tr></thead><tbody>
+<tr><td>processors.*</td>
 <td>Processors&#x914D;&#x7F6E;</td>
-<td>processors:<br>- include_fields:<br>    fields: [&quot;cpu&quot;]<br>- drop_fields:<br>    fields: [&quot;cpu.user&quot;, &quot;cpu.system&quot;]</td>
-</tr>
-<tr>
-<td>filebeat.modules:</td>
+<td>processors:&lt;br/&gt;- include_fields:&lt;br/&gt;    fields: [&quot;cpu&quot;]&lt;br/&gt;- drop_fields:&lt;br/&gt;    fields: [&quot;cpu.user&quot;, &quot;cpu.system&quot;]</td>
+</tr><tr><td>filebeat.modules:</td>
 <td>Module&#x914D;&#x7F6E;</td>
-<td>filebeat.modules:<br>- module: mysql<br>  error:<br>     enabled: true</td>
-</tr>
-<tr>
-<td>filebeat.inputs:</td>
+<td>filebeat.modules:&lt;br/&gt;- module: mysql&lt;br/&gt;  error:&lt;br/&gt;     enabled: true</td>
+</tr><tr><td>filebeat.inputs:</td>
 <td>Input&#x914D;&#x7F6E;</td>
-<td>filebeat.inputs:<br>- type: log<br>  enabled: false<br>  paths:<br>     - /var/log/*.log</td>
-</tr>
-<tr>
-<td>output.*:</td>
+<td>filebeat.inputs:&lt;br/&gt;- type: log&lt;br/&gt;  enabled: false&lt;br/&gt;  paths:&lt;br/&gt;     - /var/log/*.log</td>
+</tr><tr><td>output.*:</td>
 <td>Output&#x914D;&#x7F6E;</td>
-<td>output.console:<br>    enabled: true</td>
-</tr>
-<tr>
-<td>path.*</td>
+<td>output.console:&lt;br/&gt;    enabled: true</td>
+</tr><tr><td>path.*</td>
 <td>&#x7EC4;&#x4EF6;&#x4EA7;&#x751F;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#x914D;&#x7F6E;</td>
-<td>path.home:  /usr/share/filebeat<br>path.data: ${path.home}/data<br>path.logs: ${path.home}/logs</td>
-</tr>
-<tr>
-<td>setup.template.*</td>
+<td>path.home:  /usr/share/filebeat&lt;br/&gt;path.data: \${path.home}/data&lt;br/&gt;path.logs: \${path.home}/logs</td>
+</tr><tr><td>setup.template.*</td>
 <td>Template&#x914D;&#x7F6E;</td>
 <td></td>
-</tr>
-<tr>
-<td>logging.*</td>
+</tr><tr><td>logging.*</td>
 <td>&#x65E5;&#x5FD7;&#x914D;&#x7F6E;</td>
-<td>logging.level: info<br>logging.to_stderr: false<br>logging.to_files: true<br></td>
-</tr>
-<tr>
-<td>monitoring.*</td>
+<td>logging.level: info&lt;br/&gt;logging.to_stderr: false&lt;br/&gt;logging.to_files: true&lt;br/&gt;</td>
+</tr><tr><td>monitoring.*</td>
 <td>X-Pack&#x76D1;&#x63A7;&#x914D;&#x7F6E;</td>
-<td>monitoring.enabled: false<br>monitoring.elasticsearch.hosts: [&quot;localhost:9200&quot;]</td>
-</tr>
-<tr>
-<td>http.*</td>
+<td>monitoring.enabled: false&lt;br/&gt;monitoring.elasticsearch.hosts: [&quot;localhost:9200&quot;]</td>
+</tr><tr><td>http.*</td>
 <td>HTTP Endpoint&#x914D;&#x7F6E;</td>
-<td>http.enabled: false<br>http.port: 5066<br>http.host: localhost</td>
-</tr>
-<tr>
-<td>filebeat.autodiscover.*</td>
+<td>http.enabled: false&lt;br/&gt;http.port: 5066&lt;br/&gt;http.host: localhost</td>
+</tr><tr><td>filebeat.autodiscover.*</td>
 <td>Filebeat&#x81EA;&#x52A8;&#x53D1;&#x73B0;&#x914D;&#x7F6E;</td>
 <td></td>
-</tr>
-<tr>
-<td></td>
+</tr><tr><td></td>
 <td>&#x901A;&#x7528;&#x914D;&#x7F6E;</td>
 <td></td>
-</tr>
-<tr>
-<td></td>
+</tr><tr><td></td>
 <td>&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x9879;</td>
 <td></td>
-</tr>
-<tr>
-<td>queue.*</td>
+</tr><tr><td>queue.*</td>
 <td>&#x7F13;&#x5B58;&#x961F;&#x5217;&#x8BBE;&#x7F6E;</td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x9879;">&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x9879;</h2>
-<table>
+<td></td>
+</tr></tbody></table>
+
+<h2 id="&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x9879;">&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x9879;</h2><table>
 <thead>
-<tr>
-<th>&#x914D;&#x7F6E;&#x9879;</th>
+<tr><th>&#x914D;&#x7F6E;&#x9879;</th>
 <th>&#x9ED8;&#x8BA4;&#x503C;</th>
 <th>&#x63CF;&#x8FF0;</th>
 <th>&#x793A;&#x4F8B;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>registry.path</td>
+</tr></thead><tbody>
+<tr><td>registry.path</td>
 <td>${path.data}/registry</td>
 <td>&#x6CE8;&#x518C;&#x8868;&#x6587;&#x4EF6;&#x7684;&#x6839;&#x8DEF;&#x5F84;</td>
 <td>filebeat.registry.path: registry</td>
-</tr>
-<tr>
-<td>registry.file_permissions</td>
+</tr><tr><td>registry.file_permissions</td>
 <td>0600</td>
 <td>&#x6CE8;&#x518C;&#x8868;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x3002;Window&#x4E0B;&#x8BE5;&#x914D;&#x7F6E;&#x9879;&#x65E0;&#x6548;</td>
 <td>filebeat.registry.file_permissions: 0600</td>
-</tr>
-<tr>
-<td>registry.flush</td>
+</tr><tr><td>registry.flush</td>
 <td>0s</td>
 <td></td>
 <td>filebeat.registry.flush: 5s</td>
-</tr>
-<tr>
-<td>registry.migrate_file</td>
+</tr><tr><td>registry.migrate_file</td>
 <td></td>
 <td></td>
 <td>filebeat.registry.migrate_file: /path/to/old/registry_file</td>
-</tr>
-<tr>
-<td>config_dir</td>
+</tr><tr><td>config_dir</td>
 <td></td>
 <td></td>
 <td>filebeat.config_dir: path/to/configs</td>
-</tr>
-<tr>
-<td>shutdown_timeout</td>
+</tr><tr><td>shutdown_timeout</td>
 <td>5s</td>
 <td></td>
 <td>filebeat.shutdown_timeout: 5s</td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x901A;&#x7528;&#x914D;&#x7F6E;&#x9879;">&#x901A;&#x7528;&#x914D;&#x7F6E;&#x9879;</h2>
-<table>
+</tr></tbody></table>
+
+<h2 id="&#x901A;&#x7528;&#x914D;&#x7F6E;&#x9879;">&#x901A;&#x7528;&#x914D;&#x7F6E;&#x9879;</h2><table>
 <thead>
-<tr>
-<th>&#x914D;&#x7F6E;&#x9879;</th>
+<tr><th>&#x914D;&#x7F6E;&#x9879;</th>
 <th>&#x9ED8;&#x8BA4;&#x503C;</th>
 <th>&#x63CF;&#x8FF0;</th>
 <th>&#x793A;&#x4F8B;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
+</tr></thead><tbody>
+<tr><td>name</td>
 <td></td>
 <td></td>
 <td>name: &quot;my-shipper&quot;</td>
-</tr>
-<tr>
-<td>tags</td>
+</tr><tr><td>tags</td>
 <td></td>
 <td></td>
 <td>tags: [&quot;service-X&quot;, &quot;web-tier&quot;]</td>
-</tr>
-<tr>
-<td>fields</td>
+</tr><tr><td>fields</td>
 <td></td>
 <td></td>
 <td>fields: {project: &quot;myproject&quot;, instance-id: &quot;57452459&quot;}</td>
-</tr>
-<tr>
-<td>fields_under_root</td>
+</tr><tr><td>fields_under_root</td>
 <td></td>
 <td>&#x5982;&#x679C;&#x8BE5;&#x9009;&#x9879;&#x8BBE;&#x7F6E;&#x4E3A;true&#xFF0C;&#x5219;&#x65B0;&#x589E;fields&#x4F1A;&#x653E;&#x5728;&#x6839;&#x8DEF;&#x5F84;&#x4E0B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x653E;&#x5728;fields&#x8DEF;&#x5F84;&#x4E0B;&#x3002;&#x81EA;&#x5B9A;&#x4E49;&#x7684;field&#x4F1A;&#x8986;&#x76D6;filebeat&#x9ED8;&#x8BA4;&#x7684;field&#x3002;</td>
 <td>fields_under_root: true</td>
-</tr>
-<tr>
-<td>processors</td>
+</tr><tr><td>processors</td>
 <td></td>
 <td>&#x8BE5;&#x914D;&#x7F6E;&#x9879;&#x53EF;&#x914D;&#x7F6E;&#x4EE5;&#x4E0B;Processors&#xFF0C;&#x8BE6;&#x89C1;</td>
 <td></td>
-</tr>
-<tr>
-<td>max_procs</td>
+</tr><tr><td>max_procs</td>
 <td></td>
 <td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x914D;&#x7F6E;&#x793A;&#x4F8B;">&#x914D;&#x7F6E;&#x793A;&#x4F8B;</h2>
-<pre class="language-"><code class="lang-yaml"><span class="token comment"># Modules&#x914D;&#x7F6E;&#x9879;</span>
+<td></td>
+</tr></tbody></table>
+
+<h2 id="&#x914D;&#x7F6E;&#x793A;&#x4F8B;">&#x914D;&#x7F6E;&#x793A;&#x4F8B;</h2><pre class="language-"><code class="lang-yaml"><span class="token comment"># Modules&#x914D;&#x7F6E;&#x9879;</span>
 <span class="token key atrule">filebeat.modules</span><span class="token punctuation">:</span>
   <span class="token punctuation">-</span> <span class="token key atrule">module</span><span class="token punctuation">:</span> system
 <span class="token comment"># &#x901A;&#x7528;&#x914D;&#x7F6E;&#x9879;</span>
@@ -4795,129 +4586,81 @@ oc adm policy add-scc-to-user privileged system:serviceaccount:kube-system:fileb
 
 <span class="token comment"># Output&#x914D;&#x7F6E;&#x9879;</span>
 <span class="token key atrule">output.elasticsearch</span><span class="token punctuation">:</span>
-<span class="token key atrule">output.logstash</span><span class="token punctuation">:</span>
-</code></pre>
-<h1 id="&#x4E94;-input&#x63D2;&#x4EF6;&#x7C7B;&#x578B;">&#x4E94;. Input&#x63D2;&#x4EF6;&#x7C7B;&#x578B;</h1>
-<p>Input&#x7C7B;&#x578B;</p>
-<table>
+output.logstash<span class="token punctuation">:</span></code></pre>
+<h1 id="&#x4E94;-input&#x63D2;&#x4EF6;&#x7C7B;&#x578B;">&#x4E94;. Input&#x63D2;&#x4EF6;&#x7C7B;&#x578B;</h1><p>Input&#x7C7B;&#x578B;</p><table>
 <thead>
-<tr>
-<th>&#x7C7B;&#x578B;</th>
+<tr><th>&#x7C7B;&#x578B;</th>
 <th>&#x63CF;&#x8FF0;</th>
 <th>&#x914D;&#x7F6E;&#x793A;&#x4F8B;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html" _target="blank">Log</a></td>
+</tr></thead><tbody>
+<tr><td>[Log](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-log.html)</td>
 <td>&#x4ECE;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x6BCF;&#x4E00;&#x884C;</td>
-<td>filebeat.inputs: <br>- type: log<br>  paths:<br>     - /var/log/messages<br>     - /var/log/*.log</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-stdin.html" _target="blank">Stdin</a></td>
+<td>filebeat.inputs: &lt;br/&gt;- type: log&lt;br&gt;  paths:&lt;br/&gt;     - /var/log/messages&lt;br/&gt;     - /var/log/*.log</td>
+</tr><tr><td>[Stdin](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-stdin.html)</td>
 <td></td>
-<td>filebeat.inputs:<br> - type: stdin</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-container.html" _target="blank">Container</a></td>
+<td>filebeat.inputs:&lt;br/&gt; - type: stdin</td>
+</tr><tr><td>[Container](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-container.html)</td>
 <td></td>
-<td>filebeat.inputs:<br> - type: container<br>   paths:<br>      - &apos;/var/lib/docker/containers/<em>/</em>.log&apos;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-kafka.html" _target="blank">Kafka</a></td>
+<td>filebeat.inputs:&lt;br/&gt; - type: container&lt;br/&gt;   paths:&lt;br/&gt;      - &apos;/var/lib/docker/containers/*/*.log&apos;</td>
+</tr><tr><td>[Kafka](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-kafka.html)</td>
 <td></td>
-<td>filebeat.inputs:<br> - type: kafka<br>   hosts:<br>     - kafka-broker-1:9092<br>     - kafka-broker-2:9092<br>   topics: [&quot;my-topic&quot;]<br>   group_id: &quot;filebeat&quot;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-redis.html" _target="blank">Redis</a></td>
+<td>filebeat.inputs:&lt;br/&gt; - type: kafka&lt;br/&gt;   hosts:&lt;br/&gt;     - kafka-broker-1:9092&lt;br/&gt;     - kafka-broker-2:9092&lt;br/&gt;   topics: [&quot;my-topic&quot;]&lt;br/&gt;   group_id: &quot;filebeat&quot;</td>
+</tr><tr><td>[Redis](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-redis.html)</td>
 <td></td>
-<td>filebeat.inputs:<br> - type: redis<br>   hosts: [&quot;localhost:6379&quot;]<br>   password: &quot;${redis_pwd}&quot;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-udp.html" _target="blank">UDP</a></td>
+<td>filebeat.inputs:&lt;br/&gt; - type: redis&lt;br/&gt;   hosts: [&quot;localhost:6379&quot;]&lt;br/&gt;   password: &quot;${redis_pwd}&quot;</td>
+</tr><tr><td>[UDP](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-udp.html)</td>
 <td></td>
-<td>filebeat.inputs:<br> - type: udp<br>   max_message_size: 10KiB<br>   host: &quot;localhost:8080&quot;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-docker.html" _target="blank"> Docker</a></td>
+<td>filebeat.inputs:&lt;br/&gt; - type: udp&lt;br/&gt;   max_message_size: 10KiB&lt;br/&gt;   host: &quot;localhost:8080&quot;</td>
+</tr><tr><td>[ Docker](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-docker.html)</td>
 <td></td>
-<td>filebeat.inputs:<br> - type: docker<br>   containers.ids:<br>      - &apos;e067b58476dc57d6986dd347&apos;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-tcp.html" _target="blank">TCP</a></td>
+<td>filebeat.inputs:&lt;br/&gt; - type: docker&lt;br/&gt;   containers.ids:&lt;br/&gt;      - &apos;e067b58476dc57d6986dd347&apos;</td>
+</tr><tr><td>[TCP](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-tcp.html)</td>
 <td></td>
-<td>filebeat.inputs:<br> - type: tcp<br>   max_message_size: 10MiB<br>   host: &quot;localhost:9000&quot;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-syslog.html" _target="blank">Syslog</a></td>
+<td>filebeat.inputs:&lt;br/&gt; - type: tcp&lt;br/&gt;   max_message_size: 10MiB&lt;br/&gt;   host: &quot;localhost:9000&quot;</td>
+</tr><tr><td>[Syslog](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-syslog.html)</td>
 <td></td>
-<td>filebeat.inputs:<br> - type: syslog<br>   protocol.udp:<br>     host: &quot;localhost:9000&quot;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-s3.html" _target="blank">s3</a></td>
+<td>filebeat.inputs:&lt;br/&gt; - type: syslog&lt;br/&gt;   protocol.udp:&lt;br/&gt;     host: &quot;localhost:9000&quot;</td>
+</tr><tr><td>[s3](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-s3.html)</td>
 <td></td>
-<td>filebeat.inputs:<br> - type: s3<br>   queue_url: <a href="https://test.amazonaws.com/12/test" _target="blank">https://test.amazonaws.com/12/test</a><br>   access_key_id: my-access-key<br>   secret_access_key: my-secret-access-key</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-netflow.html" _target="blank">NetFlow</a></td>
+<td>filebeat.inputs:&lt;br/&gt; - type: s3&lt;br/&gt;   queue_url: https://test.amazonaws.com/12/test&lt;br/&gt;   access_key_id: my-access-key&lt;br/&gt;   secret_access_key: my-secret-access-key</td>
+</tr><tr><td>[NetFlow](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-netflow.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-google-pubsub.html" _target="blank">Google Pub/Sub</a></td>
+</tr><tr><td>[Google Pub/Sub](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-google-pubsub.html)</td>
 <td></td>
-</tr>
-</tbody>
-</table>
-<h1 id="&#x516D;-output&#x63D2;&#x4EF6;&#x7C7B;&#x578B;">&#x516D;. Output&#x63D2;&#x4EF6;&#x7C7B;&#x578B;</h1>
-<table>
+<td></td>
+</tr></tbody></table>
+
+<h1 id="&#x516D;-output&#x63D2;&#x4EF6;&#x7C7B;&#x578B;">&#x516D;. Output&#x63D2;&#x4EF6;&#x7C7B;&#x578B;</h1><table>
 <thead>
-<tr>
-<th>&#x7C7B;&#x578B;</th>
+<tr><th>&#x7C7B;&#x578B;</th>
 <th>&#x63CF;&#x8FF0;</th>
 <th>&#x914D;&#x7F6E;&#x6837;&#x4F8B;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/elasticsearch-output.html" _target="blank">Elasticsearch</a></td>
+</tr></thead><tbody>
+<tr><td>[Elasticsearch](https://www.elastic.co/guide/en/beats/filebeat/current/elasticsearch-output.html)</td>
 <td></td>
-<td>output.elasticsearch:<br>     hosts: [&quot;<a href="https://localhost:9200" _target="blank">https://localhost:9200</a>&quot;]<br>     protocol: &quot;https&quot;<br>     index: &quot;filebeat-%{[agent.version]}-%{+yyyy.MM.dd}&quot;<br>     ssl.certificate_authorities: [&quot;/etc/pki/root/ca.pem&quot;]<br>     ssl.certificate: &quot;/etc/pki/client/cert.pem&quot;<br>     ssl.key: &quot;/etc/pki/client/cert.key&quot;<br>     username: &quot;filebeat_internal&quot;<br>     password: &quot;YOUR_PASSWORD&quot;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/logstash-output.html" _target="blank">Logstash</a></td>
+<td>output.elasticsearch:&lt;br/&gt;     hosts: [&quot;https://localhost:9200&quot;]&lt;br/&gt;     protocol: &quot;https&quot;&lt;br/&gt;     index: &quot;filebeat-%{[agent.version]}-%{+yyyy.MM.dd}&quot;&lt;br/&gt;     ssl.certificate_authorities: [&quot;/etc/pki/root/ca.pem&quot;]&lt;br/&gt;     ssl.certificate: &quot;/etc/pki/client/cert.pem&quot;&lt;br/&gt;     ssl.key: &quot;/etc/pki/client/cert.key&quot;&lt;br/&gt;     username: &quot;filebeat_internal&quot;&lt;br/&gt;     password: &quot;YOUR_PASSWORD&quot;</td>
+</tr><tr><td>[Logstash](https://www.elastic.co/guide/en/beats/filebeat/current/logstash-output.html)</td>
 <td></td>
-<td>output.logstash:<br>     hosts: [&quot;127.0.0.1:5044&quot;]</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/kafka-output.html" _target="blank">Kafka</a></td>
+<td>output.logstash:&lt;br/&gt;     hosts: [&quot;127.0.0.1:5044&quot;]</td>
+</tr><tr><td>[Kafka](https://www.elastic.co/guide/en/beats/filebeat/current/kafka-output.html)</td>
 <td></td>
-<td>output.kafka:<br>     hosts: [&quot;kafka1:9092&quot;, &quot;kafka2:9092&quot;, &quot;kafka3:9092&quot;]<br>     topic: &apos;%{[fields.log_topic]}&apos;<br>     partition.round_robin:<br>            reachable_only: false<br>     required_acks: 1<br>     compression: gzip<br>     max_message_bytes: 1000000</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/redis-output.html" _target="blank">Redis</a></td>
+<td>output.kafka:&lt;br/&gt;     hosts: [&quot;kafka1:9092&quot;, &quot;kafka2:9092&quot;, &quot;kafka3:9092&quot;]&lt;br/&gt;     topic: &apos;%{[fields.log_topic]}&apos;&lt;br/&gt;     partition.round_robin:&lt;br/&gt;            reachable_only: false&lt;br/&gt;     required_acks: 1&lt;br/&gt;     compression: gzip&lt;br/&gt;     max_message_bytes: 1000000</td>
+</tr><tr><td>[Redis](https://www.elastic.co/guide/en/beats/filebeat/current/redis-output.html)</td>
 <td></td>
-<td>output.redis:<br>     hosts: [&quot;localhost&quot;]<br>     password: &quot;my_password&quot;<br>     key: &quot;filebeat&quot;<br>     db: 0<br>     timeout: 5</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/file-output.html" _target="blank">File</a></td>
+<td>output.redis:&lt;br/&gt;     hosts: [&quot;localhost&quot;]&lt;br/&gt;     password: &quot;my_password&quot;&lt;br/&gt;     key: &quot;filebeat&quot;&lt;br/&gt;     db: 0&lt;br/&gt;     timeout: 5</td>
+</tr><tr><td>[File](https://www.elastic.co/guide/en/beats/filebeat/current/file-output.html)</td>
 <td></td>
-<td>output.file:<br>     path: &quot;/tmp/filebeat&quot;<br>     filename: filebeat<br>     #rotate_every_kb: 10000<br>     #number_of_files: 7<br>     #permissions: 0600</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/console-output.html" _target="blank">Console</a></td>
+<td>output.file:&lt;br/&gt;     path: &quot;/tmp/filebeat&quot;&lt;br/&gt;     filename: filebeat&lt;br/&gt;     #rotate_every_kb: 10000&lt;br/&gt;     #number_of_files: 7&lt;br/&gt;     #permissions: 0600</td>
+</tr><tr><td>[Console](https://www.elastic.co/guide/en/beats/filebeat/current/console-output.html)</td>
 <td></td>
-<td>output.console:<br>     pretty: true</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/configure-cloud-id.html" _target="blank">Cloud</a></td>
+<td>output.console:&lt;br/&gt;     pretty: true</td>
+</tr><tr><td>[Cloud](https://www.elastic.co/guide/en/beats/filebeat/current/configure-cloud-id.html)</td>
 <td></td>
-</tr>
-</tbody>
-</table>
-<h1 id="&#x4E03;-processors&#x63D2;&#x4EF6;">&#x4E03;. Processors&#x63D2;&#x4EF6;</h1>
-<h2 id="&#x914D;&#x7F6E;&#x8BED;&#x6CD5;">&#x914D;&#x7F6E;&#x8BED;&#x6CD5;</h2>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">processors</span><span class="token punctuation">:</span>
+<td></td>
+</tr></tbody></table>
+
+<h1 id="&#x4E03;-processors&#x63D2;&#x4EF6;">&#x4E03;. Processors&#x63D2;&#x4EF6;</h1><h2 id="&#x914D;&#x7F6E;&#x8BED;&#x6CD5;">&#x914D;&#x7F6E;&#x8BED;&#x6CD5;</h2><pre class="language-"><code class="lang-yaml"><span class="token key atrule">processors</span><span class="token punctuation">:</span>
 <span class="token punctuation">-</span> <span class="token key atrule">if</span><span class="token punctuation">:</span>
     &lt;condition<span class="token punctuation">&gt;</span>
   <span class="token key atrule">then</span><span class="token punctuation">:</span> 
@@ -4930,51 +4673,39 @@ oc adm policy add-scc-to-user privileged system:serviceaccount:kube-system:fileb
     <span class="token punctuation">-</span> <span class="token key atrule">&lt;processor_name&gt;</span><span class="token punctuation">:</span>
         &lt;parameters<span class="token punctuation">&gt;</span>
     <span class="token punctuation">-</span> <span class="token key atrule">&lt;processor_name&gt;</span><span class="token punctuation">:</span>
-        &lt;parameters<span class="token punctuation">&gt;</span>
-</code></pre>
-<p>&#x53EF;&#x4EE5;&#x518D;Input&#x4E2D;&#x6DFB;&#x52A0;Processor</p>
-<pre class="language-"><code class="lang-json">- type<span class="token operator">:</span> &lt;input_type&gt;
+        &lt;parameters<span class="token punctuation">&gt;</span></code></pre>
+<p>&#x53EF;&#x4EE5;&#x518D;Input&#x4E2D;&#x6DFB;&#x52A0;Processor</p><pre class="language-"><code class="lang-json">- type<span class="token operator">:</span> &lt;input_type&gt;
   processors<span class="token operator">:</span>
   - &lt;processor_name&gt;<span class="token operator">:</span>
       when<span class="token operator">:</span>
         &lt;condition&gt;
-      &lt;parameters&gt;
-</code></pre>
-<h2 id="&#x6761;&#x4EF6;&#x8BED;&#x6CD5;">&#x6761;&#x4EF6;&#x8BED;&#x6CD5;</h2>
-<ul>
-<li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-equals" _target="blank"><code>equals</code></a></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">equals</span><span class="token punctuation">:</span>
-  <span class="token key atrule">http.response.code</span><span class="token punctuation">:</span> <span class="token number">200</span>
-</code></pre>
-</li>
-<li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-contains" _target="blank"><code>contains</code></a></p>
+      &lt;parameters&gt;</code></pre>
+<h2 id="&#x6761;&#x4EF6;&#x8BED;&#x6CD5;">&#x6761;&#x4EF6;&#x8BED;&#x6CD5;</h2><ul><li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-equals" target="_blank"><code>equals</code></a></p><pre class="language-"><code class="lang-yaml"><span class="token key atrule">equals</span><span class="token punctuation">:</span>
+  <span class="token key atrule">http.response.code</span><span class="token punctuation">:</span> <span class="token number">200</span></code></pre>
+<ul><li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-contains" target="_blank"><code>contains</code></a>
+</li></ul>
 <pre class="language-"><code class="lang-json">contains<span class="token operator">:</span>
-  status<span class="token operator">:</span> <span class="token string">&quot;Specific error&quot;</span>
-</code></pre>
-</li>
-<li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-regexp" _target="blank"><code>regexp</code></a></p>
+  status<span class="token operator">:</span> <span class="token string">&quot;Specific error&quot;</span></code></pre>
+<ul><li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-regexp" target="_blank"><code>regexp</code></a>
+</li></ul>
 <pre class="language-"><code class="lang-json">regexp<span class="token operator">:</span>
-  system.process.name<span class="token operator">:</span> <span class="token string">&quot;foo.*&quot;</span>
-</code></pre>
-</li>
-<li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-range" _target="blank"><code>range</code></a>&#xFF1A;The condition supports <code>lt</code>, <code>lte</code>, <code>gt</code> and <code>gte</code>. The condition accepts only integer or float values.</p>
+  system.process.name<span class="token operator">:</span> <span class="token string">&quot;foo.*&quot;</span></code></pre>
+<ul><li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-range" target="_blank"><code>range</code></a>&#xFF1A;The condition supports <code>lt</code>, <code>lte</code>, <code>gt</code> and <code>gte</code>. The condition accepts only integer or float values.
+</li></ul>
 <pre class="language-"><code class="lang-json">range<span class="token operator">:</span>
     http.response.code<span class="token operator">:</span>
-        gte<span class="token operator">:</span> <span class="token number">400</span>
-</code></pre>
-</li>
-<li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-network" _target="blank"><code>network</code></a></p>
+        gte<span class="token operator">:</span> <span class="token number">400</span></code></pre>
+<ul><li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-network" target="_blank"><code>network</code></a>
+</li></ul>
 <pre class="language-"><code class="lang-json">network<span class="token operator">:</span>
     source.ip<span class="token operator">:</span> private
     destination.ip<span class="token operator">:</span> &apos;<span class="token number">192.168</span>.<span class="token number">1.0</span>/<span class="token number">24</span>&apos;
-    destination.ip<span class="token operator">:</span> <span class="token punctuation">[</span>&apos;<span class="token number">192.168</span>.<span class="token number">1.0</span>/<span class="token number">24</span>&apos;<span class="token punctuation">,</span> &apos;<span class="token number">10.0</span>.<span class="token number">0.0</span>/<span class="token number">8</span>&apos;<span class="token punctuation">,</span> loopback<span class="token punctuation">]</span>
-</code></pre>
-</li>
-<li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-has_fields" _target="blank"><code>has_fields</code></a></p>
-<pre class="language-"><code class="lang-json">has_fields<span class="token operator">:</span> <span class="token punctuation">[</span>&apos;http.response.code&apos;<span class="token punctuation">]</span>
-</code></pre>
-</li>
-<li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-or" _target="blank"><code>or</code></a></p>
+    destination.ip<span class="token operator">:</span> <span class="token punctuation">[</span>&apos;<span class="token number">192.168</span>.<span class="token number">1.0</span>/<span class="token number">24</span>&apos;<span class="token punctuation">,</span> &apos;<span class="token number">10.0</span>.<span class="token number">0.0</span>/<span class="token number">8</span>&apos;<span class="token punctuation">,</span> loopback<span class="token punctuation">]</span></code></pre>
+<ul><li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-has_fields" target="_blank"><code>has_fields</code></a>
+</li></ul>
+<pre class="language-"><code class="lang-json">has_fields<span class="token operator">:</span> <span class="token punctuation">[</span>&apos;http.response.code&apos;<span class="token punctuation">]</span></code></pre>
+<ul><li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-or" target="_blank"><code>or</code></a>
+</li></ul>
 <pre class="language-"><code class="lang-json">or<span class="token operator">:</span>
   - &lt;condition<span class="token number">1</span>&gt;
   - &lt;condition<span class="token number">2</span>&gt;
@@ -4985,10 +4716,9 @@ or<span class="token operator">:</span>
   - equals<span class="token operator">:</span>
       http.response.code<span class="token operator">:</span> <span class="token number">304</span>
   - equals<span class="token operator">:</span>
-      http.response.code<span class="token operator">:</span> <span class="token number">404</span>
-</code></pre>
-</li>
-<li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-and" _target="blank"><code>and</code></a></p>
+      http.response.code<span class="token operator">:</span> <span class="token number">404</span></code></pre>
+<ul><li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-and" target="_blank"><code>and</code></a>
+</li></ul>
 <pre class="language-"><code class="lang-json">and<span class="token operator">:</span>
   - &lt;condition<span class="token number">1</span>&gt;
   - &lt;condition<span class="token number">2</span>&gt;
@@ -5005,369 +4735,226 @@ or<span class="token operator">:</span>
  - &lt;condition<span class="token number">1</span>&gt;
  - and<span class="token operator">:</span>
     - &lt;condition<span class="token number">2</span>&gt;
-    - &lt;condition<span class="token number">3</span>&gt;
-</code></pre>
-</li>
-<li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-not" _target="blank"><code>not</code></a></p>
+    - &lt;condition<span class="token number">3</span>&gt;</code></pre>
+<ul><li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/defining-processors.html#condition-not" target="_blank"><code>not</code></a>
+</li></ul>
 <pre class="language-"><code class="lang-json">not<span class="token operator">:</span>
   &lt;condition&gt;
 --------------
 not<span class="token operator">:</span>
   equals<span class="token operator">:</span>
-    status<span class="token operator">:</span> OK
-</code></pre>
+    status<span class="token operator">:</span> OK</code></pre>
+</li></ul>
+<h2 id="&#x652F;&#x6301;&#x7684;processors">&#x652F;&#x6301;&#x7684;Processors</h2><table>
+<thead>
+<tr><th>&#x7C7B;&#x578B;</th>
+<th>&#x4F5C;&#x7528;</th>
+<th>&#x914D;&#x7F6E;&#x6837;&#x4F8B;</th>
+</tr></thead><tbody>
+<tr><td>[`add_cloud_metadata`](https://www.elastic.co/guide/en/beats/filebeat/current/add-cloud-metadata.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`add_docker_metadata`](https://www.elastic.co/guide/en/beats/filebeat/current/add-docker-metadata.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt; - add_docker_metadata:&lt;br/&gt;       host: &quot;unix:///var/run/docker.sock&quot;</td>
+</tr><tr><td>[`add_fields`](https://www.elastic.co/guide/en/beats/filebeat/current/add-fields.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt;- add_fields:&lt;br/&gt;       target: project&lt;br/&gt;       fields:&lt;br/&gt;           name: myproject&lt;br/&gt;           id: &apos;574734885120952459&apos;</td>
+</tr><tr><td>[`add_host_metadata`](https://www.elastic.co/guide/en/beats/filebeat/current/add-host-metadata.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt; - add_host_metadata:&lt;br/&gt;       netinfo.enabled: false&lt;br/&gt;       cache.ttl: 5m&lt;br/&gt;       geo:&lt;br/&gt;           name: nyc-dc1-rack1&lt;br/&gt;           location: 40.7128, -74.0060&lt;br/&gt;           continent_name: North America&lt;br/&gt;           country_iso_code: US&lt;br/&gt;           region_name: New York&lt;br/&gt;           region_iso_code: NY&lt;br/&gt;           city_name: New York</td>
+</tr><tr><td>[`add_kubernetes_metadata`](https://www.elastic.co/guide/en/beats/filebeat/current/add-kubernetes-metadata.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt; - add_kubernetes_metadata:&lt;br/&gt;       host: &lt;hostname&gt;&lt;br/&gt;       kube_config: ~/.kube/config&lt;br/&gt;       default_indexers.enabled: false&lt;br/&gt;       default_matchers.enabled: false&lt;br/&gt;       indexers:&lt;br/&gt;           - ip_port: &lt;br/&gt;       matchers:&lt;br/&gt;           - fields:&lt;br/&gt;                  lookup_fields: [&quot;metricset.host&quot;]</td>
+</tr><tr><td>[`add_labels`](https://www.elastic.co/guide/en/beats/filebeat/current/add-labels.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt;- add_labels:&lt;br/&gt;       labels:&lt;br/&gt;           number: 1&lt;br/&gt;           with.dots: test&lt;br/&gt;           nested:&lt;br/&gt;                with.dots: nested&lt;br/&gt;           array:&lt;br/&gt;                - do&lt;br/&gt;                - re&lt;br/&gt;                - with.field: mi</td>
+</tr><tr><td>[`add_locale`](https://www.elastic.co/guide/en/beats/filebeat/current/add-locale.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt;- add_locale: ~&lt;br/&gt;processors:&lt;br/&gt;- add_locale:&lt;br/&gt;        format: abbreviation</td>
+</tr><tr><td>[`add_observer_metadata`](https://www.elastic.co/guide/en/beats/filebeat/current/add-observer-metadata.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`add_process_metadata`](https://www.elastic.co/guide/en/beats/filebeat/current/add-process-metadata.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`add_tags`](https://www.elastic.co/guide/en/beats/filebeat/current/add-tags.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt;- add_tags:&lt;br/&gt;       tags: [web, production]&lt;br/&gt;       target: &quot;environment&quot;</td>
+</tr><tr><td>[`community_id`](https://www.elastic.co/guide/en/beats/filebeat/current/community-id.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`convert`](https://www.elastic.co/guide/en/beats/filebeat/current/convert.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt;   - convert:&lt;br/&gt;         fields:&lt;br/&gt;             - {from: &quot;src_ip&quot;, to: &quot;source.ip&quot;, type: &quot;ip&quot;}&lt;br/&gt;            - {from: &quot;src_port&quot;, to: &quot;source.port&quot;, type: &quot;integer&quot;}&lt;br/&gt;         ignore_missing: true&lt;br/&gt;         fail_on_error: false</td>
+</tr><tr><td>[`decode_base64_field`](https://www.elastic.co/guide/en/beats/filebeat/current/decode-base64-field.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`decode_cef`](https://www.elastic.co/guide/en/beats/filebeat/current/processor-decode-cef.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`decode_csv_fields`](https://www.elastic.co/guide/en/beats/filebeat/current/decode-csv-fields.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`decode_json_fields`](https://www.elastic.co/guide/en/beats/filebeat/current/decode-json-fields.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`decompress_gzip_field`](https://www.elastic.co/guide/en/beats/filebeat/current/decompress-gzip-field.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`dissect`](https://www.elastic.co/guide/en/beats/filebeat/current/dissect.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt;- dissect:&lt;br/&gt;       tokenizer: &quot;%{key1} %{key2}&quot;&lt;br/&gt;       field: &quot;message&quot;&lt;br/&gt;       target_prefix: &quot;dissect&quot;</td>
+</tr><tr><td>[`dns`](https://www.elastic.co/guide/en/beats/filebeat/current/processor-dns.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`drop_event`](https://www.elastic.co/guide/en/beats/filebeat/current/drop-event.html)</td>
+<td></td>
+<td>processors:&lt;br&gt;- drop_event:&lt;br/&gt;         when:&lt;br/&gt;               condition</td>
+</tr><tr><td>[`drop_fields`](https://www.elastic.co/guide/en/beats/filebeat/current/drop-fields.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt;- drop_fields:&lt;br/&gt;        when:&lt;br/&gt;               condition&lt;br/&gt;         fields: [&quot;field1&quot;, &quot;field2&quot;, ...]&lt;br/&gt;         ignore_missing: false</td>
+</tr><tr><td>[`extract_array`](https://www.elastic.co/guide/en/beats/filebeat/current/extract-array.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt;  - extract_array:&lt;br/&gt;        field: my_array&lt;br/&gt;        mappings:&lt;br/&gt;             source.ip: 0&lt;br/&gt;             destination.ip: 1&lt;br/&gt;             network.transport: 2</td>
+</tr><tr><td>[`include_fields`](https://www.elastic.co/guide/en/beats/filebeat/current/include-fields.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt; - include_fields:&lt;br/&gt;        when:&lt;br/&gt;              condition&lt;br/&gt;        fields: [&quot;field1&quot;, &quot;field2&quot;, ...]</td>
+</tr><tr><td>[`registered_domain`](https://www.elastic.co/guide/en/beats/filebeat/current/processor-registered-domain.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`rename`](https://www.elastic.co/guide/en/beats/filebeat/current/rename-fields.html)</td>
+<td></td>
+<td>processors:&lt;br/&gt; - rename:&lt;br/&gt;       fields:&lt;br/&gt;          - from: &quot;a.g&quot;&lt;br/&gt;             to: &quot;e.d&quot;&lt;br/&gt;       ignore_missing: false&lt;br/&gt;       fail_on_error: true</td>
+</tr><tr><td>[`script`](https://www.elastic.co/guide/en/beats/filebeat/current/processor-script.html)</td>
+<td></td>
+<td></td>
+</tr><tr><td>[`timestamp`](https://www.elastic.co/guide/en/beats/filebeat/current/processor-timestamp.html)</td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+
+<h1 id=""></h1><h1 id="&#x516B;-modules">&#x516B;. Modules</h1><p>Filebeat modules simplify the collection, parsing, and visualization of common log formats.</p><p>A typical module (say, for the Nginx logs) is composed of one or more filesets (in the case of Nginx, <code>access</code> and <code>error</code>). A fileset contains the following:</p><ul><li>Filebeat input configurations, which contain the default paths where to look for the log files. These default paths depend on the operating system. The Filebeat configuration is also responsible with stitching together multiline events when needed.
 </li>
-</ul>
-<h2 id="&#x652F;&#x6301;&#x7684;processors">&#x652F;&#x6301;&#x7684;Processors</h2>
-<table>
+<li>Elasticsearch <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.4/ingest.html" target="_blank">Ingest Node</a> pipeline definition, which is used to parse the log lines.
+</li>
+<li>Fields definitions, which are used to configure Elasticsearch with the correct types for each field. They also contain short descriptions for each of the fields.
+</li>
+<li>Sample Kibana dashboards, when available, that can be used to visualize the log files.
+</li></ul>
+<p>Filebeat automatically adjusts these configurations based on your environment and loads them to the respective Elastic stack components.</p><p>Filebeat modules require Elasticsearch 5.2 or later.</p><h2 id="modules&#x7BA1;&#x7406;">Modules&#x7BA1;&#x7406;</h2><h3 id="1-&#x67E5;&#x770B;&#x6240;&#x6709;modules">1. &#x67E5;&#x770B;&#x6240;&#x6709;Modules</h3><pre class="language-"><code class="lang-bash">filebeat modules list</code></pre>
+<h3 id="2-&#x5F00;&#x542F;modules">2. &#x5F00;&#x542F;Modules</h3><pre class="language-"><code class="lang-bash">filebeat modules <span class="token builtin class-name">enable</span> module&#x540D;</code></pre>
+<h2 id="&#x652F;&#x6301;&#x7684;modules">&#x652F;&#x6301;&#x7684;Modules</h2><table>
 <thead>
-<tr>
-<th>&#x7C7B;&#x578B;</th>
+<tr><th>&#x7C7B;&#x578B;</th>
 <th>&#x4F5C;&#x7528;</th>
 <th>&#x914D;&#x7F6E;&#x6837;&#x4F8B;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-cloud-metadata.html" _target="blank"><code>add_cloud_metadata</code></a></td>
+</tr></thead><tbody>
+<tr><td>[*Modules overview*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules-overview.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-docker-metadata.html" _target="blank"><code>add_docker_metadata</code></a></td>
+</tr><tr><td>[*Apache module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-apache.html)</td>
 <td></td>
-<td>processors:<br> - add_docker_metadata:<br>       host: &quot;unix:///var/run/docker.sock&quot;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-fields.html" _target="blank"><code>add_fields</code></a></td>
 <td></td>
-<td>processors:<br>- add_fields:<br>       target: project<br>       fields:<br>           name: myproject<br>           id: &apos;574734885120952459&apos;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-host-metadata.html" _target="blank"><code>add_host_metadata</code></a></td>
+</tr><tr><td>[*Auditd module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-auditd.html)</td>
 <td></td>
-<td>processors:<br> - add_host_metadata:<br>       netinfo.enabled: false<br>       cache.ttl: 5m<br>       geo:<br>           name: nyc-dc1-rack1<br>           location: 40.7128, -74.0060<br>           continent_name: North America<br>           country_iso_code: US<br>           region_name: New York<br>           region_iso_code: NY<br>           city_name: New York</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-kubernetes-metadata.html" _target="blank"><code>add_kubernetes_metadata</code></a></td>
 <td></td>
-<td>processors:<br> - add_kubernetes_metadata:<br>       host: <hostname><br>       kube_config: ~/.kube/config<br>       default_indexers.enabled: false<br>       default_matchers.enabled: false<br>       indexers:<br>           - ip_port: <br>       matchers:<br>           - fields:<br>                  lookup_fields: [&quot;metricset.host&quot;]</hostname></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-labels.html" _target="blank"><code>add_labels</code></a></td>
+</tr><tr><td>[*AWS module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-aws.html)</td>
 <td></td>
-<td>processors:<br>- add_labels:<br>       labels:<br>           number: 1<br>           with.dots: test<br>           nested:<br>                with.dots: nested<br>           array:<br>                - do<br>                - re<br>                - with.field: mi</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-locale.html" _target="blank"><code>add_locale</code></a></td>
 <td></td>
-<td>processors:<br>- add_locale: ~<br>processors:<br>- add_locale:<br>        format: abbreviation</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-observer-metadata.html" _target="blank"><code>add_observer_metadata</code></a></td>
+</tr><tr><td>[*CEF module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-cef.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-process-metadata.html" _target="blank"><code>add_process_metadata</code></a></td>
+</tr><tr><td>[*Cisco module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-cisco.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/add-tags.html" _target="blank"><code>add_tags</code></a></td>
+</tr><tr><td>[*Coredns Module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-coredns.html)</td>
 <td></td>
-<td>processors:<br>- add_tags:<br>       tags: [web, production]<br>       target: &quot;environment&quot;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/community-id.html" _target="blank"><code>community_id</code></a></td>
 <td></td>
+</tr><tr><td>[*Elasticsearch module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-elasticsearch.html)</td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/convert.html" _target="blank"><code>convert</code></a></td>
-<td></td>
-<td>processors:<br>   - convert:<br>         fields:<br>             - {from: &quot;src_ip&quot;, to: &quot;source.ip&quot;, type: &quot;ip&quot;}<br>            - {from: &quot;src_port&quot;, to: &quot;source.port&quot;, type: &quot;integer&quot;}<br>         ignore_missing: true<br>         fail_on_error: false</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/decode-base64-field.html" _target="blank"><code>decode_base64_field</code></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/processor-decode-cef.html" _target="blank"><code>decode_cef</code></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/decode-csv-fields.html" _target="blank"><code>decode_csv_fields</code></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/decode-json-fields.html" _target="blank"><code>decode_json_fields</code></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/decompress-gzip-field.html" _target="blank"><code>decompress_gzip_field</code></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/dissect.html" _target="blank"><code>dissect</code></a></td>
-<td></td>
-<td>processors:<br>- dissect:<br>       tokenizer: &quot;%{key1} %{key2}&quot;<br>       field: &quot;message&quot;<br>       target_prefix: &quot;dissect&quot;</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/processor-dns.html" _target="blank"><code>dns</code></a></td>
 <td></td>
+</tr><tr><td>[*Envoyproxy Module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-envoyproxy.html)</td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/drop-event.html" _target="blank"><code>drop_event</code></a></td>
 <td></td>
-<td>processors:<br>- drop_event:<br>         when:<br>               condition</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/drop-fields.html" _target="blank"><code>drop_fields</code></a></td>
-<td></td>
-<td>processors:<br>- drop_fields:<br>        when:<br>               condition<br>         fields: [&quot;field1&quot;, &quot;field2&quot;, ...]<br>         ignore_missing: false</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/extract-array.html" _target="blank"><code>extract_array</code></a></td>
-<td></td>
-<td>processors:<br>  - extract_array:<br>        field: my_array<br>        mappings:<br>             source.ip: 0<br>             destination.ip: 1<br>             network.transport: 2</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/include-fields.html" _target="blank"><code>include_fields</code></a></td>
-<td></td>
-<td>processors:<br> - include_fields:<br>        when:<br>              condition<br>        fields: [&quot;field1&quot;, &quot;field2&quot;, ...]</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/processor-registered-domain.html" _target="blank"><code>registered_domain</code></a></td>
+</tr><tr><td>[*Google Cloud module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-googlecloud.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/rename-fields.html" _target="blank"><code>rename</code></a></td>
+</tr><tr><td>[*haproxy module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-haproxy.html)</td>
 <td></td>
-<td>processors:<br> - rename:<br>       fields:<br>          - from: &quot;a.g&quot;<br>             to: &quot;e.d&quot;<br>       ignore_missing: false<br>       fail_on_error: true</td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/processor-script.html" _target="blank"><code>script</code></a></td>
 <td></td>
+</tr><tr><td>[*IBM MQ module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-ibmmq.html)</td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/processor-timestamp.html" _target="blank"><code>timestamp</code></a></td>
 <td></td>
-</tr>
-</tbody>
-</table>
-<h1 id=""> </h1>
-<h1 id="&#x516B;-modules">&#x516B;. Modules</h1>
-<p>Filebeat modules simplify the collection, parsing, and visualization of common log formats.</p>
-<p>A typical module (say, for the Nginx logs) is composed of one or more filesets (in the case of Nginx, <code>access</code> and <code>error</code>). A fileset contains the following:</p>
-<ul>
-<li>Filebeat input configurations, which contain the default paths where to look for the log files. These default paths depend on the operating system. The Filebeat configuration is also responsible with stitching together multiline events when needed.</li>
-<li>Elasticsearch <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.4/ingest.html" _target="blank">Ingest Node</a> pipeline definition, which is used to parse the log lines.</li>
-<li>Fields definitions, which are used to configure Elasticsearch with the correct types for each field. They also contain short descriptions for each of the fields.</li>
-<li>Sample Kibana dashboards, when available, that can be used to visualize the log files.</li>
-</ul>
-<p>Filebeat automatically adjusts these configurations based on your environment and loads them to the respective Elastic stack components.</p>
-<p>Filebeat modules require Elasticsearch 5.2 or later.</p>
-<h2 id="modules&#x7BA1;&#x7406;">Modules&#x7BA1;&#x7406;</h2>
-<h3 id="1-&#x67E5;&#x770B;&#x6240;&#x6709;modules">1. &#x67E5;&#x770B;&#x6240;&#x6709;Modules</h3>
-<pre class="language-"><code class="lang-bash">filebeat modules list
-</code></pre>
-<h3 id="2-&#x5F00;&#x542F;modules">2. &#x5F00;&#x542F;Modules</h3>
-<pre class="language-"><code class="lang-bash">filebeat modules <span class="token builtin class-name">enable</span> module&#x540D;
-</code></pre>
-<h2 id="&#x652F;&#x6301;&#x7684;modules">&#x652F;&#x6301;&#x7684;Modules</h2>
-<table>
-<thead>
-<tr>
-<th>&#x7C7B;&#x578B;</th>
-<th>&#x4F5C;&#x7528;</th>
-<th>&#x914D;&#x7F6E;&#x6837;&#x4F8B;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules-overview.html" _target="blank"><em>Modules overview</em></a></td>
+</tr><tr><td>[*Icinga module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-icinga.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-apache.html" _target="blank"><em>Apache module</em></a></td>
+</tr><tr><td>[*IIS module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-iis.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-auditd.html" _target="blank"><em>Auditd module</em></a></td>
+</tr><tr><td>[*Iptables module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-iptables.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-aws.html" _target="blank"><em>AWS module</em></a></td>
+</tr><tr><td>[*Kafka module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-kafka.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-cef.html" _target="blank"><em>CEF module</em></a></td>
+</tr><tr><td>[*Kibana module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-kibana.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-cisco.html" _target="blank"><em>Cisco module</em></a></td>
+</tr><tr><td>[*Logstash module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-logstash.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-coredns.html" _target="blank"><em>Coredns Module</em></a></td>
+</tr><tr><td>[*MongoDB module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mongodb.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-elasticsearch.html" _target="blank"><em>Elasticsearch module</em></a></td>
+</tr><tr><td>[*MSSQL module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mssql.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-envoyproxy.html" _target="blank"><em>Envoyproxy Module</em></a></td>
+</tr><tr><td>[*MySQL module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mysql.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-googlecloud.html" _target="blank"><em>Google Cloud module</em></a></td>
+</tr><tr><td>[*nats module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-nats.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-haproxy.html" _target="blank"><em>haproxy module</em></a></td>
+</tr><tr><td>[*NetFlow module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-netflow.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-ibmmq.html" _target="blank"><em>IBM MQ module</em></a></td>
+</tr><tr><td>[*Nginx module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-nginx.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-icinga.html" _target="blank"><em>Icinga module</em></a></td>
+</tr><tr><td>[*Osquery module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-osquery.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-iis.html" _target="blank"><em>IIS module</em></a></td>
+</tr><tr><td>[*Palo Alto Networks module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-panw.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-iptables.html" _target="blank"><em>Iptables module</em></a></td>
+</tr><tr><td>[*PostgreSQL module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-postgresql.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-kafka.html" _target="blank"><em>Kafka module</em></a></td>
+</tr><tr><td>[*RabbitMQ module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-rabbitmq.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-kibana.html" _target="blank"><em>Kibana module</em></a></td>
+</tr><tr><td>[*Redis module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-redis.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-logstash.html" _target="blank"><em>Logstash module</em></a></td>
+</tr><tr><td>[*Santa module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-santa.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mongodb.html" _target="blank"><em>MongoDB module</em></a></td>
+</tr><tr><td>[*Suricata module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-suricata.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mssql.html" _target="blank"><em>MSSQL module</em></a></td>
+</tr><tr><td>[*System module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mysql.html" _target="blank"><em>MySQL module</em></a></td>
+</tr><tr><td>[*Traefik module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-traefik.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-nats.html" _target="blank"><em>nats module</em></a></td>
+</tr><tr><td>[*Zeek (Bro) Module*](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-zeek.html)</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-netflow.html" _target="blank"><em>NetFlow module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-nginx.html" _target="blank"><em>Nginx module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-osquery.html" _target="blank"><em>Osquery module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-panw.html" _target="blank"><em>Palo Alto Networks module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-postgresql.html" _target="blank"><em>PostgreSQL module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-rabbitmq.html" _target="blank"><em>RabbitMQ module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-redis.html" _target="blank"><em>Redis module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-santa.html" _target="blank"><em>Santa module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-suricata.html" _target="blank"><em>Suricata module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html" _target="blank"><em>System module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-traefik.html" _target="blank"><em>Traefik module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-zeek.html" _target="blank"><em>Zeek (Bro) Module</em></a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h1 id="&#x4E5D;-&#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x89E3;&#x6790;">&#x4E5D;. &#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x89E3;&#x6790;</h1>
-<p>&#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF1A;<code>/var/lib/filebeat/registry/filebeat/data.json</code></p>
-<pre class="language-"><code class="lang-json"><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token property">&quot;source&quot;</span><span class="token operator">:</span><span class="token string">&quot;/root/mysql-slow-sql-log/mysql-slowsql.log&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;offset&quot;</span><span class="token operator">:</span><span class="token number">1365442</span><span class="token punctuation">,</span><span class="token property">&quot;timestamp&quot;</span><span class="token operator">:</span><span class="token string">&quot;2019-10-11T09:29:35.185399057+08:00&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;ttl&quot;</span><span class="token operator">:</span><span class="token number">-1</span><span class="token punctuation">,</span><span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;log&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;meta&quot;</span><span class="token operator">:</span><span class="token null keyword">null</span><span class="token punctuation">,</span><span class="token property">&quot;FileStateOS&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">&quot;inode&quot;</span><span class="token operator">:</span><span class="token number">2360926</span><span class="token punctuation">,</span><span class="token property">&quot;device&quot;</span><span class="token operator">:</span><span class="token number">2051</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
-</code></pre>
+</tr></tbody></table>
+
+<h1 id="&#x4E5D;-&#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x89E3;&#x6790;">&#x4E5D;. &#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x89E3;&#x6790;</h1><p>&#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF1A;<code>/var/lib/filebeat/registry/filebeat/data.json</code></p><pre class="language-"><code class="lang-json"><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token property">&quot;source&quot;</span><span class="token operator">:</span><span class="token string">&quot;/root/mysql-slow-sql-log/mysql-slowsql.log&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;offset&quot;</span><span class="token operator">:</span><span class="token number">1365442</span><span class="token punctuation">,</span><span class="token property">&quot;timestamp&quot;</span><span class="token operator">:</span><span class="token string">&quot;2019-10-11T09:29:35.185399057+08:00&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;ttl&quot;</span><span class="token operator">:</span><span class="token number">-1</span><span class="token punctuation">,</span><span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;log&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;meta&quot;</span><span class="token operator">:</span><span class="token null keyword">null</span><span class="token punctuation">,</span><span class="token property">&quot;FileStateOS&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">&quot;inode&quot;</span><span class="token operator">:</span><span class="token number">2360926</span><span class="token punctuation">,</span><span class="token property">&quot;device&quot;</span><span class="token operator">:</span><span class="token number">2051</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre>
 <pre class="language-"><code class="lang-json">source                # &#x8BB0;&#x5F55;&#x91C7;&#x96C6;&#x65E5;&#x5FD7;&#x7684;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;
 offset                # &#x5DF2;&#x7ECF;&#x91C7;&#x96C6;&#x7684;&#x65E5;&#x5FD7;&#x7684;&#x5B57;&#x8282;&#x6570;;&#x5DF2;&#x7ECF;&#x91C7;&#x96C6;&#x5230;&#x65E5;&#x5FD7;&#x7684;&#x54EA;&#x4E2A;&#x5B57;&#x8282;&#x4F4D;&#x7F6E;
 timestamp            # &#x65E5;&#x5FD7;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x65F6;&#x95F4;&#x6233;
@@ -5376,13 +4963,8 @@ type<span class="token operator">:</span>
 meta
 filestateos            # &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x76F8;&#x5173;
 &#x3000;&#x3000;inode              # &#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;inode&#x53F7;
-&#x3000;&#x3000;device          # &#x65E5;&#x5FD7;&#x6240;&#x5728;&#x78C1;&#x76D8;&#x7684;&#x78C1;&#x76D8;&#x7F16;&#x53F7;
-</code></pre>
-<p>&#x786C;&#x76D8;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x81EA;&#x52A8;&#x5C06;&#x786C;&#x76D8;&#x5206;&#x6210;&#x4E86;&#x4E24;&#x4E2A;&#x533A;&#x57DF;&#x3002;</p>
-<p>&#x4E00;&#x4E2A;&#x662F;&#x6570;&#x636E;&#x533A;&#xFF0C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x4FE1;&#x606F;</p>
-<p>&#x4E00;&#x4E2A;&#x662F;inode&#x533A;&#xFF0C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x6587;&#x4EF6;&#x7684;&#x5143;&#x4FE1;&#x606F;&#xFF0C;&#x6BD4;&#x5982;&#x6587;&#x4EF6;&#x7684;&#x521B;&#x5EFA;&#x8005;&#x3001;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#x3001;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x7B49;&#x7B49;</p>
-<p>&#x6BCF;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x6709;&#x5BF9;&#x5E94;&#x7684;inode&#xFF0C;&#x91CC;&#x8FB9;&#x5305;&#x542B;&#x4E86;&#x4E0E;&#x8BE5;&#x6587;&#x4EF6;&#x6709;&#x5173;&#x7684;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;<code>stat</code>&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x7684;inode&#x4FE1;&#x606F;</p>
-<pre class="language-"><code>&gt; stat /var/log/messages
+&#x3000;&#x3000;device          # &#x65E5;&#x5FD7;&#x6240;&#x5728;&#x78C1;&#x76D8;&#x7684;&#x78C1;&#x76D8;&#x7F16;&#x53F7;</code></pre>
+<p>&#x786C;&#x76D8;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x81EA;&#x52A8;&#x5C06;&#x786C;&#x76D8;&#x5206;&#x6210;&#x4E86;&#x4E24;&#x4E2A;&#x533A;&#x57DF;&#x3002;</p><p>&#x4E00;&#x4E2A;&#x662F;&#x6570;&#x636E;&#x533A;&#xFF0C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x4FE1;&#x606F;</p><p>&#x4E00;&#x4E2A;&#x662F;inode&#x533A;&#xFF0C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x6587;&#x4EF6;&#x7684;&#x5143;&#x4FE1;&#x606F;&#xFF0C;&#x6BD4;&#x5982;&#x6587;&#x4EF6;&#x7684;&#x521B;&#x5EFA;&#x8005;&#x3001;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#x3001;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x7B49;&#x7B49;</p><p>&#x6BCF;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x6709;&#x5BF9;&#x5E94;&#x7684;inode&#xFF0C;&#x91CC;&#x8FB9;&#x5305;&#x542B;&#x4E86;&#x4E0E;&#x8BE5;&#x6587;&#x4EF6;&#x6709;&#x5173;&#x7684;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;<code>stat</code>&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x7684;inode&#x4FE1;&#x606F;</p><pre class="language-"><code>&gt; stat /var/log/messages
   File: &#x2018;/var/log/messages&#x2019;
   Size: 56216339        Blocks: 109808     IO Block: 4096   regular file
 Device: 803h/2051d      Inode: 1053379     Links: 1
@@ -5390,15 +4972,14 @@ Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
 Access: 2019-10-06 03:20:01.528781081 +0800
 Modify: 2019-10-12 13:59:13.059112545 +0800
 Change: 2019-10-12 13:59:13.059112545 +0800
- Birth: -
-</code></pre><p>2051&#x4E3A;&#x5341;&#x8FDB;&#x5236;&#x6570;&#xFF0C;&#x5BF9;&#x5E94;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x6570;803</p>
-<h1 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;">&#x53C2;&#x8003;&#x94FE;&#x63A5;</h1>
-<ol>
-<li><a href="https://www.cnblogs.com/micmouse521/p/8085229.html" _target="blank">https://www.cnblogs.com/micmouse521/p/8085229.html</a> </li>
-</ol>
+ Birth: -</code></pre>
+<p>2051&#x4E3A;&#x5341;&#x8FDB;&#x5236;&#x6570;&#xFF0C;&#x5BF9;&#x5E94;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x6570;803</p><h1 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;">&#x53C2;&#x8003;&#x94FE;&#x63A5;</h1><ol><li><a href="https://www.cnblogs.com/micmouse521/p/8085229.html" target="_blank">https://www.cnblogs.com/micmouse521/p/8085229.html</a> 
+</li></ol>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-10-17 18:22:55
+2019-11-11 20:51:59
 </span></footer>
+
+
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
 					</section>
@@ -5433,7 +5014,7 @@ Change: 2019-10-12 13:59:13.059112545 +0800
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"简介安装配置","level":"6.1.4.1","depth":3,"next":{"title":"Logstash","level":"6.1.5","depth":2,"ref":"","articles":[{"title":"简介安装配置Pipeline","level":"6.1.5.1","depth":3,"path":"origin/logstash-简介安装配置Pipeline.md","ref":"origin/logstash-简介安装配置Pipeline.md","articles":[]},{"title":"Pipeline示例--采集MySQL慢查询日志到Elasticsearch","level":"6.1.5.2","depth":3,"path":"origin/logstash-采集MySQL慢查询日志到Elasticsearch.md","ref":"origin/logstash-采集MySQL慢查询日志到Elasticsearch.md","articles":[]}]},"previous":{"title":"Filebeat","level":"6.1.4","depth":2,"ref":"","articles":[{"title":"简介安装配置","level":"6.1.4.1","depth":3,"path":"origin/filebeat-简介安装配置.md","ref":"origin/filebeat-简介安装配置.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/rationalmonster.github.io/master/","label":"查MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/filebeat-简介安装配置.md","mtime":"2019-10-17T10:22:55.067Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-11-12T09:38:38.726Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"简介安装配置","level":"6.1.4.1","depth":3,"next":{"title":"Logstash","level":"6.1.5","depth":2,"ref":"","articles":[{"title":"简介安装配置Pipeline","level":"6.1.5.1","depth":3,"path":"origin/logstash-简介安装配置Pipeline.md","ref":"origin/logstash-简介安装配置Pipeline.md","articles":[]},{"title":"Pipeline示例--采集MySQL慢查询日志到Elasticsearch","level":"6.1.5.2","depth":3,"path":"origin/logstash-采集MySQL慢查询日志到Elasticsearch.md","ref":"origin/logstash-采集MySQL慢查询日志到Elasticsearch.md","articles":[]}]},"previous":{"title":"Filebeat","level":"6.1.4","depth":2,"ref":"","articles":[{"title":"简介安装配置","level":"6.1.4.1","depth":3,"path":"origin/filebeat-简介安装配置.md","ref":"origin/filebeat-简介安装配置.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copyButtons":true,"copybuttons":"true"},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"/assets/wechat-donate.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"label":"查MD文件","base":"https://raw.githubusercontent.com/RationalMonster/rationalmonster.github.io/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/filebeat-简介安装配置.md","mtime":"2019-11-11T12:51:59.788Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-11-12T14:57:01.103Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
@@ -5483,10 +5064,6 @@ Change: 2019-10-12 13:59:13.059112545 +0800
         
     
         
-        <script src="../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
-        
-    
-        
         <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
         
     
@@ -5496,10 +5073,6 @@ Change: 2019-10-12 13:59:13.059112545 +0800
     
         
         <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
         
     
         
@@ -5515,7 +5088,15 @@ Change: 2019-10-12 13:59:13.059112545 +0800
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
         
     
 

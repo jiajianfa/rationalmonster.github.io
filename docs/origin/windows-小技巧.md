@@ -50,13 +50,7 @@
 密钥
 
     win10专业版密钥
-    VK7JG-NPHTM-C97JM-9MPGT-3V66T
-    NPPR9-FWDCX-D2C8J-H872K-2YT43
     W269N-WFGWX-YVC9B-4J6C9-T83GX
-    NYW94-47Q7H-7X9TT-W7TXD-JTYPM
-    NJ4MX-VQQ7Q-FP3DB-VDGHX-7XM87
-    MH37W-N47XK-V7XM9-C7227-GCQG9
-    VK7JG-NPHTM-C97JM-9MPGT-3V66T
 ​
 激活
 
@@ -116,7 +110,7 @@ Windows+R,输入regedit，打开注册表，修改一下注册表的值(十进�
 ![](../assets/windows-小技巧-8.png)
 ![](../assets/windows-小技巧-9.png)
 
-## 11、CMD下的用户管理
+## 11. CMD下的用户管理
 
 - `net user`：查看目前系统存在的用户
    `net user username`：查看用户的详细信息
@@ -127,3 +121,11 @@ Windows+R,输入regedit，打开注册表，修改一下注册表的值(十进�
 - `net localgroup administrators 用户名 /add`：将本地用户加入管理员用户组
 - `net user 用户名 /del`：删除用户
 - `runas /user:用户 cmd`：以某个用户运行命令
+
+## 12. Windows软件授权管理工具slmgr命令
+
+![](../assets/windows-小技巧-10.png)
+![](../assets/windows-小技巧-11.png)
+![](../assets/windows-小技巧-12.png)
+![](../assets/windows-小技巧-13.png)
+![](../assets/windows-小技巧-14.png)
