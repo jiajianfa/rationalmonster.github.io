@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.0.0">
         <meta name="author" content="Curiouser <rationalmonster@163.com>">
         
         
@@ -45,6 +45,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
                 
             
@@ -65,15 +69,11 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-fexa/fexa.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
         
@@ -4202,28 +4202,33 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;">Openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;</h1><p>&#x7531;&#x4E8E;&#x516C;&#x53F8;&#x7684;&#x65E5;&#x5E38;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x90FD;&#x8FC1;&#x79FB;&#x5230;openshift&#x4E0A;&#x4E86;&#x3002;&#x6709;&#x4F17;&#x591A;&#x5F00;&#x53D1;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x767B;&#x9646;&#x5230;openshift&#x4E0A;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x7ED9;admin&#x6743;&#x9650;&#xFF0C;&#x80AF;&#x5B9A;&#x662F;&#x4E0D;&#x884C;&#x7684;&#x3002;&#x800C;openshift&#x662F;&#x652F;&#x6301;&#x591A;&#x79DF;&#x6237;&#x7684;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5C31;&#x5728;&#x521B;&#x5EFA;&#x666E;&#x901A;&#x7528;&#x6237;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x8D4B;&#x4E88;&#x5404;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6743;&#x9650;&#x9650;&#x5236;&#x6765;&#x81EA;&#x63A7;&#x5236;&#x5BF9;openshift&#x4E0A;project&#x7684;&#x64CD;&#x4F5C;&#x3002;</p><h1 id="&#x4E00;&#x3001;prerequisite">&#x4E00;&#x3001;Prerequisite</h1><ol><li>&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5BF9;CI&#x73AF;&#x5883;&#x6709;&#x64CD;&#x4F5C;&#x6743;&#x9650;&#xFF0C;&#x5BF9;SIT&#x3001;UAT&#x73AF;&#x5883;&#x53EA;&#x6709;&#x67E5;&#x770B;&#x6743;&#x9650;
-</li>
-<li>&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x5BF9;SIT&#x73AF;&#x5883;&#x6709;&#x64CD;&#x4F5C;&#x6743;&#x9650;&#xFF0C;&#x5BF9;CI&#x73AF;&#x5883;&#x53EA;&#x6709;&#x67E5;&#x770B;&#x6743;&#x9650;
-</li>
-<li>&#x6240;&#x6709;&#x4EBA;&#x5458;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x767B;&#x5F55;&#x8D26;&#x6237;&#xFF0C;&#x5747;&#x53EF;&#x89C1;openshift&#x4E0A;&#x6240;&#x6709;&#x7684;&#x4E1A;&#x52A1;&#x9879;&#x76EE;&#xFF0C;&#x4E0D;&#x53EF;&#x89C1;&#x7CFB;&#x7EDF;&#x9879;&#x76EE;
-</li></ol>
-<h1 id="&#x4E8C;&#x3001;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;">&#x4E8C;&#x3001;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;</h1><ol><li><p>&#x521B;&#x5EFA;&#x767B;&#x5F55;&#x7528;&#x6237;</p><pre class="language-"><code> ansible masters -m shell -a &quot;htpasswd -b /etc/origin/master/htpasswd dev1 dev1&quot;
+						<h1 id="openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;">Openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;</h1>
+<p>&#x7531;&#x4E8E;&#x516C;&#x53F8;&#x7684;&#x65E5;&#x5E38;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x90FD;&#x8FC1;&#x79FB;&#x5230;openshift&#x4E0A;&#x4E86;&#x3002;&#x6709;&#x4F17;&#x591A;&#x5F00;&#x53D1;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x767B;&#x9646;&#x5230;openshift&#x4E0A;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x7ED9;admin&#x6743;&#x9650;&#xFF0C;&#x80AF;&#x5B9A;&#x662F;&#x4E0D;&#x884C;&#x7684;&#x3002;&#x800C;openshift&#x662F;&#x652F;&#x6301;&#x591A;&#x79DF;&#x6237;&#x7684;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5C31;&#x5728;&#x521B;&#x5EFA;&#x666E;&#x901A;&#x7528;&#x6237;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x8D4B;&#x4E88;&#x5404;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6743;&#x9650;&#x9650;&#x5236;&#x6765;&#x81EA;&#x63A7;&#x5236;&#x5BF9;openshift&#x4E0A;project&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<h1 id="&#x4E00;&#x3001;prerequisite">&#x4E00;&#x3001;Prerequisite</h1>
+<ol>
+<li>&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5BF9;CI&#x73AF;&#x5883;&#x6709;&#x64CD;&#x4F5C;&#x6743;&#x9650;&#xFF0C;&#x5BF9;SIT&#x3001;UAT&#x73AF;&#x5883;&#x53EA;&#x6709;&#x67E5;&#x770B;&#x6743;&#x9650;</li>
+<li>&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x5BF9;SIT&#x73AF;&#x5883;&#x6709;&#x64CD;&#x4F5C;&#x6743;&#x9650;&#xFF0C;&#x5BF9;CI&#x73AF;&#x5883;&#x53EA;&#x6709;&#x67E5;&#x770B;&#x6743;&#x9650;</li>
+<li>&#x6240;&#x6709;&#x4EBA;&#x5458;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x767B;&#x5F55;&#x8D26;&#x6237;&#xFF0C;&#x5747;&#x53EF;&#x89C1;openshift&#x4E0A;&#x6240;&#x6709;&#x7684;&#x4E1A;&#x52A1;&#x9879;&#x76EE;&#xFF0C;&#x4E0D;&#x53EF;&#x89C1;&#x7CFB;&#x7EDF;&#x9879;&#x76EE;</li>
+</ol>
+<h1 id="&#x4E8C;&#x3001;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;">&#x4E8C;&#x3001;&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;</h1>
+<ol>
+<li><p>&#x521B;&#x5EFA;&#x767B;&#x5F55;&#x7528;&#x6237;</p>
+<pre class="language-"><code> ansible masters -m shell -a &quot;htpasswd -b /etc/origin/master/htpasswd dev1 dev1&quot;
  ansible masters -m shell -a &quot;htpasswd -b /etc/origin/master/htpasswd dev2 dev2&quot;
  ansible masters -m shell -a &quot;htpasswd -b /etc/origin/master/htpasswd dev3 dev3&quot;
  ansible masters -m shell -a &quot;htpasswd -b /etc/origin/master/htpasswd tester1 tester1&quot;
  ansible masters -m shell -a &quot;htpasswd -b /etc/origin/master/htpasswd tester2 tester2&quot;
- ansible masters -m shell -a &quot;htpasswd -b /etc/origin/master/htpasswd tester3 tester3&quot;</code></pre>
-<ol><li>&#x521B;&#x5EFA;&#x7528;&#x6237;&#x7EC4;
-</li></ol>
+ ansible masters -m shell -a &quot;htpasswd -b /etc/origin/master/htpasswd tester3 tester3&quot;
+</code></pre></li>
+<li><p>&#x521B;&#x5EFA;&#x7528;&#x6237;&#x7EC4;</p>
 <pre class="language-"><code> oc adm groups new developer
- oc adm groups new tester</code></pre>
-<ol><li>&#x5C06;&#x7528;&#x6237;&#x6DFB;&#x52A0;&#x5230;&#x7528;&#x6237;&#x7EC4;&#x4E2D;
-</li></ol>
+ oc adm groups new tester
+</code></pre></li>
+<li><p>&#x5C06;&#x7528;&#x6237;&#x6DFB;&#x52A0;&#x5230;&#x7528;&#x6237;&#x7EC4;&#x4E2D;</p>
 <pre class="language-"><code> oc adm groups add-users developer dev1 dev2 dev3
- oc adm groups add-users tester tester1 tester2 tester3</code></pre>
-<ol><li>&#x9488;&#x5BF9;&#x9879;&#x76EE;&#xFF0C;&#x7ED9;&#x7528;&#x6237;&#x7EC4;&#x8D4B;&#x4E88;&#x7CFB;&#x7EDF;&#x89D2;&#x8272;
-</li></ol>
+ oc adm groups add-users tester tester1 tester2 tester3
+</code></pre></li>
+<li><p>&#x9488;&#x5BF9;&#x9879;&#x76EE;&#xFF0C;&#x7ED9;&#x7528;&#x6237;&#x7EC4;&#x8D4B;&#x4E88;&#x7CFB;&#x7EDF;&#x89D2;&#x8272;</p>
 <pre class="language-"><code> oc adm policy add-role-to-group edit developer -n aci
  oc adm policy add-role-to-group edit developer -n bci
  oc adm policy add-role-to-group edit developer -n cci
@@ -4242,9 +4247,15 @@
  oc adm policy add-role-to-group edit tester -n cuat
  oc adm policy add-role-to-group view tester -n aci
  oc adm policy add-role-to-group view tester -n bci
- oc adm policy add-role-to-group view tester -n cci</code></pre>
-</li></ol>
-<p>&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5728;&#x4EE5;&#x67D0;&#x4EE5;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x767B;&#x5F55;&#x8FC7;&#x7A0B;openshift&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F9D;&#x65E7;&#x4F1A;&#x770B;&#x5230;openshift &#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x9879;&#x76EE;&#x7684;namespace&#x3002;&#x4F8B;&#x5982;base namespace&#xFF0C;&#x8BE5;namespace&#x9879;&#x76EE;&#x662F;&#x5728;registry&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x521B;&#x5EFA;&#x955C;&#x50CF;&#x9879;&#x76EE;&#x65F6;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7684;openshift namespace&#xFF08;&#x5728;registry&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x521B;&#x5EFA;base&#x955C;&#x50CF;&#x9879;&#x76EE;&#x662F;&#x4E3A;&#x4E86;&#x5B58;&#x653E;&#x4E00;&#x4E9B;&#x81EA;&#x5B9A;&#x4E49;&#x7684;s2i&#x955C;&#x50CF;&#xFF09;&#x3002;&#x4E3A;&#x4E86;&#x4F7F;&#x5176;&#x4ED6;openshift namespace&#x4F7F;&#x7528;&#x5176;&#x4E2D;&#x7684;s2i&#x955C;&#x50CF;&#xFF0C;&#x7279;&#x522B;&#x5728;registry&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x662F;&#x955C;&#x50CF;&#x9879;&#x76EE;&#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x8BBE;&#x7F6E;&#x4E3A;&#x5171;&#x4EAB;&#x7684;&#x3002;&#x79CD;&#x79CD;&#x4EE5;&#x4E0A;&#xFF0C;&#x5BFC;&#x81F4;openshift&#x4E0A;&#x7684;base namespace&#x662F;&#x80FD;&#x88AB;&#x6240;&#x6709;&#x7684;&#x5DF2;&#x8BA4;&#x8BC1;&#x7684;&#x7528;&#x6237;&#x67E5;&#x770B;&#x5230;&#x3002;</p><p><img src="../assets/openshift-openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;-1.png"></p><p>&#x5728;openshift&#x4E2D;&#x67E5;&#x770B;base&#x9879;&#x76EE;&#x7684;membership</p><p><img src="../assets/openshift-openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;-2.png"></p><p>&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x51E1;&#x662F;&#x5728;registry&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x8BBE;&#x7F6E;&#x95EE;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x8BBE;&#x7F6E;&#x4E3A;&#x5171;&#x4EAB;&#x7684;&#xFF0C;&#x90FD;&#x4F1A;&#x5728;openshift &#x9879;&#x76EE;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7528;&#x6237;system:authenticated &#x3002;&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x4E0A;&#x7ED1;&#x5B9A;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x89D2;&#x8272;registry-viewer&#x3002;&#x5728;openshift&#x540E;&#x53F0;&#x67E5;&#x770B;&#x8BE5;&#x89D2;&#x8272;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</p><pre class="language-"><code>    # oc describe clusterrole registry-viewer
+ oc adm policy add-role-to-group view tester -n cci
+</code></pre></li>
+</ol>
+<p>&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5728;&#x4EE5;&#x67D0;&#x4EE5;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x767B;&#x5F55;&#x8FC7;&#x7A0B;openshift&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F9D;&#x65E7;&#x4F1A;&#x770B;&#x5230;openshift &#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x9879;&#x76EE;&#x7684;namespace&#x3002;&#x4F8B;&#x5982;base namespace&#xFF0C;&#x8BE5;namespace&#x9879;&#x76EE;&#x662F;&#x5728;registry&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x521B;&#x5EFA;&#x955C;&#x50CF;&#x9879;&#x76EE;&#x65F6;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7684;openshift namespace&#xFF08;&#x5728;registry&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x521B;&#x5EFA;base&#x955C;&#x50CF;&#x9879;&#x76EE;&#x662F;&#x4E3A;&#x4E86;&#x5B58;&#x653E;&#x4E00;&#x4E9B;&#x81EA;&#x5B9A;&#x4E49;&#x7684;s2i&#x955C;&#x50CF;&#xFF09;&#x3002;&#x4E3A;&#x4E86;&#x4F7F;&#x5176;&#x4ED6;openshift namespace&#x4F7F;&#x7528;&#x5176;&#x4E2D;&#x7684;s2i&#x955C;&#x50CF;&#xFF0C;&#x7279;&#x522B;&#x5728;registry&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x662F;&#x955C;&#x50CF;&#x9879;&#x76EE;&#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x8BBE;&#x7F6E;&#x4E3A;&#x5171;&#x4EAB;&#x7684;&#x3002;&#x79CD;&#x79CD;&#x4EE5;&#x4E0A;&#xFF0C;&#x5BFC;&#x81F4;openshift&#x4E0A;&#x7684;base namespace&#x662F;&#x80FD;&#x88AB;&#x6240;&#x6709;&#x7684;&#x5DF2;&#x8BA4;&#x8BC1;&#x7684;&#x7528;&#x6237;&#x67E5;&#x770B;&#x5230;&#x3002;</p>
+<p><img src="../assets/openshift-openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;-1.png" alt=""></p>
+<p>&#x5728;openshift&#x4E2D;&#x67E5;&#x770B;base&#x9879;&#x76EE;&#x7684;membership</p>
+<p><img src="../assets/openshift-openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;-2.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x51E1;&#x662F;&#x5728;registry&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x8BBE;&#x7F6E;&#x95EE;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x8BBE;&#x7F6E;&#x4E3A;&#x5171;&#x4EAB;&#x7684;&#xFF0C;&#x90FD;&#x4F1A;&#x5728;openshift &#x9879;&#x76EE;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7528;&#x6237;system:authenticated &#x3002;&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x4E0A;&#x7ED1;&#x5B9A;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x89D2;&#x8272;registry-viewer&#x3002;&#x5728;openshift&#x540E;&#x53F0;&#x67E5;&#x770B;&#x8BE5;&#x89D2;&#x8272;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</p>
+<pre class="language-"><code>    # oc describe clusterrole registry-viewer
     Name:                   registry-viewer
     Created:                About an hour ago
     Labels:                 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>none</span><span class="token punctuation">&gt;</span></span>
@@ -4254,10 +4265,12 @@
     [get list watch]        []                      []              [ image.openshift.io]   [imagestreamimages imagestreammappings imagestreams imagestreamtags]
     [get]                   []                      []              [ image.openshift.io]   [imagestreams/layers]
     [get]                   []                      []              []                      [namespaces]
-    [get]                   []                      []              [project.openshift.io ] [projects]</code></pre>
-<p>&#x53D1;&#x73B0;&#x8BE5;&#x89D2;&#x8272;&#x6709;&#x5BF9;namespace&#x8D44;&#x6E90;&#x62E5;&#x6709;get&#x52A8;&#x4F5C;&#x3002;&#x4ED4;&#x7EC6;&#x60F3;&#x60F3;&#xFF0C;&#x8BE5;system:authenticated&#x7528;&#x6237;&#x53EA;&#x662F;&#x8BA9;openshift&#x5176;&#x4ED6;&#x9879;&#x76EE;&#x7684;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x80FD;&#x591F;&#x62C9;&#x53D6;&#x5176;&#x4E0B;&#x7684;&#x955C;&#x50CF;&#x6D41;&#x3002;&#x800C;&#x5728;Kubernetes&#x4E2D;&#x4F7F;&#x7528;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x6982;&#x5FF5;&#x6765;&#x5206;&#x9694;&#x8D44;&#x6E90;&#x3002;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x67D0;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x79F0;&#x5728;&#x5176;&#x5206;&#x7C7B;&#x4E2D;&#x5FC5;&#x987B;&#x552F;&#x4E00;&#xFF0C;&#x4F46;&#x662F;&#x5206;&#x5E03;&#x5728;&#x4E0D;&#x540C;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x5219;&#x53EF;&#x4EE5;&#x540C;&#x540D;&#x3002;OpenShift&#x4E2D;&#x7EE7;&#x627F;&#x4E86;Kubernetes&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x5176;&#x4E4B;&#x4E0A;&#x5B9A;&#x4E49;&#x4E86;Project&#x5BF9;&#x8C61;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x6BCF;&#x4E00;&#x4E2A;Project&#x4F1A;&#x548C;&#x4E00;&#x4E2A;Namespace&#x76F8;&#x5173;&#x8054;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730;&#x8BA4;&#x4E3A;&#xFF0C;Project&#x5C31;&#x662F;Namespace&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x8BE5;&#x7528;&#x6237;&#x5BF9;project&#x8D44;&#x6E90;&#x6709;&#x83B7;&#x53D6;&#x6743;&#x9650;&#xFF0C;&#x90A3;&#x5C31;&#x628A;&#x5BF9;namespace&#x7684;&#x6743;&#x9650;&#x7ED9;&#x53BB;&#x6389;&#x8BD5;&#x8BD5;&#x3002;
-&#x5148;&#x5BFC;&#x51FA;&#x89D2;&#x8272;registry-viewer&#x7684;bindding&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p><pre class="language-"><code>oc export clusterrole registry-viewer  &gt; registry-viewer.yml</code></pre>
-<p>&#x7136;&#x540E;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6CE8;&#x91CA;&#x6389;get namespace&#x7684;&#x52A8;&#x4F5C;</p><pre class="language-"><code>apiVersion: v1
+    [get]                   []                      []              [project.openshift.io ] [projects]
+</code></pre><p>&#x53D1;&#x73B0;&#x8BE5;&#x89D2;&#x8272;&#x6709;&#x5BF9;namespace&#x8D44;&#x6E90;&#x62E5;&#x6709;get&#x52A8;&#x4F5C;&#x3002;&#x4ED4;&#x7EC6;&#x60F3;&#x60F3;&#xFF0C;&#x8BE5;system:authenticated&#x7528;&#x6237;&#x53EA;&#x662F;&#x8BA9;openshift&#x5176;&#x4ED6;&#x9879;&#x76EE;&#x7684;&#x7CFB;&#x7EDF;&#x7528;&#x6237;&#x80FD;&#x591F;&#x62C9;&#x53D6;&#x5176;&#x4E0B;&#x7684;&#x955C;&#x50CF;&#x6D41;&#x3002;&#x800C;&#x5728;Kubernetes&#x4E2D;&#x4F7F;&#x7528;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x6982;&#x5FF5;&#x6765;&#x5206;&#x9694;&#x8D44;&#x6E90;&#x3002;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x67D0;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x79F0;&#x5728;&#x5176;&#x5206;&#x7C7B;&#x4E2D;&#x5FC5;&#x987B;&#x552F;&#x4E00;&#xFF0C;&#x4F46;&#x662F;&#x5206;&#x5E03;&#x5728;&#x4E0D;&#x540C;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x5219;&#x53EF;&#x4EE5;&#x540C;&#x540D;&#x3002;OpenShift&#x4E2D;&#x7EE7;&#x627F;&#x4E86;Kubernetes&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x5176;&#x4E4B;&#x4E0A;&#x5B9A;&#x4E49;&#x4E86;Project&#x5BF9;&#x8C61;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x6BCF;&#x4E00;&#x4E2A;Project&#x4F1A;&#x548C;&#x4E00;&#x4E2A;Namespace&#x76F8;&#x5173;&#x8054;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730;&#x8BA4;&#x4E3A;&#xFF0C;Project&#x5C31;&#x662F;Namespace&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x8BE5;&#x7528;&#x6237;&#x5BF9;project&#x8D44;&#x6E90;&#x6709;&#x83B7;&#x53D6;&#x6743;&#x9650;&#xFF0C;&#x90A3;&#x5C31;&#x628A;&#x5BF9;namespace&#x7684;&#x6743;&#x9650;&#x7ED9;&#x53BB;&#x6389;&#x8BD5;&#x8BD5;&#x3002;
+&#x5148;&#x5BFC;&#x51FA;&#x89D2;&#x8272;registry-viewer&#x7684;bindding&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre class="language-"><code>oc export clusterrole registry-viewer  &gt; registry-viewer.yml
+</code></pre><p>&#x7136;&#x540E;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6CE8;&#x91CA;&#x6389;get namespace&#x7684;&#x52A8;&#x4F5C;</p>
+<pre class="language-"><code>apiVersion: v1
 kind: ClusterRole
 metadata:
 annotations:
@@ -4301,50 +4314,59 @@ attributeRestrictions: null
 resources:
 - projects
 verbs:
-- get</code></pre>
-<p>&#x518D;&#x5C06;&#x96C6;&#x7FA4;&#x4E2D;&#x89D2;&#x8272;&#x5220;&#x6389;&#xFF08;&#x6B64;&#x65F6;&#x7279;&#x522B;&#x6CE8;&#x610F;:&#x4ECE;&#x96C6;&#x7FA4;&#x4E2D;&#x5220;&#x6389;registry-viewer&#x89D2;&#x8272;&#x540E;&#x4F1A;&#x5BFC;&#x81F4;&#x5DF2;&#x6709;&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x955C;&#x50CF;&#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4ECE;&#x5171;&#x6709;&#x53D8;&#x6210;&#x79C1;&#x6709;,base&#x9879;&#x76EE;&#x7684;membership&#x4E2D;&#x4F1A;&#x5220;&#x6389;system:authenticated&#x8BE5;&#x7528;&#x6237;&#xFF09;</p><pre class="language-"><code>oc delete clusterrole registry-viewer</code></pre>
-<p>&#x63A5;&#x7740;&#x518D;&#x4ECE;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x521B;&#x5EFA;&#x89D2;&#x8272;</p><pre class="language-"><code>oc create -f registry-viewer.yml</code></pre>
-<p>&#x6700;&#x540E;&#x518D;&#x6B21;&#x4FEE;&#x6539;&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x955C;&#x50CF;&#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4ECE;&#x79C1;&#x6709;&#x53D8;&#x6210;&#x5171;&#x6709;&#x3002;&#x518D;&#x6B21;&#x67E5;&#x770B;base&#x9879;&#x76EE;&#x4E2D;membership.</p><p>&#x6700;&#x6709;&#x518D;&#x4EE5;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x8D26;&#x6237;&#x767B;&#x5F55;&#x67E5;&#x770B;&#x3002;&#x4E0D;&#x518D;&#x663E;&#x793A;base&#x9879;&#x76EE;&#x3002;&#x6D4B;&#x8BD5;&#x5176;&#x4ED6;&#x9879;&#x76EE;&#x53BB;&#x62C9;&#x53D6;base&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x955C;&#x50CF;&#xFF0C;&#x770B;&#x53BB;&#x6389;registry-viewer&#x89D2;&#x8272;&#x4E2D;role&#x662F;&#x5426;&#x6709;&#x5F71;&#x54CD;&#x3002;</p><p>&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x4EE5;openshift&#x4E0A;&#x7684;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#x767B;&#x5F55;openshift&#x4E0A;&#x7684;jenkins&#xFF0C;&#x8FD8;&#x8981;&#x5BF9;jenkins&#x505A;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x5728;jenkins&#x4E0A;&#x505A;&#x6784;&#x5EFA;&#x64CD;&#x4F5C;&#xFF0C;&#x67E5;&#x770B;&#x6784;&#x5EFA;&#x65E5;&#x5FD7;&#x7B49;&#x3002;&#x9700;&#x8981;&#x5BF9;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x5206;&#x7EC4;tester&#x8D4B;&#x4E88;&#x5BF9;jenkins&#x7684;&#x7F16;&#x8F91;&#x6743;&#x9650;&#x3002;&#x521D;&#x6B65;&#x601D;&#x8DEF;&#x662F;&#x76F4;&#x63A5;&#x7ED9;tester&#x5206;&#x7EC4;&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#x89D2;&#x8272;clusterrole edit&#xFF08;oc adm policy add-cluster-role-to-group edit tester&#xFF09;&#x3002;&#x4F46;&#x662F;&#x518D;&#x4EE5;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x767B;&#x5F55;&#x65F6;&#x8FD8;&#x662F;&#x80FD;&#x770B;&#x5230;jenkins&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x751A;&#x81F3;&#x80FD;&#x64CD;&#x4F5C;openshift&#x4E0A;jenkins pod&#x7684;&#x91CD;&#x65B0;&#x90E8;&#x7F72;&#x3002;&#x8FD9;&#x662F;&#x4E0D;&#x53EF;&#x63A5;&#x53D7;&#x7684;&#x3002;</p><p>&#x90A3;&#x5C31;&#x6362;&#x4E2A;&#x601D;&#x8DEF;&#x3002;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x96C6;&#x7FA4;&#x89D2;&#x8272;clusterrole&#xFF0C;&#x5728;&#x89D2;&#x8272;&#x4E0A;&#x7ED1;&#x5B9A;&#x82E5;&#x5E72;&#x89C4;&#x5219;&#xFF0C;&#x518D;&#x5C06;&#x8FD9;&#x4E2A;&#x96C6;&#x7FA4;&#x89D2;&#x8272;&#x8D4B;&#x4E88;&#x6D4B;&#x8BD5;&#x7EC4;&#xFF0C;&#x76F8;&#x5E94;&#x7684;&#x6D4B;&#x8BD5;&#x7EC4;&#x6210;&#x5458;&#x80FD;&#x767B;&#x5F55;jenkins&#xFF0C;&#x5E76;&#x5BF9;jenkins&#x505A;&#x64CD;&#x4F5C;&#x3002;
-&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;
-1. &#x5148;&#x67E5;&#x770B;&#x96C6;&#x7FA4;&#x89D2;&#x8272;edit&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x770B;edit&#x90FD;&#x5BF9;&#x90A3;&#x4E9B;&#x8D44;&#x6E90;&#x90FD;&#x6709;&#x4EC0;&#x4E48;&#x52A8;&#x4F5C;</p><pre class="language-"><code>    oc describe clusterrole edit
-    &#x200B;
-    Name:                                                           edit
-    Created:                                                        7 months ago
-    Labels:                                                         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>none</span><span class="token punctuation">&gt;</span></span>
-    Annotations:                                                    openshift.io/description=A user that can create and edit most objects in a project, but can not update the project&apos;s membership.
-    Verbs                                                           Non-Resource URLs       Resource Names  API Groups                      Resources
-    [create delete deletecollection get list patch update watch]    []                      []              []                              [pods pods/attach pods/exec pods/portforward pods/proxy]
-    [create delete deletecollection get list patch update watch]    []                      []              []                              [configmaps endpoints persistentvolumeclaims replicationcontrollers replicationcontrollers/scale secrets serviceaccounts services services/proxy]
-    [get list watch]                                                []                      []              []                              [bindings events limitranges namespaces namespaces/status pods/log pods/status replicationcontrollers/status resourcequotas resourcequotas/status]
-    [impersonate]                                                   []                      []              []                              [serviceaccounts]
-    [create delete deletecollection get list patch update watch]    []                      []              [autoscaling]                   [horizontalpodautoscalers]
-    [create delete deletecollection get list patch update watch]    []                      []              [batch]                         [cronjobs jobs scheduledjobs]
-    [create delete deletecollection get list patch update watch]    []                      []              [extensions]                    [deployments deployments/rollback deployments/scale horizontalpodautoscalers jobs replicasets replicasets/scale replicationcontrollers/scale]
-    [get list watch]                                                []                      []              [extensions]                    [daemonsets]
-    [create delete deletecollection get list patch update watch]    []                      []              [apps]                          [deployments deployments/scale deployments/status statefulsets]
-    [create delete deletecollection get list patch update watch]    []                      []              [build.openshift.io ]           [buildconfigs buildconfigs/webhooks builds]
-    [get list watch]                                                []                      []              [build.openshift.io ]           [builds/log]
-    [create]                                                        []                      []              [build.openshift.io ]           [buildconfigs/instantiate buildconfigs/instantiatebinary builds/clone]
-    [update]                                                        []                      []              [build.openshift.io ]           [builds/details]
-    [edit view]                                                     []                      []              [build.openshift.io]            [jenkins]
-    [create delete deletecollection get list patch update watch]    []                      []              [apps.openshift.io ]            [deploymentconfigs deploymentconfigs/scale generatedeploymentconfigs]
-    [create]                                                        []                      []              [apps.openshift.io ]            [deploymentconfigrollbacks deploymentconfigs/instantiate deploymentconfigs/rollback]
-    [get list watch]                                                []                      []              [apps.openshift.io ]            [deploymentconfigs/log deploymentconfigs/status]
-    [create delete deletecollection get list patch update watch]    []                      []              [image.openshift.io ]           [imagestreamimages imagestreammappings imagestreams imagestreams/secrets imagestreamtags]
-    [get list watch]                                                []                      []              [image.openshift.io ]           [imagestreams/status]
-    [get update]                                                    []                      []              [image.openshift.io ]           [imagestreams/layers]
-    [create]                                                        []                      []              [image.openshift.io ]           [imagestreamimports]
-    [get]                                                           []                      []              [project.openshift.io ]         [projects]
-    [get list watch]                                                []                      []              [quota.openshift.io ]           [appliedclusterresourcequotas]
-    [create delete deletecollection get list patch update watch]    []                      []              [route.openshift.io ]           [routes]
-    [create]                                                        []                      []              [route.openshift.io ]           [routes/custom-host]
-    [get list watch]                                                []                      []              [route.openshift.io ]           [routes/status]
-    [create delete deletecollection get list patch update watch]    []                      []              [template.openshift.io ]        [processedtemplates templateconfigs templateinstances templates]
-    [create delete deletecollection get list patch update watch]    []                      []              [build.openshift.io ]           [buildlogs]
-    [get list watch]                                                []                      []              []                              [resourcequotausages]</code></pre>
-<ol><li><p>&#x5BFC;&#x51FA;&#x96C6;&#x7FA4;&#x89D2;&#x8272;edit&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5230;&#x672C;&#x5730;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x5176;&#x4E0A;&#x505A;&#x4FEE;&#x6539;</p><pre class="language-"><code> oc export clusterrole edit &gt; jenkins-clusterrole.yml</code></pre>
-<ol><li>&#x7F16;&#x8F91; jenkins-clusterrole.yml&#xFF08;&#x53EA;&#x4FDD;&#x7559;&#x76F8;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x90FD;&#x5220;&#x6389;&#xFF09;
-</li></ol>
+- get
+</code></pre><p>&#x518D;&#x5C06;&#x96C6;&#x7FA4;&#x4E2D;&#x89D2;&#x8272;&#x5220;&#x6389;&#xFF08;&#x6B64;&#x65F6;&#x7279;&#x522B;&#x6CE8;&#x610F;:&#x4ECE;&#x96C6;&#x7FA4;&#x4E2D;&#x5220;&#x6389;registry-viewer&#x89D2;&#x8272;&#x540E;&#x4F1A;&#x5BFC;&#x81F4;&#x5DF2;&#x6709;&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x955C;&#x50CF;&#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4ECE;&#x5171;&#x6709;&#x53D8;&#x6210;&#x79C1;&#x6709;,base&#x9879;&#x76EE;&#x7684;membership&#x4E2D;&#x4F1A;&#x5220;&#x6389;system:authenticated&#x8BE5;&#x7528;&#x6237;&#xFF09;</p>
+<pre class="language-"><code>oc delete clusterrole registry-viewer
+</code></pre><p>&#x63A5;&#x7740;&#x518D;&#x4ECE;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x521B;&#x5EFA;&#x89D2;&#x8272;</p>
+<pre class="language-"><code>oc create -f registry-viewer.yml
+</code></pre><p>&#x6700;&#x540E;&#x518D;&#x6B21;&#x4FEE;&#x6539;&#x955C;&#x50CF;&#x6CE8;&#x518C;&#x4ED3;&#x5E93;&#x4E2D;&#x955C;&#x50CF;&#x7684;&#x8BBF;&#x95EE;&#x7B56;&#x7565;&#x4ECE;&#x79C1;&#x6709;&#x53D8;&#x6210;&#x5171;&#x6709;&#x3002;&#x518D;&#x6B21;&#x67E5;&#x770B;base&#x9879;&#x76EE;&#x4E2D;membership.</p>
+<p>&#x6700;&#x6709;&#x518D;&#x4EE5;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x8D26;&#x6237;&#x767B;&#x5F55;&#x67E5;&#x770B;&#x3002;&#x4E0D;&#x518D;&#x663E;&#x793A;base&#x9879;&#x76EE;&#x3002;&#x6D4B;&#x8BD5;&#x5176;&#x4ED6;&#x9879;&#x76EE;&#x53BB;&#x62C9;&#x53D6;base&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x955C;&#x50CF;&#xFF0C;&#x770B;&#x53BB;&#x6389;registry-viewer&#x89D2;&#x8272;&#x4E2D;role&#x662F;&#x5426;&#x6709;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x4EE5;openshift&#x4E0A;&#x7684;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#x767B;&#x5F55;openshift&#x4E0A;&#x7684;jenkins&#xFF0C;&#x8FD8;&#x8981;&#x5BF9;jenkins&#x505A;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x5728;jenkins&#x4E0A;&#x505A;&#x6784;&#x5EFA;&#x64CD;&#x4F5C;&#xFF0C;&#x67E5;&#x770B;&#x6784;&#x5EFA;&#x65E5;&#x5FD7;&#x7B49;&#x3002;&#x9700;&#x8981;&#x5BF9;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x5206;&#x7EC4;tester&#x8D4B;&#x4E88;&#x5BF9;jenkins&#x7684;&#x7F16;&#x8F91;&#x6743;&#x9650;&#x3002;&#x521D;&#x6B65;&#x601D;&#x8DEF;&#x662F;&#x76F4;&#x63A5;&#x7ED9;tester&#x5206;&#x7EC4;&#x670D;&#x52A1;&#x7CFB;&#x7EDF;&#x89D2;&#x8272;clusterrole edit&#xFF08;oc adm policy add-cluster-role-to-group edit tester&#xFF09;&#x3002;&#x4F46;&#x662F;&#x518D;&#x4EE5;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x767B;&#x5F55;&#x65F6;&#x8FD8;&#x662F;&#x80FD;&#x770B;&#x5230;jenkins&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x751A;&#x81F3;&#x80FD;&#x64CD;&#x4F5C;openshift&#x4E0A;jenkins pod&#x7684;&#x91CD;&#x65B0;&#x90E8;&#x7F72;&#x3002;&#x8FD9;&#x662F;&#x4E0D;&#x53EF;&#x63A5;&#x53D7;&#x7684;&#x3002;</p>
+<p>&#x90A3;&#x5C31;&#x6362;&#x4E2A;&#x601D;&#x8DEF;&#x3002;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x96C6;&#x7FA4;&#x89D2;&#x8272;clusterrole&#xFF0C;&#x5728;&#x89D2;&#x8272;&#x4E0A;&#x7ED1;&#x5B9A;&#x82E5;&#x5E72;&#x89C4;&#x5219;&#xFF0C;&#x518D;&#x5C06;&#x8FD9;&#x4E2A;&#x96C6;&#x7FA4;&#x89D2;&#x8272;&#x8D4B;&#x4E88;&#x6D4B;&#x8BD5;&#x7EC4;&#xFF0C;&#x76F8;&#x5E94;&#x7684;&#x6D4B;&#x8BD5;&#x7EC4;&#x6210;&#x5458;&#x80FD;&#x767B;&#x5F55;jenkins&#xFF0C;&#x5E76;&#x5BF9;jenkins&#x505A;&#x64CD;&#x4F5C;&#x3002;
+&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li><p>&#x5148;&#x67E5;&#x770B;&#x96C6;&#x7FA4;&#x89D2;&#x8272;edit&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x770B;edit&#x90FD;&#x5BF9;&#x90A3;&#x4E9B;&#x8D44;&#x6E90;&#x90FD;&#x6709;&#x4EC0;&#x4E48;&#x52A8;&#x4F5C;</p>
+<pre class="language-"><code> oc describe clusterrole edit
+ &#x200B;
+ Name:                                                           edit
+ Created:                                                        7 months ago
+ Labels:                                                         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>none</span><span class="token punctuation">&gt;</span></span>
+ Annotations:                                                    openshift.io/description=A user that can create and edit most objects in a project, but can not update the project&apos;s membership.
+ Verbs                                                           Non-Resource URLs       Resource Names  API Groups                      Resources
+ [create delete deletecollection get list patch update watch]    []                      []              []                              [pods pods/attach pods/exec pods/portforward pods/proxy]
+ [create delete deletecollection get list patch update watch]    []                      []              []                              [configmaps endpoints persistentvolumeclaims replicationcontrollers replicationcontrollers/scale secrets serviceaccounts services services/proxy]
+ [get list watch]                                                []                      []              []                              [bindings events limitranges namespaces namespaces/status pods/log pods/status replicationcontrollers/status resourcequotas resourcequotas/status]
+ [impersonate]                                                   []                      []              []                              [serviceaccounts]
+ [create delete deletecollection get list patch update watch]    []                      []              [autoscaling]                   [horizontalpodautoscalers]
+ [create delete deletecollection get list patch update watch]    []                      []              [batch]                         [cronjobs jobs scheduledjobs]
+ [create delete deletecollection get list patch update watch]    []                      []              [extensions]                    [deployments deployments/rollback deployments/scale horizontalpodautoscalers jobs replicasets replicasets/scale replicationcontrollers/scale]
+ [get list watch]                                                []                      []              [extensions]                    [daemonsets]
+ [create delete deletecollection get list patch update watch]    []                      []              [apps]                          [deployments deployments/scale deployments/status statefulsets]
+ [create delete deletecollection get list patch update watch]    []                      []              [build.openshift.io ]           [buildconfigs buildconfigs/webhooks builds]
+ [get list watch]                                                []                      []              [build.openshift.io ]           [builds/log]
+ [create]                                                        []                      []              [build.openshift.io ]           [buildconfigs/instantiate buildconfigs/instantiatebinary builds/clone]
+ [update]                                                        []                      []              [build.openshift.io ]           [builds/details]
+ [edit view]                                                     []                      []              [build.openshift.io]            [jenkins]
+ [create delete deletecollection get list patch update watch]    []                      []              [apps.openshift.io ]            [deploymentconfigs deploymentconfigs/scale generatedeploymentconfigs]
+ [create]                                                        []                      []              [apps.openshift.io ]            [deploymentconfigrollbacks deploymentconfigs/instantiate deploymentconfigs/rollback]
+ [get list watch]                                                []                      []              [apps.openshift.io ]            [deploymentconfigs/log deploymentconfigs/status]
+ [create delete deletecollection get list patch update watch]    []                      []              [image.openshift.io ]           [imagestreamimages imagestreammappings imagestreams imagestreams/secrets imagestreamtags]
+ [get list watch]                                                []                      []              [image.openshift.io ]           [imagestreams/status]
+ [get update]                                                    []                      []              [image.openshift.io ]           [imagestreams/layers]
+ [create]                                                        []                      []              [image.openshift.io ]           [imagestreamimports]
+ [get]                                                           []                      []              [project.openshift.io ]         [projects]
+ [get list watch]                                                []                      []              [quota.openshift.io ]           [appliedclusterresourcequotas]
+ [create delete deletecollection get list patch update watch]    []                      []              [route.openshift.io ]           [routes]
+ [create]                                                        []                      []              [route.openshift.io ]           [routes/custom-host]
+ [get list watch]                                                []                      []              [route.openshift.io ]           [routes/status]
+ [create delete deletecollection get list patch update watch]    []                      []              [template.openshift.io ]        [processedtemplates templateconfigs templateinstances templates]
+ [create delete deletecollection get list patch update watch]    []                      []              [build.openshift.io ]           [buildlogs]
+ [get list watch]                                                []                      []              []                              [resourcequotausages]
+</code></pre></li>
+<li><p>&#x5BFC;&#x51FA;&#x96C6;&#x7FA4;&#x89D2;&#x8272;edit&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5230;&#x672C;&#x5730;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x5176;&#x4E0A;&#x505A;&#x4FEE;&#x6539;</p>
+<pre class="language-"><code> oc export clusterrole edit &gt; jenkins-clusterrole.yml
+</code></pre></li>
+<li><p>&#x7F16;&#x8F91; jenkins-clusterrole.yml&#xFF08;&#x53EA;&#x4FDD;&#x7559;&#x76F8;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x90FD;&#x5220;&#x6389;&#xFF09;</p>
 <pre class="language-"><code> apiVersion: v1
  kind: ClusterRole
  metadata:
@@ -4380,21 +4402,23 @@ verbs:
  - jenkins
  verbs:
  - edit
- - view</code></pre>
-<ol><li>&#x5BFC;&#x5165;jenkins clusterrole
-</li></ol>
-<pre class="language-"><code> oc create -f jenkins-clusterrole.yml</code></pre>
-<ol><li>&#x5C06;jenkins clusterrole&#x8D4B;&#x4E88;&#x6D4B;&#x8BD5;&#x7EC4;
-</li></ol>
-<pre class="language-"><code> oc adm policy add-cluster-role-to-group jenkins tester</code></pre>
-<ol><li>&#x4EE5;&#x6D4B;&#x8BD5;&#x7EC4;&#x6210;&#x5458;&#x767B;&#x5F55;openshift&#xFF0C;jenkins&#x9879;&#x76EE;&#x4E0D;&#x53EF;&#x89C1;&#x4E86;&#x3002;&#x518D;&#x4EE5;&#x6D4B;&#x8BD5;&#x7EC4;&#x6210;&#x5458;&#x767B;&#x5F55;jenkins&#xFF0C;&#x53D1;&#x73B0;&#x767B;&#x5F55;
-</li></ol>
-<p>&#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x754C;&#x9762;</p><p><img src="../assets/openshift-openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;-3.png"></p><p>&#x70B9;&#x51FB;&quot;Allow selected permissions&quot;&#xFF0C;&#x53D1;&#x73B0;&#x4E5F;&#x80FD;&#x6B63;&#x5E38;&#x767B;&#x5F55;jenkins&#x3002;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x6784;&#x5EFA;&#x89E6;&#x53D1;&#x3002;&#x53D1;&#x73B0;&#x4E00;&#x5207;&#x6B63;&#x5E38;&#x3002;Bazinga&#xFF01;Everything is ok !</p></li></ol>
+ - view
+</code></pre></li>
+<li><p>&#x5BFC;&#x5165;jenkins clusterrole</p>
+<pre class="language-"><code> oc create -f jenkins-clusterrole.yml
+</code></pre></li>
+<li><p>&#x5C06;jenkins clusterrole&#x8D4B;&#x4E88;&#x6D4B;&#x8BD5;&#x7EC4;</p>
+<pre class="language-"><code> oc adm policy add-cluster-role-to-group jenkins tester
+</code></pre></li>
+<li><p>&#x4EE5;&#x6D4B;&#x8BD5;&#x7EC4;&#x6210;&#x5458;&#x767B;&#x5F55;openshift&#xFF0C;jenkins&#x9879;&#x76EE;&#x4E0D;&#x53EF;&#x89C1;&#x4E86;&#x3002;&#x518D;&#x4EE5;&#x6D4B;&#x8BD5;&#x7EC4;&#x6210;&#x5458;&#x767B;&#x5F55;jenkins&#xFF0C;&#x53D1;&#x73B0;&#x767B;&#x5F55;</p>
+<p> &#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x754C;&#x9762;</p>
+<p> <img src="../assets/openshift-openshift&#x7528;&#x6237;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;-3.png" alt=""></p>
+<p> &#x70B9;&#x51FB;&quot;Allow selected permissions&quot;&#xFF0C;&#x53D1;&#x73B0;&#x4E5F;&#x80FD;&#x6B63;&#x5E38;&#x767B;&#x5F55;jenkins&#x3002;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x6784;&#x5EFA;&#x89E6;&#x53D1;&#x3002;&#x53D1;&#x73B0;&#x4E00;&#x5207;&#x6B63;&#x5E38;&#x3002;Bazinga&#xFF01;Everything is ok ! </p>
+</li>
+</ol>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-11-11 20:52:10
+2019-09-25 18:12:48
 </span></footer>
-
-
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
 					</section>
@@ -4433,7 +4457,7 @@ verbs:
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"用户权限管理实例","level":"2.3.2.2.7","depth":4,"next":{"title":"网络","level":"2.3.3","depth":2,"ref":"","articles":[{"title":"openshift开启router的haproxy-statisc","level":"2.3.3.1","depth":3,"path":"origin/openshift-开启router的haproxy-statisc.md","ref":"origin/openshift-开启router的haproxy-statisc.md","articles":[]},{"title":"openshift的多租户网络","level":"2.3.3.2","depth":3,"path":"origin/openshift-多租户网络.md","ref":"origin/openshift-多租户网络.md","articles":[]}]},"previous":{"title":"用户认证","level":"2.3.2.2.6","depth":4,"path":"origin/openshift-openshift的用户认证.md","ref":"origin/openshift-openshift的用户认证.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copyButtons":true,"copybuttons":"true"},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"/assets/wechat-donate.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"label":"ORIGIN In Github","base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/openshift-openshift用户权限管理实例.md","mtime":"2019-11-11T12:52:10.932Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-11-11T14:43:00.533Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"用户权限管理实例","level":"2.3.2.2.7","depth":4,"next":{"title":"网络","level":"2.3.3","depth":2,"ref":"","articles":[{"title":"openshift开启router的haproxy-statisc","level":"2.3.3.1","depth":3,"path":"origin/openshift-开启router的haproxy-statisc.md","ref":"origin/openshift-开启router的haproxy-statisc.md","articles":[]},{"title":"openshift的多租户网络","level":"2.3.3.2","depth":3,"path":"origin/openshift-多租户网络.md","ref":"origin/openshift-多租户网络.md","articles":[]}]},"previous":{"title":"用户认证","level":"2.3.2.2.6","depth":4,"path":"origin/openshift-openshift的用户认证.md","ref":"origin/openshift-openshift的用户认证.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://github.com/RationalMonster/rationalmonster.github.io/blob/master","label":"查看源文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/openshift-openshift用户权限管理实例.md","mtime":"2019-09-25T10:12:48.782Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-11-12T09:24:50.772Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
@@ -4483,6 +4507,10 @@ verbs:
         
     
         
+        <script src="../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
+        
         <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
         
     
@@ -4492,6 +4520,10 @@ verbs:
     
         
         <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
         
     
         
@@ -4507,15 +4539,7 @@ verbs:
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 

@@ -252,11 +252,11 @@ oc delete po -l component=fluentd -n openshift-logging
 
 # 四、将审计日志通过WebHook
 
-# 发送到OCP外部的Logstash或者Fluentd 接受后端
+# 发送到OCP外部的Logstash或者Fluentd 接收后端
 
-可使用Logstash或者Fluentd作为后端来接受Api-Server通过web hook方式发送的审计日志。Logstash和Fluentd可以是ocp集群外二进制方式安装运行的，也可以是原生Docker运行的，甚至可以是另外一个集群中容器化的。一个原则就是不要放到审计日志产生集群的内部。防止apiserver启动起来了，有了一些操作，logstash还没有启动起来，丢失审计日志。再者审计日志后端最好选择适合自己的，审计日志落一份，重复记录也没多大意义。
+可使用Logstash或者Fluentd作为后端来接收Api-Server通过web hook方式发送的审计日志。Logstash和Fluentd可以是ocp集群外二进制方式安装运行的，也可以是原生Docker运行的，甚至可以是另外一个集群中容器化的。一个原则就是不要放到审计日志产生集群的内部。防止apiserver启动起来了，有了一些操作，logstash还没有启动起来，丢失审计日志。再者审计日志后端最好选择适合自己的，审计日志落一份，重复记录也没多大意义。
 
-### 方式一：使用OCP集群外二进制方式安装的Logstash来接受ApiServer通过web hook方式发送过来的审计日志并过滤、存储到本地文件中
+### 方式一：使用OCP集群外二进制方式安装的Logstash来接收ApiServer通过web hook方式发送过来的审计日志并过滤、存储到本地文件中
 
 安装logstash
 
@@ -427,7 +427,7 @@ $ cat /data/logs/logstash/ocp-audit-logs/ocp-audit-admin/audit-2019-07-23.log
 {"event":{"metadata":{"creationTimestamp":"2019-07-23T14:45:19Z"},"stageTimestamp":"2019-07-23T14:45:19.813911Z","level":"Metadata","timestamp":"2019-07-23T14:45:19Z","sourceIPs":["192.168.1.96"],"objectRef":{"apiGroup":"project.openshift.io","resource":"projects","namespace":"test","name":"test","apiVersion":"v1"},"responseStatus":{"metadata":{},"status":"Success","code":200},"user":{"extra":{"scopes.authorization.openshift.io":["user:full"]},"uid":"7775eba0-426e-11e9-b1bd-000c2976c04e","groups":["system:authenticated:oauth","system:authenticated"],"username":"admin"},"stage":"ResponseComplete","requestReceivedTimestamp":"2019-07-23T14:45:19.805940Z","auditID":"9d3260ca-3bff-49da-9fe9-346043a29991","verb":"delete","annotations":{"authorization.k8s.io/reason":"RBAC: allowed by ClusterRoleBinding \"cluster-admin-0\" of ClusterRole \"cluster-admin\" to User \"admin\"","authorization.k8s.io/decision":"allow"},"requestURI":"/apis/project.openshift.io/v1/projects/test"}}
 ```
 
-### 方式二：复用ocp集群内日志系统的Fluentd接受ApiServer通过web hook方式发送过来的审计日志并过滤、存储到挂载的文件中
+### 方式二：复用ocp集群内日志系统的Fluentd接收ApiServer通过web hook方式发送过来的审计日志并过滤、存储到挂载的文件中
 
 整得太晚了，后续更新。
 

@@ -68,7 +68,7 @@
         },
         "edit-link": {
           "base": "https://github.com/RationalMonster/rationalmonster.github.io/blob/master",
-          "label": "ORIGIN In Github"
+          "label": "查看源文件"
         },
         "prism": {
             "css": [
