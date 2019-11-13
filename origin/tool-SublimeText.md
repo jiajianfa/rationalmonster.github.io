@@ -118,7 +118,7 @@ Preference-->Package Settings-->Package Control-->Settings User
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **DeleteBlankLines**     | 去除文本中的空白行                                           | Windows:<br/>    Ctrl+Alt+Backspace --> Delete Blank Lines<br/>    Ctrl+Alt+Shift+Backspace --> Delete Surplus Blank Lines<br/>Linux:<br/>    Ctrl+Alt+Backspace --> Delete Blank Lines<br/>    Ctrl+Alt+Shift+Backspace --> Delete Surplus Blank Lines |
 | **ChineseLocalizations** | 汉化Sublime Text                                             | 请使用主菜单的 帮助/Language 子菜单来切换语言。 目前支持 简体中文 繁体中文 日本語。 要换回英语不需要卸载本插件，请直接从菜单切换英文。 |
-| **HTML-CSS-JS Prettify** | HTML/CSS/JS代码格式化                                        |                                                              |
+| **HTML-CSS-JS Prettify** | HTML/CSS/JS代码格式化                                        | 需要安装NodeJS并设置node执行文件的路径<br>右键-->HTML-CSS-JS Prettify-->Set ‘node’ Path |
 | **GBK Encoding Support** | 支持gbk编码                                                  |                                                              |
 | **Alignment**        | 代码格式的自动对齐                                           | 默认快捷键Ctrl+Alt+A                                         |
 | **Clipboard History** | 粘贴板历史记录，方便使用复制/剪切的内容                      | Ctrl+alt+v：显示历史记录<br/>Ctrl+alt+d：清空历史记录<br/>Ctrl+shift+v：粘贴上一条记录（最旧）<br/>Ctrl+shift+alt+v：粘贴下一条记录（最新） |

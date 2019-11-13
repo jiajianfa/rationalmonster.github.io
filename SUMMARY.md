@@ -137,8 +137,9 @@
         * 基础知识
             * API Endpoints
                 * [_cat](origin/elasticsearch--_cat-API.md)
-                * indices
+                * [index](origin/elasticsearch-index-api.md)
                 * search
+                * [bulk](origin/elasticsearch-bulk-api.md)
         * 管理
             * [Xpack](origin/elasticsearch-7.1的xpack权限控制.md)
             * [Snapshots](origin/elasticSearch-索引的快照备份与恢复.md)
