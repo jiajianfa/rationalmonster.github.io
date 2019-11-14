@@ -153,6 +153,7 @@
         * [Ceph Exporter](origin/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群.md)
 * Tracing
     * SkyWalking
+* [Sentry](origin/日志聚合告警平台.md)
 
 ## Part Ⅵ：大数据
 * Apache
@@ -234,6 +235,7 @@
     * [Vim小技巧](origin/vim-小技巧.md)
     * [Yum详解](origin/linux-yum.md)
     * [ZSH](origin/linux-zsh.md)
+    * [SystemD](origin/linux-进程管理工具SystemD.md)
 * 数据库
     * MySQL
     * SQLServer
