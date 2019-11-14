@@ -233,9 +233,9 @@
     * [Linux交换分区](origin/linux-交换分区.md)
     * [Linux硬盘读写性能测试](origin/linux-硬盘读写性能测试.md)
     * [Vim小技巧](origin/vim-小技巧.md)
-    * [Yum详解](origin/linux-yum.md)
+    * [Yum-RPM包管理](origin/linux-yum.md)
     * [ZSH](origin/linux-zsh.md)
-    * [SystemD](origin/linux-进程管理工具SystemD.md)
+    * [Systemd-进程管理](origin/linux-进程管理工具SystemD.md)
 * 数据库
     * MySQL
     * SQLServer
