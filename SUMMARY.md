@@ -129,6 +129,9 @@
         * [kafka常用操作](origin/logging-kafka常用操作.md)
     * Filebeat
         * [简介安装配置](origin/filebeat-简介安装配置.md)
+        * [多实例安装部署](origin/filebeat-多实例部署.md)
+        * [模块](origin/filebeat-modules模块.md)
+            * [Nginx Module](origin/filbeat-nginx-module.md)
     * Logstash
         * [简介安装配置Pipeline](origin/logstash-简介安装配置Pipeline.md)
         * [Pipeline示例--采集MySQL慢查询日志到Elasticsearch](origin/logstash-采集MySQL慢查询日志到Elasticsearch.md)
