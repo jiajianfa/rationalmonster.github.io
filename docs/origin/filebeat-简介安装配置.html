@@ -106,6 +106,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="filebeat-多实例部署.html" />
+    
     
 
     <style>
@@ -2128,6 +2130,57 @@
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4.2" data-path="filebeat-多实例部署.html">
+            
+                <a href="filebeat-多实例部署.html">
+            
+                    
+                        <b>6.1.4.2.</b>
+                    
+                    多实例安装部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4.3" data-path="filebeat-modules模块.html">
+            
+                <a href="filebeat-modules模块.html">
+            
+                    
+                        <b>6.1.4.3.</b>
+                    
+                    Filebeat Modules
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.4.3.1" data-path="filbeat-nginx-module.html">
+            
+                <a href="filbeat-nginx-module.html">
+            
+                    
+                        <b>6.1.4.3.1.</b>
+                    
+                    Nginx Module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -5209,207 +5262,7 @@ not<span class="token operator">:</span>
 </tr>
 </tbody>
 </table>
-<h1 id=""> </h1>
-<h1 id="&#x516B;-modules">&#x516B;. Modules</h1>
-<p>Filebeat modules simplify the collection, parsing, and visualization of common log formats.</p>
-<p>A typical module (say, for the Nginx logs) is composed of one or more filesets (in the case of Nginx, <code>access</code> and <code>error</code>). A fileset contains the following:</p>
-<ul>
-<li>Filebeat input configurations, which contain the default paths where to look for the log files. These default paths depend on the operating system. The Filebeat configuration is also responsible with stitching together multiline events when needed.</li>
-<li>Elasticsearch <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.4/ingest.html" _target="blank">Ingest Node</a> pipeline definition, which is used to parse the log lines.</li>
-<li>Fields definitions, which are used to configure Elasticsearch with the correct types for each field. They also contain short descriptions for each of the fields.</li>
-<li>Sample Kibana dashboards, when available, that can be used to visualize the log files.</li>
-</ul>
-<p>Filebeat automatically adjusts these configurations based on your environment and loads them to the respective Elastic stack components.</p>
-<p>Filebeat modules require Elasticsearch 5.2 or later.</p>
-<h2 id="modules&#x7BA1;&#x7406;">Modules&#x7BA1;&#x7406;</h2>
-<h3 id="1-&#x67E5;&#x770B;&#x6240;&#x6709;modules">1. &#x67E5;&#x770B;&#x6240;&#x6709;Modules</h3>
-<pre class="language-"><code class="lang-bash">filebeat modules list
-</code></pre>
-<h3 id="2-&#x5F00;&#x542F;modules">2. &#x5F00;&#x542F;Modules</h3>
-<pre class="language-"><code class="lang-bash">filebeat modules <span class="token builtin class-name">enable</span> module&#x540D;
-</code></pre>
-<h2 id="&#x652F;&#x6301;&#x7684;modules">&#x652F;&#x6301;&#x7684;Modules</h2>
-<table>
-<thead>
-<tr>
-<th>&#x7C7B;&#x578B;</th>
-<th>&#x4F5C;&#x7528;</th>
-<th>&#x914D;&#x7F6E;&#x6837;&#x4F8B;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules-overview.html" _target="blank"><em>Modules overview</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-apache.html" _target="blank"><em>Apache module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-auditd.html" _target="blank"><em>Auditd module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-aws.html" _target="blank"><em>AWS module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-cef.html" _target="blank"><em>CEF module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-cisco.html" _target="blank"><em>Cisco module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-coredns.html" _target="blank"><em>Coredns Module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-elasticsearch.html" _target="blank"><em>Elasticsearch module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-envoyproxy.html" _target="blank"><em>Envoyproxy Module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-googlecloud.html" _target="blank"><em>Google Cloud module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-haproxy.html" _target="blank"><em>haproxy module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-ibmmq.html" _target="blank"><em>IBM MQ module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-icinga.html" _target="blank"><em>Icinga module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-iis.html" _target="blank"><em>IIS module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-iptables.html" _target="blank"><em>Iptables module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-kafka.html" _target="blank"><em>Kafka module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-kibana.html" _target="blank"><em>Kibana module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-logstash.html" _target="blank"><em>Logstash module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mongodb.html" _target="blank"><em>MongoDB module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mssql.html" _target="blank"><em>MSSQL module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mysql.html" _target="blank"><em>MySQL module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-nats.html" _target="blank"><em>nats module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-netflow.html" _target="blank"><em>NetFlow module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-nginx.html" _target="blank"><em>Nginx module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-osquery.html" _target="blank"><em>Osquery module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-panw.html" _target="blank"><em>Palo Alto Networks module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-postgresql.html" _target="blank"><em>PostgreSQL module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-rabbitmq.html" _target="blank"><em>RabbitMQ module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-redis.html" _target="blank"><em>Redis module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-santa.html" _target="blank"><em>Santa module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-suricata.html" _target="blank"><em>Suricata module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html" _target="blank"><em>System module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-traefik.html" _target="blank"><em>Traefik module</em></a></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-zeek.html" _target="blank"><em>Zeek (Bro) Module</em></a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h1 id="&#x4E5D;-&#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x89E3;&#x6790;">&#x4E5D;. &#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x89E3;&#x6790;</h1>
+<h1 id="&#x516B;-&#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x89E3;&#x6790;">&#x516B;. &#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x89E3;&#x6790;</h1>
 <p>&#x91C7;&#x96C6;&#x6CE8;&#x518C;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF1A;<code>/var/lib/filebeat/registry/filebeat/data.json</code></p>
 <pre class="language-"><code class="lang-json"><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token property">&quot;source&quot;</span><span class="token operator">:</span><span class="token string">&quot;/root/mysql-slow-sql-log/mysql-slowsql.log&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;offset&quot;</span><span class="token operator">:</span><span class="token number">1365442</span><span class="token punctuation">,</span><span class="token property">&quot;timestamp&quot;</span><span class="token operator">:</span><span class="token string">&quot;2019-10-11T09:29:35.185399057+08:00&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;ttl&quot;</span><span class="token operator">:</span><span class="token number">-1</span><span class="token punctuation">,</span><span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;log&quot;</span><span class="token punctuation">,</span><span class="token property">&quot;meta&quot;</span><span class="token operator">:</span><span class="token null keyword">null</span><span class="token punctuation">,</span><span class="token property">&quot;FileStateOS&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token property">&quot;inode&quot;</span><span class="token operator">:</span><span class="token number">2360926</span><span class="token punctuation">,</span><span class="token property">&quot;device&quot;</span><span class="token operator">:</span><span class="token number">2051</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
 </code></pre>
@@ -5442,7 +5295,7 @@ Change: 2019-10-12 13:59:13.059112545 +0800
 <li><a href="https://www.cnblogs.com/micmouse521/p/8085229.html" _target="blank">https://www.cnblogs.com/micmouse521/p/8085229.html</a> </li>
 </ol>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-10-17 18:22:55
+2019-11-15 12:21:20
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -5472,13 +5325,17 @@ Change: 2019-10-12 13:59:13.059112545 +0800
 		
 		
 		
+		<a href="filebeat-多实例部署.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 多实例安装部署">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
 		
 		
 	</div>
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"简介安装配置","level":"6.1.4.1","depth":3,"next":{"title":"Logstash","level":"6.1.5","depth":2,"ref":"","articles":[{"title":"简介安装配置Pipeline","level":"6.1.5.1","depth":3,"path":"origin/logstash-简介安装配置Pipeline.md","ref":"origin/logstash-简介安装配置Pipeline.md","articles":[]},{"title":"Pipeline示例--采集MySQL慢查询日志到Elasticsearch","level":"6.1.5.2","depth":3,"path":"origin/logstash-采集MySQL慢查询日志到Elasticsearch.md","ref":"origin/logstash-采集MySQL慢查询日志到Elasticsearch.md","articles":[]}]},"previous":{"title":"Filebeat","level":"6.1.4","depth":2,"ref":"","articles":[{"title":"简介安装配置","level":"6.1.4.1","depth":3,"path":"origin/filebeat-简介安装配置.md","ref":"origin/filebeat-简介安装配置.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/rationalmonster.github.io/master/","label":"查看源MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/filebeat-简介安装配置.md","mtime":"2019-10-17T10:22:55.067Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-11-14T10:35:28.771Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"简介安装配置","level":"6.1.4.1","depth":3,"next":{"title":"多实例安装部署","level":"6.1.4.2","depth":3,"path":"origin/filebeat-多实例部署.md","ref":"origin/filebeat-多实例部署.md","articles":[]},"previous":{"title":"Filebeat","level":"6.1.4","depth":2,"ref":"","articles":[{"title":"简介安装配置","level":"6.1.4.1","depth":3,"path":"origin/filebeat-简介安装配置.md","ref":"origin/filebeat-简介安装配置.md","articles":[]},{"title":"多实例安装部署","level":"6.1.4.2","depth":3,"path":"origin/filebeat-多实例部署.md","ref":"origin/filebeat-多实例部署.md","articles":[]},{"title":"Filebeat Modules","level":"6.1.4.3","depth":3,"path":"origin/filebeat-modules模块.md","ref":"origin/filebeat-modules模块.md","articles":[{"title":"Nginx Module","level":"6.1.4.3.1","depth":4,"path":"origin/filbeat-nginx-module.md","ref":"origin/filbeat-nginx-module.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/rationalmonster.github.io/master/","label":"查看源MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/filebeat-简介安装配置.md","mtime":"2019-11-15T04:21:20.261Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-11-15T05:57:52.571Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>

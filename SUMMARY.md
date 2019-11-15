@@ -130,7 +130,7 @@
     * Filebeat
         * [简介安装配置](origin/filebeat-简介安装配置.md)
         * [多实例安装部署](origin/filebeat-多实例部署.md)
-        * [模块](origin/filebeat-modules模块.md)
+        * [Filebeat Modules](origin/filebeat-modules模块.md)
             * [Nginx Module](origin/filbeat-nginx-module.md)
     * Logstash
         * [简介安装配置Pipeline](origin/logstash-简介安装配置Pipeline.md)
