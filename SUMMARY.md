@@ -67,7 +67,7 @@
 ## Part Ⅲ：持续集成与持续部署
 
 * Jenkins
-    * 安装
+    * [Jenkins API](origin/jenkins-api.md)
     * 管理
         * [Jenkins共享库Shared Libraries](origin/jenkins-SharedLibraries.md)
     * Pipeline
