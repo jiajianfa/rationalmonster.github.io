@@ -60,7 +60,8 @@
 * 集群管理
   * [kubectl多集群上下文配置](origin/kubernetes-kubectl多集群上下文配置.md)
   * [Network Policy容器流量管理](origin/kubernetes-NetworkPolicy.md)
-  * [Kubernetes应用管理工具helm详解](origin/kubernetes-helm详解.md)
+* [K8S应用管理工具Helm](origin/kubernetes-helm.md)
+  * [helm charts编写规则](origin/Kubernetes-helm-charts编写规则.md)
 * 问题
   * [Service与SpringBoot应用启动参数冲突的问题排查及解决方案](origin/Service与SpringBoot应用启动参数冲突的问题排查及解决方案.md)
 
@@ -156,7 +157,7 @@
         * [Ceph Exporter](origin/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群.md)
 * Tracing
     * SkyWalking
-* [Sentry](origin/日志聚合告警平台.md)
+* [Sentry日志聚合告警平台](origin/sentry.md)
 
 ## Part Ⅵ：大数据
 * Apache

@@ -125,7 +125,6 @@ sed 's/^M//' 原文件>新文件
 # 注意，^M = Ctrl v + Ctrl m，而不是手动输入^M
 ```
 
-
 # 三、grep
 
 ```bash

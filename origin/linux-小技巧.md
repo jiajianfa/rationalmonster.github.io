@@ -693,3 +693,58 @@ systemctl start docker ;\
 ls /var/lib/docker/ ;\
 docker info |grep "Insecure Registries:" -A 4
 ```
+
+# 37、字符转换命令expand/unexpand
+
+用于将文件的制表符（Tab）转换为空格符（Space），默认一个Tab对应8个空格符，并将结果输出到标准输出。若不指定任何文件名或所给文件名为”-“，则expand会从标准输入读取数据。
+
+功能与之相反的命令是unexpand，是将空格符转成Tab符。
+
+vi/vim在命令模式下通过设置":set list"可显示文件中的制表符“^I”
+
+**expand命令参数**
+
+```bash
+-i, --initial       do not convert tabs after non blanks
+-t, --tabs=NUMBER   have tabs NUMBER characters apart, not 8
+-t, --tabs=LIST     use comma separated list of explicit tab positions
+    --help     display this help and exit
+    --version  output version information and exit
+```
+
+**unexpand命令参数**
+
+```bash
+-a, --all        convert all blanks, instead of just initial blanks
+    --first-only  convert only leading sequences of blanks (overrides -a)
+-t, --tabs=N     have tabs N characters apart instead of 8 (enables -a)
+-t, --tabs=LIST  use comma separated LIST of tab positions (enables -a)
+    --help     display this help and exit
+    --version  output version information and exit
+```
+
+**实例**
+
+将文件中每行第一个Tab符替换为4个空格符，非空白符后的制表符不作转换
+
+```bash
+#使用"----"或"--"代表一个制表符，使用":"代表一个空格
+----abcd--e
+
+$ expand -i -t 4 old-file > new-file
+
+::::abcd--e
+```
+
+**注意**
+
+不是所有的Tab都会转换为默认或指定数量的空格符，expand会以对齐为原则将Tab符替换为适当数量的空格符，替换的原则是使后面非Tab符处在一个物理Tab边界（即Tab size的整数倍。例如：
+
+```bash
+#使用"----"或"--"代表一个制表符，使用":"代表一个空格
+abcd----efg--hi
+
+$ expand -t 4 file
+
+abcd::::efg::hi
+```
