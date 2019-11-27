@@ -45,7 +45,13 @@ EOF' && \
 
 ## 2. 源码编译安装指定模块
 
-###  ①安装编译必备库
+### ①安装编译工具
+
+```bash
+yum install -y gcc gc++ perl gcc-c++
+```
+
+###  ②安装编译必备库
 
 - the [PCRE](http://pcre.org/) library – required by NGINX [Core](https://nginx.org/en/docs/ngx_core_module.html) and [Rewrite](https://nginx.org/en/docs/http/ngx_http_rewrite_module.html) modules and provides support for regular expressions
 
@@ -61,15 +67,16 @@ EOF' && \
   $ yum install pcre pcre-devel
   
   # 源码编译安装
-  $ wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.41.tar.gz
-  $ tar -zxf pcre-8.41.tar.gz
-  $ cd pcre-8.41
-  $ ./configure
-  $ make
-  $ sudo make install
+  $ version=8.43 && \
+    wget ftp://ftp.pcre.org/pub/pcre/pcre-$version.tar.gz && \
+    tar -zxf pcre-$version.tar.gz&& \
+    cd pcre-$version && \
+    ./configure && \
+    make && \
+    make install
   ```
 
--  the [zlib](http://www.zlib.net/) library – required by NGINX [Gzip](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) module for headers compression:
+- the [zlib](http://www.zlib.net/) library – required by NGINX [Gzip](https://nginx.org/en/docs/http/ngx_http_gzip_module.html) module for headers compression:
 
   ```bash
   # yum安装
@@ -77,12 +84,14 @@ EOF' && \
   $ yum install zlib zlib-devel
   
   # 源码编译安装
-  $ wget http://zlib.net/zlib-1.2.11.tar.gz
-  $ tar -zxf zlib-1.2.11.tar.gz
-  $ cd zlib-1.2.11
-  $ ./configure
-  $ make
-  $ sudo make install
+  
+  $ version=1.2.11 && \
+    wget http://zlib.net/zlib-$version.tar.gz && \
+    tar -zxf zlib-$version.tar.gz && \
+    cd zlib-$version && \
+    ./configure && \
+    make && \
+    make install
   ```
 
 - the [OpenSSL](https://www.openssl.org/) library – required by NGINX SSL modules to support the HTTPS protocol
@@ -95,41 +104,44 @@ EOF' && \
   $ yum install openssl openssl-devel
   
   # 源码编译安装
-  $ wget http://www.openssl.org/source/openssl-1.0.2k.tar.gz
-  $ tar -zxf openssl-1.0.2k.tar.gz
-  $ cd openssl-1.0.2k
-  $ ./configure darwin64-x86_64-cc --prefix=/usr
-  $ make
-  $ sudo make install
+  $ version=1.0.2t && \
+    wget http://www.openssl.org/source/openssl-$version.tar.gz && \
+    tar -zxf openssl-$version.tar.gz && \
+    cd openssl-$version && \
+    ./config && \
+    make && \
+    make install
   ```
 
-### ②下载解压Nginx源码包
+### ③下载解压Nginx源码包
 
 ```bash
-$ version=1.12.1 && \
+$ version=1.17.6 && \
   wget http://nginx.org/download/nginx-$version.tar.gz && \
-  tar -zxf nginx-*.tar.gz -C /opt && \
-  cd /opt/nginx-1.12.1
+  tar -zxf nginx-*.tar.gz && \
+  cd nginx-$version
 ```
 
-###  ③配置编译参数 
+###  ④配置编译参数 
 
 **创建nginx用户----->创建相关目录------>配置编译参数**
 
 ```bash
 $ ./configure --help  #查看编译配置参数
+--with开头的，默认是禁用的(没启动的，想使用的话需要在编译的时候加上)
+--without开头的，默认是启用的(不想启用此模块时，可以在编译的时候加上这个参数)
 #  --help                             print this message
-#  --prefix=PATH                      set installation prefix
-#  --sbin-path=PATH                   set nginx binary pathname
-#  --modules-path=PATH                set modules path
-#  --conf-path=PATH                   set nginx.conf pathname
-#  --error-log-path=PATH              set error log pathname
-#  --pid-path=PATH                    set nginx.pid pathname
-#  --lock-path=PATH                   set nginx.lock pathname
-#  --user=USER                        set non-privileged user for worker processes
-#  --group=GROUP                      set non-privileged group for worker processes
+#  --prefix=PATH                      指定安装目录
+#  --sbin-path=PATH                   指定二进制执行程序文件存放位置。
+#  --modules-path=PATH                指定第三方模块的存放路径
+#  --conf-path=PATH                   指定配置文件nginx.conf存放位置
+#  --error-log-path=PATH              指定错误日志存放位置
+#  --pid-path=PATH                    指定nginx.pid文件存放位置
+#  --lock-path=PATH                   指定nginx.lock文件存放位置
+#  --user=USER                        指定程序运行时的非特权用户
+#  --group=GROUP                      指定程序运行时的非特权用户组
 #  --build=NAME                       set build name
-#  --builddir=DIR                     set build directory
+#  --builddir=DIR                     指定编译目录
 #  --with-select_module               enable select module
 #  --without-select_module            disable select module
 #  --with-poll_module                 enable poll module
@@ -230,7 +242,7 @@ $ ./configure --help  #查看编译配置参数
 #  --with-cpu-opt=CPU                 build for the specified CPU, valid values:pentium, pentiumpro, pentium3, pentium4,athlon, opteron, sparc32, sparc64, ppc64
 #  --without-pcre                     disable PCRE library usage
 #  --with-pcre                        force PCRE library usage
-#  --with-pcre=DIR                    set path to PCRE library sources
+#  --with-pcre=DIR                    设置pcre源码目录路径
 #  --with-pcre-opt=OPTIONS            set additional build options for PCRE
 #  --with-pcre-jit                    build PCRE with JIT compilation support
 #  --with-zlib=DIR                    set path to zlib library sources
@@ -242,23 +254,24 @@ $ ./configure --help  #查看编译配置参数
 #  --with-openssl-opt=OPTIONS         set additional build options for OpenSSL
 #  --with-debug                       enable debug logging
 
-$ groupadd nginx
-$ useradd nginx -s /sbin/nologin -M -g nginx
-$ mkdir -p /opt/nginx1.12.1
+$ groupadd nginx && \
+  useradd nginx -s /sbin/nologin -M -g nginx && \
+  mkdir -p /opt/nginx-1.17.6/logs
 
 $ ./configure \
---prefix=/opt/nginx1.12.1 \
+--prefix=/opt/nginx-1.17.6 \
 --user=nginx \
 --group=nginx \
---sbin-path=/opt/nginx1.12.1/nginx \
---conf-path=/opt/nginx1.12.1/nginx.conf \
---pid-path=/opt/nginx1.12.1/nginx.pid \
---with-pcre=pcre \
---with-http_ssl_module \
+--sbin-path=/opt/nginx-1.17.6/nginx \
+--error-log-path=/opt/nginx-1.17.6/logs/error.log \
+--conf-path=/opt/nginx-1.17.6/nginx.conf \
+--pid-path=/opt/nginx-1.17.6/nginx.pid \
+--with-pcre \
+--with-openssl=/usr/lib64/openssl \
 --with-http_stub_status_module
 ```
 
-### ④编译安装
+### ⑤编译安装
 
 ```bash
 # make命令将源代码编译为二进制文件
@@ -267,49 +280,57 @@ $ make
 $ make install
 ```
 
+### ⑥设置环境变量
+
+```bash
+ln -s /opt/nginx-1.17.6/nginx /usr/bin/nginx
+```
+
 ## 3.  启动 
 
 手动控制Nginx的生命周期
 
 ```bash
-$ /opt/nginx1.12.1/nginx -t  #启动测试
-$ /opt/nginx1.12.1/nginx     #启动
+$ nginx -t  #启动测试
+$ nginx     #启动
 ```
 
 托管给Systemd
 
 ```bash
-$ bash -c 'cat > /usr/lib/systemd/system/nginx.service < EOF 
+$ bash -c 'cat > /usr/lib/systemd/system/nginx.service << EOF 
 [Unit]
 Description=The nginx HTTP and reverse proxy server
 After=syslog.target network.target remote-fs.target nss-lookup.target
- 
 [Service]
 Type=forking
-PIDFile=/opt/nginx1.12.1/nginx.pid
-ExecStartPre=/opt/nginx1.12.1/nginx -t
-ExecStart=/opt/nginx1.12.1/nginx
-ExecReload=/bin/kill -s HUP /opt/nginx1.12.1/nginx.pid
-ExecStop=/bin/kill -s QUIT /opt/nginx1.12.1/nginx.pid
+PIDFile=/opt/nginx-1.17.6/nginx.pid
+ExecStartPre=/opt/nginx-1.17.6/nginx -t
+ExecStart=/opt/nginx-1.17.6/nginx
+ExecReload=/bin/kill -s HUP /opt/nginx-1.17.6/nginx.pid
+ExecStop=/bin/kill -s QUIT /opt/nginx-1.17.6/nginx.pid
 PrivateTmp=true
- 
 [Install]
 WantedBy=multi-user.target
 EOF' && \
-  systemctl daemon-reload ;\
-  systemctl enable nginx.service
+  systemctl daemon-reload && \
+  systemctl enable nginx.service && \
   systemctl start nginx.service
 ```
 
 ## 4. 验证
 
 ```bash
+# 查看监听的端口
 $ lsof -i :80
-#或者
 $ netstat -lanp |grep 80
-
+# 使用命令行工具访问页面
 $ curl 127.0.0.1
 $ wget 127.0.0.1
+# 查看进程
+$ ps -ef | grep nginx
+# root 2564 1  0 23:21 ? 00:00:00 nginx: master process /opt/nginx-1.17.6/nginx
+# nginx 2565 2564 0 23:21 ? 00:00:00 nginx: worker process
 ```
 
 ![image-20191126222009962](../assets/nginx-1.png)
@@ -322,8 +343,8 @@ $ wget 127.0.0.1
 
 ```bash
 #由于编译时指定了相关路径
-$ tree /opt/nginx1.12.1
-/opt/nginx1.12.1
+$ tree /opt/nginx-1.17.6
+/opt/nginx-1.17.6
 ├── 3party_module
 ├── client_body_temp
 ├── fastcgi.conf
@@ -337,14 +358,14 @@ $ tree /opt/nginx1.12.1
 ├── koi-utf
 ├── koi-win
 ├── logs                                  #日志目录
-│   ├── access.log                            #nginx访问日志
-│   └── error.log                             #Nginx的错误日志
+│   ├── access.log                        #nginx访问日志
+│   └── error.log                         #Nginx的错误日志
 ├── mime.types                            #媒体类型
 ├── mime.types.default
-├── nginx                                #Nginx的二进制启动命令脚本
+├── nginx                                 #Nginx的二进制启动命令脚本
 ├── nginx.conf                            #Nginx的主要配置文件
 ├── nginx.conf.default
-├── nginx.pid                            #Nginx所有的进程号文件
+├── nginx.pid                             #Nginx所有的进程号文件
 ├── nginx-rtmp-module
 ├── proxy_temp                            #临时目录
 ├── scgi_params                
@@ -405,7 +426,7 @@ $ nginx -g directives # set global configuration directives, for example,       
 ```bash
 nginx -V
 # 或者
-/opt/nginx1.12.1/nginx -V
+/opt/nginx1.17.6/nginx -V
 ```
 
 **② 备份旧版本的nginx可执行文件** 
@@ -413,7 +434,7 @@ nginx -V
 期间nginx不会停止服务
 
 ```bash
-mv /opt/nginx1.12.1/nginx /opt/nginx1.12.1/nginx.bak
+mv /opt/nginx1.17.6/nginx /opt/nginx1.17.6/nginx.bak
 ```
 
 **③ 安装编译必备组件**

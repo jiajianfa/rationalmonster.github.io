@@ -253,7 +253,7 @@
         * Varnish
         * Nginx第三方正向代理插件
     * [反向代理](origin/常见反向代理服务软件之间的区别.md)
-        * Nginx
+        * [Nginx](origin/nginx.md)
         * HAProxy
         * Apache
 * iSCSI
