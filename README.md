@@ -17,4 +17,3 @@ This gitbook records the technical roadmap of Devops Curiouser.
 ### 1. Gitlab Webhook + Jenkins SharedLibraries/Kubernetes + SonarScanner Maven Plugin
 
 ![](http://assets.processon.com/chart_image/5db1147be4b0ea86c4119d0e.png)
-

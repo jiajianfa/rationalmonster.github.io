@@ -138,12 +138,13 @@
         * [Pipeline示例--采集MySQL慢查询日志到Elasticsearch](origin/logstash-采集MySQL慢查询日志到Elasticsearch.md)
     * Fluentd
     * Elasticsearch
-        * 基础知识
+        * [基础知识](origin/elasticsearch-基础知识.md)
             * API Endpoints
                 * [_cat](origin/elasticsearch--_cat-API.md)
                 * [index](origin/elasticsearch-index-api.md)
                 * search
                 * [bulk](origin/elasticsearch-bulk-api.md)
+            * [Ingest节点](origin/elasticsearch-ingest节点.md)
         * 管理
             * [Xpack](origin/elasticsearch-7.1的xpack权限控制.md)
             * [Snapshots](origin/elasticSearch-索引的快照备份与恢复.md)
@@ -159,25 +160,7 @@
     * SkyWalking
 * [Sentry日志聚合告警平台](origin/sentry.md)
 
-## Part Ⅵ：大数据
-* Apache
-    * Zookeeper
-    * HDFS
-    * YARN
-    * HBase
-    * Hive
-    * Sqoop
-    * Flume
-    * Oozie
-    * Hue
-    * Spark
-* Cloudera
-    * 安装
-    * 管理
-* TDH
-    * 安装
-
-## Part Ⅶ：基础
+## Part Ⅵ：基础
 * Docker
     * 基础知识
       * [Dockerfile中CMD与ENTRYPOINT命令的区别](origin/docker-Dockerfile中CMD与ENTRYPOINT命令的区别.md)
