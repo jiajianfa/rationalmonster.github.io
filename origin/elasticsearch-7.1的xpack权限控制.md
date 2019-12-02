@@ -1,5 +1,5 @@
 # 一、Context
-之前ELK套装安装X-Pack的安全功能时，只有安装30天的试用许可证时间，以允许访问所有功能。 当许可证到期时，X-Pack将以降级模式运行。可以购买订阅以继续使用X-Pack组件的全部功能（https://www.elastic.co/subscriptions）。但是,最近官方从6.8.0和7.1.0开始ELK开始免费提供安全功能. 
+之前ELK套装安装X-Pack的安全功能时，只有安装30天的试用许可证时间，以允许访问所有功能。 当许可证到期时，X-Pack将以降级模式运行。可以购买订阅以继续使用X-Pack组件的全部功能（https://www.elastic.co/subscriptions）。但是,最近官方从6.8.0和7.1.0开始免费提供安全功能. 
 ![](../assets/elasticsearch7.1的xpack权限控制-1.png)
 
 **`本次实验,所有ELK组件版本均为7.1.0,以容器单节点运行`**
@@ -24,6 +24,8 @@
    * xpack.security.http.ssl.enabled: "false"
 
 3. 查看elasticsearch是否开启xpack的安全验证
+
+
 ```bash
 curl  -XGET 'localhost:9200/_cat/health?v&pretty'
 # curl -XGET "http://127.0.0.1:9200/_cat/health?v&pretty"
@@ -33,18 +35,18 @@ curl --user kibana:****kibana用户的密码**** -XGET 'localhost:9200/_cat/heal
 
 # 三、Kibana开启Xpack
 
-1. kibana的容器化部署详见笔记: Kibana的容器化部署.md 
+1. kibana的容器化部署详见笔记: Kibana的容器化部署.md
 2. 配置参数可以通过环境变量的方式注入,主要的几个环境变量参数:
 
    * `ELASTICSEARCH_USERNAME`: ****kibana用户****
    * `ELASTICSEARCH_PASSWORD`: ****kibana用户的随机密码****
-   * `TZ(设置时区)`: Asia/Shanghai 
+   * `TZ(设置时区)`: Asia/Shanghai
 
 3. 镜像中默认指定的elasticsearch地址为:http://elasticsearch:9200,刚好在open shift中部署的elasticsearch的svc名为"elasticsearch",它的访问方式为:http://elasticsearch:9200或者http://elasticsearch.命名空间.svc:9200
 
 4. 登录Kibana进行验证
     
-    使用elastic 超级用户进行登录，密码来自 setup-passwords 命令输出的结果 
+    使用elastic 超级用户进行登录，密码来自 setup-passwords 命令输出的结果
 
     ![](../assets/elasticsearch7.1的xpack权限控制-2.png)
 
@@ -54,7 +56,7 @@ curl --user kibana:****kibana用户的密码**** -XGET 'localhost:9200/_cat/heal
    ```bash
     xpack.monitoring.elasticsearch.hosts: "http://elasticsearch:9200"
     xpack.monitoring.enabled: "true"
-    xpack.monitoring.elasticsearch.username: "logstash_system" 
+    xpack.monitoring.elasticsearch.username: "logstash_system"
     xpack.monitoring.elasticsearch.password: "***logstash_system用户的密码****"
    ```
 
