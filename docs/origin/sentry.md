@@ -231,6 +231,12 @@ web:
 
 # 六、Sentry-cli客户端
 
+Sentry命令行客户端，通常用于发送一些基本事件到服务端
+
+官方文档：https://docs.sentry.io/cli/
+
+GitHub地址：https://github.com/getsentry/sentry-cli
+
 ## 1. 下载安装
 
 - 手动下载安装
@@ -259,7 +265,7 @@ web:
 
 ## 2. 配置
 
-- 全局配置文件：~/.sentryclirc
+- **全局配置文件**：~/.sentryclirc
 
   - INI语法格式
 
@@ -268,7 +274,7 @@ web:
   token=your-auth-token
   ```
 
-- 环境变量
+- **环境变量**
 
   - 默认会读取当前`.env` 文件加载环境变量。可设置`SENTRY_LOAD_DOTENV=0`禁止
 
@@ -276,13 +282,13 @@ web:
   export SENTRY_AUTH_TOKEN=your-auth-token
   ```
 
-- 命令行参数
+- **命令行参数**
 
   ```bash
   sentry-cli --auth-token your-auth-token
   ```
 
-- 项目配置文件
+- **项目配置文件**
 
   - 支持加载`.properties`，也可通过环境变量`SENTRY_PROPERTIES`指定项目配置文件路径 
 
@@ -308,16 +314,135 @@ web:
 | **DEVICE_FAMILY**               | **device.family**         | Device family value reported to Sentry.                      |
 | **DEVICE_MODEL**                | **device.model**          | Device model value reported to Sentry.                       |
 
-验证配置文件
+## 3. 获取Auth Token
+
+![image-20191203220636315](../assets/sentry-2.png)
+
+## 4. 获取并设置项目DSN
+
+创建项目，获取DSN
+
+![](../assets/sentry-3.png)
+
+设置DSN环境变量
 
 ```bash
-sentry-cli info
+export SENTRY_DSN=https://<key>:<secret>@sentry.io/<project>
 ```
 
+## 5. 验证配置文件
 
+```bash
+$ sentry-cli info
+Sentry Server: http://sentry-web-sentry.apps.okd311.curiouser.com
+Default Organization: Sentry
+Default Project: sentry-cli
 
+Authentication Info:
+  Method: Auth Token
+  User: ***
+  Scopes:
+    - event:admin
+    - event:read
+    - member:read
+    - org:read
+    - project:read
+    - project:releases
+    - team:read
+```
 
+## 6. Sentry-cli命令行参数
 
+```bash
+sentry-cli 1.49.0
+
+Command line utility for Sentry.
+
+This tool helps you manage remote resources on a Sentry server like
+sourcemaps, debug symbols or releases.  Use `--help` on the subcommands
+to learn more about them.
+
+USAGE:
+    sentry-cli <子命令>
+
+OPTIONS:
+        --api-key <API_KEY>          指定Sentry API key.
+        --auth-token <AUTH_TOKEN>    指定Sentry auth token.
+    -h, --help                       打印帮助信息
+        --log-level <LOG_LEVEL>      设置日志输出级别(日志级别:TRACE、DEBUG、INFO、WARN、ERROR)         --url <URL>                  指定Sentry服务端地址.[默认：https://sentry.io/]
+    -V, --version                    打印版本信息
+
+子命令：
+    bash-hook          Prints out a bash script that does error handling.
+    difutil            Locate or analyze debug information files.
+    help               显示帮助信息
+    info               打印Sentry服务端信息
+    issues             Manage issues in Sentry.
+    login              Authenticate with the Sentry server.
+    projects           管理sentry项目Manage projects on Sentry.
+    react-native       Upload build artifacts for react-native projects.
+    releases           Manage releases on Sentry.
+    repos              Manage repositories on Sentry.
+    send-event         Send a manual event to Sentry.
+    uninstall          Uninstall the sentry-cli executable.
+    update             Update the sentry-cli executable.
+    upload-dif         Upload debugging information files.
+    upload-proguard    Upload ProGuard mapping files to a project.
+```
+
+## 7. 手动发送事件
+
+### 命令行参数
+
+```bash
+$ sentry-cli  send-event [选项]
+
+NOTE: This command will validate input parameters and attempt to send an event to Sentry. Due to network errors, rate limits or sampling the event is not guaranteed to actually arrive. Check debug output for transmission errors by passing --log-level=debug or setting `SENTRY_LOG_LEVEL=debug`.
+
+选项:
+    -d, --dist <DISTRIBUTION>            Set the distribution.
+    -E, --env <ENVIRONMENT>              发送事件时一起发送指定的环境变量
+    -e, --extra <KEY:VALUE>...           给事件添加额外信息
+    -f, --fingerprint <FINGERPRINT>...   修改事件指纹.
+    -h, --help                           打印帮助信息
+    -l, --level <LEVEL>                  设置事件的严重程度或日志级别(默认error)
+        --log-level <LOG_LEVEL>          设置日志数据级别(TRACE, DEBUG, INFO, WARN, ERROR]
+        --logfile <PATH>    Send a logfile as breadcrumbs with the event (last 100 records)
+    -m, --message <MESSAGE>...           设置事件消息
+    -a, --message-arg <MESSAGE_ARG>...   设置事件参数
+        --no-environ                     设置发送事件时不一起发送系统环境变量
+    -p, --platform <PLATFORM>            设置事件所处平台。默认是'other'
+    -r, --release <RELEASE>              Optional identifier of the release.
+    -t, --tag <KEY:VALUE>...             给事件添加标签
+    -u, --user <KEY:VALUE>...  		     给事件添加用户信息
+        --with-categories
+            Parses off a leading category for breadcrumbs from the logfile
+```
+
+### 示例
+
+```bash
+ sentry-cli send-event \
+ -m "this is sentry-cli test event" \
+ -t sentry-cli:test \
+ --no-environ \
+ -l info \
+ -p centos \
+ -e a:b \
+ -e c:d \
+ -u root:curiouser \
+ --log-level DEBUG\
+ -a hahha \
+ -E HOSTNAME:$HOSTNAME
+```
+
+![](../assets/sentry-4.png)
+
+事件发送成功后，命令行会返回事件编号
+
+## 8. 事件信息显示
+
+![](../assets/sentry-5.png)
 
 
 
