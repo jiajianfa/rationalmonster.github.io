@@ -37,7 +37,11 @@ Sentry 本身是基于 Django 开发的，需要Postgresql、 Redis
 
 # **三、配置**
 
+在Sentry完成一个项目的设置后，您将获得一个我们称之为DSN或数据源名称的值.它看起来很像一个标准的URL，但它实际上只是Sentry SDK所需的配置的标识.它由几个部分组成，包括协议，公共密钥和密钥，服务器地址和项目标识符。
 
+```bash
+'{PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}/{PATH}{PROJECT_ID}'
+```
 
 
 
@@ -225,7 +229,92 @@ web:
 
 
 
-# 五、Java语言项目客户端配置
+# 六、Sentry-cli客户端
+
+## 1. 下载安装
+
+- 手动下载安装
+
+  - github下载地址：https://github.com/getsentry/sentry-cli/releases/
+
+- 脚本下载安装
+
+  ```bash
+  curl -sL https://sentry.io/get-cli/ | bash
+  ```
+
+- NPM下载安装
+
+  ```bash
+  # 全局安装
+  npm install -g @sentry/cli --unsafe-perm 
+  ```
+
+- Docker Image
+
+  ```bash
+  $ docker pull getsentry/sentry-cli
+  $ docker run --rm -v $(pwd):/work getsentry/sentry-cli --help
+  ```
+
+## 2. 配置
+
+- 全局配置文件：~/.sentryclirc
+
+  - INI语法格式
+
+  ```properties
+  [auth]
+  token=your-auth-token
+  ```
+
+- 环境变量
+
+  - 默认会读取当前`.env` 文件加载环境变量。可设置`SENTRY_LOAD_DOTENV=0`禁止
+
+  ```bash
+  export SENTRY_AUTH_TOKEN=your-auth-token
+  ```
+
+- 命令行参数
+
+  ```bash
+  sentry-cli --auth-token your-auth-token
+  ```
+
+- 项目配置文件
+
+  - 支持加载`.properties`，也可通过环境变量`SENTRY_PROPERTIES`指定项目配置文件路径 
+
+| 环境变量的形式                  | 配置文件中的形式          | 描述                                                         |
+| ------------------------------- | ------------------------- | ------------------------------------------------------------ |
+| **SENTRY_AUTH_TOKEN**           | **auth.token**            | 与Sentry服务端通信用的认证Token                              |
+| **SENTRY_API_KEY**              | **auth.api_key**          | The legacy API key for authentication if you have one.       |
+| **SENTRY_URL**                  | **defaults.url**          | The URL to use to connect to sentry. This defaults to `https://sentry.io/`. |
+| **SENTRY_ORG**                  | **defaults.org**          | The slug of the organization to use for a command.           |
+| **SENTRY_PROJECT**              | **defaults.project**      | The slug of the project to use for a command.                |
+|                                 | **http.keepalive**        | This ini only setting is used to control the behavior of the SDK with regards to HTTP keepalives. The default is *true* but it can be set to *false* to disable keepalive support. |
+| **http_proxy**                  | **http.proxy_url**        | The URL that should be used for the HTTP proxy. The standard `http_proxy` environment variable is also honored. Note that it is lowercase. |
+|                                 | **http.proxy_username**   | This ini only setting sets the proxy username in case proxy authentication is required. |
+|                                 | **http.proxy_password***  | This ini only setting sets the proxy password in case proxy authentication is required. |
+|                                 | **http.verify_ssl**       | This can be used to disable SSL verification when set to false. You should never do that unless you are working with a known self signed server locally. |
+|                                 | **http.check_ssl_revoke** | If this is set to false then SSL revocation checks are disabled on Windows. This can be useful when working with a corporate SSL MITM proxy that does not properly implement revocation checks. Do not use this unless absolutely necessary. |
+| **SENTRY_HTTP_MAX_RETRIES**     | **http.max_retries**      | Sets the maximum number of retry attempts for upload operations (e.g., uploads of release files and debug symbols). The default is `5`. |
+|                                 | **ui.show_notifications** | If this is set to false some operating system notifications are disabled. This currently primarily affects xcode builds which will not show notifications for background builds. |
+| **SENTRY_LOG_LEVEL**            | **log.level**             | Configures the log level for the SDK. The default is `warning`. If you want to see what the library is doing you can set it to `info` which will spit out more information which might help to debug some issues with permissions. |
+|                                 | **dsym.max_upload_size**  | Sets the maximum upload size in bytes (before compression) of debug symbols into one batch. The default is 35MB or 100MB (depending on the version of sentry-cli) which is suitable for sentry.io but if you are using a different sentry server you might want to change this limit if necessary. |
+| **SENTRY_NO_PROGRESS_BAR**      |                           | If set to `1`, then `sentry-cli` will not display progress bars for any operations. |
+| **SENTRY_DISABLE_UPDATE_CHECK** | **update.disable_check**  | If set to `true`, then the automatic update check in sentry-cli is disabled. This was introduced in 1.17. Versions before that did not include an update check. The update check is also not enabled for npm based installations of sentry-cli at the moment. |
+| **DEVICE_FAMILY**               | **device.family**         | Device family value reported to Sentry.                      |
+| **DEVICE_MODEL**                | **device.model**          | Device model value reported to Sentry.                       |
+
+验证配置文件
+
+```bash
+sentry-cli info
+```
+
+
 
 
 

@@ -145,10 +145,12 @@
                 * search
                 * [bulk](origin/elasticsearch-bulk-api.md)
             * [Ingest节点](origin/elasticsearch-ingest节点.md)
+            * [文档的路由](origin/elasticsearch-文档的路由)
         * 管理
             * [Xpack](origin/elasticsearch-7.1的xpack权限控制.md)
             * [Snapshots](origin/elasticSearch-索引的快照备份与恢复.md)
             * [插件管理](origin/elasticsearch-插件管理.md)
+        * [性能优化](origin/elasticsearch-optimizing.md)
         * [问题总结](origin/elasticsearch-问题总结.md)
     * Kibana
 * Metrics
