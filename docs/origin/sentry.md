@@ -250,15 +250,11 @@ web:
 
 # 五、Kubernetes event 客户端
 
-
-
 镜像GitHub：https://github.com/getsentry/sentry-docs/issues/1330
-
-
 
 # 六、Sentry-cli客户端
 
-Sentry命令行客户端，通常用于发送一些基本事件到服务端
+Sentry命令行客户端，作为为一个独立于代码SDK之外的客户端，通常可以用于发送一些自定义事件到服务端。例如在一些定时任务Bash脚本中集成，将一些自定义的事件同步到Sentry服务端，做到自定义事件监控。
 
 官方文档：https://docs.sentry.io/cli/
 
@@ -381,16 +377,7 @@ Authentication Info:
 ## 6. Sentry-cli命令行参数
 
 ```bash
-sentry-cli 1.49.0
-
-Command line utility for Sentry.
-
-This tool helps you manage remote resources on a Sentry server like
-sourcemaps, debug symbols or releases.  Use `--help` on the subcommands
-to learn more about them.
-
-USAGE:
-    sentry-cli <子命令>
+$ sentry-cli <子命令>
 
 OPTIONS:
         --api-key <API_KEY>          指定Sentry API key.
@@ -424,8 +411,6 @@ OPTIONS:
 ```bash
 $ sentry-cli  send-event [选项]
 
-NOTE: This command will validate input parameters and attempt to send an event to Sentry. Due to network errors, rate limits or sampling the event is not guaranteed to actually arrive. Check debug output for transmission errors by passing --log-level=debug or setting `SENTRY_LOG_LEVEL=debug`.
-
 选项:
     -d, --dist <DISTRIBUTION>            Set the distribution.
     -E, --env <ENVIRONMENT>              发送事件时一起发送指定的环境变量
@@ -434,16 +419,15 @@ NOTE: This command will validate input parameters and attempt to send an event t
     -h, --help                           打印帮助信息
     -l, --level <LEVEL>                  设置事件的严重程度或日志级别(默认error)
         --log-level <LOG_LEVEL>          设置日志数据级别(TRACE, DEBUG, INFO, WARN, ERROR]
-        --logfile <PATH>    Send a logfile as breadcrumbs with the event (last 100 records)
+        --logfile <PATH>                 从日志文件中读取日志作为事件消息的补充内容(只读取文件中最近的100条数据)
     -m, --message <MESSAGE>...           设置事件消息
     -a, --message-arg <MESSAGE_ARG>...   设置事件参数
         --no-environ                     设置发送事件时不一起发送系统环境变量
     -p, --platform <PLATFORM>            设置事件所处平台。默认是'other'
-    -r, --release <RELEASE>              Optional identifier of the release.
+    -r, --release <RELEASE>              指定事件版本
     -t, --tag <KEY:VALUE>...             给事件添加标签
     -u, --user <KEY:VALUE>...  		     给事件添加用户信息
-        --with-categories
-            Parses off a leading category for breadcrumbs from the logfile
+        --with-categories                Parses off a leading category for breadcrumbs from the logfile
 ```
 
 ### 示例
@@ -460,7 +444,9 @@ NOTE: This command will validate input parameters and attempt to send an event t
  -u root:curiouser \
  --log-level DEBUG\
  -a hahha \
- -E HOSTNAME:$HOSTNAME
+ -E HOSTNAME:$HOSTNAME \
+ --logfile output.log \
+ -r v1
 ```
 
 ![](../assets/sentry-4.png)
@@ -471,5 +457,21 @@ NOTE: This command will validate input parameters and attempt to send an event t
 
 ![](../assets/sentry-5.png)
 
+## 9. Bash脚本执行异常监控
 
+对于bash脚本，可以通过使用sentry-cli bash钩子自动发送错误异常到sentry服务端，并定位出异常所在行。
+
+- sentry-cli实际上只在启用set -e时才有效(在默认情况下，它将为您启用set -e)。
+
+- sentry-cli会注册EXIT和ERR Trap。
+
+只需要在你的bash脚本开头添加
+
+```bash
+#!/bin/bash
+export SENTRY_DSN=<your dsn here>
+eval "$(sentry-cli bash-hook)"
+```
+
+![1575455262476](../assets/sentry-6.png)
 
