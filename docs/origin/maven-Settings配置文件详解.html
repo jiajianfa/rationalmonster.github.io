@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="generator" content="GitBook 3.0.0">
         <meta name="author" content="Curiouser <rationalmonster@163.com>">
         
         
@@ -45,6 +45,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
                 
             
@@ -65,15 +69,11 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-fexa/fexa.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
         
@@ -2406,7 +2406,7 @@
     
         <li class="chapter " data-level="6.1.7.1.3" data-path="elasticsearch-文档的路由">
             
-                <span>
+                <a href="elasticsearch-文档的路由">
             
                     
                         <b>6.1.7.1.3.</b>
@@ -4099,10 +4099,23 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="&#x4E00;&#x3001;settingsxml&#x6587;&#x4EF6;&#x4F5C;&#x7528;">&#x4E00;&#x3001;settings.xml&#x6587;&#x4EF6;&#x4F5C;&#x7528;</h1><p>&#x4ECE;settings.xml&#x7684;&#x6587;&#x4EF6;&#x540D;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5B83;&#x662F;&#x7528;&#x6765;&#x8BBE;&#x7F6E;maven&#x53C2;&#x6570;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;&#x5E76;&#x4E14;settings.xml&#x662F;maven&#x7684;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;&#x800C;pom.xml&#x6587;&#x4EF6;&#x662F;&#x6240;&#x5728;&#x9879;&#x76EE;&#x7684;&#x5C40;&#x90E8;&#x914D;&#x7F6E;&#x3002;Settings.xml&#x4E2D;&#x5305;&#x542B;&#x7C7B;&#x4F3C;&#x672C;&#x5730;&#x4ED3;&#x50A8;&#x4F4D;&#x7F6E;&#x3001;&#x4FEE;&#x6539;&#x8FDC;&#x7A0B;&#x4ED3;&#x50A8;&#x670D;&#x52A1;&#x5668;&#x3001;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;&#x7B49;&#x914D;&#x7F6E;&#x3002;</p><h1 id="&#x4E8C;&#x3001;settingsxml&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;">&#x4E8C;&#x3001;settings.xml&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;</h1><p>settings.xml&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x5B58;&#x5728;&#x4E8E;&#x4E24;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF1A;</p><ol><li><p>&#x5168;&#x5C40;&#x914D;&#x7F6E;: ${M2_HOME}/conf/settings.xml</p></li>
-<li><p>&#x7528;&#x6237;&#x914D;&#x7F6E;: user.home/.m2/settings.xml</p></li></ol>
-<p><strong><code>Note</code></strong>&#xFF1A;
-1. &#x5C40;&#x90E8;&#x914D;&#x7F6E;&#x4F18;&#x5148;&#x4E8E;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x3002;&#x914D;&#x7F6E;&#x4F18;&#x5148;&#x7EA7;&#x4ECE;&#x9AD8;&#x5230;&#x4F4E;&#xFF1A;pom.xml&gt; user settings &gt; global settings &#x5982;&#x679C;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x540C;&#x65F6;&#x5B58;&#x5728;&#xFF0C;&#x5728;&#x5E94;&#x7528;&#x914D;&#x7F6E;&#x65F6;&#xFF0C;&#x4F1A;&#x5408;&#x5E76;&#x5B83;&#x4EEC;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x91CD;&#x590D;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x9AD8;&#x7684;&#x914D;&#x7F6E;&#x4F1A;&#x8986;&#x76D6;&#x4F18;&#x5148;&#x7EA7;&#x4F4E;&#x7684;&#x3002;</p><h1 id="&#x4E09;&#x3001;settingsxml&#x5143;&#x7D20;&#x8BE6;&#x89E3;">&#x4E09;&#x3001;settings.xml&#x5143;&#x7D20;&#x8BE6;&#x89E3;</h1><h2 id="settingsxml&#x4E2D;&#x7684;&#x9876;&#x7EA7;&#x5143;&#x7D20;">settings.xml&#x4E2D;&#x7684;&#x9876;&#x7EA7;&#x5143;&#x7D20;</h2><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>settings</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://maven.apache.org/SETTINGS/1.0.0<span class="token punctuation">&quot;</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">&quot;</span></span> <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://maven.apache.org/SETTINGS/1.0.0                https://maven.apache.org/xsd/settings-1.0.0.xsd<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+						<h1 id="&#x4E00;&#x3001;settingsxml&#x6587;&#x4EF6;&#x4F5C;&#x7528;">&#x4E00;&#x3001;settings.xml&#x6587;&#x4EF6;&#x4F5C;&#x7528;</h1>
+<p> &#x4ECE;settings.xml&#x7684;&#x6587;&#x4EF6;&#x540D;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5B83;&#x662F;&#x7528;&#x6765;&#x8BBE;&#x7F6E;maven&#x53C2;&#x6570;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;&#x5E76;&#x4E14;settings.xml&#x662F;maven&#x7684;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;&#x800C;pom.xml&#x6587;&#x4EF6;&#x662F;&#x6240;&#x5728;&#x9879;&#x76EE;&#x7684;&#x5C40;&#x90E8;&#x914D;&#x7F6E;&#x3002;Settings.xml&#x4E2D;&#x5305;&#x542B;&#x7C7B;&#x4F3C;&#x672C;&#x5730;&#x4ED3;&#x50A8;&#x4F4D;&#x7F6E;&#x3001;&#x4FEE;&#x6539;&#x8FDC;&#x7A0B;&#x4ED3;&#x50A8;&#x670D;&#x52A1;&#x5668;&#x3001;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;&#x7B49;&#x914D;&#x7F6E;&#x3002;</p>
+<h1 id="&#x4E8C;&#x3001;settingsxml&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;">&#x4E8C;&#x3001;settings.xml&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;</h1>
+<p>settings.xml&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x5B58;&#x5728;&#x4E8E;&#x4E24;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF1A;</p>
+<ol>
+<li><p>&#x5168;&#x5C40;&#x914D;&#x7F6E;: ${M2_HOME}/conf/settings.xml</p>
+</li>
+<li><p>&#x7528;&#x6237;&#x914D;&#x7F6E;: user.home/.m2/settings.xml</p>
+</li>
+</ol>
+<p><strong><code>Note</code></strong>&#xFF1A;</p>
+<ol>
+<li>&#x5C40;&#x90E8;&#x914D;&#x7F6E;&#x4F18;&#x5148;&#x4E8E;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x3002;&#x914D;&#x7F6E;&#x4F18;&#x5148;&#x7EA7;&#x4ECE;&#x9AD8;&#x5230;&#x4F4E;&#xFF1A;pom.xml&gt; user settings &gt; global settings &#x5982;&#x679C;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x540C;&#x65F6;&#x5B58;&#x5728;&#xFF0C;&#x5728;&#x5E94;&#x7528;&#x914D;&#x7F6E;&#x65F6;&#xFF0C;&#x4F1A;&#x5408;&#x5E76;&#x5B83;&#x4EEC;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x91CD;&#x590D;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x9AD8;&#x7684;&#x914D;&#x7F6E;&#x4F1A;&#x8986;&#x76D6;&#x4F18;&#x5148;&#x7EA7;&#x4F4E;&#x7684;&#x3002;</li>
+</ol>
+<h1 id="&#x4E09;&#x3001;settingsxml&#x5143;&#x7D20;&#x8BE6;&#x89E3;">&#x4E09;&#x3001;settings.xml&#x5143;&#x7D20;&#x8BE6;&#x89E3;</h1>
+<h2 id="settingsxml&#x4E2D;&#x7684;&#x9876;&#x7EA7;&#x5143;&#x7D20;">settings.xml&#x4E2D;&#x7684;&#x9876;&#x7EA7;&#x5143;&#x7D20;</h2>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>settings</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://maven.apache.org/SETTINGS/1.0.0<span class="token punctuation">&quot;</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">&quot;</span></span> <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://maven.apache.org/SETTINGS/1.0.0                https://maven.apache.org/xsd/settings-1.0.0.xsd<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>localRepository</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>localRepository</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>interactiveMode</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>interactiveMode</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>usePluginRegistry</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>usePluginRegistry</span><span class="token punctuation">/&gt;</span></span>
@@ -4113,19 +4126,37 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>proxies</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>proxies</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>profiles</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>profiles</span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activeProfiles</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activeProfiles</span><span class="token punctuation">/&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>settings</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="localrepository">LocalRepository</h2><p>&#x8BE5;&#x503C;&#x8868;&#x793A;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x5176;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;~/.m2/repository&#x3002;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>localRepository</span><span class="token punctuation">&gt;</span></span>${user.home}/.m2/repository<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>localRepository</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="interactivemode">InteractiveMode</h2><p>&#x8868;&#x793A;maven&#x662F;&#x5426;&#x9700;&#x8981;&#x548C;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x4EE5;&#x83B7;&#x5F97;&#x8F93;&#x5165;&#x3002;&#x5982;&#x679C;maven&#x9700;&#x8981;&#x548C;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x4EE5;&#x83B7;&#x5F97;&#x8F93;&#x5165;&#xFF0C;&#x5219;&#x8BBE;&#x7F6E;&#x6210;true&#xFF0C;&#x53CD;&#x4E4B;&#x5219;&#x5E94;&#x4E3A;false&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;true&#x3002;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>interactiveMode</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>interactiveMode</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="usepluginregistry">UsePluginRegistry</h2><p>maven&#x662F;&#x5426;&#x9700;&#x8981;&#x4F7F;&#x7528;plugin-registry.xml&#x6587;&#x4EF6;&#x6765;&#x7BA1;&#x7406;&#x63D2;&#x4EF6;&#x7248;&#x672C;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x8BA9;maven&#x4F7F;&#x7528;&#x6587;&#x4EF6;~/.m2/plugin-registry.xml&#x6765;&#x7BA1;&#x7406;&#x63D2;&#x4EF6;&#x7248;&#x672C;&#xFF0C;&#x5219;&#x8BBE;&#x4E3A;true&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;false&#x3002;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>usePluginRegistry</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>usePluginRegistry</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="offline">Offline</h2><p>&#x8868;&#x793A;maven&#x662F;&#x5426;&#x9700;&#x8981;&#x5728;&#x79BB;&#x7EBF;&#x6A21;&#x5F0F;&#x4E0B;&#x8FD0;&#x884C;&#x3002;&#x5982;&#x679C;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x9700;&#x8981;&#x5728;&#x79BB;&#x7EBF;&#x6A21;&#x5F0F;&#x4E0B;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x4E3A;true&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;false&#x3002;
-&#x5F53;&#x7531;&#x4E8E;&#x7F51;&#x7EDC;&#x8BBE;&#x7F6E;&#x539F;&#x56E0;&#x6216;&#x8005;&#x5B89;&#x5168;&#x56E0;&#x7D20;&#xFF0C;&#x6784;&#x5EFA;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x80FD;&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BE5;&#x914D;&#x7F6E;&#x5C31;&#x5341;&#x5206;&#x6709;&#x7528;&#x3002;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>offline</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>offline</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="plugingroups">PluginGroups</h2><p>&#x5F53;&#x63D2;&#x4EF6;&#x7684;&#x7EC4;&#x7EC7;id&#xFF08;groupId&#xFF09;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x63D0;&#x4F9B;&#x65F6;&#xFF0C;&#x4F9B;&#x641C;&#x5BFB;&#x63D2;&#x4EF6;&#x7EC4;&#x7EC7;Id&#xFF08;groupId&#xFF09;&#x7684;&#x5217;&#x8868;&#x3002;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>settings</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="localrepository">LocalRepository</h2>
+<p>&#x8BE5;&#x503C;&#x8868;&#x793A;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x5176;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;~/.m2/repository&#x3002;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>localRepository</span><span class="token punctuation">&gt;</span></span>${user.home}/.m2/repository<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>localRepository</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="interactivemode">InteractiveMode</h2>
+<p>&#x8868;&#x793A;maven&#x662F;&#x5426;&#x9700;&#x8981;&#x548C;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x4EE5;&#x83B7;&#x5F97;&#x8F93;&#x5165;&#x3002;&#x5982;&#x679C;maven&#x9700;&#x8981;&#x548C;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x4EE5;&#x83B7;&#x5F97;&#x8F93;&#x5165;&#xFF0C;&#x5219;&#x8BBE;&#x7F6E;&#x6210;true&#xFF0C;&#x53CD;&#x4E4B;&#x5219;&#x5E94;&#x4E3A;false&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;true&#x3002;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>interactiveMode</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>interactiveMode</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="usepluginregistry">UsePluginRegistry</h2>
+<p>maven&#x662F;&#x5426;&#x9700;&#x8981;&#x4F7F;&#x7528;plugin-registry.xml&#x6587;&#x4EF6;&#x6765;&#x7BA1;&#x7406;&#x63D2;&#x4EF6;&#x7248;&#x672C;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x8BA9;maven&#x4F7F;&#x7528;&#x6587;&#x4EF6;~/.m2/plugin-registry.xml&#x6765;&#x7BA1;&#x7406;&#x63D2;&#x4EF6;&#x7248;&#x672C;&#xFF0C;&#x5219;&#x8BBE;&#x4E3A;true&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;false&#x3002;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>usePluginRegistry</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>usePluginRegistry</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="offline">Offline</h2>
+<p>&#x8868;&#x793A;maven&#x662F;&#x5426;&#x9700;&#x8981;&#x5728;&#x79BB;&#x7EBF;&#x6A21;&#x5F0F;&#x4E0B;&#x8FD0;&#x884C;&#x3002;&#x5982;&#x679C;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x9700;&#x8981;&#x5728;&#x79BB;&#x7EBF;&#x6A21;&#x5F0F;&#x4E0B;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x4E3A;true&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;false&#x3002;
+&#x5F53;&#x7531;&#x4E8E;&#x7F51;&#x7EDC;&#x8BBE;&#x7F6E;&#x539F;&#x56E0;&#x6216;&#x8005;&#x5B89;&#x5168;&#x56E0;&#x7D20;&#xFF0C;&#x6784;&#x5EFA;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x80FD;&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BE5;&#x914D;&#x7F6E;&#x5C31;&#x5341;&#x5206;&#x6709;&#x7528;&#x3002;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>offline</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>offline</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="plugingroups">PluginGroups</h2>
+<p>&#x5F53;&#x63D2;&#x4EF6;&#x7684;&#x7EC4;&#x7EC7;id&#xFF08;groupId&#xFF09;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x63D0;&#x4F9B;&#x65F6;&#xFF0C;&#x4F9B;&#x641C;&#x5BFB;&#x63D2;&#x4EF6;&#x7EC4;&#x7EC7;Id&#xFF08;groupId&#xFF09;&#x7684;&#x5217;&#x8868;&#x3002;
 &#x8BE5;&#x5143;&#x7D20;&#x5305;&#x542B;&#x4E00;&#x4E2A;pluginGroup&#x5143;&#x7D20;&#x5217;&#x8868;&#xFF0C;&#x6BCF;&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x7EC4;&#x7EC7;Id&#xFF08;groupId&#xFF09;&#x3002;
-&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x67D0;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E3A;&#x5176;&#x63D0;&#x4F9B;&#x7EC4;&#x7EC7;Id&#xFF08;groupId&#xFF09;&#x7684;&#x65F6;&#x5019;&#xFF0C;Maven&#x5C31;&#x4F1A;&#x4F7F;&#x7528;&#x8BE5;&#x5217;&#x8868;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x8BE5;&#x5217;&#x8868;&#x5305;&#x542B;&#x4E86;org.apache.maven.plugins&#x548C;org.codehaus.mojo&#x3002;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pluginGroups</span><span class="token punctuation">&gt;</span></span>
+&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x67D0;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E3A;&#x5176;&#x63D0;&#x4F9B;&#x7EC4;&#x7EC7;Id&#xFF08;groupId&#xFF09;&#x7684;&#x65F6;&#x5019;&#xFF0C;Maven&#x5C31;&#x4F1A;&#x4F7F;&#x7528;&#x8BE5;&#x5217;&#x8868;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x8BE5;&#x5217;&#x8868;&#x5305;&#x542B;&#x4E86;org.apache.maven.plugins&#x548C;org.codehaus.mojo&#x3002;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pluginGroups</span><span class="token punctuation">&gt;</span></span>
     <span class="token comment">&lt;!--plugin&#x7684;&#x7EC4;&#x7EC7;Id&#xFF08;groupId&#xFF09; --&gt;</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pluginGroup</span><span class="token punctuation">&gt;</span></span>org.codehaus.mojo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pluginGroup</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pluginGroups</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="servers">Servers</h2><p>&#x4ED3;&#x5E93;&#x7684;&#x4E0B;&#x8F7D;&#x548C;&#x90E8;&#x7F72;&#x662F;&#x5728;pom.xml&#x6587;&#x4EF6;&#x4E2D;&#x7684;repositories&#x548C;distributionManagement&#x5143;&#x7D20;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x4E00;&#x822C;&#x7C7B;&#x4F3C;&#x7528;&#x6237;&#x540D;&#x3001;&#x5BC6;&#x7801;&#xFF08;&#x6709;&#x4E9B;&#x4ED3;&#x5E93;&#x8BBF;&#x95EE;&#x662F;&#x9700;&#x8981;&#x5B89;&#x5168;&#x8BA4;&#x8BC1;&#x7684;&#xFF09;&#x7B49;&#x4FE1;&#x606F;&#x4E0D;&#x5E94;&#x8BE5;&#x5728;pom.xml&#x6587;&#x4EF6;&#x4E2D;&#x914D;&#x7F6E;&#xFF0C;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x5728;settings.xml&#x4E2D;&#x3002;</p><pre class="language-"><code class="lang-xml"><span class="token comment">&lt;!--&#x914D;&#x7F6E;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x4E00;&#x4E9B;&#x8BBE;&#x7F6E;&#x3002;&#x4E00;&#x4E9B;&#x8BBE;&#x7F6E;&#x5982;&#x5B89;&#x5168;&#x8BC1;&#x4E66;&#x4E0D;&#x5E94;&#x8BE5;&#x548C;pom.xml&#x4E00;&#x8D77;&#x5206;&#x53D1;&#x3002;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x4FE1;&#x606F;&#x5E94;&#x8BE5;&#x5B58;&#x5728;&#x4E8E;&#x6784;&#x5EFA;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;settings.xml&#x6587;&#x4EF6;&#x4E2D;&#x3002; --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pluginGroups</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="servers">Servers</h2>
+<p>&#x4ED3;&#x5E93;&#x7684;&#x4E0B;&#x8F7D;&#x548C;&#x90E8;&#x7F72;&#x662F;&#x5728;pom.xml&#x6587;&#x4EF6;&#x4E2D;&#x7684;repositories&#x548C;distributionManagement&#x5143;&#x7D20;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x4E00;&#x822C;&#x7C7B;&#x4F3C;&#x7528;&#x6237;&#x540D;&#x3001;&#x5BC6;&#x7801;&#xFF08;&#x6709;&#x4E9B;&#x4ED3;&#x5E93;&#x8BBF;&#x95EE;&#x662F;&#x9700;&#x8981;&#x5B89;&#x5168;&#x8BA4;&#x8BC1;&#x7684;&#xFF09;&#x7B49;&#x4FE1;&#x606F;&#x4E0D;&#x5E94;&#x8BE5;&#x5728;pom.xml&#x6587;&#x4EF6;&#x4E2D;&#x914D;&#x7F6E;&#xFF0C;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x5728;settings.xml&#x4E2D;&#x3002;</p>
+<pre class="language-"><code class="lang-xml"><span class="token comment">&lt;!--&#x914D;&#x7F6E;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x4E00;&#x4E9B;&#x8BBE;&#x7F6E;&#x3002;&#x4E00;&#x4E9B;&#x8BBE;&#x7F6E;&#x5982;&#x5B89;&#x5168;&#x8BC1;&#x4E66;&#x4E0D;&#x5E94;&#x8BE5;&#x548C;pom.xml&#x4E00;&#x8D77;&#x5206;&#x53D1;&#x3002;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x4FE1;&#x606F;&#x5E94;&#x8BE5;&#x5B58;&#x5728;&#x4E8E;&#x6784;&#x5EFA;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;settings.xml&#x6587;&#x4EF6;&#x4E2D;&#x3002; --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servers</span><span class="token punctuation">&gt;</span></span>
     <span class="token comment">&lt;!--&#x670D;&#x52A1;&#x5668;&#x5143;&#x7D20;&#x5305;&#x542B;&#x914D;&#x7F6E;&#x670D;&#x52A1;&#x5668;&#x65F6;&#x9700;&#x8981;&#x7684;&#x4FE1;&#x606F; --&gt;</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>server</span><span class="token punctuation">&gt;</span></span>
@@ -4144,8 +4175,11 @@
       <span class="token comment">&lt;!--&#x76EE;&#x5F55;&#x88AB;&#x521B;&#x5EFA;&#x65F6;&#x7684;&#x6743;&#x9650;&#x3002; --&gt;</span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directoryPermissions</span><span class="token punctuation">&gt;</span></span>775<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directoryPermissions</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>server</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servers</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="mirrors">Mirrors</h2><p>&#x4E3A;&#x4ED3;&#x5E93;&#x5217;&#x8868;&#x914D;&#x7F6E;&#x7684;&#x4E0B;&#x8F7D;&#x955C;&#x50CF;&#x5217;&#x8868;&#x3002;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrors</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servers</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="mirrors">Mirrors</h2>
+<p>&#x4E3A;&#x4ED3;&#x5E93;&#x5217;&#x8868;&#x914D;&#x7F6E;&#x7684;&#x4E0B;&#x8F7D;&#x955C;&#x50CF;&#x5217;&#x8868;&#x3002;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrors</span><span class="token punctuation">&gt;</span></span>
     <span class="token comment">&lt;!-- &#x7ED9;&#x5B9A;&#x4ED3;&#x5E93;&#x7684;&#x4E0B;&#x8F7D;&#x955C;&#x50CF;&#x3002; --&gt;</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">&gt;</span></span>
       <span class="token comment">&lt;!-- &#x8BE5;&#x955C;&#x50CF;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x7B26;&#x3002;id&#x7528;&#x6765;&#x533A;&#x5206;&#x4E0D;&#x540C;&#x7684;mirror&#x5143;&#x7D20;&#x3002; --&gt;</span>
@@ -4157,8 +4191,11 @@
       <span class="token comment">&lt;!-- &#x88AB;&#x955C;&#x50CF;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7684;id&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8981;&#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;Maven&#x4E2D;&#x592E;&#x4ED3;&#x5E93;&#xFF08;http://repo.maven.apache.org/maven2/&#xFF09;&#x7684;&#x955C;&#x50CF;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5C06;&#x8BE5;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x6210;central&#x3002;&#x8FD9;&#x5FC5;&#x987B;&#x548C;&#x4E2D;&#x592E;&#x4ED3;&#x5E93;&#x7684;id central&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#x3002; --&gt;</span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrors</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="proxies">Proxies</h2><p>&#x7528;&#x6765;&#x914D;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7406;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>proxies</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrors</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="proxies">Proxies</h2>
+<p>&#x7528;&#x6765;&#x914D;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7406;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>proxies</span><span class="token punctuation">&gt;</span></span>
     <span class="token comment">&lt;!--&#x4EE3;&#x7406;&#x5143;&#x7D20;&#x5305;&#x542B;&#x914D;&#x7F6E;&#x4EE3;&#x7406;&#x65F6;&#x9700;&#x8981;&#x7684;&#x4FE1;&#x606F; --&gt;</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>proxy</span><span class="token punctuation">&gt;</span></span>
       <span class="token comment">&lt;!--&#x4EE3;&#x7406;&#x7684;&#x552F;&#x4E00;&#x5B9A;&#x4E49;&#x7B26;&#xFF0C;&#x7528;&#x6765;&#x533A;&#x5206;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7406;&#x5143;&#x7D20;&#x3002; --&gt;</span>
@@ -4178,9 +4215,12 @@
       <span class="token comment">&lt;!--&#x4E0D;&#x8BE5;&#x88AB;&#x4EE3;&#x7406;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x5217;&#x8868;&#x3002;&#x8BE5;&#x5217;&#x8868;&#x7684;&#x5206;&#x9694;&#x7B26;&#x7531;&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x6307;&#x5B9A;&#xFF1B;&#x4F8B;&#x5B50;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;&#x7AD6;&#x7EBF;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x4F7F;&#x7528;&#x9017;&#x53F7;&#x5206;&#x9694;&#x4E5F;&#x5F88;&#x5E38;&#x89C1;&#x3002; --&gt;</span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nonProxyHosts</span><span class="token punctuation">&gt;</span></span>*.google.com|ibiblio.org<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nonProxyHosts</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>proxy</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>proxies</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="profiles">Profiles</h2><p>&#x6839;&#x636E;&#x73AF;&#x5883;&#x53C2;&#x6570;&#x6765;&#x8C03;&#x6574;&#x6784;&#x5EFA;&#x914D;&#x7F6E;&#x7684;&#x5217;&#x8868;&#x3002;settings.xml&#x4E2D;&#x7684;profile&#x5143;&#x7D20;&#x662F;pom.xml&#x4E2D;profile&#x5143;&#x7D20;&#x7684;&#x88C1;&#x526A;&#x7248;&#x672C;&#x3002;
-&#x5B83;&#x5305;&#x542B;&#x4E86;id&#x3001;activation&#x3001;repositories&#x3001;pluginRepositories&#x548C; properties&#x5143;&#x7D20;&#x3002;&#x8FD9;&#x91CC;&#x7684;profile&#x5143;&#x7D20;&#x53EA;&#x5305;&#x542B;&#x8FD9;&#x4E94;&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x91CC;&#x53EA;&#x5173;&#x5FC3;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x8FD9;&#x4E2A;&#x6574;&#x4F53;&#xFF08;&#x8FD9;&#x6B63;&#x662F;settings.xml&#x6587;&#x4EF6;&#x7684;&#x89D2;&#x8272;&#x5B9A;&#x4F4D;&#xFF09;&#xFF0C;&#x800C;&#x975E;&#x5355;&#x72EC;&#x7684;&#x9879;&#x76EE;&#x5BF9;&#x8C61;&#x6A21;&#x578B;&#x8BBE;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;settings.xml&#x4E2D;&#x7684;profile&#x88AB;&#x6FC0;&#x6D3B;&#xFF0C;&#x5B83;&#x7684;&#x503C;&#x4F1A;&#x8986;&#x76D6;&#x4EFB;&#x4F55;&#x5176;&#x5B83;&#x5B9A;&#x4E49;&#x5728;pom.xml&#x4E2D;&#x5E26;&#x6709;&#x76F8;&#x540C;id&#x7684;profile&#x3002;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>profiles</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>proxies</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="profiles">Profiles</h2>
+<p>&#x6839;&#x636E;&#x73AF;&#x5883;&#x53C2;&#x6570;&#x6765;&#x8C03;&#x6574;&#x6784;&#x5EFA;&#x914D;&#x7F6E;&#x7684;&#x5217;&#x8868;&#x3002;settings.xml&#x4E2D;&#x7684;profile&#x5143;&#x7D20;&#x662F;pom.xml&#x4E2D;profile&#x5143;&#x7D20;&#x7684;&#x88C1;&#x526A;&#x7248;&#x672C;&#x3002;
+&#x5B83;&#x5305;&#x542B;&#x4E86;id&#x3001;activation&#x3001;repositories&#x3001;pluginRepositories&#x548C; properties&#x5143;&#x7D20;&#x3002;&#x8FD9;&#x91CC;&#x7684;profile&#x5143;&#x7D20;&#x53EA;&#x5305;&#x542B;&#x8FD9;&#x4E94;&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x91CC;&#x53EA;&#x5173;&#x5FC3;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x8FD9;&#x4E2A;&#x6574;&#x4F53;&#xFF08;&#x8FD9;&#x6B63;&#x662F;settings.xml&#x6587;&#x4EF6;&#x7684;&#x89D2;&#x8272;&#x5B9A;&#x4F4D;&#xFF09;&#xFF0C;&#x800C;&#x975E;&#x5355;&#x72EC;&#x7684;&#x9879;&#x76EE;&#x5BF9;&#x8C61;&#x6A21;&#x578B;&#x8BBE;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;settings.xml&#x4E2D;&#x7684;profile&#x88AB;&#x6FC0;&#x6D3B;&#xFF0C;&#x5B83;&#x7684;&#x503C;&#x4F1A;&#x8986;&#x76D6;&#x4EFB;&#x4F55;&#x5176;&#x5B83;&#x5B9A;&#x4E49;&#x5728;pom.xml&#x4E2D;&#x5E26;&#x6709;&#x76F8;&#x540C;id&#x7684;profile&#x3002;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>profiles</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>profile</span><span class="token punctuation">&gt;</span></span>
       <span class="token comment">&lt;!-- profile&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6; --&gt;</span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
@@ -4193,10 +4233,13 @@
       <span class="token comment">&lt;!-- &#x63D2;&#x4EF6;&#x4ED3;&#x5E93;&#x5217;&#x8868; --&gt;</span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pluginRepositories</span> <span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>profile</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>profiles</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="activation">Activation</h2><p>&#x81EA;&#x52A8;&#x89E6;&#x53D1;profile&#x7684;&#x6761;&#x4EF6;&#x903B;&#x8F91;&#x3002;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>profiles</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="activation">Activation</h2>
+<p>&#x81EA;&#x52A8;&#x89E6;&#x53D1;profile&#x7684;&#x6761;&#x4EF6;&#x903B;&#x8F91;&#x3002;
 &#x5982;pom.xml&#x4E2D;&#x7684;profile&#x4E00;&#x6837;&#xFF0C;profile&#x7684;&#x4F5C;&#x7528;&#x5728;&#x4E8E;&#x5B83;&#x80FD;&#x591F;&#x5728;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x73AF;&#x5883;&#x4E2D;&#x81EA;&#x52A8;&#x4F7F;&#x7528;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x503C;&#xFF1B;&#x8FD9;&#x4E9B;&#x73AF;&#x5883;&#x901A;&#x8FC7;activation&#x5143;&#x7D20;&#x6307;&#x5B9A;&#x3002;
-activation&#x5143;&#x7D20;&#x5E76;&#x4E0D;&#x662F;&#x6FC0;&#x6D3B;profile&#x7684;&#x552F;&#x4E00;&#x65B9;&#x5F0F;&#x3002;settings.xml&#x6587;&#x4EF6;&#x4E2D;&#x7684;activeProfile&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x5305;&#x542B;profile&#x7684;id&#x3002;profile&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x547D;&#x4EE4;&#x884C;&#xFF0C;&#x4F7F;&#x7528;-P&#x6807;&#x8BB0;&#x548C;&#x9017;&#x53F7;&#x5206;&#x9694;&#x7684;&#x5217;&#x8868;&#x6765;&#x663E;&#x5F0F;&#x7684;&#x6FC0;&#x6D3B;&#xFF08;&#x5982;&#xFF0C;-P test&#xFF09;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activation</span><span class="token punctuation">&gt;</span></span>
+activation&#x5143;&#x7D20;&#x5E76;&#x4E0D;&#x662F;&#x6FC0;&#x6D3B;profile&#x7684;&#x552F;&#x4E00;&#x65B9;&#x5F0F;&#x3002;settings.xml&#x6587;&#x4EF6;&#x4E2D;&#x7684;activeProfile&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x5305;&#x542B;profile&#x7684;id&#x3002;profile&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x547D;&#x4EE4;&#x884C;&#xFF0C;&#x4F7F;&#x7528;-P&#x6807;&#x8BB0;&#x548C;&#x9017;&#x53F7;&#x5206;&#x9694;&#x7684;&#x5217;&#x8868;&#x6765;&#x663E;&#x5F0F;&#x7684;&#x6FC0;&#x6D3B;&#xFF08;&#x5982;&#xFF0C;-P test&#xFF09;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activation</span><span class="token punctuation">&gt;</span></span>
   <span class="token comment">&lt;!--profile&#x9ED8;&#x8BA4;&#x662F;&#x5426;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x8BC6; --&gt;</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activeByDefault</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activeByDefault</span><span class="token punctuation">&gt;</span></span>
   <span class="token comment">&lt;!--&#x5F53;&#x5339;&#x914D;&#x7684;jdk&#x88AB;&#x68C0;&#x6D4B;&#x5230;&#xFF0C;profile&#x88AB;&#x6FC0;&#x6D3B;&#x3002;&#x4F8B;&#x5982;&#xFF0C;1.4&#x6FC0;&#x6D3B;JDK1.4&#xFF0C;1.4.0_2&#xFF0C;&#x800C;!1.4&#x6FC0;&#x6D3B;&#x6240;&#x6709;&#x7248;&#x672C;&#x4E0D;&#x662F;&#x4EE5;1.4&#x5F00;&#x5934;&#x7684;JDK&#x3002; --&gt;</span>
@@ -4227,9 +4270,12 @@ activation&#x5143;&#x7D20;&#x5E76;&#x4E0D;&#x662F;&#x6FC0;&#x6D3B;profile&#x7684
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>missing</span><span class="token punctuation">&gt;</span></span>${basedir}/file1.properties<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>missing</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>file</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activation</span><span class="token punctuation">&gt;</span></span>
-&#x6CE8;&#xFF1A;&#x5728;maven&#x5DE5;&#x7A0B;&#x7684;pom.xml&#x6240;&#x5728;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;mvn help:active-profiles&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x4E2D;&#x592E;&#x4ED3;&#x50A8;&#x7684;profile&#x662F;&#x5426;&#x5728;&#x5DE5;&#x7A0B;&#x4E2D;&#x751F;&#x6548;&#x3002;</code></pre>
-<h2 id="properties">properties</h2><p>&#x5BF9;&#x5E94;profile&#x7684;&#x6269;&#x5C55;&#x5C5E;&#x6027;&#x5217;&#x8868;&#x3002;
-maven&#x5C5E;&#x6027;&#x548C;ant&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x4E00;&#x6837;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B58;&#x653E;&#x4E00;&#x4E9B;&#x503C;&#x3002;&#x8FD9;&#x4E9B;&#x503C;&#x53EF;&#x4EE5;&#x5728;pom.xml&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x4F7F;&#x7528;&#x6807;&#x8BB0;${X}&#x6765;&#x4F7F;&#x7528;&#xFF0C;&#x8FD9;&#x91CC;X&#x662F;&#x6307;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;&#x3002;&#x5C5E;&#x6027;&#x6709;&#x4E94;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x5E76;&#x4E14;&#x90FD;&#x80FD;&#x5728;settings.xml&#x6587;&#x4EF6;&#x4E2D;&#x8BBF;&#x95EE;</p><pre class="language-"><code class="lang-xml"><span class="token comment">&lt;!-- 
+&#x6CE8;&#xFF1A;&#x5728;maven&#x5DE5;&#x7A0B;&#x7684;pom.xml&#x6240;&#x5728;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;mvn help:active-profiles&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x4E2D;&#x592E;&#x4ED3;&#x50A8;&#x7684;profile&#x662F;&#x5426;&#x5728;&#x5DE5;&#x7A0B;&#x4E2D;&#x751F;&#x6548;&#x3002;
+</code></pre>
+<h2 id="properties">properties</h2>
+<p>&#x5BF9;&#x5E94;profile&#x7684;&#x6269;&#x5C55;&#x5C5E;&#x6027;&#x5217;&#x8868;&#x3002;
+maven&#x5C5E;&#x6027;&#x548C;ant&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x4E00;&#x6837;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B58;&#x653E;&#x4E00;&#x4E9B;&#x503C;&#x3002;&#x8FD9;&#x4E9B;&#x503C;&#x53EF;&#x4EE5;&#x5728;pom.xml&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x4F7F;&#x7528;&#x6807;&#x8BB0;${X}&#x6765;&#x4F7F;&#x7528;&#xFF0C;&#x8FD9;&#x91CC;X&#x662F;&#x6307;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;&#x3002;&#x5C5E;&#x6027;&#x6709;&#x4E94;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x5E76;&#x4E14;&#x90FD;&#x80FD;&#x5728;settings.xml&#x6587;&#x4EF6;&#x4E2D;&#x8BBF;&#x95EE;</p>
+<pre class="language-"><code class="lang-xml"><span class="token comment">&lt;!-- 
 1. env.X: &#x5728;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x524D;&#x52A0;&#x4E0A;&quot;env.&quot;&#x7684;&#x524D;&#x7F00;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;shell&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;&#x4F8B;&#x5982;,&quot;env.PATH&quot;&#x6307;&#x4EE3;&#x4E86;$path&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF08;&#x5728;Windows&#x4E0A;&#x662F;%PATH%&#xFF09;&#x3002; 
 2. project.x&#xFF1A;&#x6307;&#x4EE3;&#x4E86;POM&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x5143;&#x7D20;&#x503C;&#x3002;&#x4F8B;&#x5982;: &lt;project&gt;&lt;version&gt;1.0&lt;/version&gt;&lt;/project&gt;&#x901A;&#x8FC7;${project.version}&#x83B7;&#x5F97;version&#x7684;&#x503C;&#x3002; 
 3. settings.x: &#x6307;&#x4EE3;&#x4E86;settings.xml&#x4E2D;&#x5BF9;&#x5E94;&#x5143;&#x7D20;&#x7684;&#x503C;&#x3002;&#x4F8B;&#x5982;&#xFF1A;&lt;settings&gt;&lt;offline&gt;false&lt;/offline&gt;&lt;/settings&gt;&#x901A;&#x8FC7; ${settings.offline}&#x83B7;&#x5F97;offline&#x7684;&#x503C;&#x3002; 
@@ -4240,8 +4286,11 @@ maven&#x5C5E;&#x6027;&#x548C;ant&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x4E00;&#x6837;
      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user.install</span><span class="token punctuation">&gt;</span></span>${user.home}/our-project<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user.install</span><span class="token punctuation">&gt;</span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span>
 
-&#x6CE8;&#xFF1A;&#x5982;&#x679C;&#x8BE5;profile&#x88AB;&#x6FC0;&#x6D3B;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5728;pom.xml&#x4E2D;&#x4F7F;&#x7528;${user.install}&#x3002;</code></pre>
-<h2 id="repositories">Repositories</h2><p>&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x5217;&#x8868;&#xFF0C;&#x5B83;&#x662F;maven&#x7528;&#x6765;&#x586B;&#x5145;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x4E00;&#x7EC4;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repositories</span><span class="token punctuation">&gt;</span></span>
+&#x6CE8;&#xFF1A;&#x5982;&#x679C;&#x8BE5;profile&#x88AB;&#x6FC0;&#x6D3B;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5728;pom.xml&#x4E2D;&#x4F7F;&#x7528;${user.install}&#x3002;
+</code></pre>
+<h2 id="repositories">Repositories</h2>
+<p>&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x5217;&#x8868;&#xFF0C;&#x5B83;&#x662F;maven&#x7528;&#x6765;&#x586B;&#x5145;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x4E00;&#x7EC4;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repositories</span><span class="token punctuation">&gt;</span></span>
   <span class="token comment">&lt;!--&#x5305;&#x542B;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x5230;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x7684;&#x4FE1;&#x606F; --&gt;</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>repository</span><span class="token punctuation">&gt;</span></span>
     <span class="token comment">&lt;!--&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x552F;&#x4E00;&#x6807;&#x8BC6; --&gt;</span>
@@ -4268,10 +4317,13 @@ maven&#x5C5E;&#x6027;&#x548C;ant&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x4E00;&#x6837;
     <span class="token comment">&lt;!--&#x7528;&#x4E8E;&#x5B9A;&#x4F4D;&#x548C;&#x6392;&#x5E8F;&#x6784;&#x4EF6;&#x7684;&#x4ED3;&#x5E93;&#x5E03;&#x5C40;&#x7C7B;&#x578B;-&#x53EF;&#x4EE5;&#x662F;default&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#x6216;&#x8005;legacy&#xFF08;&#x9057;&#x7559;&#xFF09;&#x3002;Maven 2&#x4E3A;&#x5176;&#x4ED3;&#x5E93;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x5E03;&#x5C40;&#xFF1B;&#x7136;&#x800C;&#xFF0C;Maven 1.x&#x6709;&#x4E00;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x5E03;&#x5C40;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BE5;&#x5143;&#x7D20;&#x6307;&#x5B9A;&#x5E03;&#x5C40;&#x662F;default&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#x8FD8;&#x662F;legacy&#xFF08;&#x9057;&#x7559;&#xFF09;&#x3002; --&gt;</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>layout</span><span class="token punctuation">&gt;</span></span>default<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>layout</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repository</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repositories</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="pluginrepositories">pluginRepositories</h2><p>&#x53D1;&#x73B0;&#x63D2;&#x4EF6;&#x7684;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x5217;&#x8868;&#x3002;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>repositories</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="pluginrepositories">pluginRepositories</h2>
+<p>&#x53D1;&#x73B0;&#x63D2;&#x4EF6;&#x7684;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x5217;&#x8868;&#x3002;
 &#x548C;repository&#x7C7B;&#x4F3C;&#xFF0C;&#x53EA;&#x662F;repository&#x662F;&#x7BA1;&#x7406;jar&#x5305;&#x4F9D;&#x8D56;&#x7684;&#x4ED3;&#x5E93;&#xFF0C;pluginRepositories&#x5219;&#x662F;&#x7BA1;&#x7406;&#x63D2;&#x4EF6;&#x7684;&#x4ED3;&#x5E93;&#x3002;
-maven&#x63D2;&#x4EF6;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x7684;&#x6784;&#x4EF6;&#x3002;&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x539F;&#x56E0;&#xFF0C;&#x63D2;&#x4EF6;&#x4ED3;&#x5E93;&#x72EC;&#x7ACB;&#x4E8E;&#x5176;&#x5B83;&#x4ED3;&#x5E93;&#x3002;pluginRepositories&#x5143;&#x7D20;&#x7684;&#x7ED3;&#x6784;&#x548C;repositories&#x5143;&#x7D20;&#x7684;&#x7ED3;&#x6784;&#x7C7B;&#x4F3C;&#x3002;&#x6BCF;&#x4E2A;pluginRepository&#x5143;&#x7D20;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;Maven&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5BFB;&#x627E;&#x65B0;&#x63D2;&#x4EF6;&#x7684;&#x8FDC;&#x7A0B;&#x5730;&#x5740;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pluginRepositories</span><span class="token punctuation">&gt;</span></span>
+maven&#x63D2;&#x4EF6;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x7684;&#x6784;&#x4EF6;&#x3002;&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x539F;&#x56E0;&#xFF0C;&#x63D2;&#x4EF6;&#x4ED3;&#x5E93;&#x72EC;&#x7ACB;&#x4E8E;&#x5176;&#x5B83;&#x4ED3;&#x5E93;&#x3002;pluginRepositories&#x5143;&#x7D20;&#x7684;&#x7ED3;&#x6784;&#x548C;repositories&#x5143;&#x7D20;&#x7684;&#x7ED3;&#x6784;&#x7C7B;&#x4F3C;&#x3002;&#x6BCF;&#x4E2A;pluginRepository&#x5143;&#x7D20;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;Maven&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5BFB;&#x627E;&#x65B0;&#x63D2;&#x4EF6;&#x7684;&#x8FDC;&#x7A0B;&#x5730;&#x5740;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pluginRepositories</span><span class="token punctuation">&gt;</span></span>
   <span class="token comment">&lt;!-- &#x5305;&#x542B;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x5230;&#x8FDC;&#x7A0B;&#x63D2;&#x4EF6;&#x4ED3;&#x5E93;&#x7684;&#x4FE1;&#x606F;.&#x53C2;&#x89C1;profiles/profile/repositories/repository&#x5143;&#x7D20;&#x7684;&#x8BF4;&#x660E; --&gt;</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pluginRepository</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>releases</span><span class="token punctuation">&gt;</span></span>
@@ -4289,18 +4341,20 @@ maven&#x63D2;&#x4EF6;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span> <span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>layout</span> <span class="token punctuation">/&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pluginRepository</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pluginRepositories</span><span class="token punctuation">&gt;</span></span></code></pre>
-<h2 id="activeprofiles">ActiveProfiles</h2><p>&#x624B;&#x52A8;&#x6FC0;&#x6D3B;profiles&#x7684;&#x5217;&#x8868;&#xFF0C;&#x6309;&#x7167;profile&#x88AB;&#x5E94;&#x7528;&#x7684;&#x987A;&#x5E8F;&#x5B9A;&#x4E49;activeProfile&#x3002;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pluginRepositories</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="activeprofiles">ActiveProfiles</h2>
+<p>&#x624B;&#x52A8;&#x6FC0;&#x6D3B;profiles&#x7684;&#x5217;&#x8868;&#xFF0C;&#x6309;&#x7167;profile&#x88AB;&#x5E94;&#x7528;&#x7684;&#x987A;&#x5E8F;&#x5B9A;&#x4E49;activeProfile&#x3002;
 &#x8BE5;&#x5143;&#x7D20;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x7EC4;activeProfile&#x5143;&#x7D20;&#xFF0C;&#x6BCF;&#x4E2A;activeProfile&#x90FD;&#x542B;&#x6709;&#x4E00;&#x4E2A;profile id&#x3002;&#x4EFB;&#x4F55;&#x5728;activeProfile&#x4E2D;&#x5B9A;&#x4E49;&#x7684;profile id&#xFF0C;&#x4E0D;&#x8BBA;&#x73AF;&#x5883;&#x8BBE;&#x7F6E;&#x5982;&#x4F55;&#xFF0C;&#x5176;&#x5BF9;&#x5E94;&#x7684; profile&#x90FD;&#x4F1A;&#x88AB;&#x6FC0;&#x6D3B;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x7684;profile&#xFF0C;&#x5219;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x3002;
-&#x4F8B;&#x5982;&#xFF0C;env-test&#x662F;&#x4E00;&#x4E2A;activeProfile&#xFF0C;&#x5219;&#x5728;pom.xml&#xFF08;&#x6216;&#x8005;profile.xml&#xFF09;&#x4E2D;&#x5BF9;&#x5E94;id&#x7684;profile&#x4F1A;&#x88AB;&#x6FC0;&#x6D3B;&#x3002;&#x5982;&#x679C;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x627E;&#x4E0D;&#x5230;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;profile&#xFF0C;Maven&#x5219;&#x4F1A;&#x50CF;&#x5F80;&#x5E38;&#x4E00;&#x6837;&#x8FD0;&#x884C;&#x3002;</p><pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activeProfiles</span><span class="token punctuation">&gt;</span></span>
+&#x4F8B;&#x5982;&#xFF0C;env-test&#x662F;&#x4E00;&#x4E2A;activeProfile&#xFF0C;&#x5219;&#x5728;pom.xml&#xFF08;&#x6216;&#x8005;profile.xml&#xFF09;&#x4E2D;&#x5BF9;&#x5E94;id&#x7684;profile&#x4F1A;&#x88AB;&#x6FC0;&#x6D3B;&#x3002;&#x5982;&#x679C;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x627E;&#x4E0D;&#x5230;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;profile&#xFF0C;Maven&#x5219;&#x4F1A;&#x50CF;&#x5F80;&#x5E38;&#x4E00;&#x6837;&#x8FD0;&#x884C;&#x3002;</p>
+<pre class="language-"><code class="lang-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activeProfiles</span><span class="token punctuation">&gt;</span></span>
     <span class="token comment">&lt;!-- &#x8981;&#x6FC0;&#x6D3B;&#x7684;profile id --&gt;</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activeProfile</span><span class="token punctuation">&gt;</span></span>env-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activeProfile</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activeProfiles</span><span class="token punctuation">&gt;</span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activeProfiles</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-11-11 20:52:06
+2019-09-19 15:42:08
 </span></footer>
-
-
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
 					</section>
@@ -4339,7 +4393,7 @@ maven&#x63D2;&#x4EF6;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"Mave Settings文件详解","level":"7.3.2","depth":2,"next":{"title":"Maven 生命周期阶段","level":"7.3.3","depth":2,"path":"origin/maven-生命周期阶段.md","ref":"origin/maven-生命周期阶段.md","articles":[]},"previous":{"title":"Maven POM项目对象模型","level":"7.3.1","depth":2,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copyButtons":true,"copybuttons":"true"},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"/assets/wechat-donate.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"label":"查看源MD文件","base":"https://raw.githubusercontent.com/RationalMonster/rationalmonster.github.io/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/maven-Settings配置文件详解.md","mtime":"2019-11-11T12:52:06.778Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-12-03T15:24:12.040Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"Mave Settings文件详解","level":"7.3.2","depth":2,"next":{"title":"Maven 生命周期阶段","level":"7.3.3","depth":2,"path":"origin/maven-生命周期阶段.md","ref":"origin/maven-生命周期阶段.md","articles":[]},"previous":{"title":"Maven POM项目对象模型","level":"7.3.1","depth":2,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"rationalmonster.github.io","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/rationalmonster.github.io/master/","label":"查看源MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/maven-Settings配置文件详解.md","mtime":"2019-09-19T07:42:08.766Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2019-12-04T11:18:11.150Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
@@ -4389,6 +4443,10 @@ maven&#x63D2;&#x4EF6;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x
         
     
         
+        <script src="../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
+        
         <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
         
     
@@ -4398,6 +4456,10 @@ maven&#x63D2;&#x4EF6;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x
     
         
         <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
         
     
         
@@ -4413,15 +4475,7 @@ maven&#x63D2;&#x4EF6;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 
