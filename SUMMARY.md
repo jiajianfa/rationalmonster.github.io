@@ -161,6 +161,7 @@
 * Tracing
     * SkyWalking
 * [Sentry日志聚合告警平台](origin/sentry.md)
+    * [Logstash与Sentry对接](origin/sentry-logstash对接Sentry.md)
 
 ## Part Ⅵ：基础
 * Docker
