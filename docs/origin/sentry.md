@@ -62,8 +62,6 @@ Sentry 本身是基于 Django 开发的，需要Postgresql、 Redis
 '{PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}/{PATH}{PROJECT_ID}'
 ```
 
-
-
 # 四、Sentry集成LDAP认证登陆和钉钉群机器人
 
 - 由于Sentry没有集成LDAP认证的官方插件，所以推荐了第三方插件sentry-ldap-auth来实现。
