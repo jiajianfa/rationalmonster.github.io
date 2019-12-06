@@ -19,8 +19,7 @@ logstash-output-sentry插件：https://github.com/javiermatos/logstash-output-se
 **Filebeat 采集、输出要求: **
 
 1. 可以多行采集(设置上下日志事件的标识),多行采集的日志信息到统一放到日志事件的“message”字段中
-2. 添加采集日志的类型字段
-3. 添加与Sentry相关信息(sentry上项目的ID、key、Secret)的字段
+2. 添加采集的日志类型字段，添加与Sentry相关信息(sentry上项目的ID、key、Secret)的字段
 4. 删除一些默认添加的字段信息
 5. 以日志中该日志产生的时间为事件的时间，而不是采集时的时间为事件时间
 
@@ -30,18 +29,49 @@ logstash-output-sentry插件：https://github.com/javiermatos/logstash-output-se
 
 # **二、上下文**
 
-以API网关Kong的Nginx的错误日志为例（该Nginx安装了LUA模块，错误日志里面有lua模块的错误日志）。该日志文件有199行日志，综合分析，可归为两类错误类型，如下：
+以API网关Kong的Nginx的错误日志为例（该Nginx安装了LUA模块，错误日志里面有lua模块的错误日志）。日志文件中的一行代表着一个nginx出错的事件，示例如下：
 
 > 2018/11/28 18:16:25 [warn] 2201#0: *9081632 [lua] cluster.lua:182: set_peer_down(): [lua-cassandra] setting host at 172.17.1.8 DOWN, context: ngx.timer
 > 2018/11/28 18:16:25 [error] 2201#0: *9081632 [lua] init.lua:365: [cluster_events] failed to poll: failed to retrieve events from DB: [Unavailable exception] Cannot achieve consistency level LOCAL_ONE, context: ngx.timer
+> 2019/11/28 18:16:26 [warn] 27201#0: *90815632 this is a  warn log event
+> 2019/11/28 18:16:26 [fatal] 27201#0: *90815632 this is a  fatal log event
 
 每一行日志可大致格式分为:
 
-> **时间戳 日志级别 进程号 抛弃该处数据 模块名 具体错误日志**
+> **时间戳 日志级别 进程号 抛弃该处数据 具体错误日志**
 
 # **三、配置**
 
-## 1. logstash安装sentry output插件
+## 1. Filebeat配置
+
+```yaml
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths: 
+      - /root/Curiouser/test.log
+    exclude_files: ["_filebeat", ".gz$"]
+    recursive_glob.enabled: true
+    multiline.pattern: '^[0-9]{4}/[0-9]{2}/[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}'
+	multiline.negate: true
+	multiline.match: after
+	tags:
+	  sentry-alert
+	fields:
+	  service_name => "kong"
+      sentry_project_id => "7"
+      sentry_project_key => "***"
+      sentry_project_secret => "***"
+processors:
+- drop_fields:
+    fields: ["agent", "tags", "input", "ecs"]
+output.logstash:
+  hosts: ["127.0.0.1:5044"]
+```
+
+
+
+## 2. Logstash安装sentry output插件
 
 ```bash
 /usr/share/logstash/bin/logstash-plugin install logstash-output-sentry
@@ -52,39 +82,36 @@ logstash-output-sentry插件：https://github.com/javiermatos/logstash-output-se
 
 ```bash
 input {
-  file {
-    path =>  "/root/Curiouser/test.log"
-    start_position => "beginning"
-    type => "log-alert"
-    add_field => {
-      service_name => "kong"
-      sentry_project_id => "7"
-      sentry_project_key => "***"
-      sentry_project_secret => "***"
-    }
+  beats {
+    port => 5044
   }
 }
 filter {
- if [type] == "log-alert" {
+ # 判断"tag"包含"log-alert"标签的日志事件进行加工处理
+ if [tags] == "log-alert" {
+    # 映射原始日志，从中提取数据赋予指定的字段（按行为单位）
     dissect {
        mapping => {
          "message" => "%{timestamp} %{+timestamp} [%{level}] %{thread} %{} %{message}"
       }
     }
+    # 提取日志的产生时间作为事件的时间戳。
     date {
       match => [ "timestamp", "yyyy/MM/dd HH:mm:ss" ]
       remove_field => "timestamp"
     }
+    # 替换原始日志中的日志级别字段,sentry支持的日志级别为warning,而原始日志中的日志级别字段是warn，索引需要转换。
     mutate {
       gsub => [ "level", "warn", "warning" ]
     }
   }    
 }
 output {
+  # 判断日志级别为"warning","error","fatal"的日志事件,发送到sentry
   if [level] == "warning" or [level] == "error" or [level] == "fatal"  {  
     sentry {
       message => "message"
-      threads => '%{thread}'
+      threads => 'thread'
       level => "level"
       tags =>  'service:"service_name"'
 
