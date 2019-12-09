@@ -145,7 +145,7 @@
                 * search
                 * [bulk](origin/elasticsearch-bulk-api.md)
             * [Ingest节点](origin/elasticsearch-ingest节点.md)
-            * [文档的路由](origin/elasticsearch-文档的路由)
+            * [数据的分配路由](origin/elasticsearch-数据的分配路由.md)
         * 管理
             * [Xpack](origin/elasticsearch-7.1的xpack权限控制.md)
             * [Snapshots](origin/elasticSearch-索引的快照备份与恢复.md)
