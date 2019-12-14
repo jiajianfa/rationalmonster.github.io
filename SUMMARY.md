@@ -112,7 +112,11 @@
         * [SonarQube](origin/ldap-SonarQube对接LDAP.md)
         * [Gitlab](origin/ldap-Gitlab对接LDAP.md)
         * [Nexus](origin/ldap-Nexus对接LDAP.md)
-        * [Grafana](origin/ldap-Grafana对接LDAP.md)
+        * [Grafanaj](origin/ldap-Grafana对接LDAP.md)
+        * [Jira](origin/ldap-jira接LDAP.md)
+* 项目管理工具
+    * Jira
+        * [Jira的部署](origin/jira-部署.md)
 
 ## Part Ⅳ：微服务
 * SpringBoot
