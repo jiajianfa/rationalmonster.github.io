@@ -58,6 +58,8 @@
 * 安装
   * [Kubeadm安装单机版Kubernetes](origin/kubernetes-使用Kubeadm安装单机版Kubernetes.md)
 * 集群管理
+  * [kubernetes集群性能监控](origin/prometheus-Kubernetes或Openshift的Prometheus监控体系.md)
+  * [kubernetes集群组件](origin/kubernetes-集群组件.md)
   * [kubectl多集群上下文配置](origin/kubernetes-kubectl多集群上下文配置.md)
   * [Network Policy容器流量管理](origin/kubernetes-NetworkPolicy.md)
 * [K8S应用管理工具Helm](origin/kubernetes-helm.md)
@@ -158,7 +160,7 @@
         * [问题总结](origin/elasticsearch-问题总结.md)
     * Kibana
 * Metrics
-    * [Prometheus](origin/prometheus-Kubernetes或Openshift的Prometheus监控体系.md)
+    * Prometheus
     * Grafana
     * Exporter
         * [Ceph Exporter](origin/prometheus-Ceph-Exporter对接Prometheus以监控ceph集群.md)
@@ -170,6 +172,7 @@
 ## Part Ⅵ：基础
 * Docker
     * 基础知识
+      * [Docker原理](origin/docker原理.md)
       * [Dockerfile中CMD与ENTRYPOINT命令的区别](origin/docker-Dockerfile中CMD与ENTRYPOINT命令的区别.md)
       * [使用Makefile操作Dockerfile.md](origin/docker-使用Makefile操作Dockerfile.md)
 * Shell
