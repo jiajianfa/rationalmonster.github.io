@@ -34,25 +34,31 @@ label memtest86
 ```
 
 ```yaml
-default menu.c32
-prompt 1
-timeout 10
- 
-menu title ########## PXE Boot Menu ##########
- 
-label 1
-menu label ^1) Install CentOS 7 x64 with Local Repo
-menudefault
-kernel centos7/vmlinuz
-append initrd=centos7/initrd.img text ks=ftp://192.168.100.1/pub/ks.cfg
- 
-label 2
-menu label ^2) Install CentOS 7 x64 with http://mirror.centos.org Repo
-kernel centos7/vmlinuz
-append initrd=centos7/initrd.img method=http://mirror.centos.org/centos/7/os/x86_64/ devfs=nomount ip=dhcp
- 
-label 3
-menu label ^3) Install CentOS 7 x64 with Local Repo using VNC
-kernel centos7/vmlinuz
-append initrd=centos7/initrd.img method=ftp://192.168.100.1/pub devfs=nomount inst.vnc inst.vncpassword=password 
+default vesamenu.c32
+prompt 0
+timeout 60
+display boot.msg
+menu background splash.jpg
+menu title ########## Curiouser PXE Boot Menu ##########
+
+label CentOS7.5.1804
+  menu label ^1> Install CentOS 7.5.1804 x86_64
+  kernel vmlinuz-7.5
+  append initrd=initrd-7.5.img text ks=http://192.168.1.80/CentOS7.5.1804.cfg
+
+label CentOS7.7.1908
+  menu label ^2> Install CentOS 7.7.1908 x86_64
+  menu default
+  kernel vmlinuz-7.7
+  append initrd=initrd-7.7.img text ks=http://192.168.1.80/CentOS7.7.1908.cfg
 ```
+
+
+
+
+
+# 参考
+
+1. https://wiki.centos.org/zh/HowTos/PXE/PXE_Setup/Menus
+2. https://blog.51cto.com/4690837/2333165
+3. https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/6/html/installation_guide/ch-boot-x86#sn-boot-menu-x86

@@ -55,8 +55,13 @@
 ## Part Ⅱ：容器云Kubernetes
 * 基础
   * [Kubernetes的集群角色及插件](origin/kubernetes-集群角色及插件.md)
+* 原理
+  * [kubernetes容器的访问方式](origin/kubernetes-容器的访问方式.md)
+  * [kubernetes的容器网络CNI](origin/kubernetes的容器网络.md)
+  * [kube-proxy的实现方式之iptables与ipvs模式](origin/kubernetes-kube-proxy-iptables-ipvs.md)
 * 安装
   * [Kubeadm安装单机版Kubernetes](origin/kubernetes-使用Kubeadm安装单机版Kubernetes.md)
+  * [Ansible二进制安装Kubernetes集群](origin/kubernetes-ansible二进制安装集群.md)
 * 集群管理
   * [kubernetes集群性能监控](origin/prometheus-Kubernetes或Openshift的Prometheus监控体系.md)
   * [kubernetes集群组件](origin/kubernetes-集群组件.md)

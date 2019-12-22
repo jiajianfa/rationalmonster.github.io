@@ -47,9 +47,9 @@ Prerequisite
 
 ```bash
 yum install -y wget && \
-mkdir /mnt/{cdrom,iso} && \
+mkdir -p /mnt/{cdrom,iso/CentOS7.5.1804} && \
 wget http://vault.centos.org/7.5.1804/isos/x86_64/CentOS-7-x86_64-Minimal-1804.iso /mnt/iso && \
-echo "/mnt/iso/CentOS-7-x86_64-Minimal-1804.iso /mnt/cdrom iso9660 defaults,loop  0 0" >> /etc/fstab && \
+echo "/mnt/iso/CentOS-7-x86_64-Minimal-1804.iso /mnt/cdrom/CentOS7.5.1804 iso9660 defaults,loop  0 0" >> /etc/fstab && \
 mount -a && \
 df -mh && \
 setenforce 0 && \
@@ -70,7 +70,7 @@ yum install -y httpd
 配置服务
 
 ```bash
-ln -s /mnt/cdrom/ /var/www/html/CentOS7
+ln -s /mnt/cdrom/CentOS7.5.1804 /var/www/html/CentOS7.5.1804 
 ```
 
 启动验证服务，服务端口tcp:80
@@ -168,8 +168,9 @@ yum install -y syslinux tree
 
 ```bash
 cp /usr/share/syslinux/pxelinux.0  /var/lib/tftpboot/ && \
-cp /mnt/cdrom/images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/ && \
-cp /mnt/cdrom/isolinux/{vesamenu.c32,boot.msg,splash.png} /var/lib/tftpboot/ && \
+cp /mnt/cdrom/CentOS7.5.1804/images/pxeboot/vmlinuz /var/lib/tftpboot/vmlinuz-7.5 && \
+cp /mnt/cdrom/CentOS7.5.1804/images/pxeboot/initrd.img /var/lib/tftpboot/initrd-7.5.img && \
+cp /mnt/cdrom/CentOS7.5.1804/isolinux/{vesamenu.c32,boot.msg,splash.png} /var/lib/tftpboot/ && \
 cp /usr/share/syslinux/{chain.c32,mboot.c32,menu.c32,memdisk} /var/lib/tftpboot/ && \
 mkdir /var/lib/tftpboot/pxelinux.cfg
 ```
@@ -180,32 +181,42 @@ mkdir /var/lib/tftpboot/pxelinux.cfg
 tree -phL 2 /var/lib/tftpboot/
 ├── [-rw-r--r--   84]  boot.msg       # 窗口提示信息文件,提示信息在菜单出现前出现，显示时间较短，可以添加些艺术字之类的信息。
 ├── [-rw-r--r--  20K]  chain.c32
-├── [-rw-r--r--  50M]  initrd.img     # 这是一个初始化文件，一个最小的系统镜像
+├── [-rw-r--r--  50M]  initrd-7.5.img # 这是一个初始化文件，一个最小的系统镜像
 ├── [-rw-r--r--  33K]  mboot.c32
 ├── [-rw-r--r--  26K]  memdisk
-├── [-rw-r--r--  54K]  menu.c32
+├── [-rw-r--r--  54K]  menu.c32		  # 系统自带的两种图形模块之一，不能自定义背景图片
 ├── [-rw-r--r--  26K]  pxelinux.0
 ├── [drwxr-xr-x   21]  pxelinux.cfg   # 启动菜单目录
-├── [-rw-r--r--  186]  splash.png     # 窗口背景图片
-├── [-rw-r--r-- 149K]  vesamenu.c32   # 系统自带的两种窗口模块之一
-└── [-rwxr-xr-x 5.9M]  vmlinuz        # 内核文件
+├── [-rw-r--r--  186]  splash.png     # 背景图片
+├── [-rw-r--r-- 149K]  vesamenu.c32   # 系统自带的两种图形模块之一
+└── [-rwxr-xr-x 5.9M]  vmlinuz-7.5    # CentOS 7.5.1804的内核文件
 ```
 
 创建/var/lib/tftpboot/pxelinux.cfg/default （default文件参数详见：[PXE引导配置文件参数详解](pxe-引导配置文件参数详解.md)）
 
 ```bash
 bash -c 'cat >/var/lib/tftpboot/pxelinux.cfg/default << EOF
-prompt 0
-timeout 60
-display boot.msg
-default linux
-label linux
-  kernel vmlinuz
-  append initrd=initrd.img text ks=http://192.168.1.80/CentOS7.cfg
+DEFAULT vesamenu.c32 							# 启动图形模块
+prompt 0										
+timeout 60										
+display boot.msg								# 指定窗口提示信息文件
+menu background splash.jpg						# 指定背景图片
+menu title #### Curiouser PXE Boot Menus ####	# 菜单标题
+
+label CentOS7.5.1804							# 
+  menu label ^1> Install CentOS 7.5.1804 x86_64
+  kernel vmlinuz-7.5
+  append initrd=initrd-7.5.img text ks=http://192.168.1.80/CentOS7.5.1804.cfg
+  
+label CentOS7.7.1908
+  menu label ^2> Install CentOS 7.7.1908 x86_64
+  menu default
+  kernel vmlinuz-7.7
+  append initrd=initrd-7.7.img text ks=http://192.168.1.80/CentOS7.7.1908.cfg
 EOF'
 ```
 
-## 6、创建KS文件 /var/www/html/CentOS7.cfg
+## 6、创建KS文件 /var/www/html/CentOS7.5.1804.cfg 
 
 ### 方式一：手动编写(KS文件具体参数详情见笔记：[Kickstart文件参数详解](pxe-kickstart文件参数详解.md))
 
@@ -215,7 +226,7 @@ text
 lang en_US.UTF-8
 keyboard us
 auth  --useshadow  --passalgo=sha512
-url --url="http://192.168.1.80/CentOS7"
+url --url="http://192.168.1.80/CentOS7.5.1804"
 rootpw --iscrypted $1$6/87AF3n$eczKeiNRBv7H.GXnur1Ld/
 selinux --disabled
 firewall --disabled
@@ -304,7 +315,7 @@ yum install -y system-config-kickstart
 
 ```bash
 yum install -y pykickstart
-ksvalidator  /var/www/html/CentOS7.cfg
+ksvalidator  /var/www/html/CentOS7.5.1804.cfg
 ```
 
 ## 8、(可选)自动安装配置脚本
@@ -390,18 +401,14 @@ ksvalidator  /var/www/html/CentOS7.cfg
     #然后上传kick start配置文件到/var/www/html/目录下
     ```
 
-# 参考链接
+# 参考
 
-★★★★☆：https://blog.csdn.net/yanghua1012/article/details/80426659
-
-★★★★☆：http://www.178linux.com/99307
-
-★★★★☆：https://blog.51cto.com/lzhnb/2117618
-
-★★★☆☆：https://marclop.svbtle.com/creating-an-automated-centos-7-install-via-kickstart-file
-
-★★★☆☆：https://docs.centos.org/en-US/centos/install-guide/Kickstart2/#sect-kickstart-file-create
-
-★★★☆☆：https://www.cnblogs.com/cloudos/p/8143929.html
-
-★★★☆☆：http://bbs.51cto.com/thread-621450-1.html
+1. https://blog.csdn.net/yanghua1012/article/details/80426659
+2. https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/6/html/installation_guide/ch-boot-x86#sn-boot-menu-x86
+3. http://www.178linux.com/99307
+4. https://blog.51cto.com/lzhnb/2117618
+5. https://marclop.svbtle.com/creating-an-automated-centos-7-install-via-kickstart-file
+6. https://docs.centos.org/en-US/centos/install-guide/Kickstart2/#sect-kickstart-file-create
+7. https://www.cnblogs.com/cloudos/p/8143929.html
+8. http://bbs.51cto.com/thread-621450-1.html
+9. https://wiki.centos.org/zh/HowTos/PXE/PXE_Setup/Menus
